@@ -1,0 +1,50 @@
+.principalContainer {
+  position: relative;
+  margin: 6rem auto;
+  width: 100%;
+}
+
+.rowPlanForm {
+  position: relative;
+  margin: 0 auto !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.principalImage {
+  width: 100% !important;
+  height: 300px !important;
+  object-fit: cover !important;
+  border-radius: 50px !important;
+  cursor: pointer;
+}
+
+.principalCol {
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .principalContainer {
+    width: 100%;
+    margin: 9rem auto;
+  }
+
+  .rowPlanForm {
+    width: 80% !important;
+  }
+
+  .principalImage {
+    width: 100% !important;
+    height: 520px !important;
+    object-fit: cover !important;
+    border-radius: 50px !important;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .rowPlanForm {
+    width: 65% !important;
+  }
+}
