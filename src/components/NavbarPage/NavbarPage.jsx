@@ -1,5 +1,6 @@
 import React from 'react';
 import LogoPage from '../LogoPage/LogoPage';
+import Navigation from '../Navigation/Navigation';
 import styles from '../../styles/Layout/Navbar.module.css';
 
 /** Bootstrap components */
@@ -14,7 +15,7 @@ const NavbarPage = () => {
       </Navbar.Brand>
 
       {/* NAVIGATION */}
-      {/* add navigation component */}
+      <Navigation />
     </Navbar>
   );
 };
