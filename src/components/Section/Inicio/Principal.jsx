@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import HeaderSection from '../HeaderSection';
+import Form from './FormMain';
 import Packaging from '../../../assets/img/Inicio/Principal/empacando.webp';
 import styles from '../../../styles/Section/Inicio/Principal.module.css';
 
@@ -27,7 +28,7 @@ const Principal = () => {
         </Col>
 
         <Col sm={12} lg={6} className={styles.principalCol}>
-          {/* <PropertyForm
+          <Form
             titleContentForm="Vende o arrienda tu propiedad rápido y sin complicaciones"
             textAlign="center"
             subtitle=""
@@ -37,7 +38,7 @@ const Principal = () => {
             haveAction2={{
               text: 'QUIERO ARRENDAR',
             }}
-          /> */}
+          />
         </Col>
       </Row>
     </div>
