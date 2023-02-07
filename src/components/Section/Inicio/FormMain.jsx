@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { icons } from '../../components/Icons';
+import { icons } from '../../Icons';
 import styles from '../../../styles/Section/Inicio/Form.module.css';
 import stylesModal from '../../../styles/Modal/Modal.module.css';
 
