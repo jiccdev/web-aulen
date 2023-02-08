@@ -4,9 +4,10 @@ import Layout from './Layout';
 import LayoutSection from '@/components/Section/LayoutSection';
 import HeroSection from './HeroSection';
 import StepsSection from './StepsSection';
+import Plans from '@/components/Section/Plans/Plans';
 
-import PublishingForm from '@/components/Forms/PublishingForm';
-import styles from '../../../styles/Section/soy-propietario/soyPropietario.module.css';
+// import PublishingForm from '@/components/Forms/PublishingForm';
+// import styles from '../../../styles/Section/soy-propietario/soyPropietario.module.css';
 
 const QuieroVender = () => {
   return (
@@ -21,8 +22,10 @@ const QuieroVender = () => {
 
           {/* 2 */}
           <StepsSection />
+
+          {/* 3 */}
+          <Plans />
         </LayoutSection>
-        {/* 3 */}
         {/* <LayoutSection>
           <Plans />
         </LayoutSection> */}

@@ -1,0 +1,36 @@
+.rowContainer {
+  position: relative;
+  margin: 3rem auto;
+  width: 100%;
+}
+
+.rowItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100% !important;
+}
+
+.col {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.colForm {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column;
+  padding: 0 0.7rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .rowContainer {
+    width: 100%;
+    margin: 8.5rem auto;
+  }
+}
