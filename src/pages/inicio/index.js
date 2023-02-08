@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import HeadPage from '@/components/HeadPage/HeadPage';
 import LayoutSection from '@/components/Section/LayoutSection';
 import Principal from '@/components/Section/Inicio/Principal';
 import Lease from '@/components/Section/Inicio/Lease';
@@ -8,22 +9,27 @@ import NewProperties from '@/components/Section/Inicio/NewProperties';
 
 const Inicio = () => {
   return (
-    <LayoutSection>
-      {/* --SECCIÓN PRINCIPAL-- */}
-      <Principal />
+    <Fragment>
+      <HeadPage title="Inicio" />
 
-      {/* --NOS ENCARGAMOS DE TÚ ARRIENDO POR TÍ-- */}
-      <Lease />
+      {/* MAIN CONTENT */}
+      <LayoutSection>
+        {/* --SECCIÓN PRINCIPAL-- */}
+        <Principal />
 
-      {/* --VENDEMOS TÚS PROPIEDADES EN CUATRO SIMPLES PASOS-- */}
-      <Steps />
+        {/* --NOS ENCARGAMOS DE TÚ ARRIENDO POR TÍ-- */}
+        <Lease />
 
-      {/* --INVIERTE EN INMUEBLES CON NOSOTROS-- */}
-      <Investing />
+        {/* --VENDEMOS TÚS PROPIEDADES EN CUATRO SIMPLES PASOS-- */}
+        <Steps />
 
-      {/* --PROPIEDADES NUEVAS-- */}
-      <NewProperties />
-    </LayoutSection>
+        {/* --INVIERTE EN INMUEBLES CON NOSOTROS-- */}
+        <Investing />
+
+        {/* --PROPIEDADES NUEVAS-- */}
+        <NewProperties />
+      </LayoutSection>
+    </Fragment>
   );
 };
 

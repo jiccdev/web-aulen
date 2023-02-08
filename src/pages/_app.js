@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import LayoutPage from '@/components/LayoutPage/LayoutPage';
 import '@/styles/globals.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App({ Component, pageProps }) {
   return (
