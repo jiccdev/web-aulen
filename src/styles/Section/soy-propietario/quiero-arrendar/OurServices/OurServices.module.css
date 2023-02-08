@@ -1,0 +1,28 @@
+.customCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.customRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.OurServiceContainer {
+  max-width: calc(100% / 3.4);
+  padding: 0.6em;
+}
+
+.img {
+  width: 84px;
+  min-width: 32px;
+  height: 84px;
+  font-weight: var(--font-weight-light, 300);
+}
+
+.boldP {
+  font-weight: var(--font-weight-bold, 700);
+}

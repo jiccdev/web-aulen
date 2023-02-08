@@ -1,6 +1,6 @@
 import React from 'react';
-import { icons } from '../../../components/Icons';
-import styles from '../../../styles/Section/soy-propietario/quiero-vender/StepsSection/StepsSection.module.css';
+import { icons } from '../../../../components/Icons';
+import styles from '../../../../styles/Section/soy-propietario/quiero-vender/StepsSection/StepsSection.module.css';
 
 const StepsSection = () => {
   const { BsPuzzle, BsCardChecklist, RiMoneyDollarCircleLine, BsFillGearFill } =

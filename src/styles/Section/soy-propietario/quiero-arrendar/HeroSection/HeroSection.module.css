@@ -1,0 +1,46 @@
+.customCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.customRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.sectionHeroContainer {
+  margin-top: 8rem;
+}
+
+.heroH1 {
+  font-weight: var(--font-weight-bold, 700);
+}
+.heroImage {
+  border-radius: var(--border-radius-5xl, 4rem);
+  width: 90%;
+  object-fit: cover;
+}
+.servicesContainer {
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.headerContainer {
+  width: 50%;
+  text-align: center;
+}
+
+@media (width <= 1200px) {
+  .sectionHeroContainer {
+    flex-wrap: wrap-reverse;
+    gap: 3rem;
+  }
+  .headerContainer,
+  .servicesContainer {
+    width: 100%;
+  }
+}

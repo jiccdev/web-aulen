@@ -2,12 +2,9 @@ import React, { Fragment } from 'react';
 import HeadPage from '@/components/HeadPage/HeadPage';
 import Layout from './Layout';
 import LayoutSection from '@/components/Section/LayoutSection';
-import HeroSection from './HeroSection';
-import StepsSection from './StepsSection';
+import HeroSection from '../../../components/Section/SoyPropietario/QuieroVender/HeroSection';
+import StepsSection from '../../../components/Section/SoyPropietario/QuieroVender/StepsSection';
 import Plans from '@/components/Section/Plans/Plans';
-
-// import PublishingForm from '@/components/Forms/PublishingForm';
-// import styles from '../../../styles/Section/soy-propietario/soyPropietario.module.css';
 
 const QuieroVender = () => {
   return (
@@ -17,18 +14,15 @@ const QuieroVender = () => {
       {/* MAIN CONTENT */}
       <Layout>
         <LayoutSection>
-          {/* 1 */}
+          {/* Vende tu propiedad rápido y sin complicaciones */}
           <HeroSection />
 
-          {/* 2 */}
+          {/* Vendemos tu propiedad en cuatro simples pasos */}
           <StepsSection />
 
-          {/* 3 */}
+          {/* Conoce nuestros planes */}
           <Plans />
         </LayoutSection>
-        {/* <LayoutSection>
-          <Plans />
-        </LayoutSection> */}
       </Layout>
     </Fragment>
   );

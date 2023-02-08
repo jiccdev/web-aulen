@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import PublishingForm from '../../../components/Forms/PublishingForm';
-import { publishingFormData } from '../../../api/data/publishingForm'; /** revisar el indice según lo que quiera el form */
-import keyImg from '../../../assets/img/SoyPropietario/key.jpg';
-import styles from '../../../styles/Section/soy-propietario/quiero-vender/HeroSection/HeroSection.module.css';
+import PublishingForm from '../../../../components/Forms/PublishingForm';
+import { publishingFormData } from '../../../../api/data/publishingForm'; /** revisar el indice según lo que quiera el form */
+import keyImg from '../../../../assets/img/SoyPropietario/key.jpg';
+import styles from '../../../../styles/Section/soy-propietario/quiero-vender/HeroSection/HeroSection.module.css';
 
 export const HeroSection = () => {
   return (
