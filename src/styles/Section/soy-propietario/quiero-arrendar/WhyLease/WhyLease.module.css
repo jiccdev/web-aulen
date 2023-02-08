@@ -1,0 +1,79 @@
+.customCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.customRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.whyContainer {
+  width: 60%;
+  gap: 3rem;
+}
+
+.whyH2 {
+  font-weight: var(--font-weight-bold, 700);
+}
+
+.whyH3 {
+  position: relative;
+  text-align: center;
+  font-weight: var(--font-weight-bold, 700);
+  font-size: var(--font-size-xl, 1.4rem);
+}
+
+.whyH3::before,
+.whyH3::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 2.5px;
+  background: var(--color-primary, #f57914);
+  width: 25%;
+}
+
+.whyH3::before {
+  left: 0;
+}
+
+.whyH3::after {
+  right: 0;
+}
+
+.stepsContainer {
+  margin-top: 2rem;
+}
+.featureCardContainer {
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.mainWhyContainer {
+  gap: 5%;
+  margin-top: 3rem;
+}
+@media (width <= 1350px) {
+  .mainWhyContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .whyContainer {
+    width: 100%;
+  }
+  .stepsContainer {
+    margin: 3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mainWhyContainer {
+    margin-top: 10rem;
+    
+    
+  }
+}

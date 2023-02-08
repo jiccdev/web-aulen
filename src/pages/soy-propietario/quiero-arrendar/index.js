@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import HeadPage from '@/components/HeadPage/HeadPage';
 import LayoutSection from '@/components/Section/LayoutSection';
 import HeroSection from '@/components/Section/SoyPropietario/QuieroArrendar/HeroSection';
+import WhyLease from '@/components/Section/SoyPropietario/QuieroArrendar/WhyLease';
 
 const QuieroArrendar = () => {
   return (
@@ -12,7 +13,8 @@ const QuieroArrendar = () => {
         {/* DISFRUTA DE LA TRANQUILIADAD DE ARRENDAR TÚ PROPIEDAD CON AULEN */}
         <HeroSection />
 
-        {/*  */}
+        {/* POR QUÉ ARRENDAR TÚ PROPIEDAD CON NOSOSTROS */}
+        <WhyLease />
       </LayoutSection>
     </Fragment>
   );
