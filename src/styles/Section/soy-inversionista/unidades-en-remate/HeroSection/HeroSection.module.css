@@ -1,0 +1,54 @@
+.customCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.customRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.mainContainer {
+  border: solid 5px var(--color-pale-gray, #e1e6e7);
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  padding: 4em;
+
+  transition: width 300ms linear, height 300ms linear, border 300ms linear;
+
+  justify-content: center;
+  text-align: center;
+
+  position: relative;
+}
+
+@media (990px <= width <= 1250px) {
+  .sectionContainer {
+    align-items: flex-start;
+  }
+  .mainContainer {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (width < 990px) {
+  .mainContainer {
+    border: 0px transparent;
+    gap: 3rem;
+  }
+  .componentContainer {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (width < 400px) {
+  .mainContainer {
+    height: max-content;
+    max-height: max-content;
+  }
+}
