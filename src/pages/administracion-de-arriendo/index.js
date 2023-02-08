@@ -1,15 +1,10 @@
 import React, { Fragment } from 'react';
 import HeadPage from '@/components/HeadPage/HeadPage';
 import Layout from '../../components/Section/AdministracionDeArriendo/Layout';
-
 import LayoutSection from '@/components/Section/LayoutSection';
 import SoldHome from '@/components/Section/AdministracionDeArriendo/SoldHome';
 import StepsToRentDepartment from '@/components/Section/AdministracionDeArriendo/StepsToRentDepartment';
 import Plans from '@/components/Section/Plans/Plans';
-// import Plans from '../../src/components/Section/adminstracion-de-arriendo/Plans/Plans';
-// import CustomerExperience from '../../src/components/Section/adminstracion-de-arriendo/CustomerExperience/CustomerExperience';
-// import StepsToRentDepartment from '../../src/components/Section/adminstracion-de-arriendo/StepsToRentDepartment/StepsToRentDepartment';
-// import SoldHome from '../../src/components/Section/adminstracion-de-arriendo/SoldHome/SoldHome';
 
 const AdministracionDeArriendo = () => {
   return (
