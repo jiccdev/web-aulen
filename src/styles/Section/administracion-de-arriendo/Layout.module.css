@@ -1,0 +1,69 @@
+.row {
+  position: relative;
+  position: relative;
+  margin: 3rem auto;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.rightCol {
+  position: fixed;
+  right: auto;
+  top: 0;
+  display: none;
+}
+
+.isScrolledPast {
+  position: fixed;
+  top: 0;
+  /* right: 0; */
+  right: 4rem;
+  z-index: 999;
+  transition: all 0.4s ease-in-out;
+  display: none;
+}
+
+.isScrolledPast2 {
+  display: block;
+}
+
+@media screen and (min-width: 1220px) {
+  .row {
+    width: 100%;
+    margin: 3rem auto;
+  }
+
+  .rightCol {
+    position: fixed;
+    right: 4rem;
+    top: 10rem;
+    display: block;
+  }
+
+  .isScrolledPast {
+    position: fixed;
+    right: 4rem;
+    top: 7rem;
+    display: block;
+  }
+
+  .isScrolledPast2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .row {
+    width: 90%;
+    margin: 3rem auto;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .rightCol {
+    right: 6.5rem !important;
+  }
+  .isScrolledPast {
+    right: 6.5rem !important;
+  }
+}
