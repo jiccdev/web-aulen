@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import SoldHomeImg from '../../../assets/img/SoldHome/sold-home.jpg';
+import styles from '../../../styles/Section/administracion-de-arriendo/SoldHome.module.css';
 
 /** Bootstrap components */
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import styles from '../../../styles/Section/administracion-de-arriendo/SoldHome.module.css';
 
 const SoldHome = () => {
   return (
