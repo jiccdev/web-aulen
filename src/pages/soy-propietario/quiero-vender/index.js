@@ -3,6 +3,7 @@ import HeadPage from '@/components/HeadPage/HeadPage';
 import Layout from './Layout';
 import LayoutSection from '@/components/Section/LayoutSection';
 import HeroSection from './HeroSection';
+import StepsSection from './StepsSection';
 
 import PublishingForm from '@/components/Forms/PublishingForm';
 import styles from '../../../styles/Section/soy-propietario/soyPropietario.module.css';
@@ -14,17 +15,13 @@ const QuieroVender = () => {
 
       {/* MAIN CONTENT */}
       <Layout>
-        {/* 1 */}
         <LayoutSection>
+          {/* 1 */}
           <HeroSection />
-        </LayoutSection>
 
-        {/* 2 */}
-
-        {/* <LayoutSection>
+          {/* 2 */}
           <StepsSection />
-        </LayoutSection> */}
-
+        </LayoutSection>
         {/* 3 */}
         {/* <LayoutSection>
           <Plans />
