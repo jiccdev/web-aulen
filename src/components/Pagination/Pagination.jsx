@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pagination, PaginationLink, PaginationItem } from 'reactstrap';
 import { icons } from '../Icons';
+import styles from '../../styles/Pagination/Pagination.module.css';
 
 const PaginationComponent = ({
   itemPerPage,
@@ -9,15 +10,15 @@ const PaginationComponent = ({
   currentPage,
   metaData,
 }) => {
-  const { GrFormPrevious, GrFormNext } = icons;
+  const { IoMdArrowDropleft, IoMdArrowDropright } = icons;
   const pageNumbers = [];
 
-  for (let i = 0; i <= Math.ceil(totalItems / itemPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / itemPerPage); i++) {
     pageNumbers.push(i);
   }
 
   const nextPage = () => {
-    paginate(metaData.page);
+    paginate(metaData.page + 1);
   };
 
   const prevPage = () => {
@@ -25,9 +26,13 @@ const PaginationComponent = ({
   };
 
   return (
-    <Pagination aria-label="Page navigation example">
+    <Pagination
+      aria-label="Page navigation example"
+      className={styles.paginationContainer}
+    >
       <PaginationItem
-        disabled={metaData.page === 0 ? true : false}
+        disabled={metaData.page - 1 === 0 ? true : false}
+        className={styles.paginationItem}
         // disabled={metaData.page - 1 === 0 ? true : false}
       >
         <PaginationLink
@@ -38,14 +43,15 @@ const PaginationComponent = ({
           }}
           href="#prev"
         >
-          <GrFormPrevious />
-          <span>Atrás</span>
+          <span>
+            <IoMdArrowDropleft className={styles.arrowIcon} />
+          </span>
         </PaginationLink>
       </PaginationItem>
-      {pageNumbers.map((item) => {
+      {pageNumbers?.map((item) => {
         return (
           <PaginationItem
-            className={currentPage === item ? 'active' : ''}
+            className={currentPage === item ? styles.paginationLinkActive : ''}
             key={item}
           >
             <PaginationLink
@@ -55,6 +61,7 @@ const PaginationComponent = ({
                 ev.preventDefault();
                 paginate(item);
               }}
+              className={styles.paginationLink}
             >
               {item}
             </PaginationLink>
@@ -64,7 +71,7 @@ const PaginationComponent = ({
 
       <PaginationItem
         // disabled={pageNumbers[pageNumbers.length - 1] === metaData.page}
-        disabled={pageNumbers[pageNumbers.length] === metaData.page}
+        disabled={pageNumbers[pageNumbers.length - 1] === metaData.page}
       >
         <PaginationLink
           className="page-link-next"
@@ -74,8 +81,9 @@ const PaginationComponent = ({
           }}
           href="#next"
         >
-          <span>Siguiente</span>
-          <GrFormNext />
+          <span>
+            <IoMdArrowDropright className={styles.arrowIcon} />
+          </span>
         </PaginationLink>
       </PaginationItem>
     </Pagination>

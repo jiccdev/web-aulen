@@ -45,6 +45,7 @@ import { AiOutlineWhatsApp, AiFillYoutube } from 'react-icons/ai';
 import { GrClose, GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import { ImArrowRight } from 'react-icons/im';
 import { IoBedOutline } from 'react-icons/io5';
+import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 import { TfiFacebook } from 'react-icons/tfi';
 import { GiReceiveMoney } from 'react-icons/gi';
 
@@ -97,4 +98,6 @@ export const icons = {
   BsPlusLg,
   GrFormPrevious,
   GrFormNext,
+  IoMdArrowDropleft,
+  IoMdArrowDropright,
 };
