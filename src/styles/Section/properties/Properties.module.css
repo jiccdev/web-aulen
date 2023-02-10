@@ -1,0 +1,94 @@
+.rowContainer {
+  position: relative;
+  margin: 5rem auto;
+  width: 100%;
+}
+
+.headerProperties {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--color-primary);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.headerProperties h1 {
+  margin: 1rem;
+}
+
+.containerForm {
+  margin: 1rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: var(--font-size-4xl);
+  font-weight: bold;
+  color: var(--color-black);
+  text-transform: capitalize;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.urlViewMap {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.2rem 2rem;
+  border-radius: var(--border-radius-3xl);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 93%;
+  margin: 0 auto;
+}
+
+.spanMapIcon {
+  margin-right: 0.5rem;
+  font-size: var(--font-size-xl);
+}
+
+.urlViewMap:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.colForm {
+  background-color: var(--color-light);
+  padding: 0.5rem;
+  border-radius: var(--border-radius-xl);
+}
+
+@media screen and (min-width: 992px) {
+  .rowContainer {
+    width: 100%;
+    margin: 8.5rem auto;
+  }
+
+  .headerProperties {
+    width: 74%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 0rem 0rem 2rem 0;
+  }
+  .title {
+  }
+  .headerProperties h1 {
+    margin: 0;
+  }
+  .urlViewMap {
+    margin: 0;
+    width: 100%;
+  }
+}
