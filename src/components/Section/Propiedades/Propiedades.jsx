@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import RSelect from '@/components/RSelect/RSelect';
-// import AdvancedSearchForm from '@/components/Forms/AdvancedSearchForm';
-import OutstandingProjects from './OutstandingProjects';
+import AdvancedSearchForm from '@/components/Forms/AdvancedSearchForm';
+// import OutstandingProjects from './OutstandingProjects';
 import PropertyItem from './PropertyItem';
 import IconFilter from '../../IconFilter/IconFilter';
-// import PaginationComponent from '../../Pagination/Pagination';
+import PaginationComponent from '@/components/Pagination/Pagination';
 import styles from '../../../styles/Section/properties/Properties.module.css';
 import { icons } from '../../Icons';
 import { orderDepartmentBy } from '../../../api/data/orderBy';
@@ -18,7 +18,7 @@ import Card from 'react-bootstrap/Card';
 /** API services */
 import PropertiesServices from '../../../services/PropertiesServices';
 
-const Propiedades = ({
+const Properties = ({
   data,
   setProperties,
   realtorId,
@@ -26,6 +26,8 @@ const Propiedades = ({
   getProperties,
   newProperties,
   setNewProperties,
+  getSelects,
+  selectsList,
 }) => {
   // const { getPagination } = useContext(PropertiesContext);
   const [totalItems, setTotalItems] = useState(null);
@@ -41,20 +43,20 @@ const Propiedades = ({
     console.log(orderDepartmentBy[0]);
   };
 
-  console.log('DATA', data);
+  
 
-  // const getPagination = async (limit, page) => {
-  //   const response = await PropertiesServices.getPagination(limit, page);
-  //   console.log('RESPONSE', response);
-  //   // const { data } = response;
-  //   // setTotalItems(data.total);
-  //   // setItemPerPage(data.per_page);
-  //   // setMetaData(data);
-  // };
+  const getPagination = async (limit, page) => {
+    const response = await PropertiesServices.getPagination(limit, page);
+    console.log('RESPONSE', response);
+    // const { data } = response;
+    // setTotalItems(data.total);
+    // setItemPerPage(data.per_page);
+    // setMetaData(data);
+  };
 
-  // useEffect(() => {
-  //   getPagination(10, 1);
-  // });
+  useEffect(() => {
+    getPagination(10, 1);
+  });
 
   return (
     <Row className={styles.rowContainer}>
@@ -110,7 +112,7 @@ const Propiedades = ({
         </Row>
 
         {/* PAGINATION */}
-        {/* <Card>
+        <Card>
           <PaginationComponent
             itemPerPage={10}
             totalItems={10}
@@ -122,18 +124,20 @@ const Propiedades = ({
             // paginate={paginate}
             // metaData={metaData}
           />
-        </Card> */}
+        </Card>
       </Col>
 
       <Col xl={3} className={styles.colForm}>
         {/* BÚSQUEDA AVANZADA */}
-        {/* <AdvancedSearchForm
-          data={data}
+        <AdvancedSearchForm
+          data={newProperties}
           setProperties={setProperties}
           getProperties={getProperties}
           newProperties={newProperties}
           setNewProperties={setNewProperties}
-        /> */}
+          getSelects={getSelects}
+          selectsList={selectsList}
+        />
 
         {/* PROYECTOS DESTACADOS */}
         {/* <OutstandingProjects
@@ -146,4 +150,4 @@ const Propiedades = ({
   );
 };
 
-export default Propiedades;
+export default Properties;
