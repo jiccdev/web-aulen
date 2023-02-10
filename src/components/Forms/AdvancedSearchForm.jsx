@@ -17,6 +17,9 @@ const AdvancedSearchForm = ({
   setNewProperties,
   getSelects,
   selectsList,
+  // filters
+  getPropertiesByTypeOfProperty,
+  getPropertiesByMinAndMaxPrice,
 }) => {
   const { regions, operationType, typeOfProperty, installmentType } =
     selectsList;
@@ -29,7 +32,6 @@ const AdvancedSearchForm = ({
     surface: '',
     priceCLP: false,
     priceUF: false,
-    priceFrom: 0,
     priceFrom: 0,
     priceUpTo: 0,
     bedrooms: '',
@@ -86,6 +88,22 @@ const AdvancedSearchForm = ({
   };
   // ===== Regions =====
 
+  // ===== From Price =====
+  const onPriceFromChange = (ev) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      priceFrom: Number(ev.target.value),
+    });
+  };
+
+  // ===== From Price Up To =====
+  const onPriceUpToChange = (ev) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      priceUpTo: Number(ev.target.value),
+    });
+  };
+
   const onCommunesChange = (option) => {
     setFiltredDataValue({
       ...filtredDataValue,
@@ -116,7 +134,7 @@ const AdvancedSearchForm = ({
 
   // filtrar las propiedades por el mayor precio
   const filterPropertyByPrice = async (priceFrom, priceUpTo) => {
-    const filtredProperties = await data?.filter(
+    const filtredProperties = await newProperties?.filter(
       (property) => property.price >= priceFrom && property.price <= priceUpTo
     );
 
@@ -153,6 +171,21 @@ const AdvancedSearchForm = ({
   useEffect(() => {
     getSelects();
   }, []);
+
+  /** Filters */
+  // ===== Filter by Type of Property ✅ =====
+  useEffect(() => {
+    getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
+  }, [filtredDataValue?.typeOfProperty]);
+
+  useEffect(() => {
+    getPropertiesByMinAndMaxPrice(
+      5,
+      5,
+      filtredDataValue?.priceFrom || 0,
+      filtredDataValue?.priceUpTo || 0
+    ) || 0;
+  }, [filtredDataValue?.priceFrom, filtredDataValue?.priceUpTo]);
 
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
@@ -235,13 +268,25 @@ const AdvancedSearchForm = ({
         <Col>
           <Form.Group className="mb-3">
             <Form.Label className={styles.label}>Desde</Form.Label>
-            <Form.Control type="number" placeholder="Desde" name="from" />
+            <Form.Control
+              type="text"
+              onChange={onPriceFromChange}
+              defaultValue={filtredDataValue?.priceFrom}
+              placeholder="Desde"
+              name="from"
+            />
           </Form.Group>
         </Col>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label className={styles.label}>Hasta</Form.Label>
-            <Form.Control type="number" placeholder="Hasta" name="to" />
+            <Form.Control
+              type="number"
+              onClick={onPriceUpToChange}
+              defaultValue={filtredDataValue?.priceUpTo}
+              placeholder="Hasta"
+              name="to"
+            />
           </Form.Group>
         </Col>
       </Row>

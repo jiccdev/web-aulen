@@ -44,6 +44,7 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  /** Get Pagination */
   const getPagination = async (limit, page, realtorId, statusId) => {
     try {
       const response = await PropertiesServices.getPagination(
@@ -60,6 +61,7 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  /** Get Total Items from metadata*/
   const getTotalItems = async (realtorId, statusId) => {
     try {
       const response = await PropertiesServices.getProperties(
@@ -67,6 +69,49 @@ const PropertiesProvider = ({ children }) => {
         statusId
       );
       setTotalItems(response.meta.totalItems);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
+  /** Advanced filters for properties */
+  // Type of property
+  const getPropertiesByTypeOfProperty = async (
+    realtorId,
+    statusId,
+    typeOfProperty
+  ) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByTypeOfProperty(
+        realtorId,
+        statusId,
+        typeOfProperty
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
+  // Min & Max Price
+  const getPropertiesByMinAndMaxPrice = async (
+    realtorId,
+    statusId,
+    minValue,
+    maxValue
+  ) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByMinAndMaxPrice(
+        realtorId,
+        statusId,
+        minValue,
+        maxValue
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
     } catch (error) {
       const { statusCode } = error?.response?.data;
       setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
@@ -83,14 +128,15 @@ const PropertiesProvider = ({ children }) => {
         getProperty,
         newProperties,
         setNewProperties,
-
-        // meta
         getPagination,
         metaData,
         getTotalItems,
         totalItems,
         page,
         limit,
+        // filters
+        getPropertiesByTypeOfProperty,
+        getPropertiesByMinAndMaxPrice,
       }}
     >
       {children}

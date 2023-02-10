@@ -35,6 +35,9 @@ const Properties = ({
   totalItems,
   page,
   limit,
+  // filters
+  getPropertiesByTypeOfProperty,
+  getPropertiesByMinAndMaxPrice,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
@@ -109,7 +112,6 @@ const Properties = ({
         </Row>
 
         {/* PAGINATION */}
-
         <PaginationComponent
           itemPerPage={limit}
           paginate={paginate}
@@ -128,6 +130,9 @@ const Properties = ({
           setNewProperties={setNewProperties}
           getSelects={getSelects}
           selectsList={selectsList}
+          // filters
+          getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
+          getPropertiesByMinAndMaxPrice={getPropertiesByMinAndMaxPrice}
         />
 
         {/* PROYECTOS DESTACADOS */}

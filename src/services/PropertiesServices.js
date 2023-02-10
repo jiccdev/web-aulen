@@ -21,6 +21,32 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+  /** Advanced filters for properties */
+  // Type of property
+  getPropertiesByTypeOfProperty: async (
+    realtorId,
+    statusId,
+    typeOfProperty
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
+    );
+    return response.data;
+  },
+
+  // Min & Max Price
+  getPropertiesByMinAndMaxPrice: async (
+    realtorId,
+    statusId,
+    minValue,
+    maxValue
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
+    );
+    return response.data;
+  },
 };
 
 export default PropertiesServices;

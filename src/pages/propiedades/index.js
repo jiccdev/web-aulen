@@ -13,13 +13,14 @@ const Propiedades = () => {
     getProperties,
     newProperties,
     setNewProperties,
-    // meta
     getPagination,
     metaData,
     getTotalItems,
     totalItems,
     page,
     limit,
+    getPropertiesByTypeOfProperty,
+    getPropertiesByMinAndMaxPrice,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -37,13 +38,14 @@ const Propiedades = () => {
     getProperties(5, 5);
   }, []);
 
+  console.log('properties', properties);
+
   return (
     <Fragment>
       <HeaderPage title="Propiedades" />
 
       <LayoutSection>
         <Properties
-          // Properties
           data={properties}
           setProperties={setProperties}
           dataProperty={property}
@@ -52,14 +54,12 @@ const Propiedades = () => {
           getProperties={getProperties}
           newProperties={newProperties}
           setNewProperties={setNewProperties}
-          // meta
           getPagination={getPagination}
           metaData={metaData}
           getTotalItems={getTotalItems}
           totalItems={totalItems}
           page={page}
           limit={limit}
-          // Selects
           getSelects={getSelects}
           selectsList={{
             selects,
@@ -68,6 +68,9 @@ const Propiedades = () => {
             typeOfProperty,
             installmentType,
           }}
+          // filters
+          getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
+          getPropertiesByMinAndMaxPrice={getPropertiesByMinAndMaxPrice}
         />
       </LayoutSection>
     </Fragment>

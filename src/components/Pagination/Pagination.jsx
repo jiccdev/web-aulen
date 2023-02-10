@@ -33,7 +33,6 @@ const PaginationComponent = ({
       <PaginationItem
         disabled={metaData.page - 1 === 0 ? true : false}
         className={styles.paginationItem}
-        // disabled={metaData.page - 1 === 0 ? true : false}
       >
         <PaginationLink
           className="page-link-prev"
