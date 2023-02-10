@@ -12,12 +12,12 @@ const PaginationComponent = ({
   const { GrFormPrevious, GrFormNext } = icons;
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalItems / itemPerPage); i++) {
+  for (let i = 0; i <= Math.ceil(totalItems / itemPerPage); i++) {
     pageNumbers.push(i);
   }
 
   const nextPage = () => {
-    paginate(metaData.page + 1);
+    paginate(metaData.page);
   };
 
   const prevPage = () => {
@@ -26,7 +26,10 @@ const PaginationComponent = ({
 
   return (
     <Pagination aria-label="Page navigation example">
-      <PaginationItem disabled={metaData.page - 1 === 0 ? true : false}>
+      <PaginationItem
+        disabled={metaData.page === 0 ? true : false}
+        // disabled={metaData.page - 1 === 0 ? true : false}
+      >
         <PaginationLink
           className="page-link-prev"
           onClick={(ev) => {
@@ -60,7 +63,8 @@ const PaginationComponent = ({
       })}
 
       <PaginationItem
-        disabled={pageNumbers[pageNumbers.length - 1] === metaData.page}
+        // disabled={pageNumbers[pageNumbers.length - 1] === metaData.page}
+        disabled={pageNumbers[pageNumbers.length] === metaData.page}
       >
         <PaginationLink
           className="page-link-next"

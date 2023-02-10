@@ -8,6 +8,10 @@ const PropertiesProvider = ({ children }) => {
   const [properties, setProperties] = useState([]);
   const [newProperties, setNewProperties] = useState([]);
   const [property, setProperty] = useState({});
+  const [metaData, setMetaData] = useState({});
+  const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(100);
+  const [totalItems, setTotalItems] = useState(null);
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
 
   /** Get Properties */
@@ -40,6 +44,35 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  const getPagination = async (limit, page, realtorId, statusId) => {
+    try {
+      const response = await PropertiesServices.getPagination(
+        limit,
+        page,
+        realtorId,
+        statusId
+      );
+      setMetaData(response?.meta);
+      setNewProperties(response.data);
+      setProperties(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getTotalItems = async (realtorId, statusId) => {
+    try {
+      const response = await PropertiesServices.getProperties(
+        realtorId,
+        statusId
+      );
+      setTotalItems(response.meta.totalItems);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
@@ -50,7 +83,14 @@ const PropertiesProvider = ({ children }) => {
         getProperty,
         newProperties,
         setNewProperties,
-        // getPagination,
+
+        // meta
+        getPagination,
+        metaData,
+        getTotalItems,
+        totalItems,
+        page,
+        limit,
       }}
     >
       {children}

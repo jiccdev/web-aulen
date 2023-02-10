@@ -13,6 +13,13 @@ const Propiedades = () => {
     getProperties,
     newProperties,
     setNewProperties,
+    // meta
+    getPagination,
+    metaData,
+    getTotalItems,
+    totalItems,
+    page,
+    limit,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -45,6 +52,13 @@ const Propiedades = () => {
           getProperties={getProperties}
           newProperties={newProperties}
           setNewProperties={setNewProperties}
+          // meta
+          getPagination={getPagination}
+          metaData={metaData}
+          getTotalItems={getTotalItems}
+          totalItems={totalItems}
+          page={page}
+          limit={limit}
           // Selects
           getSelects={getSelects}
           selectsList={{

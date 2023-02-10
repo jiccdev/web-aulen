@@ -154,9 +154,6 @@ const AdvancedSearchForm = ({
     getSelects();
   }, []);
 
-  console.log('filtredDataValue', filtredDataValue);
-  console.log('newProperties', newProperties);
-
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
       <Form.Group className="mb-3">

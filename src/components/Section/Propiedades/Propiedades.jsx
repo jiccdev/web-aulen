@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import RSelect from '@/components/RSelect/RSelect';
 import AdvancedSearchForm from '@/components/Forms/AdvancedSearchForm';
@@ -28,12 +28,14 @@ const Properties = ({
   setNewProperties,
   getSelects,
   selectsList,
+  //meta
+  getPagination,
+  metaData,
+  getTotalItems,
+  totalItems,
+  page,
+  limit,
 }) => {
-  // const { getPagination } = useContext(PropertiesContext);
-  const [totalItems, setTotalItems] = useState(null);
-  const [itemPerPage, setItemPerPage] = useState(10);
-  const [metaData, setMetaData] = useState({});
-
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
   const { BiMap } = icons;
@@ -43,20 +45,15 @@ const Properties = ({
     console.log(orderDepartmentBy[0]);
   };
 
-  
-
-  const getPagination = async (limit, page) => {
-    const response = await PropertiesServices.getPagination(limit, page);
-    console.log('RESPONSE', response);
-    // const { data } = response;
-    // setTotalItems(data.total);
-    // setItemPerPage(data.per_page);
-    // setMetaData(data);
-  };
+  const paginate = (currentPage) => getPagination(limit, currentPage, 5, 5);
 
   useEffect(() => {
-    getPagination(10, 1);
-  });
+    getTotalItems(5, 5);
+  }, [metaData]);
+
+  useEffect(() => {
+    getPagination(limit, page, 5, 5);
+  }, [limit, page]);
 
   return (
     <Row className={styles.rowContainer}>
@@ -112,19 +109,13 @@ const Properties = ({
         </Row>
 
         {/* PAGINATION */}
-        <Card>
-          <PaginationComponent
-            itemPerPage={10}
-            totalItems={10}
-            paginate={1}
-            metaData={1}
 
-            // itemPerPage={itemPerPage}
-            // totalItems={totalItems}
-            // paginate={paginate}
-            // metaData={metaData}
-          />
-        </Card>
+        <PaginationComponent
+          itemPerPage={limit}
+          paginate={paginate}
+          totalItems={totalItems}
+          metaData={metaData}
+        />
       </Col>
 
       <Col xl={3} className={styles.colForm}>
