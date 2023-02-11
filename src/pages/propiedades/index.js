@@ -2,7 +2,7 @@ import React, { useState, Fragment, useContext, useEffect } from 'react';
 import PropertiesContext from '@/context/properties/PropertiesContext';
 import SelectsContext from '@/context/selects/SelectsContext';
 import LayoutSection from '@/components/Section/LayoutSection';
-import HeaderPage from '@/components/HeaderPage/HeaderPage';
+import HeadPage from '@/components/HeadPage/HeadPage';
 import Properties from '@/components/Section/Propiedades/Propiedades';
 
 const Propiedades = () => {
@@ -43,7 +43,7 @@ const Propiedades = () => {
 
   return (
     <Fragment>
-      <HeaderPage title="Propiedades" />
+      <HeadPage title="Propiedades" />
 
       <LayoutSection>
         <Properties
