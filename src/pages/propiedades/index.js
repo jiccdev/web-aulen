@@ -21,6 +21,7 @@ const Propiedades = () => {
     limit,
     getPropertiesByTypeOfProperty,
     getPropertiesByMinAndMaxPrice,
+    getPropertiesBySurfaceM2,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -71,6 +72,7 @@ const Propiedades = () => {
           // filters
           getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
           getPropertiesByMinAndMaxPrice={getPropertiesByMinAndMaxPrice}
+          getPropertiesBySurfaceM2={getPropertiesBySurfaceM2}
         />
       </LayoutSection>
     </Fragment>

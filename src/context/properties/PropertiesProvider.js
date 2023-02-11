@@ -118,6 +118,22 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  // Surface M2
+  const getPropertiesBySurfaceM2 = async (realtorId, statusId, surfaceM2) => {
+    try {
+      const response = await PropertiesServices.getPropertiesBySurfaceM2(
+        realtorId,
+        statusId,
+        surfaceM2
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
@@ -137,6 +153,7 @@ const PropertiesProvider = ({ children }) => {
         // filters
         getPropertiesByTypeOfProperty,
         getPropertiesByMinAndMaxPrice,
+        getPropertiesBySurfaceM2,
       }}
     >
       {children}

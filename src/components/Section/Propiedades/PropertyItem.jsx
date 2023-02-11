@@ -42,7 +42,7 @@ const DepartmentItem = ({ property, isGrid, isList, realtorId, statusId }) => {
           </p>
           <div className={styles.priceContainer}>
             <span className={styles.span}>
-              Venta: {parseToCLPCurrency(price)}/m<sup>2</sup>
+              Venta: {parseToCLPCurrency(price)}
             </span>
             <span>
               <Link

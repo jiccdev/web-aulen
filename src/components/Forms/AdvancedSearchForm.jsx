@@ -20,10 +20,12 @@ const AdvancedSearchForm = ({
   // filters
   getPropertiesByTypeOfProperty,
   getPropertiesByMinAndMaxPrice,
+  getPropertiesBySurfaceM2,
 }) => {
   const { regions, operationType, typeOfProperty, installmentType } =
     selectsList;
   const [notPropertiesMessage, setNotPropertiesMessage] = useState('');
+  const [filtredData, setFiltredData] = useState([]);
   const [filtredDataValue, setFiltredDataValue] = useState({
     typeOfOperation: '',
     typeOfProperty: '',
@@ -111,6 +113,13 @@ const AdvancedSearchForm = ({
     });
   };
 
+  const onSurfaceChange = (ev) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      surface: Number(ev.target.value),
+    });
+  };
+
   const onBedroomsChange = (option) => {
     setFiltredDataValue({
       ...filtredDataValue,
@@ -132,42 +141,6 @@ const AdvancedSearchForm = ({
     });
   };
 
-  // filtrar las propiedades por el mayor precio
-  const filterPropertyByPrice = async (priceFrom, priceUpTo) => {
-    const filtredProperties = await newProperties?.filter(
-      (property) => property.price >= priceFrom && property.price <= priceUpTo
-    );
-
-    if (filtredProperties?.length > 0) {
-      setNewProperties(filtredProperties);
-      setNotPropertiesMessage('');
-    } else {
-      setNotPropertiesMessage('No hay propiedades disponibles');
-    }
-  };
-  useEffect(() => {
-    filterPropertyByPrice(
-      filtredDataValue?.priceFrom,
-      filtredDataValue?.priceUpTo
-    );
-  }, [filtredDataValue?.priceFrom, filtredDataValue?.priceUpTo]);
-
-  /** Filter Properties by Bathrooms */
-  const filterPropertyBarhrooms = async (bathrooms) => {
-    const filtredProperties = await data?.filter(
-      (property) => property.bathrooms == bathrooms
-    );
-
-    if (filtredProperties?.length > 0) {
-      setNewProperties(filtredProperties);
-      setNotPropertiesMessage('');
-    }
-  };
-
-  useEffect(() => {
-    filterPropertyBarhrooms(filtredDataValue?.bathrooms);
-  }, [filtredDataValue?.bathrooms]);
-
   useEffect(() => {
     getSelects();
   }, []);
@@ -178,14 +151,48 @@ const AdvancedSearchForm = ({
     getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
   }, [filtredDataValue?.typeOfProperty]);
 
+  // ===== Filter by Min and Max price ✅ =====
   useEffect(() => {
-    getPropertiesByMinAndMaxPrice(
-      5,
-      5,
-      filtredDataValue?.priceFrom || 0,
-      filtredDataValue?.priceUpTo || 0
-    ) || 0;
+    filtredDataValue?.priceFrom || filtredDataValue?.priceUpTo
+      ? getPropertiesByMinAndMaxPrice(
+          5,
+          5,
+          filtredDataValue?.priceFrom,
+          filtredDataValue?.priceUpTo
+        )
+      : getProperties(5, 5);
   }, [filtredDataValue?.priceFrom, filtredDataValue?.priceUpTo]);
+
+  // ===== Filter by Surface M2 ✅ =====
+  useEffect(() => {
+    !filtredDataValue?.surface
+      ? getProperties(5, 5)
+      : getPropertiesBySurfaceM2(5, 5, filtredDataValue?.surface);
+  }, [filtredDataValue.surface]);
+
+  // crea un efecto en que coincidan todos los filtros
+  useEffect(() => {
+    const filtredData = newProperties.filter((item) => {
+      return (
+        item.typeOfOperation === filtredDataValue.typeOfOperation &&
+        item.typeOfProperty === filtredDataValue.typeOfProperty &&
+        item.region === filtredDataValue.region &&
+        item.commune === filtredDataValue.commune &&
+        item.surface === filtredDataValue.surface &&
+        item.priceCLP === filtredDataValue.priceCLP &&
+        item.priceUF === filtredDataValue.priceUF &&
+        item.priceFrom === filtredDataValue.priceFrom &&
+        item.priceUpTo === filtredDataValue.priceUpTo &&
+        item.bedrooms === filtredDataValue.bedrooms &&
+        item.bathrooms === filtredDataValue.bathrooms &&
+        item.parkingLots === filtredDataValue.parkingLots
+      );
+    });
+    setFiltredData(filtredData);
+  }, [filtredDataValue, newProperties]);
+
+  console.log('filtredDataValue', filtredDataValue);
+  console.log('newProperties', newProperties);
 
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
@@ -231,7 +238,13 @@ const AdvancedSearchForm = ({
 
       <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Superficie</Form.Label>
-        <Form.Control type="text" placeholder="Superficie" name="surface" />
+        <Form.Control
+          type="number"
+          defaultValue={filtredDataValue?.surface}
+          onChange={onSurfaceChange}
+          placeholder="Superficie"
+          name="surface"
+        />
       </Form.Group>
 
       <Form.Group className="mb-3">

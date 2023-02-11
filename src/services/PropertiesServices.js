@@ -47,6 +47,14 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+  // Surface M2
+  getPropertiesBySurfaceM2: async (realtorId, statusId, surfaceM2) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
+    );
+    return response.data;
+  },
 };
 
 export default PropertiesServices;
