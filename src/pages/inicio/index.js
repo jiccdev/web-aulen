@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Fade, Slide, Roll, Hinge } from 'react-awesome-reveal';
 import HeadPage from '@/components/HeadPage/HeadPage';
 import LayoutSection from '@/components/Section/LayoutSection';
 import Principal from '@/components/Section/Inicio/Principal';
@@ -15,10 +16,14 @@ const Inicio = () => {
       {/* MAIN CONTENT */}
       <LayoutSection>
         {/* --SECCIÓN PRINCIPAL-- */}
-        <Principal />
+        <Slide delay={1e3} cascade>
+          <Principal />
+        </Slide>
 
         {/* --NOS ENCARGAMOS DE TÚ ARRIENDO POR TÍ-- */}
-        <Lease />
+        <Fade delay={1e3} cascade damping={1e-1}>
+          <Lease />
+        </Fade>
 
         {/* --VENDEMOS TÚS PROPIEDADES EN CUATRO SIMPLES PASOS-- */}
         <Steps />
