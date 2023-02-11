@@ -3,17 +3,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import HeadPage from '@/components/HeadPage/HeadPage';
 import PropertiesContext from '@/context/properties/PropertiesContext';
+import GalleryCarousel from '../../components/GalleryCorousel/GalleryCarousel';
+import Details from '@/components/Section/Propiedades/Details/Details';
 
-import GalleryCarousel from '../../src/components/GalleryCarousel/GalleryCarousel';
+// import GalleryCarousel from '../../src/components/GalleryCarousel/GalleryCarousel';
 
-import Details from '../../src/components/Section/propiedades/details/Details';
-import Characteristic from '../../src/components/Section/propiedades/details/Characteristics';
-import InformationOnTheArea from '../../src/components/Section/propiedades/details/InformationOnTheArea';
+// import Details from '../../src/components/Section/propiedades/details/Details';
+// import Characteristic from '../../src/components/Section/propiedades/details/Characteristics';
+// import InformationOnTheArea from '../../src/components/Section/propiedades/details/InformationOnTheArea';
 
 /** Bootstrap componets */
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import styles from '../../styles/components/propiedades/details/Details.module.css';
+import styles from '../../styles/Section/properties/details/Details.module.css';
 
 const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
@@ -25,6 +27,8 @@ const PropiedadId = () => {
     // getProperty(propertyId, 1, 1);
     getProperty(propertyId, 5, 5);
   }, [propertyId]);
+
+  console.log(property);
 
   return (
     <Fragment>
@@ -42,8 +46,8 @@ const PropiedadId = () => {
 
         <Row className={styles.row}>
           <Col xs={12} xl={8}>
-            <GalleryCarousel images={property?.images} />
-            <Characteristic propertyData={property} />
+            <GalleryCarousel items={property} />
+            {/* <Characteristic propertyData={property} />  */}
           </Col>
 
           <Col xs={12} xl={4} className={styles.col}>
@@ -60,7 +64,7 @@ const PropiedadId = () => {
           </Col>
         </Row>
 
-        <InformationOnTheArea propertyData={property} />
+        {/* <InformationOnTheArea propertyData={property} /> */}
       </div>
     </Fragment>
   );
