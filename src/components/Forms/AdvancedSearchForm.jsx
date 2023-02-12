@@ -21,6 +21,8 @@ const AdvancedSearchForm = ({
   getPropertiesByTypeOfProperty,
   getPropertiesByMinAndMaxPrice,
   getPropertiesBySurfaceM2,
+  getPropertiesByBedrooms,
+  getPropertiesByBathrooms,
 }) => {
   const { regions, operationType, typeOfProperty, installmentType } =
     selectsList;
@@ -34,8 +36,8 @@ const AdvancedSearchForm = ({
     surface: '',
     priceCLP: false,
     priceUF: false,
-    priceFrom: 0,
-    priceUpTo: 0,
+    priceFrom: '',
+    priceUpTo: '',
     bedrooms: '',
     bathrooms: '',
     parkingLots: '',
@@ -120,17 +122,17 @@ const AdvancedSearchForm = ({
     });
   };
 
-  const onBedroomsChange = (option) => {
+  const onBedroomsChange = (ev) => {
     setFiltredDataValue({
       ...filtredDataValue,
-      bedrooms: option?.value,
+      bedrooms: Number(ev.target.value),
     });
   };
 
-  const onBathroomsChange = (option) => {
+  const onBathroomsChange = (ev) => {
     setFiltredDataValue({
       ...filtredDataValue,
-      bathrooms: option?.value,
+      bathrooms: Number(ev.target.value),
     });
   };
 
@@ -153,7 +155,7 @@ const AdvancedSearchForm = ({
 
   // ===== Filter by Min and Max price ✅ =====
   useEffect(() => {
-    filtredDataValue?.priceFrom || filtredDataValue?.priceUpTo
+    filtredDataValue?.priceFrom && filtredDataValue?.priceUpTo
       ? getPropertiesByMinAndMaxPrice(
           5,
           5,
@@ -168,28 +170,21 @@ const AdvancedSearchForm = ({
     !filtredDataValue?.surface
       ? getProperties(5, 5)
       : getPropertiesBySurfaceM2(5, 5, filtredDataValue?.surface);
-  }, [filtredDataValue.surface]);
+  }, [filtredDataValue?.surface]);
 
-  // crea un efecto en que coincidan todos los filtros
+  // ===== Filter by Bedrooms ✅ =====
   useEffect(() => {
-    const filtredData = newProperties.filter((item) => {
-      return (
-        item.typeOfOperation === filtredDataValue.typeOfOperation &&
-        item.typeOfProperty === filtredDataValue.typeOfProperty &&
-        item.region === filtredDataValue.region &&
-        item.commune === filtredDataValue.commune &&
-        item.surface === filtredDataValue.surface &&
-        item.priceCLP === filtredDataValue.priceCLP &&
-        item.priceUF === filtredDataValue.priceUF &&
-        item.priceFrom === filtredDataValue.priceFrom &&
-        item.priceUpTo === filtredDataValue.priceUpTo &&
-        item.bedrooms === filtredDataValue.bedrooms &&
-        item.bathrooms === filtredDataValue.bathrooms &&
-        item.parkingLots === filtredDataValue.parkingLots
-      );
-    });
-    setFiltredData(filtredData);
-  }, [filtredDataValue, newProperties]);
+    !filtredDataValue.bedrooms
+      ? getProperties(5, 5)
+      : getPropertiesByBedrooms(5, 5, filtredDataValue?.bedrooms);
+  }, [filtredDataValue.bedrooms]);
+
+  // ===== Filter by Bathrooms ✅ =====
+  useEffect(() => {
+    !filtredDataValue.bathrooms
+      ? getProperties(5, 5)
+      : getPropertiesByBedrooms(5, 5, filtredDataValue.bathrooms);
+  }, [filtredDataValue.bathrooms]);
 
   console.log('filtredDataValue', filtredDataValue);
   console.log('newProperties', newProperties);
@@ -241,9 +236,10 @@ const AdvancedSearchForm = ({
         <Form.Control
           type="number"
           defaultValue={filtredDataValue?.surface}
+          value={filtredDataValue?.surface}
           onChange={onSurfaceChange}
           placeholder="Superficie"
-          name="surface"
+          name={filtredDataValue.surface}
         />
       </Form.Group>
 
@@ -282,7 +278,7 @@ const AdvancedSearchForm = ({
           <Form.Group className="mb-3">
             <Form.Label className={styles.label}>Desde</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               onChange={onPriceFromChange}
               defaultValue={filtredDataValue?.priceFrom}
               placeholder="Desde"
@@ -304,25 +300,53 @@ const AdvancedSearchForm = ({
         </Col>
       </Row>
 
-      <Form.Group className="mb-3">
+      <Col>
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Dormitorios</Form.Label>
+          <Form.Control
+            type="number"
+            onClick={onBedroomsChange}
+            defaultValue={filtredDataValue.bedrooms}
+            placeholder="Ej: 3"
+            name="bedrooms"
+          />
+        </Form.Group>
+      </Col>
+
+      <Col>
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Baños</Form.Label>
+          <Form.Control
+            type="number"
+            onClick={onBathroomsChange}
+            defaultValue={filtredDataValue.bathrooms}
+            placeholder="Ej: 3"
+            name="bedrooms"
+          />
+        </Form.Group>
+      </Col>
+
+      {/* En desarrollo ❌ */}
+      {/* <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Dormitorios</Form.Label>
         <RSelect
-          // options={bedrooms}
-          // defaultValue={bedrooms[0]}
+          options={bedrooms}
+          defaultValue={bedrooms[0]}
           onChange={onBedroomsChange}
           className={styles.rSelect}
         />
-      </Form.Group>
+      </Form.Group> */}
 
-      <Form.Group className="mb-3">
+      {/* En desarrollo ❌ */}
+      {/* <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Baños</Form.Label>
         <RSelect
-          // options={bathrooms}
-          // defaultValue={bathrooms[0]}
+          options={bathrooms}
+          defaultValue={bathrooms[0]}
           onChange={onBathroomsChange}
           className={styles.rSelect}
         />
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Estacionamientos</Form.Label>

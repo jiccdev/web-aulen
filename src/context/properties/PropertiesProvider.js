@@ -134,6 +134,38 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  // Bedrooms
+  const getPropertiesByBedrooms = async (realtorId, statusId, bedrooms) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByBedrooms(
+        realtorId,
+        statusId,
+        bedrooms
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
+  // Bathrooms
+  const getPropertiesByBathrooms = async (realtorId, statusId, bathrooms) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByBathrooms(
+        realtorId,
+        statusId,
+        bathrooms
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
@@ -154,6 +186,8 @@ const PropertiesProvider = ({ children }) => {
         getPropertiesByTypeOfProperty,
         getPropertiesByMinAndMaxPrice,
         getPropertiesBySurfaceM2,
+        getPropertiesByBedrooms,
+        getPropertiesByBathrooms,
       }}
     >
       {children}

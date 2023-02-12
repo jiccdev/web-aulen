@@ -39,6 +39,8 @@ const Properties = ({
   getPropertiesByTypeOfProperty,
   getPropertiesByMinAndMaxPrice,
   getPropertiesBySurfaceM2,
+  getPropertiesByBedrooms,
+  getPropertiesByBathrooms,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
@@ -135,6 +137,8 @@ const Properties = ({
           getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
           getPropertiesByMinAndMaxPrice={getPropertiesByMinAndMaxPrice}
           getPropertiesBySurfaceM2={getPropertiesBySurfaceM2}
+          getPropertiesByBedrooms={getPropertiesByBedrooms}
+          getPropertiesByBathrooms={getPropertiesByBathrooms}
         />
 
         {/* PROYECTOS DESTACADOS */}

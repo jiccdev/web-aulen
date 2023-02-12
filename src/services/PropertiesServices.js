@@ -55,6 +55,22 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+  // Bedrooms
+  getPropertiesByBedrooms: async (realtorId, statusId, bedrooms) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
+    );
+    return response.data;
+  },
+
+  // Bathrooms
+  getPropertiesByBathrooms: async (realtorId, statusId, bathrooms) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
+    );
+    return response.data;
+  },
 };
 
 export default PropertiesServices;
