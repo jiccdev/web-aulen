@@ -144,3 +144,7 @@ a {
     background-repeat: no-repeat;
   }
 }
+
+.col-sm-4 {
+  width: 100% !important;
+}

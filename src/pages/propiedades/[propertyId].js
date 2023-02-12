@@ -5,10 +5,9 @@ import HeadPage from '@/components/HeadPage/HeadPage';
 import PropertiesContext from '@/context/properties/PropertiesContext';
 import GalleryCarousel from '../../components/GalleryCorousel/GalleryCarousel';
 import Details from '@/components/Section/Propiedades/Details/Details';
+import Characteristics from '@/components/Section/Propiedades/Details/Characteristics';
+import InformationOnTheArea from '@/components/Section/Propiedades/Details/InformationOnTheArea';
 
-// import GalleryCarousel from '../../src/components/GalleryCarousel/GalleryCarousel';
-
-// import Details from '../../src/components/Section/propiedades/details/Details';
 // import Characteristic from '../../src/components/Section/propiedades/details/Characteristics';
 // import InformationOnTheArea from '../../src/components/Section/propiedades/details/InformationOnTheArea';
 
@@ -21,7 +20,6 @@ const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
   const { query } = useRouter();
   const { propertyId } = query;
-  // const [data] = contextData;
 
   useEffect(() => {
     // getProperty(propertyId, 1, 1);
@@ -47,7 +45,7 @@ const PropiedadId = () => {
         <Row className={styles.row}>
           <Col xs={12} xl={8}>
             <GalleryCarousel items={property} />
-            {/* <Characteristic propertyData={property} />  */}
+            <Characteristics propertyData={property} />
           </Col>
 
           <Col xs={12} xl={4} className={styles.col}>
@@ -64,7 +62,7 @@ const PropiedadId = () => {
           </Col>
         </Row>
 
-        {/* <InformationOnTheArea propertyData={property} /> */}
+        <InformationOnTheArea propertyData={property} />
       </div>
     </Fragment>
   );

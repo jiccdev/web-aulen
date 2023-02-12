@@ -5,6 +5,7 @@ import LayoutSection from '@/components/Section/LayoutSection';
 import HeroSection from '../../../components/Section/SoyPropietario/QuieroVender/HeroSection';
 import StepsSection from '../../../components/Section/SoyPropietario/QuieroVender/StepsSection';
 import Plans from '@/components/Section/Plans/Plans';
+import CustomerExperience from '@/components/Section/CustomerExperience/CustomerExperience';
 
 const QuieroVender = () => {
   return (
@@ -24,6 +25,9 @@ const QuieroVender = () => {
           <Plans />
         </LayoutSection>
       </Layout>
+
+      {/* Experiencia de Clientes */}
+      <CustomerExperience />
     </Fragment>
   );
 };

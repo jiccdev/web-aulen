@@ -5,6 +5,7 @@ import LayoutSection from '@/components/Section/LayoutSection';
 import SoldHome from '@/components/Section/AdministracionDeArriendo/SoldHome';
 import StepsToRentDepartment from '@/components/Section/AdministracionDeArriendo/StepsToRentDepartment';
 import Plans from '@/components/Section/Plans/Plans';
+import CustomerExperience from '@/components/Section/CustomerExperience/CustomerExperience';
 
 const AdministracionDeArriendo = () => {
   return (
@@ -24,10 +25,8 @@ const AdministracionDeArriendo = () => {
         </LayoutSection>
       </Layout>
 
-      {/* CONOCE LA EXPERIENCIA DE NUESTROS CLIENTES */}
-      {/* <LayoutSection>
-        <CustomerExperience />
-      </LayoutSection> */}
+      {/* Experiencia de Clientes */}
+      <CustomerExperience />
     </Fragment>
   );
 };

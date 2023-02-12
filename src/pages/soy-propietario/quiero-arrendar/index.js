@@ -3,6 +3,7 @@ import HeadPage from '@/components/HeadPage/HeadPage';
 import LayoutSection from '@/components/Section/LayoutSection';
 import HeroSection from '@/components/Section/SoyPropietario/QuieroArrendar/HeroSection';
 import WhyLease from '@/components/Section/SoyPropietario/QuieroArrendar/WhyLease';
+import CustomerExperience from '@/components/Section/CustomerExperience/CustomerExperience';
 
 const QuieroArrendar = () => {
   return (
@@ -16,6 +17,9 @@ const QuieroArrendar = () => {
         {/* POR QUÉ ARRENDAR TÚ PROPIEDAD CON NOSOSTROS */}
         <WhyLease />
       </LayoutSection>
+
+      {/* Experiencia de Clientes */}
+      <CustomerExperience />
     </Fragment>
   );
 };

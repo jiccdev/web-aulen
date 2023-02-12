@@ -4,6 +4,7 @@ import LayoutSection from '@/components/Section/LayoutSection';
 import HeaderSection from '../../../components/Section/SoyInversionista/UnidadesEnRemate/HeaderSection.jsx';
 import InvestmentForm from '../../../components/Forms/InvestmentForm';
 import HeroSection from '../../../components/Section/SoyInversionista/UnidadesEnRemate/HeroSection.jsx';
+import CustomerExperience from '@/components/Section/CustomerExperience/CustomerExperience.jsx';
 import { investmentFormData } from '../../../api/data/investmentForm.js';
 
 const UnidadesEnRemate = () => {
@@ -31,6 +32,9 @@ const UnidadesEnRemate = () => {
             : null}
         </div>
       </LayoutSection>
+
+      {/* Experiencia de Clientes */}
+      <CustomerExperience />
     </Fragment>
   );
 };

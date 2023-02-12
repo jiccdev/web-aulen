@@ -44,15 +44,17 @@ const MapProperties = () => {
             <Toast className={styles.toast}>
               <div>
                 <strong className="mx-auto">
-                  {propertyDetail?.title || ''}
+                  {propertyDetail?.title || null}
                 </strong>
               </div>
-              <Toast.Body className={styles.toastBody}>
-                <span>
-                  {propertyDetail?.commune}, {propertyDetail?.city}{' '}
-                  {propertyDetail?.address || ''}
-                </span>
-              </Toast.Body>
+              {propertyDetail?.address ? (
+                <Toast.Body className={styles.toastBody}>
+                  <span>
+                    {propertyDetail?.commune} {propertyDetail?.city}
+                    {propertyDetail?.address || null}
+                  </span>
+                </Toast.Body>
+              ) : null}
             </Toast>
           </div>
         </div>
@@ -130,7 +132,7 @@ const MapProperties = () => {
                       >
                         <Card.Img
                           variant="top"
-                          src={property?.image || '/images/placeholder.png'}
+                          src={property?.image}
                           style={{
                             width: '100%',
                             height: '120px',
