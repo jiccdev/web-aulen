@@ -2,6 +2,24 @@
   position: relative;
   margin: 5rem auto;
   width: 100%;
+  height: 80vh;
+}
+.col {
+  height: 130vh;
+  overflow-y: scroll;
+}
+
+.col::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.col::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+
+.col::-webkit-scrollbar-thumb {
+  background: var(--color-light);
+  border-radius: 1rem;
 }
 
 .headerProperties {
@@ -89,7 +107,7 @@
   border-radius: var(--border-radius-xl);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1220px) {
   .rowContainer {
     width: 100%;
     margin: 8.5rem auto;

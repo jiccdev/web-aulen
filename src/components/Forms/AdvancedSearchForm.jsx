@@ -244,7 +244,6 @@ const AdvancedSearchForm = ({
         <Form.Control
           type="text"
           defaultValue={filtredDataValue?.surface}
-          value={filtredDataValue?.surface}
           onChange={onSurfaceChange}
           placeholder="Superficie"
           name={filtredDataValue.surface}
@@ -315,7 +314,7 @@ const AdvancedSearchForm = ({
             type="number"
             onChange={onBedroomsChange}
             defaultValue={filtredDataValue.bedrooms}
-            placeholder="Ej: 3"
+            placeholder="Dormitorios"
             name={filtredDataValue.bedrooms}
           />
         </Form.Group>
@@ -328,7 +327,7 @@ const AdvancedSearchForm = ({
             type="text"
             onChange={onBathroomsChange}
             defaultValue={filtredDataValue.bathrooms}
-            placeholder="Ej: 3"
+            placeholder="Baños"
             name={filtredDataValue.bathrooms}
           />
         </Form.Group>
@@ -341,7 +340,7 @@ const AdvancedSearchForm = ({
             type="text"
             onChange={onParkingLotsChange}
             defaultValue={filtredDataValue.parkingLots}
-            placeholder="Ej: 3"
+            placeholder="Estacionamientos"
             name={filtredDataValue.parkingLots}
           />
         </Form.Group>
