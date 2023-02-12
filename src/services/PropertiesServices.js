@@ -71,6 +71,30 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+  // Parking Lots (covered)
+  getPropertiesByParkingLotsCovered: async (
+    realtorId,
+    statusId,
+    parkingLotsCovered
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
+    );
+    return response.data;
+  },
+
+  // Parking Lots (uncovered)
+  getPropertiesByParkingLotsUncovered: async (
+    realtorId,
+    statusId,
+    parkingLotsUncovered
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
+    );
+    return response.data;
+  },
 };
 
 export default PropertiesServices;

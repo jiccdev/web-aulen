@@ -41,6 +41,7 @@ const Properties = ({
   getPropertiesBySurfaceM2,
   getPropertiesByBedrooms,
   getPropertiesByBathrooms,
+  getPropertiesByParkingLotsCovered,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
@@ -139,6 +140,7 @@ const Properties = ({
           getPropertiesBySurfaceM2={getPropertiesBySurfaceM2}
           getPropertiesByBedrooms={getPropertiesByBedrooms}
           getPropertiesByBathrooms={getPropertiesByBathrooms}
+          getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
         />
 
         {/* PROYECTOS DESTACADOS */}

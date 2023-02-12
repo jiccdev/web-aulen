@@ -10,7 +10,7 @@ const PropertiesProvider = ({ children }) => {
   const [property, setProperty] = useState({});
   const [metaData, setMetaData] = useState({});
   const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(12);
   const [totalItems, setTotalItems] = useState(null);
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
 
@@ -166,6 +166,27 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  // Bathrooms
+  const getPropertiesByParkingLotsCovered = async (
+    realtorId,
+    statusId,
+    parkingLotsCovered
+  ) => {
+    try {
+      const response =
+        await PropertiesServices.getPropertiesByParkingLotsCovered(
+          realtorId,
+          statusId,
+          parkingLotsCovered
+        );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
@@ -188,6 +209,7 @@ const PropertiesProvider = ({ children }) => {
         getPropertiesBySurfaceM2,
         getPropertiesByBedrooms,
         getPropertiesByBathrooms,
+        getPropertiesByParkingLotsCovered,
       }}
     >
       {children}

@@ -24,6 +24,7 @@ const Propiedades = () => {
     getPropertiesBySurfaceM2,
     getPropertiesByBedrooms,
     getPropertiesByBathrooms,
+    getPropertiesByParkingLotsCovered,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -77,6 +78,7 @@ const Propiedades = () => {
           getPropertiesBySurfaceM2={getPropertiesBySurfaceM2}
           getPropertiesByBedrooms={getPropertiesByBedrooms}
           getPropertiesByBathrooms={getPropertiesByBathrooms}
+          getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
         />
       </LayoutSection>
     </Fragment>
