@@ -16,7 +16,9 @@ const UnidadesNuevas = () => {
 
         {/* TE AYUDAMOS A ELEGIR LA MEJOR OPCIÓN DE INVERSIÓN PARA TÍ */}
         {investmentFormData?.length > 0
-          ? investmentFormData?.map((el) => <InvestmentForm formData={el} />)
+          ? investmentFormData?.map((el, idx) => (
+              <InvestmentForm key={idx} formData={el} />
+            ))
           : null}
       </LayoutSection>
 

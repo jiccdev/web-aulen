@@ -35,7 +35,7 @@ const CustomerExperience = () => {
         responsive={responsive}
         controlsStrategy="alternate"
         items={customers?.map((customer) => (
-          <Col sm={12}>
+          <Col sm={12} key={customer?.id}>
             <CustomerCard key={customer?.id} customer={customer} />
           </Col>
         ))}

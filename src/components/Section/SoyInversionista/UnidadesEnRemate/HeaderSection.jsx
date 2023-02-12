@@ -15,8 +15,8 @@ export const HeaderSection = () => {
       </h2>
       <div className={`${styles.customRow} ${styles.investmentModelContainer}`}>
         {investmentModelData?.length > 0
-          ? investmentModelData?.map((el) => (
-              <InvestmentModel investment={el} />
+          ? investmentModelData?.map((el, idx) => (
+              <InvestmentModel key={idx} investment={el} />
             ))
           : null}
       </div>
