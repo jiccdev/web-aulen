@@ -1,5 +1,5 @@
 /** Truncate string lenght */
-export const truncateString = (str, limit = 40) =>
+export const truncateString = (str, limit = 35) =>
   str.length > limit ? `${str.substring(0, limit)}...` : str;
 
 export const truncateStringSmall = (str, limit = 25) =>

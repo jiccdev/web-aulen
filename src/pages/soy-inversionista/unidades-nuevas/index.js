@@ -3,6 +3,7 @@ import HeadPage from '@/components/HeadPage/HeadPage';
 import LayoutSection from '@/components/Section/LayoutSection';
 import Header from '@/components/Section/SoyInversionista/UnidadesNuevas/Header';
 import InvestmentForm from '@/components/Forms/InvestmentForm';
+import OutstandingProject from '@/components/Section/Propiedades/OutstandingProjects/OutstandingProjects';
 import { investmentFormData } from '../../../api/data/investmentForm';
 
 const UnidadesNuevas = () => {
@@ -25,6 +26,7 @@ const UnidadesNuevas = () => {
       {/* PROYECTOS DESTACADOS */}
       {/* PENDIENDTE */}
 
+      <OutstandingProject />
       {/* FILTRAR PROPIEDADE POR VERDE Y BLANCO */}
       {/* PENDIENDTE */}
     </Fragment>

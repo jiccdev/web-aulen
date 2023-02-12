@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import RSelect from '@/components/RSelect/RSelect';
 import AdvancedSearchForm from '@/components/Forms/AdvancedSearchForm';
-// import OutstandingProjects from './OutstandingProjects';
+import OutstandingProjects from './OutstandingProjects';
 import PropertyItem from './PropertyItem';
 import IconFilter from '../../IconFilter/IconFilter';
 import PaginationComponent from '@/components/Pagination/Pagination';
@@ -152,11 +152,7 @@ const Properties = ({
         />
 
         {/* PROYECTOS DESTACADOS */}
-        {/* <OutstandingProjects
-          data={data}
-          realtorId={realtorId}
-          statusId={statusId}
-        /> */}
+        <OutstandingProjects />
       </Col>
     </Row>
   );
