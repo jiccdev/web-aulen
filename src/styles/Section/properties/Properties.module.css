@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  padding: 0.5rem;
   background-color: var(--color-white);
   border: 1px solid var(--color-light);
   border-radius: var(--border-radius-sm);
@@ -22,6 +23,26 @@
 
 .containerForm {
   margin: 1rem;
+}
+
+.iconFilterContainer {
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border-radius: var(--border-radius-lg);
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 992px) {
+  .headerProperties {
+    padding: 0.2rem 1rem;
+  }
+
+  .iconFilterContainer {
+    border: 1px solid var(--color-light);
+  }
 }
 
 .title {

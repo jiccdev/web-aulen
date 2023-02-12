@@ -11,12 +11,11 @@ import { icons } from '../../Icons';
 import { orderDepartmentBy } from '../../../api/data/orderBy';
 
 /** Bootstrap components */
+import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
-
-/** API services */
-import PropertiesServices from '../../../services/PropertiesServices';
+import Alert from 'react-bootstrap/Alert';
+import { Spinner } from 'reactstrap';
 
 const Properties = ({
   data,
@@ -79,7 +78,8 @@ const Properties = ({
             Ver mapa
           </Link>
         </div>
-        <div className={styles.containerForm}>
+        {/* En desarrollo ❌ */}
+        {/* <div className={styles.containerForm}>
           <form>
             <RSelect
               options={orderDepartmentBy}
@@ -87,9 +87,9 @@ const Properties = ({
               onChange={onOrderDepartmentByChange}
             />
           </form>
-        </div>
+        </div> */}
 
-        <div>
+        <div className={styles.iconFilterContainer}>
           {/* FILTAR PROPIEDADES */}
           <IconFilter
             isGrid={isGrid}
@@ -102,7 +102,7 @@ const Properties = ({
 
       <Col xl={9} className={styles.col}>
         <Row className={styles.rowItems}>
-          {newProperties &&
+          {newProperties.length > 0 ? (
             newProperties.map((property) => (
               <PropertyItem
                 key={property?.id}
@@ -112,7 +112,15 @@ const Properties = ({
                 realtorId={realtorId}
                 statusId={statusId}
               />
-            ))}
+            ))
+          ) : (
+            <Container>
+              <Alert variant="warning">
+                No se encontraron propiedades con los filtros seleccionados.{' '}
+                <a href="/propiedades">cargar propiedades</a>
+              </Alert>
+            </Container>
+          )}
         </Row>
 
         {/* PAGINATION */}
