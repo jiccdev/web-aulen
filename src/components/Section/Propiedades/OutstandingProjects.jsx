@@ -16,7 +16,7 @@ const OutstandingProjects = () => {
 
   return (
     <Row className={styles.row}>
-      <h2 className={styles.titleSection}>Proyectos destacados xd</h2>
+      <h2 className={styles.titleSection}>Proyectos destacados</h2>
       {properties?.length > 0 ? (
         properties
           .filter((property) => property?.highlighted === true)

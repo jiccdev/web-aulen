@@ -15,35 +15,37 @@ const LayoutPage = ({ children }) => {
   const handleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <Container fluid className="m-0 p-0">
-      {/* HEADER */}
-      <HeaderPage />
+    <React.Fragment>
+      <Container fluid className="m-0 p-0">
+        {/* HEADER */}
+        <HeaderPage />
 
-      {/* MAIN CONTENT APP */}
-      <Container fluid className={styles.layout}>
-        <main>{children}</main>
-      </Container>
+        {/* MAIN CONTENT APP */}
+        <Container fluid className={styles.layout}>
+          <main>{children}</main>
+        </Container>
 
-      {/* FOOTER */}
-      {/* <FooterPage /> */}
+        {/* FOOTER */}
+        <FooterPage />
 
-      {/* DROPDOWN SOCIAL MEDIA */}
-      <DropDownSocialMedia
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        handleModal={handleModal}
-      />
-
-      {/* Modal */}
-      {isModalOpen && (
-        <ModalPlanForm
-          show={isModalOpen}
-          onHide={() => setIsModalOpen(false)}
+        {/* DROPDOWN SOCIAL MEDIA */}
+        <DropDownSocialMedia
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
+          handleModal={handleModal}
         />
-      )}
-    </Container>
+
+        {/* Modal */}
+        {isModalOpen && (
+          <ModalPlanForm
+            show={isModalOpen}
+            onHide={() => setIsModalOpen(false)}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )}
+      </Container>
+    </React.Fragment>
   );
 };
 

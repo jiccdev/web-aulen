@@ -25,7 +25,7 @@ const OutstandingProjects = () => {
 
   return (
     <section id="outstandingProjects">
-      <HeaderSection titleSection="Proyectos destacados xd" />
+      <HeaderSection titleSection="Proyectos destacados" />
 
       <AliceCarousel
         mouseTracking
@@ -33,7 +33,6 @@ const OutstandingProjects = () => {
         controlsStrategy="alternate"
         items={properties
           ?.filter((property) => property?.highlighted === true)
-          .slice(0, 2)
           .map((property) => (
             <Col sm={12} key={property?.id}>
               <PropertyCard key={property?.id} property={property} />

@@ -7,7 +7,7 @@
   width: auto;
   background-color: var(--color-pale-gray-dark);
   padding: 1.5rem;
-  margin-top: 5rem;
+  z-index: 1;
 }
 
 @media screen and (min-width: 992px) {
@@ -16,7 +16,6 @@
   }
 }
 
-/* About Footer */
 .aboutFooterContainer,
 .addressFooterContainer,
 .navigationFooterContainer {
@@ -48,7 +47,6 @@
   }
 }
 
-/* Address Footer */
 .addressFooterContainer .addressFooterTitle {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
@@ -64,8 +62,6 @@
   color: var(--color-white);
   line-height: 0.95rem;
 }
-
-/* Navigation Footer */
 
 .navigationFooterContainer .navigationFooterInfoSection {
   font-size: var(--font-size-md);
@@ -95,7 +91,6 @@
   color: var(--color-light);
 }
 
-/* Social Media Footer */
 .socialMediaTopInfo {
   margin-bottom: 2.5rem;
 }
