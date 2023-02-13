@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 import Image from 'next/image';
 import HeaderSection from '../../Section/HeaderSection';
 import { leaseData } from '../../../api/data/lease';
@@ -23,26 +24,28 @@ const Lease = () => {
                 xl={4}
                 className={styles.leaseCol}
               >
-                <Card style={{ width: 'auto' }} className={styles.leaseCard}>
-                  <Image
-                    src={item?.src}
-                    alt={`imagen-${item?.title}`}
-                    className={styles.cardImage}
-                  />
-                  <Card.Body className={styles.leaseCardBody}>
-                    <Card.Title className={styles.leaseCardTitle}>
-                      {item?.title}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                <Fade duration={300} cascade>
+                  <Card style={{ width: 'auto' }} className={styles.leaseCard}>
+                    <Image
+                      src={item?.src}
+                      alt={`imagen-${item?.title}`}
+                      className={styles.cardImage}
+                    />
+                    <Card.Body className={styles.leaseCardBody}>
+                      <Card.Title className={styles.leaseCardTitle}>
+                        {item?.title}
+                      </Card.Title>
+                    </Card.Body>
+                  </Card>
 
-                <ul className={styles.leaseUl}>
-                  {item?.itemsList?.length > 0
-                    ? item?.itemsList?.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))
-                    : null}
-                </ul>
+                  <ul className={styles.leaseUl}>
+                    {item?.itemsList?.length > 0
+                      ? item?.itemsList?.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))
+                      : null}
+                  </ul>
+                </Fade>
               </Col>
             ))
           : null}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 import Link from 'next/link';
 import HeaderSection from '../../Section/HeaderSection';
 import { stepsData } from '../../../api/data/steps';
@@ -23,28 +24,36 @@ const Steps = () => {
                 xl={3}
                 className={styles.stepCol}
               >
-                <Card style={{ width: 'auto' }} className={styles.stepCard}>
-                  <Card.Body className={styles.stepCardBody}>
-                    <span className={styles.stepsIconContainer}>
-                      <strong className={styles.stepsIcon}>{item?.icon}</strong>
-                    </span>
-                    <span className={styles.stepCardIdContainer}>
-                      <strong className={styles.stepCardId}>{item?.id}</strong>
-                    </span>
-                    <Card.Title className={styles.stepCardTitle}>
-                      {item?.title}
-                    </Card.Title>
-                    <Card.Text>{item?.description}</Card.Text>
-                  </Card.Body>
-                </Card>
+                <Fade delay={200} direction="top" cascade>
+                  <Card style={{ width: 'auto' }} className={styles.stepCard}>
+                    <Card.Body className={styles.stepCardBody}>
+                      <span className={styles.stepsIconContainer}>
+                        <strong className={styles.stepsIcon}>
+                          {item?.icon}
+                        </strong>
+                      </span>
+                      <span className={styles.stepCardIdContainer}>
+                        <strong className={styles.stepCardId}>
+                          {item?.id}
+                        </strong>
+                      </span>
+                      <Card.Title className={styles.stepCardTitle}>
+                        {item?.title}
+                      </Card.Title>
+                      <Card.Text>{item?.description}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Fade>
               </Col>
             ))
           : null}
 
         <div className={styles.publishForFreeContainer}>
-          <Link href="/" className={styles.publishForFreeLink}>
-            Publica gratis
-          </Link>
+          <Fade delay={200} direction="top" cascade>
+            <Link href="/" className={styles.publishForFreeLink}>
+              Publica gratis
+            </Link>
+          </Fade>
         </div>
       </Row>
     </div>

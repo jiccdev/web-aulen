@@ -23,6 +23,7 @@
 
 .h2_3xl {
   font-size: var(--font-size-2xl) !important;
+  font-weight: var(--font-weight-bold) !important;
 }
 
 .text-center {

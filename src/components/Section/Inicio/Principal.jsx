@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 import Image from 'next/image';
 import HeaderSection from '../HeaderSection';
 import Form from './FormMain';
@@ -19,26 +20,30 @@ const Principal = () => {
 
       <Row className={styles.rowPlanForm}>
         <Col sm={12} lg={6} className={styles.principalCol}>
-          <Image
-            width="100%"
-            src={Packaging}
-            alt="house"
-            className={styles.principalImage}
-          />
+          <Fade delay={200} direction="left" cascade>
+            <Image
+              width="100%"
+              src={Packaging}
+              alt="house"
+              className={styles.principalImage}
+            />
+          </Fade>
         </Col>
 
         <Col sm={12} lg={6} className={styles.principalCol}>
-          <Form
-            titleContentForm="Vende o arrienda tu propiedad rápido y sin complicaciones"
-            textAlign="center"
-            subtitle=""
-            haveAction1={{
-              text: 'QUIERO VENDER',
-            }}
-            haveAction2={{
-              text: 'QUIERO ARRENDAR',
-            }}
-          />
+          <Fade delay={200} direction="right" cascade>
+            <Form
+              titleContentForm="Vende o arrienda tu propiedad rápido y sin complicaciones"
+              textAlign="center"
+              subtitle=""
+              haveAction1={{
+                text: 'QUIERO VENDER',
+              }}
+              haveAction2={{
+                text: 'QUIERO ARRENDAR',
+              }}
+            />
+          </Fade>
         </Col>
       </Row>
     </div>
