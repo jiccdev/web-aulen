@@ -25,7 +25,7 @@ const LayoutPage = ({ children }) => {
       </Container>
 
       {/* FOOTER */}
-      <FooterPage />
+      {/* <FooterPage /> */}
 
       {/* DROPDOWN SOCIAL MEDIA */}
       <DropDownSocialMedia

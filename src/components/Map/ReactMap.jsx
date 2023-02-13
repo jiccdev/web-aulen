@@ -36,22 +36,11 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
               {propertyData?.address || ''} {propertyData?.city || ''}
             </span>
           </div>
-          {/* <Link href="/" className={styles.showAreaInfo}>
-            Ver información de la zona
-          </Link> */}
         </div>
       </div>
       <Map
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={{
-          // longitude,
-          // latitude,
-          // zoom: 14,
-          // pitch: 45,
-          // bearing: 0,
-          // width: 'auto',
-          // height: 300,
-
           longitude: longitude,
           latitude: latitude,
           zoom: 3.5,

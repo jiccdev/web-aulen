@@ -55,7 +55,7 @@ const PropiedadId = () => {
               </Link>{' '}
               |{' '}
               <Link href="/" className={styles.printLink}>
-                Imprimir
+                Descargar Detalles
               </Link>{' '}
             </div>
             <Details propertyData={property} />

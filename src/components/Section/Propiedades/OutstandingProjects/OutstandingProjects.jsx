@@ -25,17 +25,20 @@ const OutstandingProjects = () => {
 
   return (
     <section id="outstandingProjects">
-      <HeaderSection titleSection="Proyectos destacados" />
+      <HeaderSection titleSection="Proyectos destacados xd" />
 
       <AliceCarousel
         mouseTracking
         responsive={responsive}
         controlsStrategy="alternate"
-        items={properties?.map((property) => (
-          <Col sm={12} key={property?.id}>
-            <PropertyCard key={property?.id} property={property} />
-          </Col>
-        ))}
+        items={properties
+          ?.filter((property) => property?.highlighted === true)
+          .slice(0, 2)
+          .map((property) => (
+            <Col sm={12} key={property?.id}>
+              <PropertyCard key={property?.id} property={property} />
+            </Col>
+          ))}
         autoPlay
         autoPlayStrategy="none"
         autoPlayInterval={2500}
