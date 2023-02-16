@@ -1,23 +1,24 @@
 import api from '../../src/api';
+import axios from 'axios';
 
 const PropertiesServices = {
   getProperties: async (realtorId, statusId) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}`
     );
     return response.data;
   },
 
   getProperty: async (id, realtorId, statusId) => {
-    const response = await api.get(
-      `properties/${id}?realtorId=${realtorId}&statusId=${statusId}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties/${id}?realtorId=${realtorId}&statusId=${statusId}`
     );
     return response.data;
   },
 
   getPagination: async (limit, page, realtorId, statusId) => {
-    const response = await api.get(
-      `properties?limit=${limit}&page=${page}&realtorId=${realtorId}&statusId=${statusId}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?limit=${limit}&page=${page}&realtorId=${realtorId}&statusId=${statusId}`
     );
     return response.data;
   },
@@ -29,8 +30,8 @@ const PropertiesServices = {
     statusId,
     typeOfProperty
   ) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
     );
     return response.data;
   },
@@ -42,32 +43,32 @@ const PropertiesServices = {
     minValue,
     maxValue
   ) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
     );
     return response.data;
   },
 
   // Surface M2
   getPropertiesBySurfaceM2: async (realtorId, statusId, surfaceM2) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
     );
     return response.data;
   },
 
   // Bedrooms
   getPropertiesByBedrooms: async (realtorId, statusId, bedrooms) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
     );
     return response.data;
   },
 
   // Bathrooms
   getPropertiesByBathrooms: async (realtorId, statusId, bathrooms) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
     );
     return response.data;
   },
@@ -78,8 +79,8 @@ const PropertiesServices = {
     statusId,
     parkingLotsCovered
   ) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
     );
     return response.data;
   },
@@ -90,11 +91,112 @@ const PropertiesServices = {
     statusId,
     parkingLotsUncovered
   ) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
+    const response = await axios.get(
+      `http://190.114.255.247:5050/properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
     );
     return response.data;
   },
 };
 
 export default PropertiesServices;
+
+// import api from '../../src/api';
+
+// const PropertiesServices = {
+//   getProperties: async (realtorId, statusId) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}`
+//     );
+//     return response.data;
+//   },
+
+//   getProperty: async (id, realtorId, statusId) => {
+//     const response = await api.get(
+//       `properties/${id}?realtorId=${realtorId}&statusId=${statusId}`
+//     );
+//     return response.data;
+//   },
+
+//   getPagination: async (limit, page, realtorId, statusId) => {
+//     const response = await api.get(
+//       `properties?limit=${limit}&page=${page}&realtorId=${realtorId}&statusId=${statusId}`
+//     );
+//     return response.data;
+//   },
+
+//   /** Advanced filters for properties */
+//   // Type of property
+//   getPropertiesByTypeOfProperty: async (
+//     realtorId,
+//     statusId,
+//     typeOfProperty
+//   ) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
+//     );
+//     return response.data;
+//   },
+
+//   // Min & Max Price
+//   getPropertiesByMinAndMaxPrice: async (
+//     realtorId,
+//     statusId,
+//     minValue,
+//     maxValue
+//   ) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
+//     );
+//     return response.data;
+//   },
+
+//   // Surface M2
+//   getPropertiesBySurfaceM2: async (realtorId, statusId, surfaceM2) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
+//     );
+//     return response.data;
+//   },
+
+//   // Bedrooms
+//   getPropertiesByBedrooms: async (realtorId, statusId, bedrooms) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
+//     );
+//     return response.data;
+//   },
+
+//   // Bathrooms
+//   getPropertiesByBathrooms: async (realtorId, statusId, bathrooms) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
+//     );
+//     return response.data;
+//   },
+
+//   // Parking Lots (covered)
+//   getPropertiesByParkingLotsCovered: async (
+//     realtorId,
+//     statusId,
+//     parkingLotsCovered
+//   ) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
+//     );
+//     return response.data;
+//   },
+
+//   // Parking Lots (uncovered)
+//   getPropertiesByParkingLotsUncovered: async (
+//     realtorId,
+//     statusId,
+//     parkingLotsUncovered
+//   ) => {
+//     const response = await api.get(
+//       `properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
+//     );
+//     return response.data;
+//   },
+// };
+
+// export default PropertiesServices;
