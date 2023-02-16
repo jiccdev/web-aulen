@@ -25,5 +25,8 @@
     "react-map-gl": "^7.0.21",
     "react-select": "^5.7.0",
     "reactstrap": "^9.1.5"
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.12.1"
   }
 }
