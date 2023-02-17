@@ -42,7 +42,7 @@ const Propiedades = () => {
     getProperties(5, 5);
   }, []);
 
-  console.log('properties', properties);
+  // console.log('properties', properties);
 
   return (
     <Fragment>

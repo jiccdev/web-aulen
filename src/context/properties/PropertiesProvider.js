@@ -57,7 +57,7 @@ const PropertiesProvider = ({ children }) => {
       setNewProperties(response.data);
       setProperties(response.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

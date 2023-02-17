@@ -194,8 +194,8 @@ const AdvancedSearchForm = ({
       : getPropertiesByParkingLotsCovered(5, 5, filtredDataValue.parkingLots);
   }, [filtredDataValue.parkingLots]);
 
-  console.log('filtredDataValue', filtredDataValue);
-  console.log('newProperties', newProperties);
+  // console.log('filtredDataValue', filtredDataValue);
+  // console.log('newProperties', newProperties);
 
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>

@@ -47,8 +47,8 @@ const Properties = ({
   const { BiMap } = icons;
 
   const onOrderDepartmentByChange = (option) => {
-    console.log(option);
-    console.log(orderDepartmentBy[0]);
+    // console.log(option);
+    // console.log(orderDepartmentBy[0]);
   };
 
   const paginate = (currentPage) => getPagination(limit, currentPage, 5, 5);
