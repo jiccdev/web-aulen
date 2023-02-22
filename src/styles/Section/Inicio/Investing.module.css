@@ -90,7 +90,7 @@
   .investingColAbsolute {
     position: absolute !important;
     right: -10rem !important;
-    top: 23% !important;
+    top: 20% !important;
     width: 50% !important;
     height: 70% !important;
     border-radius: var(--border-radius-5xl) !important;
@@ -106,5 +106,8 @@
 @media screen and (min-width: 1920px) {
   .investingContainer {
     width: 55% !important;
+  }
+  .investingColAbsolute {
+    top: 25.5% !important;
   }
 }

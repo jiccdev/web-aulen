@@ -65,7 +65,7 @@ const Properties = ({
     <Row className={styles.rowContainer}>
       <div className={styles.headerProperties}>
         <div>
-          <h1 className={styles.title}>Departamentos</h1>
+          <h1 className={styles.title}>Propiedades</h1>
         </div>
         <div>
           <Link
