@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 import Image from 'next/image';
 import sofa from '../../../../assets/img/SoyPropietario/sofa.jpg';
 import OurServices from '../../SoyPropietario/QuieroArrendar/OurServices';
@@ -12,10 +13,16 @@ export const HeroSection = () => {
       </div>
 
       <div className={`${styles.customCol} ${styles.headerContainer}`}>
-        <h1 className={`${styles.heroH1}`}>
-          ¡Disfruta de la tranquilidad de arrendar tú propiedad con Aulen!
-        </h1>
-        <Image src={sofa} alt="imagen-hero" className={`${styles.heroImage}`} />
+        <Fade delay={200} direction="right" cascade>
+          <h1 className={`${styles.heroH1}`}>
+            ¡Disfruta de la tranquilidad de arrendar tú propiedad con Aulen!
+          </h1>
+          <Image
+            src={sofa}
+            alt="imagen-hero"
+            className={`${styles.heroImage}`}
+          />
+        </Fade>
       </div>
     </section>
   );

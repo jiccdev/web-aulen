@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import styles from '../../../../styles/Section/soy-propietario/quiero-arrendar/FeaturesCard/FeaturesCard.module.css';
 
 export const FeatureCard = ({ features }) => {
