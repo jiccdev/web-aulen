@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import RSelect from '../RSelect/RSelect';
+import SelectsContext from '@/context/selects/SelectsContext';
 import styles from '../../styles/Forms/AdvancedSearchForm.module.css';
 
 /** Bootstrap components */
@@ -10,22 +11,19 @@ import Alert from 'react-bootstrap/Alert';
 import Form from 'react-bootstrap/Form';
 
 const AdvancedSearchForm = ({
-  data,
-  setProperties,
   getProperties,
-  newProperties,
-  setNewProperties,
   getSelects,
   selectsList,
-  // filters
+  getCommunesByRegion,
   getPropertiesByTypeOfProperty,
   getPropertiesByMinAndMaxPrice,
   getPropertiesBySurfaceM2,
   getPropertiesByBedrooms,
   getPropertiesByBathrooms,
   getPropertiesByParkingLotsCovered,
+  getPropertiesByOperationType,
 }) => {
-  const { regions, operationType, typeOfProperty, installmentType } =
+  const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
   const [notPropertiesMessage, setNotPropertiesMessage] = useState('');
   const [filtredData, setFiltredData] = useState([]);
@@ -52,8 +50,9 @@ const AdvancedSearchForm = ({
   const onOperationTypeChange = (option) => {
     setFiltredDataValue({
       ...filtredDataValue,
-      typeOfOperation: option?.value,
+      typeOfOperation: option?.label,
     });
+    console.log(option);
   };
 
   const getOperationTypeOptions = () =>
@@ -109,12 +108,20 @@ const AdvancedSearchForm = ({
     });
   };
 
-  const onCommunesChange = (option) => {
+  // ===== Communes =====
+  const getCommunesOptions = () =>
+    communes?.map((comune) => ({
+      value: comune.id,
+      label: comune.name,
+    }));
+
+  const onCommunesChange = (comune) => {
     setFiltredDataValue({
       ...filtredDataValue,
-      commune: option?.value,
+      commune: comune?.value,
     });
   };
+  // ===== Communes =====
 
   const onSurfaceChange = (ev) => {
     setFiltredDataValue({
@@ -147,6 +154,10 @@ const AdvancedSearchForm = ({
   useEffect(() => {
     getSelects();
   }, []);
+
+  useEffect(() => {
+    getCommunesByRegion(filtredDataValue?.region);
+  }, [filtredDataValue?.region]);
 
   /** Filters */
   // ===== Filter by Type of Property ✅ =====
@@ -194,8 +205,11 @@ const AdvancedSearchForm = ({
       : getPropertiesByParkingLotsCovered(5, 5, filtredDataValue.parkingLots);
   }, [filtredDataValue.parkingLots]);
 
-  // console.log('filtredDataValue', filtredDataValue);
-  // console.log('newProperties', newProperties);
+  useEffect(() => {
+    !filtredDataValue.typeOfOperation
+      ? getProperties(5, 5)
+      : getPropertiesByOperationType(5, 5, filtredDataValue.typeOfOperation);
+  }, [filtredDataValue.typeOfOperation]);
 
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
@@ -232,8 +246,8 @@ const AdvancedSearchForm = ({
       <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Comuna</Form.Label>
         <RSelect
-          // options={communes}
-          // defaultValue={communes[0]}
+          options={getCommunesOptions()}
+          defaultValue={communes[0]}
           onChange={onCommunesChange}
           className={styles.rSelect}
         />

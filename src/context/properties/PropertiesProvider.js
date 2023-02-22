@@ -11,6 +11,8 @@ const PropertiesProvider = ({ children }) => {
   const [metaData, setMetaData] = useState({});
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(12);
+  const [limitInMap, setLimitInMap] = useState(20);
+
   const [totalItems, setTotalItems] = useState(null);
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
 
@@ -166,7 +168,7 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
-  // Bathrooms
+  // ParkingLotsCovered
   const getPropertiesByParkingLotsCovered = async (
     realtorId,
     statusId,
@@ -179,6 +181,26 @@ const PropertiesProvider = ({ children }) => {
           statusId,
           parkingLotsCovered
         );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
+  // Operation Type
+  const getPropertiesByOperationType = async (
+    realtorId,
+    statusId,
+    operationType
+  ) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByOperationType(
+        realtorId,
+        statusId,
+        operationType
+      );
       setProperties(response?.data);
       setNewProperties(response?.data);
     } catch (error) {
@@ -203,13 +225,14 @@ const PropertiesProvider = ({ children }) => {
         totalItems,
         page,
         limit,
-        // filters
+        limitInMap,
         getPropertiesByTypeOfProperty,
         getPropertiesByMinAndMaxPrice,
         getPropertiesBySurfaceM2,
         getPropertiesByBedrooms,
         getPropertiesByBathrooms,
         getPropertiesByParkingLotsCovered,
+        getPropertiesByOperationType,
       }}
     >
       {children}

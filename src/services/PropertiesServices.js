@@ -95,6 +95,14 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+  // Operation Type
+  getPropertiesByOperationType: async (realtorId, statusId, operationType) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}`
+    );
+    return response.data;
+  },
 };
 
 export default PropertiesServices;

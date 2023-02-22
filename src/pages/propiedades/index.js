@@ -25,12 +25,15 @@ const Propiedades = () => {
     getPropertiesByBedrooms,
     getPropertiesByBathrooms,
     getPropertiesByParkingLotsCovered,
+    getPropertiesByOperationType,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
     getSelects,
+    getCommunesByRegion,
     selects,
     regions,
+    communes,
     operationType,
     typeOfProperty,
     installmentType,
@@ -41,8 +44,6 @@ const Propiedades = () => {
   useEffect(() => {
     getProperties(5, 5);
   }, []);
-
-  // console.log('properties', properties);
 
   return (
     <Fragment>
@@ -65,9 +66,11 @@ const Propiedades = () => {
           page={page}
           limit={limit}
           getSelects={getSelects}
+          getCommunesByRegion={getCommunesByRegion}
           selectsList={{
             selects,
             regions,
+            communes,
             operationType,
             typeOfProperty,
             installmentType,
@@ -79,6 +82,7 @@ const Propiedades = () => {
           getPropertiesByBedrooms={getPropertiesByBedrooms}
           getPropertiesByBathrooms={getPropertiesByBathrooms}
           getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
+          getPropertiesByOperationType={getPropertiesByOperationType}
         />
       </LayoutSection>
     </Fragment>

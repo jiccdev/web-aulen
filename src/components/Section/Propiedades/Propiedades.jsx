@@ -26,6 +26,7 @@ const Properties = ({
   newProperties,
   setNewProperties,
   getSelects,
+  getCommunesByRegion,
   selectsList,
   //meta
   getPagination,
@@ -34,6 +35,7 @@ const Properties = ({
   totalItems,
   page,
   limit,
+  limitInMap,
   // filters
   getPropertiesByTypeOfProperty,
   getPropertiesByMinAndMaxPrice,
@@ -41,6 +43,7 @@ const Properties = ({
   getPropertiesByBedrooms,
   getPropertiesByBathrooms,
   getPropertiesByParkingLotsCovered,
+  getPropertiesByOperationType,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
@@ -141,6 +144,7 @@ const Properties = ({
           newProperties={newProperties}
           setNewProperties={setNewProperties}
           getSelects={getSelects}
+          getCommunesByRegion={getCommunesByRegion}
           selectsList={selectsList}
           // filters
           getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
@@ -149,6 +153,7 @@ const Properties = ({
           getPropertiesByBedrooms={getPropertiesByBedrooms}
           getPropertiesByBathrooms={getPropertiesByBathrooms}
           getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
+          getPropertiesByOperationType={getPropertiesByOperationType}
         />
 
         {/* PROYECTOS DESTACADOS */}

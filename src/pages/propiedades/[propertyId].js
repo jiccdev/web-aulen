@@ -7,7 +7,6 @@ import GalleryCarousel from '../../components/GalleryCorousel/GalleryCarousel';
 import Details from '@/components/Section/Propiedades/Details/Details';
 import Characteristics from '@/components/Section/Propiedades/Details/Characteristics';
 import InformationOnTheArea from '@/components/Section/Propiedades/Details/InformationOnTheArea';
-
 // import Characteristic from '../../src/components/Section/propiedades/details/Characteristics';
 // import InformationOnTheArea from '../../src/components/Section/propiedades/details/InformationOnTheArea';
 
@@ -25,8 +24,6 @@ const PropiedadId = () => {
     // getProperty(propertyId, 1, 1);
     getProperty(propertyId, 5, 5);
   }, [propertyId]);
-
-  // console.log(property);
 
   return (
     <Fragment>
