@@ -6,6 +6,7 @@ import OutstandingProjects from './OutstandingProjects';
 import PropertyItem from './PropertyItem';
 import IconFilter from '../../IconFilter/IconFilter';
 import PaginationComponent from '@/components/Pagination/Pagination';
+import SpinnerComponent from '@/components/Spinner/SpinnerComponent';
 import styles from '../../../styles/Section/properties/Properties.module.css';
 import { icons } from '../../Icons';
 import { orderDepartmentBy } from '../../../api/data/orderBy';
@@ -15,7 +16,6 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Alert from 'react-bootstrap/Alert';
-import { Spinner } from 'reactstrap';
 
 const Properties = ({
   data,
@@ -49,11 +49,6 @@ const Properties = ({
   const [isList, setIsList] = useState(false);
   const { BiMap } = icons;
 
-  const onOrderDepartmentByChange = (option) => {
-    // console.log(option);
-    // console.log(orderDepartmentBy[0]);
-  };
-
   const paginate = (currentPage) => getPagination(limit, currentPage, 5, 5);
 
   useEffect(() => {
@@ -81,7 +76,8 @@ const Properties = ({
             Ver mapa
           </Link>
         </div>
-        {/* En desarrollo ❌ */}
+
+        {/* EN DESARROLLO ❌ */}
         {/* <div className={styles.containerForm}>
           <form>
             <RSelect
@@ -92,8 +88,8 @@ const Properties = ({
           </form>
         </div> */}
 
+        {/* FILTAR PROPIEDADES */}
         <div className={styles.iconFilterContainer}>
-          {/* FILTAR PROPIEDADES */}
           <IconFilter
             isGrid={isGrid}
             setIsGrid={setIsGrid}
@@ -118,10 +114,12 @@ const Properties = ({
             ))
           ) : (
             <Container>
-              <Alert variant="warning">
-                No se encontraron propiedades con los filtros seleccionados.{' '}
-                <a href="/propiedades">cargar propiedades</a>
-              </Alert>
+              {<SpinnerComponent variant="warning" /> ?? (
+                <Alert variant="warning">
+                  No se encontraron propiedades con los filtros seleccionados.{' '}
+                  <a href="/propiedades">cargar propiedades</a>
+                </Alert>
+              )}
             </Container>
           )}
         </Row>
@@ -135,8 +133,8 @@ const Properties = ({
         />
       </Col>
 
+      {/* BUSQUEDA AVANZADA */}
       <Col xl={3} className={styles.colForm}>
-        {/* BÚSQUEDA AVANZADA */}
         <AdvancedSearchForm
           data={newProperties}
           setProperties={setProperties}
@@ -146,7 +144,6 @@ const Properties = ({
           getSelects={getSelects}
           getCommunesByRegion={getCommunesByRegion}
           selectsList={selectsList}
-          // filters
           getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
           getPropertiesByMinAndMaxPrice={getPropertiesByMinAndMaxPrice}
           getPropertiesBySurfaceM2={getPropertiesBySurfaceM2}

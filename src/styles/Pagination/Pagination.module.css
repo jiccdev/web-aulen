@@ -29,9 +29,13 @@
   border-radius: 0.5rem;
   background-color: whitesmoke;
   text-decoration: none;
-  border: 2px solid var(--color-dark-light) !important;
+  border: 2px solid whitesmoke !important;
   color: var(--color-dark-light);
   box-shadow: 0 0 0 0.5px var(--color-dark-light);
+}
+
+.paginationLink:active {
+  background-color: var(--bg-primary) !important;
 }
 
 .paginationLink:hover {
