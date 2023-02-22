@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import PublishingForm from '../../../components/Forms/PublishingForm';
 import { publishingFormData } from '../../../api/data//publishingForm';
 import styles from '../../../styles/Section/soy-propietario/quiero-vender/Layout.module.css';
@@ -46,7 +47,9 @@ const Layout = ({ children }) => {
             : styles.rightCol
         }
       >
-        <PublishingForm formData={publishingFormData[0]} />
+        <Fade delay={200} direction="up" cascade>
+          <PublishingForm formData={publishingFormData[0]} />
+        </Fade>
       </Col>
     </Row>
   );

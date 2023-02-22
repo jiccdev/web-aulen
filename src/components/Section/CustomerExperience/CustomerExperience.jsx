@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import AliceCarousel from 'react-alice-carousel';
 import CustomersContext from '@/context/customers/CustomersContext';
 import HeaderSection from '../HeaderSection';
@@ -29,26 +30,27 @@ const CustomerExperience = () => {
       className={styles.customerExperienceContainer}
     >
       <HeaderSection titleSection="Conoce la experiencia de nuestros clientes" />
-
-      <AliceCarousel
-        mouseTracking
-        responsive={responsive}
-        controlsStrategy="alternate"
-        items={customers?.map((customer) => (
-          <Col sm={12}>
-            <CustomerCard key={customer?.id} customer={customer} />
-          </Col>
-        ))}
-        autoPlay
-        autoPlayStrategy="none"
-        autoPlayInterval={2500}
-        animationDuration={1000}
-        animationType="fadeout"
-        infinite
-        touchTracking={false}
-        // disableDotsControls
-        // disableButtonsControls
-      />
+      <Fade delay={200} direction="right" cascade>
+        <AliceCarousel
+          mouseTracking
+          responsive={responsive}
+          controlsStrategy="alternate"
+          items={customers?.map((customer) => (
+            <Col sm={12}>
+              <CustomerCard key={customer?.id} customer={customer} />
+            </Col>
+          ))}
+          autoPlay
+          autoPlayStrategy="none"
+          autoPlayInterval={2500}
+          animationDuration={1000}
+          animationType="fadeout"
+          infinite
+          touchTracking={false}
+          // disableDotsControls
+          // disableButtonsControls
+        />
+      </Fade>
     </section>
   );
 };

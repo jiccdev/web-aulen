@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { Fade } from 'react-awesome-reveal';
 import PublishingForm from '../../../../components/Forms/PublishingForm';
 import { publishingFormData } from '../../../../api/data/publishingForm'; /** revisar el indice según lo que quiera el form */
 import keyImg from '../../../../assets/img/SoyPropietario/key.jpg';
@@ -11,15 +12,15 @@ export const HeroSection = () => {
       <h1>¡Vende tu propiedad rápido y sin complicaciones!</h1>
 
       <div className={`${styles.customRow} ${styles.imgAndForm}`}>
-        <div className={`${styles.customRow} ${styles.imgContainer}`}>
-          <Image
-            className={`${styles.imgHeader}`}
-            src={keyImg}
-            alt="imagen-header"
-          />
-        </div>
-
-        {/* <PublishingForm formData={publishingFormData[0]} /> */}
+        <Fade delay={200} direction="left" cascade>
+          <div className={`${styles.customRow} ${styles.imgContainer}`}>
+            <Image
+              className={`${styles.imgHeader}`}
+              src={keyImg}
+              alt="imagen-header"
+            />
+          </div>
+        </Fade>
       </div>
     </header>
   );

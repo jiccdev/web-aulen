@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 import HeaderSection from '../HeaderSection';
 import PlanCard from '../../Card/PlanCard';
 import { plansData } from '../../../api/data/plans';
@@ -14,10 +15,12 @@ const Plans = () => {
       <Col md={12} xl={9} className={styles.col}>
         <HeaderSection titleSection="Conoce nuestros planes" />
 
-        <Row className={styles.rowItems}>
-          {plansData &&
-            plansData.map((plan) => <PlanCard key={plan?.id} plan={plan} />)}
-        </Row>
+        <Fade delay={200} direction="left" cascade>
+          <Row className={styles.rowItems}>
+            {plansData &&
+              plansData.map((plan) => <PlanCard key={plan?.id} plan={plan} />)}
+          </Row>
+        </Fade>
       </Col>
     </Row>
   );
