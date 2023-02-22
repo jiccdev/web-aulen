@@ -209,6 +209,29 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  // Regions & Communes
+  const getPropertiesByRegionAndCommune = async (
+    realtorId,
+    statusId,
+    region,
+    commune
+  ) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByRegionAndCommune(
+        realtorId,
+        statusId,
+        region,
+        commune
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+      console.log('propiedades filtradas', response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
@@ -233,6 +256,7 @@ const PropertiesProvider = ({ children }) => {
         getPropertiesByBathrooms,
         getPropertiesByParkingLotsCovered,
         getPropertiesByOperationType,
+        getPropertiesByRegionAndCommune,
       }}
     >
       {children}

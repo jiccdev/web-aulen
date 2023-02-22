@@ -26,6 +26,7 @@ const Propiedades = () => {
     getPropertiesByBathrooms,
     getPropertiesByParkingLotsCovered,
     getPropertiesByOperationType,
+    getPropertiesByRegionAndCommune,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -75,7 +76,6 @@ const Propiedades = () => {
             typeOfProperty,
             installmentType,
           }}
-          // filters
           getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
           getPropertiesByMinAndMaxPrice={getPropertiesByMinAndMaxPrice}
           getPropertiesBySurfaceM2={getPropertiesBySurfaceM2}
@@ -83,6 +83,7 @@ const Propiedades = () => {
           getPropertiesByBathrooms={getPropertiesByBathrooms}
           getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
           getPropertiesByOperationType={getPropertiesByOperationType}
+          getPropertiesByRegionAndCommune={getPropertiesByRegionAndCommune}
         />
       </LayoutSection>
     </Fragment>

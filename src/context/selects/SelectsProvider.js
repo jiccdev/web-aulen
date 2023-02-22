@@ -20,7 +20,6 @@ const SelectsProvider = ({ children }) => {
         response;
       setSelects(response);
       setRegions(regions);
-      console.log(regions);
       setOperationType(operationType);
       setTypeOfProperty(typeOfProperty);
       setInstallmentType(installment_type);
@@ -37,12 +36,6 @@ const SelectsProvider = ({ children }) => {
       setErrorServerMsg(error?.response);
     }
   };
-
-  useEffect(() => {
-    getCommunesByRegion(1);
-  }, []);
-
-  console.log(communes);
 
   return (
     <SelectsContext.Provider

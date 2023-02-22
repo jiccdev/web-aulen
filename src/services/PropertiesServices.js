@@ -103,6 +103,19 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+  // Regions & Communes
+  getPropertiesByRegionAndCommune: async (
+    realtorId,
+    statusId,
+    region,
+    commune
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&region=${region}&commune=${commune}`
+    );
+    return response.data;
+  },
 };
 
 export default PropertiesServices;

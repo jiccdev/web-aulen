@@ -17,3 +17,6 @@ export const parseToCLPCurrency = (number) => {
 export const clpToUf = (clpValue, ufValue) => {
   return (Math.round((clpValue / ufValue) * 100) / 100000).toFixed(2);
 };
+
+// Replace white spaces to string
+export const replaceSpaces = (str) => str.replace(/\s/g, '%20');

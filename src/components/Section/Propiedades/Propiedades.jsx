@@ -28,7 +28,6 @@ const Properties = ({
   getSelects,
   getCommunesByRegion,
   selectsList,
-  //meta
   getPagination,
   metaData,
   getTotalItems,
@@ -36,7 +35,6 @@ const Properties = ({
   page,
   limit,
   limitInMap,
-  // filters
   getPropertiesByTypeOfProperty,
   getPropertiesByMinAndMaxPrice,
   getPropertiesBySurfaceM2,
@@ -44,6 +42,7 @@ const Properties = ({
   getPropertiesByBathrooms,
   getPropertiesByParkingLotsCovered,
   getPropertiesByOperationType,
+  getPropertiesByRegionAndCommune,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
@@ -151,6 +150,7 @@ const Properties = ({
           getPropertiesByBathrooms={getPropertiesByBathrooms}
           getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
           getPropertiesByOperationType={getPropertiesByOperationType}
+          getPropertiesByRegionAndCommune={getPropertiesByRegionAndCommune}
         />
 
         {/* PROYECTOS DESTACADOS */}

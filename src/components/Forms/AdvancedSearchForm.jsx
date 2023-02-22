@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import RSelect from '../RSelect/RSelect';
-import SelectsContext from '@/context/selects/SelectsContext';
 import styles from '../../styles/Forms/AdvancedSearchForm.module.css';
 
 /** Bootstrap components */
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Alert from 'react-bootstrap/Alert';
 import Form from 'react-bootstrap/Form';
 
 const AdvancedSearchForm = ({
@@ -22,6 +20,7 @@ const AdvancedSearchForm = ({
   getPropertiesByBathrooms,
   getPropertiesByParkingLotsCovered,
   getPropertiesByOperationType,
+  getPropertiesByRegionAndCommune,
 }) => {
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
@@ -52,7 +51,6 @@ const AdvancedSearchForm = ({
       ...filtredDataValue,
       typeOfOperation: option?.label,
     });
-    console.log(option);
   };
 
   const getOperationTypeOptions = () =>
@@ -89,8 +87,25 @@ const AdvancedSearchForm = ({
       ...filtredDataValue,
       region: option?.value,
     });
+
+    console.log(filtredDataValue?.region);
   };
   // ===== Regions =====
+
+  // ===== Communes =====
+  const getCommunesOptions = () =>
+    communes?.map((comune) => ({
+      value: comune.id,
+      label: comune.name,
+    }));
+
+  const onCommunesChange = (comune) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      commune: comune?.label,
+    });
+  };
+  // ===== Communes =====
 
   // ===== From Price =====
   const onPriceFromChange = (ev) => {
@@ -107,21 +122,6 @@ const AdvancedSearchForm = ({
       priceUpTo: Number(ev.target.value),
     });
   };
-
-  // ===== Communes =====
-  const getCommunesOptions = () =>
-    communes?.map((comune) => ({
-      value: comune.id,
-      label: comune.name,
-    }));
-
-  const onCommunesChange = (comune) => {
-    setFiltredDataValue({
-      ...filtredDataValue,
-      commune: comune?.value,
-    });
-  };
-  // ===== Communes =====
 
   const onSurfaceChange = (ev) => {
     setFiltredDataValue({
@@ -158,6 +158,18 @@ const AdvancedSearchForm = ({
   useEffect(() => {
     getCommunesByRegion(filtredDataValue?.region);
   }, [filtredDataValue?.region]);
+
+  // Regions & Communes
+  useEffect(() => {
+    !filtredDataValue.commune && !filtredDataValue.region
+      ? getProperties(5, 5)
+      : getPropertiesByRegionAndCommune(
+          5,
+          5,
+          filtredDataValue.region,
+          filtredDataValue.commune
+        );
+  }, [filtredDataValue.commune]);
 
   /** Filters */
   // ===== Filter by Type of Property ✅ =====
