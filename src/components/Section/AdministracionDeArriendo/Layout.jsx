@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PlanForm from '../../Forms/PlanForm';
+import { Fade } from 'react-awesome-reveal';
 
 /** Bootstrap components */
 import Row from 'react-bootstrap/Row';
@@ -45,7 +46,9 @@ const Layout = ({ children }) => {
             : styles.rightCol
         }
       >
-        <PlanForm />
+        <Fade delay={200} direction="right" cascade>
+          <PlanForm />
+        </Fade>
       </Col>
     </Row>
   );
