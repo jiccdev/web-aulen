@@ -19,6 +19,7 @@ import Alert from 'react-bootstrap/Alert';
 
 const Properties = ({
   data,
+  router,
   setProperties,
   realtorId,
   statusId,
@@ -43,6 +44,8 @@ const Properties = ({
   getPropertiesByParkingLotsCovered,
   getPropertiesByOperationType,
   getPropertiesByRegionAndCommune,
+  getPropertiesByInstallmentType,
+  getPropertiesOnFormSubmit,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
@@ -136,6 +139,7 @@ const Properties = ({
       <Col xl={3} className={styles.colForm}>
         <AdvancedSearchForm
           data={newProperties}
+          router={router}
           setProperties={setProperties}
           getProperties={getProperties}
           newProperties={newProperties}
@@ -151,6 +155,8 @@ const Properties = ({
           getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
           getPropertiesByOperationType={getPropertiesByOperationType}
           getPropertiesByRegionAndCommune={getPropertiesByRegionAndCommune}
+          getPropertiesByInstallmentType={getPropertiesByInstallmentType}
+          getPropertiesOnFormSubmit={getPropertiesOnFormSubmit}
         />
 
         {/* PROYECTOS DESTACADOS */}

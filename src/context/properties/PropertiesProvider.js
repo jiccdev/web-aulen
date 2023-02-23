@@ -231,6 +231,65 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  const getPropertiesByInstallmentType = async (
+    realtorId,
+    statusId,
+    installmentType
+  ) => {
+    try {
+      const response = await PropertiesServices.getPropertiesByInstallmentType(
+        realtorId,
+        statusId,
+        installmentType
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
+  // on form submit
+  const getPropertiesOnFormSubmit = async (
+    realtorId,
+    statusId,
+    operationType,
+    typeOfProperty,
+    regionId,
+    communeId,
+    minPrice,
+    maxPrice,
+    coveredParkingLots,
+    bathrooms,
+    surfaceM2,
+    bedrooms,
+    installmentType
+  ) => {
+    try {
+      const response = await PropertiesServices.getPropertiesOnFormSubmit(
+        realtorId,
+        statusId,
+        operationType,
+        typeOfProperty,
+        regionId,
+        communeId,
+        minPrice,
+        maxPrice,
+        coveredParkingLots,
+        bathrooms,
+        surfaceM2,
+        bedrooms,
+        installmentType
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
@@ -256,6 +315,8 @@ const PropertiesProvider = ({ children }) => {
         getPropertiesByParkingLotsCovered,
         getPropertiesByOperationType,
         getPropertiesByRegionAndCommune,
+        getPropertiesByInstallmentType,
+        getPropertiesOnFormSubmit,
       }}
     >
       {children}

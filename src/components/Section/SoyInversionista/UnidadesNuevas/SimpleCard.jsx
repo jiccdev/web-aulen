@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from '../../../../styles/Section/soy-inversionista/unidades-nuevas/SimpleCard/SimpleCard.module.css';
 
 export const SimpleCard = ({ img, title, href }) => {
@@ -9,18 +11,25 @@ export const SimpleCard = ({ img, title, href }) => {
     });
   };
 
+  // ✅
+  const router = useRouter();
+  console.log(router);
+
   return (
     <>
       <button className={`${styles.customCol} ${styles.card}`}>
-        <a
-          href={href}
+        <Link
+          // href={`properties?realtorId=${5}&statusId=${5}&typeOfProperty=${1}`}
+          href={`${href}`}
           onClick={() => {
-            scrollToDown();
+            setTimeout(() => {
+              scrollToDown();
+            }, 500);
           }}
         >
           {img}
           <h3 className={`${styles.card__title}`}>{title}</h3>
-        </a>
+        </Link>
       </button>
     </>
   );

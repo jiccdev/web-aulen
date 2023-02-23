@@ -85,16 +85,16 @@ const PropertiesServices = {
   },
 
   // Parking Lots (uncovered)
-  getPropertiesByParkingLotsUncovered: async (
-    realtorId,
-    statusId,
-    parkingLotsUncovered
-  ) => {
-    const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
-    );
-    return response.data;
-  },
+  // getPropertiesByParkingLotsUncovered: async (
+  //   realtorId,
+  //   statusId,
+  //   parkingLotsUncovered
+  // ) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
+  //   );
+  //   return response.data;
+  // },
 
   // Operation Type
   getPropertiesByOperationType: async (realtorId, statusId, operationType) => {
@@ -113,6 +113,40 @@ const PropertiesServices = {
   ) => {
     const response = await api.get(
       `properties?realtorId=${realtorId}&statusId=${statusId}&region=${region}&commune=${commune}`
+    );
+    return response.data;
+  },
+
+  // Installment Type
+  getPropertiesByInstallmentType: async (
+    realtorId,
+    statusId,
+    installmentType
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&installment_type=${installmentType}`
+    );
+    return response.data;
+  },
+
+  // ON SUBMIT FORM
+  getPropertiesOnFormSubmit: async (
+    realtorId,
+    statusId,
+    operationType,
+    typeOfProperty,
+    regionId,
+    communeId,
+    minPrice,
+    maxPrice,
+    coveredParkingLots,
+    bathrooms,
+    surfaceM2,
+    bedrooms,
+    installmentType
+  ) => {
+    const response = await api.get(
+      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}&typeOfProperty=${typeOfProperty}&region=${regionId}&commune=${communeId}&min_price=${minPrice}&max_price=${maxPrice}&covered_parking_lots=${coveredParkingLots}&bathrooms=${bathrooms}&surface_m2=${surfaceM2}&bedrooms=${bedrooms}&installment_type=${installmentType}`
     );
     return response.data;
   },

@@ -28,6 +28,8 @@ const Propiedades = () => {
     getPropertiesByParkingLotsCovered,
     getPropertiesByOperationType,
     getPropertiesByRegionAndCommune,
+    getPropertiesByInstallmentType,
+    getPropertiesOnFormSubmit,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -42,16 +44,11 @@ const Propiedades = () => {
   ] = contextData;
   const [realtorId, setRealtorId] = useState(1);
   const [statusId, setStatusId] = useState(1);
+  const router = useRouter();
 
   useEffect(() => {
     getProperties(5, 5);
   }, []);
-
-  const [routerPath, setRouterPath] = useState('');
-  const router = useRouter();
-  const { query } = router;
-
-  console.log(router);
 
   return (
     <Fragment>
@@ -60,6 +57,7 @@ const Propiedades = () => {
       <LayoutSection>
         <Properties
           data={properties}
+          router={router}
           setProperties={setProperties}
           dataProperty={property}
           realtorId={realtorId}
@@ -91,6 +89,8 @@ const Propiedades = () => {
           getPropertiesByParkingLotsCovered={getPropertiesByParkingLotsCovered}
           getPropertiesByOperationType={getPropertiesByOperationType}
           getPropertiesByRegionAndCommune={getPropertiesByRegionAndCommune}
+          getPropertiesByInstallmentType={getPropertiesByInstallmentType}
+          getPropertiesOnFormSubmit={getPropertiesOnFormSubmit}
         />
       </LayoutSection>
     </Fragment>

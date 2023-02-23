@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const AdvancedSearchForm = ({
+  router,
   getProperties,
   getSelects,
   selectsList,
@@ -21,6 +22,8 @@ const AdvancedSearchForm = ({
   getPropertiesByParkingLotsCovered,
   getPropertiesByOperationType,
   getPropertiesByRegionAndCommune,
+  getPropertiesByInstallmentType,
+  getPropertiesOnFormSubmit,
 }) => {
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
@@ -39,11 +42,10 @@ const AdvancedSearchForm = ({
     bedrooms: '',
     bathrooms: '',
     parkingLots: '',
+    installmentType: '',
   });
 
-  const onFormSubmit = (ev) => {
-    ev.preventDefault();
-  };
+  console.log(router.pathname);
 
   // ===== Operation Type =====
   const onOperationTypeChange = (option) => {
@@ -61,19 +63,34 @@ const AdvancedSearchForm = ({
   // ===== Operation Type =====
 
   // ===== Type of Property =====
+  const getTypeOfPropertyOptions = () =>
+    typeOfProperty?.map((typeOfProperty) => ({
+      value: typeOfProperty.value,
+      label: typeOfProperty.name,
+    }));
+
   const onTypeOfPropertyChange = (option) => {
     setFiltredDataValue({
       ...filtredDataValue,
       typeOfProperty: option?.value,
     });
   };
-
-  const getTypeOfPropertyOptions = () =>
-    typeOfProperty?.map((typeOfProperty) => ({
-      value: typeOfProperty.value,
-      label: typeOfProperty.name,
-    }));
   // ===== Type of Property =====
+
+  // ===== Installation type =====
+  const onInstallmentTypeChange = (option) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      installmentType: option?.label,
+    });
+  };
+
+  const getInstallmentTypeOptions = () =>
+    installmentType?.map((installmentType) => ({
+      value: installmentType.value,
+      label: installmentType.name,
+    }));
+  // ===== Installation type =====
 
   // ===== Regions =====
   const getRegionOptions = () =>
@@ -223,6 +240,18 @@ const AdvancedSearchForm = ({
       : getPropertiesByOperationType(5, 5, filtredDataValue.operation);
   }, [filtredDataValue.operation]);
 
+  useEffect(() => {
+    !filtredDataValue.installmentType
+      ? getProperties(5, 5)
+      : getPropertiesByInstallmentType(5, 5, filtredDataValue.installmentType);
+  }, [filtredDataValue.installmentType]);
+
+  // onform submit
+
+  const onFormSubmit = (ev) => {
+    ev.preventDefault();
+  };
+
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
       <Form.Group className="mb-3">
@@ -244,6 +273,18 @@ const AdvancedSearchForm = ({
           className={styles.rSelect}
         />
       </Form.Group>
+
+      {router.pathname === '/propiedades' ? null : (
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Tipo de instalacion</Form.Label>
+          <RSelect
+            options={getInstallmentTypeOptions()}
+            defaultValue={installmentType[0]}
+            onChange={onInstallmentTypeChange}
+            className={styles.rSelect}
+          />
+        </Form.Group>
+      )}
 
       <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Región</Form.Label>
