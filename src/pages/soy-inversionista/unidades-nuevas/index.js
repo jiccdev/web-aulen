@@ -5,6 +5,7 @@ import Header from '@/components/Section/SoyInversionista/UnidadesNuevas/Header'
 import InvestmentForm from '@/components/Forms/InvestmentForm';
 import OutstandingProject from '@/components/Section/Propiedades/OutstandingProjects/OutstandingProjects';
 import { investmentFormData } from '../../../api/data/investmentForm';
+import Propiedades from '@/pages/propiedades';
 
 const UnidadesNuevas = () => {
   return (
@@ -24,11 +25,11 @@ const UnidadesNuevas = () => {
       </LayoutSection>
 
       {/* PROYECTOS DESTACADOS */}
-      {/* PENDIENDTE */}
-
       <OutstandingProject />
+
       {/* FILTRAR PROPIEDADE POR VERDE Y BLANCO */}
       {/* PENDIENDTE */}
+      <Propiedades />
     </Fragment>
   );
 };

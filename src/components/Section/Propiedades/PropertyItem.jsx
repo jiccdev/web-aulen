@@ -8,24 +8,19 @@ import Card from 'react-bootstrap/Card';
 import styles from '../../../styles/Section/properties/PropertyItem.module.css';
 
 const DepartmentItem = ({ property, isGrid, isList, realtorId, statusId }) => {
-  const { id, image, title, address, price, status } = property;
+  const { id, image, title, address, price, status, operation } = property;
 
   return (
     <Col md={isGrid ? 4 : isList ? 12 : 4} className={styles.col}>
       <Card className={isList ? styles.isListCard : styles.card}>
-        {/* <span
+        <span
           className={
-            status?.name === 'Venta'
+            operation === 'Venta'
               ? styles.deptStatusForSales
               : styles.deptStatusFeatured
           }
         >
-          {status?.name}
-        </span> */}
-        <span
-          className={id ? styles.deptStatusForSales : styles.deptStatusFeatured}
-        >
-          Venta
+          {operation}
         </span>
         <img
           src={image}

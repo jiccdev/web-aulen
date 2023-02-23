@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import PropertiesContext from '@/context/properties/PropertiesContext';
 import SelectsContext from '@/context/selects/SelectsContext';
 import LayoutSection from '@/components/Section/LayoutSection';
@@ -45,6 +46,12 @@ const Propiedades = () => {
   useEffect(() => {
     getProperties(5, 5);
   }, []);
+
+  const [routerPath, setRouterPath] = useState('');
+  const router = useRouter();
+  const { query } = router;
+
+  console.log(router);
 
   return (
     <Fragment>

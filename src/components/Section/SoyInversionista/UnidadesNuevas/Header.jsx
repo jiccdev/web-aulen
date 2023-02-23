@@ -46,7 +46,12 @@ export const Header = () => {
           <div className={`${styles.customRow} ${styles.cardContainer}`}>
             {simpleCardData.length > 0
               ? simpleCardData.map((el) => (
-                  <SimpleCard key={el?.id} img={el.img} title={el.title} />
+                  <SimpleCard
+                    key={el?.id}
+                    img={el.img}
+                    title={el.title}
+                    href={el.href}
+                  />
                 ))
               : null}
           </div>

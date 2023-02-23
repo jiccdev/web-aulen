@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import Select from 'react-select';
 
 const RSelect = ({ ...props }) => {
@@ -8,6 +8,7 @@ const RSelect = ({ ...props }) => {
         props.className ? props.className : ''
       }`}
       classNamePrefix="react-select"
+      instanceId={useId()}
       {...props}
     />
   );

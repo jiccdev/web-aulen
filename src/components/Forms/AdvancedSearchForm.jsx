@@ -27,7 +27,7 @@ const AdvancedSearchForm = ({
   const [notPropertiesMessage, setNotPropertiesMessage] = useState('');
   const [filtredData, setFiltredData] = useState([]);
   const [filtredDataValue, setFiltredDataValue] = useState({
-    typeOfOperation: '',
+    operation: '',
     typeOfProperty: '',
     region: '',
     commune: '',
@@ -49,7 +49,7 @@ const AdvancedSearchForm = ({
   const onOperationTypeChange = (option) => {
     setFiltredDataValue({
       ...filtredDataValue,
-      typeOfOperation: option?.label,
+      operation: option?.label,
     });
   };
 
@@ -218,10 +218,10 @@ const AdvancedSearchForm = ({
   }, [filtredDataValue.parkingLots]);
 
   useEffect(() => {
-    !filtredDataValue.typeOfOperation
+    !filtredDataValue.operation
       ? getProperties(5, 5)
-      : getPropertiesByOperationType(5, 5, filtredDataValue.typeOfOperation);
-  }, [filtredDataValue.typeOfOperation]);
+      : getPropertiesByOperationType(5, 5, filtredDataValue.operation);
+  }, [filtredDataValue.operation]);
 
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
@@ -276,7 +276,8 @@ const AdvancedSearchForm = ({
         />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      {/* EN DESARROLLO ❌ */}
+      {/* <Form.Group className="mb-3">
         <Row>
           <Col>
             <Form.Label className={styles.label}>Precio</Form.Label>
@@ -304,7 +305,7 @@ const AdvancedSearchForm = ({
             </Form.Check>
           </Col>
         </Row>
-      </Form.Group>
+      </Form.Group> */}
 
       <Row>
         <Col>

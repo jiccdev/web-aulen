@@ -225,7 +225,6 @@ const PropertiesProvider = ({ children }) => {
       );
       setProperties(response?.data);
       setNewProperties(response?.data);
-      console.log('propiedades filtradas', response?.data);
     } catch (error) {
       const { statusCode } = error?.response?.data;
       setStatusCodeMsg(statusCode) && new Error(error?.response?.data);

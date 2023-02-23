@@ -11,6 +11,7 @@ export const simpleCardData = [
       />
     ),
     title: 'DEPARTAMENTOS',
+    href: '#departmentos',
   },
   {
     img: (
@@ -21,6 +22,7 @@ export const simpleCardData = [
       />
     ),
     title: 'ESTACIONAMIENTOS',
+    href: '#estacionamientos',
   },
   {
     img: (
@@ -31,5 +33,6 @@ export const simpleCardData = [
       />
     ),
     title: 'BODEGA',
+    href: '#bodegas',
   },
 ];
