@@ -4,12 +4,14 @@
   align-items: center;
   justify-content: center !important;
   gap: 0.5em;
-  width: 100% !important;
+
+  /* background-color: Red; */
 }
 
 @media screen and (min-width: 1200px) {
   .customCol {
     width: 80% !important;
+    margin: 1.5rem 0rem 0rem 3rem !important;
   }
 }
 

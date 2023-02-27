@@ -40,7 +40,7 @@ const Steps = () => {
                       <Card.Title className={styles.stepCardTitle}>
                         {item?.title}
                       </Card.Title>
-                      <Card.Text>{item?.description}</Card.Text>
+                      <Card.Text className={styles.stepCardDesc}>{item?.description}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Fade>
