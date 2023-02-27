@@ -60,7 +60,7 @@
 }
 
 .formGroup .formControl {
-  width: 85%;
+  width: 100%;
   background-color: var(--color-white);
   border-radius: var(--border-radius-3xl);
   border: none;
@@ -101,7 +101,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100;
+  width: 100%;
   margin: 0 auto;
   white-space: nowrap;
   margin-top: 1rem !important;
@@ -111,7 +111,7 @@
   font-size: var(--font-size-sm);
   color: var(--color-dark);
   font-weight: var(--font-weight-bold);
-  width: 100%;
+  width: 90%;
   margin-top: -0.5rem;
   line-height: 0.9rem;
   text-align: start;
@@ -119,6 +119,11 @@
   transition: 0.2s all ease-in-out;
 }
 
+@media screen and (min-width: 992px) {
+  .formCheck {
+    width: 93%;
+  }
+}
 .formCheck:hover {
   color: var(--color-dark-light);
 }
@@ -135,7 +140,6 @@
 
 @media screen and (min-width: 1920px) {
   .form {
-    width: 80%;
     padding: 2rem 2.5rem;
   }
 }
