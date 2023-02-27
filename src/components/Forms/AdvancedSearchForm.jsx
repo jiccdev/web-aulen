@@ -247,7 +247,6 @@ const AdvancedSearchForm = ({
   }, [filtredDataValue.installmentType]);
 
   // onform submit
-
   const onFormSubmit = (ev) => {
     ev.preventDefault();
   };
@@ -261,6 +260,7 @@ const AdvancedSearchForm = ({
           defaultValue={operationType[0]}
           onChange={onOperationTypeChange}
           className={styles.rSelect}
+          placeholder="Seleccione"
         />
       </Form.Group>
 
@@ -271,6 +271,7 @@ const AdvancedSearchForm = ({
           defaultValue={typeOfProperty[0]}
           onChange={onTypeOfPropertyChange}
           className={styles.rSelect}
+          placeholder="Seleccione"
         />
       </Form.Group>
 
@@ -282,6 +283,7 @@ const AdvancedSearchForm = ({
             defaultValue={installmentType[0]}
             onChange={onInstallmentTypeChange}
             className={styles.rSelect}
+            placeholder="Seleccione"
           />
         </Form.Group>
       )}
@@ -293,6 +295,7 @@ const AdvancedSearchForm = ({
           defaultValue={regions[0]}
           onChange={onRegionsChange}
           className={styles.rSelect}
+          placeholder="Seleccione"
         />
       </Form.Group>
 
@@ -303,6 +306,7 @@ const AdvancedSearchForm = ({
           defaultValue={communes[0]}
           onChange={onCommunesChange}
           className={styles.rSelect}
+          placeholder="Seleccione"
         />
       </Form.Group>
 

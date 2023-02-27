@@ -48,6 +48,7 @@ import { IoBedOutline } from 'react-icons/io5';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 import { TfiFacebook } from 'react-icons/tfi';
 import { GiReceiveMoney } from 'react-icons/gi';
+import { HiClipboard, HiOutlineClipboardCheck } from 'react-icons/hi';
 
 export const icons = {
   FaUserAlt,
@@ -100,4 +101,6 @@ export const icons = {
   GrFormNext,
   IoMdArrowDropleft,
   IoMdArrowDropright,
+  HiClipboard,
+  HiOutlineClipboardCheck,
 };

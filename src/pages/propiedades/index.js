@@ -42,8 +42,8 @@ const Propiedades = () => {
     typeOfProperty,
     installmentType,
   ] = contextData;
-  const [realtorId, setRealtorId] = useState(1);
-  const [statusId, setStatusId] = useState(1);
+  const [realtorId, setRealtorId] = useState(5); //1
+  const [statusId, setStatusId] = useState(5); //1
   const router = useRouter();
 
   useEffect(() => {

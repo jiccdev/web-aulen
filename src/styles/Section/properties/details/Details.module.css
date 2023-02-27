@@ -58,17 +58,55 @@
 .deptoDetailsShare {
   display: flex;
   justify-content: space-evenly;
-  width: 75%;
+  width: 80%;
   flex-direction: row;
   align-items: flex-start;
+}
+
+.deptoDetailsShare .spanClipboard,
+.printLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  cursor: pointer;
+  background-color: whitesmoke;
+  padding: 0.5rem 1rem !important;
+  border-radius: 10px;
+  font-size: var(--font-size-md);
+  white-space: nowrap;
+  transition: 0.2s all ease-in-out;
+}
+
+.deptoDetailsShare .spanClipboard:hover,
+.printLink:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white) !important;
+}
+
+.deptoDetailsShare .spanClipboardCopied {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: green;
+  padding: 0.5rem 1rem !important;
+  border-radius: 10px;
+  font-size: var(--font-size-md);
+  white-space: nowrap;
 }
 
 .shareLink,
 .printLink {
   text-decoration: none;
   color: var(--color-dark);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   transition: 0.3 all ease-in-out;
+  margin-left: 1rem !important;
 }
 
 .shareLink:hover,
