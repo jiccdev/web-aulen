@@ -25,7 +25,11 @@ const NavigationItem = ({ navItem }) => {
             <Dropdown.Item
               href={item?.url}
               key={item?.id}
-              className={styles.dropdownItem}
+              className={
+                route === item.url
+                  ? styles.dropdownItemActived
+                  : styles.dropdownItem
+              }
             >
               {item?.name}
             </Dropdown.Item>
@@ -35,7 +39,6 @@ const NavigationItem = ({ navItem }) => {
   ) : (
     <Link
       href={url}
-      // className={name === 'Intranet' ? styles.navItemBtn : styles.navItem}
       className={route === url ? styles.navItemActive : styles.navItem}
     >
       {name}

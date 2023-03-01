@@ -126,8 +126,12 @@ const PublishingForm = () => {
   return (
     <Fade delay={200} direction="right" cascade>
       <Form className={styles.form} onSubmit={onFormSubmit} id="planForm">
-        <h2>¡Despreocúpate por tu propiedad de inversión!</h2>
-        <h3>COMPLETA EL FORMULARIO Y ENTÉRATE CÓMO</h3>
+        <h2 className={styles.pusblishingFormH2}>
+          ¡Despreocúpate por tu propiedad de inversión!
+        </h2>
+        <h3 className={styles.pusblishingFormH3}>
+          Completa el formulario y enterate como
+        </h3>
         <Form.Group className={styles.formGroup} controlId="formBasicName">
           <Form.Label className={styles.label}>
             <FaUserAlt />

@@ -45,7 +45,10 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
   };
 
   const handleTermsAndConditions = (ev) => {
-    setFormData({ ...formData, termsAndConditions: ev.target.value });
+    setFormData({
+      ...formData,
+      termsAndConditions: !formData.termsAndConditions,
+    });
   };
 
   const resetForm = () => {
@@ -185,6 +188,17 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
           />
         </Form.Group>
 
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check
+            type="checkbox"
+            label="Al continuar estás aceptando los términos y condiciones y la
+            política de privacidad."
+            className={styles.formCheck}
+            checked={formData.termsAndConditions}
+            onChange={handleTermsAndConditions}
+          />
+        </Form.Group>
+
         <Row className={styles.rowBtnForm}>
           {!!haveAction1 && (
             <Col sm={12} lg={6}>
@@ -219,12 +233,12 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
           )}
         </Row>
 
-        <Form.Group className={styles.formGroup} controlId="formBasicCheckbox">
+        {/* <Form.Group className={styles.formGroup} controlId="formBasicCheckbox">
           <Link href="/" target="_blank" className={styles.formCheck}>
             Al continuar estás aceptando los términos y condiciones y la
-            política de privacidad
+            política de privacidaddd
           </Link>
-        </Form.Group>
+        </Form.Group> */}
       </Form>
 
       {/* ToastComponent Msg */}
