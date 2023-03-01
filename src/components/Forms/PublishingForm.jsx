@@ -126,18 +126,8 @@ const PublishingForm = () => {
   return (
     <Fade delay={200} direction="right" cascade>
       <Form className={styles.form} onSubmit={onFormSubmit} id="planForm">
-        {/* <h3
-          style={{
-            textAlign: textAlign || 'left',
-          }}
-        >
-          {titleContentForm}
-        </h3>
-        {subtitle === '' ? '' : <p>{subtitle}</p>} */}
-
-        <h2>Despreocúpate por tu propiedad de inversión!</h2>
+        <h2>¡Despreocúpate por tu propiedad de inversión!</h2>
         <h3>COMPLETA EL FORMULARIO Y ENTÉRATE CÓMO</h3>
-
         <Form.Group className={styles.formGroup} controlId="formBasicName">
           <Form.Label className={styles.label}>
             <FaUserAlt />
@@ -185,6 +175,7 @@ const PublishingForm = () => {
             type="checkbox"
             label="Al continuar estás aceptando los términos y condiciones y la
             política de privacidad."
+            className={styles.formCheck}
             checked={formData.termsAndConditions}
             onChange={handleTermsAndConditions}
           />
@@ -225,38 +216,6 @@ const PublishingForm = () => {
 
       {/* ToastComponent Msg */}
       <ToastComponent />
-
-      {/* Formulario original */}
-      {/* <form className={`${styles.customCol} ${styles.form}`}>
-        <header className={`${styles.customCol} ${styles.form__header}`}>
-          <h2>{formData?.h2}</h2>
-          <h3>{formData?.h3}</h3>
-        </header>
-        <main className={`${styles.customCol} ${styles.form__inputs}`}>
-          <div className={`${styles.customRow} ${styles.form__inputs__name}`}>
-            <FaUserAlt className={styles.formIcon} />
-            <input type="text" placeholder="Nombre" />
-          </div>
-          <div className={`${styles.customRow} ${styles.form__inputs__tel}`}>
-            <BsTelephoneFill className={styles.formIcon} />
-            <input type="text" placeholder="Teléfono celular" />
-          </div>
-          <div className={`${styles.customRow} ${styles.form__inputs__email}`}>
-            <MdOutlineMailOutline className={styles.formIcon} />
-            <input type="text" placeholder="Correo electrónico" />
-          </div>
-          <label className={styles.customRow}>
-            <input
-              type="checkbox"
-              id="publishingFormTerms"
-              value="form_terms"
-            />
-            Al continuar estás aceptando los términos y condiciones y la
-            política de privacidad.
-          </label>
-        </main>
-        <button className={styles.form__btn}>{formData?.btn}</button>
-      </form> */}
     </Fade>
   );
 };

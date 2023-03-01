@@ -31,9 +31,6 @@
 
 .form:hover {
   cursor: pointer;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  border: 1px solid var(--color-light); */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -118,18 +115,20 @@
   color: var(--color-dark);
   font-weight: var(--font-weight-bold);
   width: 90%;
-  margin-top: -0.5rem;
   line-height: 0.9rem;
   text-align: start;
   text-decoration: none;
   transition: 0.2s all ease-in-out;
+  margin: 0 auto;
+  margin-top: 1.5rem;
 }
 
 @media screen and (min-width: 992px) {
   .formCheck {
-    width: 93%;
+    width: 80%;
   }
 }
+
 .formCheck:hover {
   color: var(--color-dark-light);
 }
