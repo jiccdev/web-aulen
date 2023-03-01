@@ -9,11 +9,17 @@
   background-color: var(--color-dark-gray);
 }
 
+.form h2 {
+  color: var(--color-dark) !important;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
 .form h3 {
   color: var(--color-dark) !important;
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
-  margin: 1rem 0rem 2.5rem 0rem;
+  margin-bottom: 1.5rem;
 }
 
 .form p {

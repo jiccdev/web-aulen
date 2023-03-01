@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import ToastComponent from '@/components/Toastify/ToastComponent';
+import { toast } from 'react-toastify';
 import { icons } from '../../Icons';
 import styles from '../../../styles/Section/Inicio/Form.module.css';
+import stylesToast from '../../../styles/Toastify/toastContainer.module.css';
 import stylesModal from '../../../styles/Modal/Modal.module.css';
 
 /** Bootstrap components */
@@ -45,18 +48,75 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
     setFormData({ ...formData, termsAndConditions: ev.target.value });
   };
 
-  /** On form submit */
-  const onSubmit = async (ev) => {
-    ev.preventDefault();
-    try {
-      await ContactFormServices.addContactForm(formData);
-    } catch (error) {
-      setServerErrorMsg(error.response);
-      console.log('response', error.response);
-    }
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      action: '',
+      termsAndConditions: false,
+    });
   };
 
-  // console.log(JSON.stringify(formData));
+  const showToastSuccessMsg = (msg) => {
+    toast.success(msg, {
+      position: 'top-center',
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
+  };
+
+  const showToastErrorMsg = (msg) => {
+    toast.error(msg, {
+      position: 'top-center',
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
+  };
+
+  const showToastWarningMsg = (msg) => {
+    toast.warn(msg, {
+      position: 'top-center',
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
+  };
+
+  /** On form submit */
+  const onFormSubmit = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await ContactFormServices.addContactForm(formData);
+      if (
+        formData.name === '' &&
+        formData.email === '' &&
+        formData.phone === ''
+      ) {
+        showToastErrorMsg('Todos los campos son obligatorios');
+      } else {
+        showToastSuccessMsg(response.message);
+        resetForm();
+      }
+    } catch (error) {
+      setServerErrorMsg(error.response);
+      showToastWarningMsg('Ocurrio un error al enviar el formulario');
+    }
+  };
 
   return (
     <div>
@@ -73,7 +133,7 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
         ''
       )}
 
-      <Form className={styles.form} onSubmit={onSubmit} id="planForm">
+      <Form className={styles.form} onSubmit={onFormSubmit} id="planForm">
         <h3
           style={{
             textAlign: textAlign || 'left',
@@ -132,7 +192,6 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
                 <Button
                   type="submit"
                   onClick={() => {
-                    console.log('Quiero vender');
                     setFormData({ ...formData, action: 'vender' });
                   }}
                   className={styles.btnSubmit}
@@ -148,10 +207,9 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
               <Form.Group className={styles.formGroup}>
                 <Button
                   type="submit"
-                  onClick={() => {
-                    console.log('Quiero vender');
-                    setFormData({ ...formData, action: 'arrendar' });
-                  }}
+                  onClick={() =>
+                    setFormData({ ...formData, action: 'arrendar' })
+                  }
                   className={styles.btnSubmit}
                 >
                   {haveAction2?.text || ''}
@@ -168,6 +226,11 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
           </Link>
         </Form.Group>
       </Form>
+
+      {/* ToastComponent Msg */}
+      <div className={stylesToast.toastContainer}>
+        <ToastComponent />
+      </div>
     </div>
   );
 };
