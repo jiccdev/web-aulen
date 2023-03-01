@@ -9,6 +9,10 @@ export const plansData = [
       'Ofertas formales con garantía',
       'Evaluación comercial mensual',
       'Asesoría legal',
+      'Fotos y video profesionales',
+      'Estudio de ventas historicas',
+      'Estudio de mercado',
+      'Coordinacion de visitas',
     ],
   },
   {
@@ -21,6 +25,10 @@ export const plansData = [
       'Ofertas formales con garantía',
       'Evaluación comercial mensual',
       'Asesoría legal',
+      'Fotos y video profesionales',
+      'Estudio de ventas historicas',
+      'Estudio de mercado',
+      'Coordinacion de visitas',
     ],
   },
   {
@@ -33,6 +41,10 @@ export const plansData = [
       'Ofertas formales con garantía',
       'Evaluación comercial mensual',
       'Asesoría legal',
+      'Fotos y video profesionales',
+      'Estudio de ventas historicas',
+      'Estudio de mercado',
+      'Coordinacion de visitas',
     ],
   },
 ];
