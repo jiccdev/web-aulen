@@ -51,6 +51,6 @@ export const navigationData = [
   {
     id: 7,
     name: 'Intranet',
-    url: '/intranet',
+    url: 'http://190.114.255.247:195/',
   },
 ];
