@@ -69,7 +69,10 @@ const PlanFrom = ({ props }) => {
           />
         </Form.Group>
 
-        <Form.Group className={styles.formGroup} controlId="formBasicCheckbox">
+        <Form.Group
+          className={`${styles.formGroup && styles.formGroupCheck}`}
+          controlId="formBasicCheckbox"
+        >
           <Form.Check
             type="checkbox"
             label="Al continuar estás aceptando los términos y condiciones y la política de privacidad"

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
 import ToastComponent from '@/components/Toastify/ToastComponent';
 import { toast } from 'react-toastify';
 import { icons } from '../../Icons';

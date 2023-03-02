@@ -17,8 +17,7 @@
   padding: 1.5rem;
   border: none;
   transition: 0.3s all ease-in-out;
-
-  /* border: 2px solid var(--color-primary); */
+  border: 2px solid var(--color-primary);
   box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
 }
 
@@ -26,6 +25,7 @@
   scale: 1.05;
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 2px solid var(--color-primary);
 }
 
 .avatar {

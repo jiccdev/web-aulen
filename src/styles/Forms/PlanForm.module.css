@@ -12,14 +12,14 @@
   color: var(--color-dark) !important;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  margin: 1rem 0rem 2.5rem 0rem;
 }
 
 .form p {
   color: var(--color-dark) !important;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
 .form:hover {
@@ -36,6 +36,10 @@
   align-items: center;
   margin: 0.7rem 0;
   justify-content: center;
+}
+
+.formGroupCheck {
+  margin: 1.5rem;
 }
 
 .formGroup .label {
