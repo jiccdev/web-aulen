@@ -19,9 +19,9 @@ const responsive = {
 const OutstandingProjects = () => {
   const { properties, getProperties } = useContext(PropertiesContext);
 
-  useEffect(() => {
-    getProperties(5, 5);
-  }, []);
+  // useEffect(() => {
+  //   getProperties(5, 5);
+  // }, []);
 
   return (
     <section id="outstandingProjects">

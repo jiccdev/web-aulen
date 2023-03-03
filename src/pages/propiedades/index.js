@@ -47,9 +47,9 @@ const Propiedades = () => {
   const [statusId, setStatusId] = useState(5); //1
   const router = useRouter();
 
-  useEffect(() => {
-    getProperties(5, 5);
-  }, []);
+  // useEffect(() => {
+  //   getProperties(5, 5);
+  // }, []);
 
   return (
     <Fragment>

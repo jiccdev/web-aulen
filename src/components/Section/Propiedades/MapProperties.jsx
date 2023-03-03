@@ -178,17 +178,6 @@ const MapProperties = () => {
                               : property?.address}
                           </span>
                         </div>
-                        {/* <p
-                          style={{
-                            fontWeight: '300',
-                            textTransform: 'capitalize',
-                            color: '#616161',
-                            margin: '0rem',
-                            padding: '.5rem',
-                          }}
-                        >
-                          {property?.title ?? 'Propiedad sin descripción'}
-                        </p> */}
 
                         <p
                           style={{
