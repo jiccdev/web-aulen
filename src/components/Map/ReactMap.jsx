@@ -41,17 +41,29 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
       <Map
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         initialViewState={{
+          pitch: 45,
+          width: 400,
+          height: 400,
+          attributionControl: false,
           longitude: longitude,
           latitude: latitude,
-          zoom: 3.5,
+          zoom: 12,
+          style: {
+            width: 'auto',
+            height: '60vh',
+            borderRadius: '15px',
+          },
         }}
         mapStyle={'mapbox://styles/mapbox/streets-v12'}
         style={{
           width: 'auto',
-          height: '300px',
+          height: '100px',
           borderRadius: '15px',
           padding: '2rem',
           margin: '1.5rem',
+          width: 'auto',
+          height: '60vh',
+          borderRadius: '15px',
         }}
       >
         <Marker
