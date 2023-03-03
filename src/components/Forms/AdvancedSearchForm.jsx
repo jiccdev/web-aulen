@@ -260,7 +260,7 @@ const AdvancedSearchForm = ({
           defaultValue={operationType[0]}
           onChange={onOperationTypeChange}
           className={styles.rSelect}
-          placeholder="Seleccione"
+          placeholder="Seleccionar"
         />
       </Form.Group>
 
@@ -271,19 +271,19 @@ const AdvancedSearchForm = ({
           defaultValue={typeOfProperty[0]}
           onChange={onTypeOfPropertyChange}
           className={styles.rSelect}
-          placeholder="Seleccione"
+          placeholder="Seleccionar"
         />
       </Form.Group>
 
       {router.pathname === '/propiedades' ? null : (
         <Form.Group className="mb-3">
-          <Form.Label className={styles.label}>Tipo de instalacion</Form.Label>
+          <Form.Label className={styles.label}>Estado de propiedad</Form.Label>
           <RSelect
             options={getInstallmentTypeOptions()}
             defaultValue={installmentType[0]}
             onChange={onInstallmentTypeChange}
             className={styles.rSelect}
-            placeholder="Seleccione"
+            placeholder="Seleccionar"
           />
         </Form.Group>
       )}
@@ -295,7 +295,7 @@ const AdvancedSearchForm = ({
           defaultValue={regions[0]}
           onChange={onRegionsChange}
           className={styles.rSelect}
-          placeholder="Seleccione"
+          placeholder="Seleccionar"
         />
       </Form.Group>
 
@@ -306,7 +306,7 @@ const AdvancedSearchForm = ({
           defaultValue={communes[0]}
           onChange={onCommunesChange}
           className={styles.rSelect}
-          placeholder="Seleccione"
+          placeholder="Seleccionar"
         />
       </Form.Group>
 
