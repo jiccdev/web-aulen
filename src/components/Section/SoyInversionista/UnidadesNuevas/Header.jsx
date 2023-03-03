@@ -89,7 +89,7 @@ const Header = () => {
         label: typeOfProperty.name,
       }));
 
-  console.log(getTypeOfPropertyOptions());
+
 
   const onTypeOfPropertyChange = (option) => {
     setFiltredDataValue({

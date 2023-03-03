@@ -9,8 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Executive = ({ propertyData }) => {
-  // console.log('ejecutivo', propertyData);
-
   return (
     <div className={styles.executiveContainer}>
       <Row className={styles.row}>

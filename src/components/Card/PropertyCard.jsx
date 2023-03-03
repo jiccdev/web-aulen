@@ -20,7 +20,7 @@ const PropertyCard = ({ property }) => {
     surface_m,
   } = property;
 
-  // console.log(property);
+
   return (
     <Col sm={4}>
       <Card className={styles.card}>

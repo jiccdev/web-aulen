@@ -13,7 +13,6 @@ export const SimpleCard = ({ img, title, href }) => {
 
   // ✅
   const router = useRouter();
-  console.log(router);
 
   return (
     <>

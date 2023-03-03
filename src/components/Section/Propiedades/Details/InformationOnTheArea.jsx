@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TransportationTab from './tabs/TransportationTab';
+// import TransportationTab from './tabs/TransportationTab';
 // import EducationTab from './tabs/EducationTab';
 // import GreenAreas from './tabs/GreenAreas';
 // import Stores from './tabs/Stores';
@@ -21,7 +21,7 @@ const InformationOnTheArea = ({ propertyData }) => {
   return (
     <div className={styles.informationOnTheAreaContainer}>
       <Row>
-        <Col xs={12} lg={6}>
+        {/* <Col xs={12} lg={6}>
           <div>
             <h2 className={styles.headTitle}>Información de la zona</h2>
             <p>Son los puntos más cercanos al inmueble en un rango de 2km.</p>
@@ -40,7 +40,7 @@ const InformationOnTheArea = ({ propertyData }) => {
             >
               <TransportationTab />
             </Tab>
-            {/* <Tab
+            <Tab
               eventKey="educationTab"
               title="Educación"
               className={styles.tab}
@@ -56,11 +56,11 @@ const InformationOnTheArea = ({ propertyData }) => {
             </Tab>
             <Tab eventKey="stores" title="Comercios" className={styles.tab}>
               <Stores />
-            </Tab> */}
+            </Tab>
           </Tabs>
-        </Col>
+        </Col> */}
 
-        <Col xs={12} lg={6}>
+        <Col xs={12} lg={12}>
           <ReactMap
             longitudeProp={lng}
             latitudeProp={lat}

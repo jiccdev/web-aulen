@@ -45,8 +45,6 @@ const AdvancedSearchForm = ({
     installmentType: '',
   });
 
-  console.log(router.pathname);
-
   // ===== Operation Type =====
   const onOperationTypeChange = (option) => {
     setFiltredDataValue({
@@ -55,11 +53,27 @@ const AdvancedSearchForm = ({
     });
   };
 
-  const getOperationTypeOptions = () =>
-    operationType?.map((operationType) => ({
-      value: operationType.value,
-      label: operationType.name,
-    }));
+  const getOperationTypeOptions = () => {
+    if (router.pathname === '/soy-inversionista/unidades-nuevas') {
+      const filtredArr = operationType
+        ?.filter(
+          (operationType) =>
+            operationType.value !== 'arriendo' &&
+            operationType.value !== 'arriendo_temporal'
+        )
+        .map((operationType) => ({
+          value: operationType.value,
+          label: operationType.name,
+        }));
+      return filtredArr;
+    } else {
+      const filtredArr2 = operationType.map((operationType) => ({
+        value: operationType.value,
+        label: operationType.name,
+      }));
+      return filtredArr2;
+    }
+  };
   // ===== Operation Type =====
 
   // ===== Type of Property =====
@@ -85,11 +99,19 @@ const AdvancedSearchForm = ({
     });
   };
 
-  const getInstallmentTypeOptions = () =>
-    installmentType?.map((installmentType) => ({
-      value: installmentType.value,
-      label: installmentType.name,
-    }));
+  const getInstallmentTypeOptions = () => {
+    const filtredArr = installmentType
+      ?.filter(
+        (installmentType) =>
+          installmentType.value !== 'entrega inmediata' ||
+          installmentType.name !== 'entrega inmediata'
+      )
+      .map((installmentType) => ({
+        value: installmentType.value,
+        label: installmentType.name,
+      }));
+    return filtredArr;
+  };
   // ===== Installation type =====
 
   // ===== Regions =====
@@ -104,8 +126,6 @@ const AdvancedSearchForm = ({
       ...filtredDataValue,
       region: option?.value,
     });
-
-    console.log(filtredDataValue?.region);
   };
   // ===== Regions =====
 

@@ -58,9 +58,7 @@ const PropertiesProvider = ({ children }) => {
       setMetaData(response?.meta);
       setNewProperties(response.data);
       setProperties(response.data);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
 
   /** Get Total Items from metadata*/
@@ -242,6 +240,7 @@ const PropertiesProvider = ({ children }) => {
         statusId,
         installmentType
       );
+
       setProperties(response?.data);
       setNewProperties(response?.data);
     } catch (error) {

@@ -50,8 +50,6 @@ const PublishingForm = () => {
     });
   };
 
-  console.log(formData.termsAndConditions);
-
   const resetForm = () => {
     setFormData({
       name: '',
@@ -105,7 +103,6 @@ const PublishingForm = () => {
     ev.preventDefault();
     try {
       const response = await ContactFormServices.addContactForm(formData);
-      console.log(formData);
 
       if (
         formData.name === '' &&

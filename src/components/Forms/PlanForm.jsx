@@ -42,8 +42,6 @@ const PlanFrom = ({ props }) => {
       termsAndConditions: !formData.termsAndConditions,
     });
 
-  console.log(formData);
-
   const resetForm = () => {
     setFormData({
       name: '',

@@ -30,7 +30,7 @@ const PropiedadId = () => {
     getProperty(propertyId, 5, 5);
   }, [propertyId]);
 
-  console.log(router);
+ 
 
   return (
     <Fragment>
