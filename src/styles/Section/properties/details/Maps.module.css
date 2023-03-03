@@ -19,6 +19,29 @@
   margin: 0.7rem;
 }
 
+.urlContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #616161;
+}
+
+.url {
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 0.1rem 1rem;
+  border-radius: var(--border-radius-3xl);
+  margin-bottom: 1rem !important;
+}
+
+.url:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
 .mainTopInfoContainer {
   margin: 0rem;
 }
@@ -88,14 +111,22 @@
 }
 
 .showMapBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: auto;
-  background-color: var(--color-dark-light);
+  background-color: var(--color-primary);
   color: var(--color-white);
   border-radius: var(--border-radius-3xl);
   text-transform: uppercase;
   border: none;
   padding: 0.3rem 2rem;
   transition: 0.3s all ease-in-out;
+  text-decoration: none;
+}
+
+.showMapBtn span {
+  margin-right: 0.2rem;
 }
 
 .showAreaInfo {

@@ -24,6 +24,7 @@ const Properties = ({
   realtorId,
   statusId,
   getProperties,
+  getAllProperties,
   newProperties,
   setNewProperties,
   getSelects,
@@ -142,6 +143,7 @@ const Properties = ({
           router={router}
           setProperties={setProperties}
           getProperties={getProperties}
+          getAllProperties={getAllProperties}
           newProperties={newProperties}
           setNewProperties={setNewProperties}
           getSelects={getSelects}

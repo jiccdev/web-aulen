@@ -13,7 +13,7 @@ const PropertiesProvider = ({ children }) => {
   const [limit, setLimit] = useState(12);
   const [limitInMap, setLimitInMap] = useState(20);
 
-  const [totalItems, setTotalItems] = useState(null);
+  const [totalItems, setTotalItems] = useState('');
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
 
   /** Get Properties */
@@ -25,6 +25,23 @@ const PropertiesProvider = ({ children }) => {
       );
       setProperties(response?.data);
       setNewProperties(response?.data);
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
+  };
+
+  /** Get all Properties (Maps) */
+  const getAllProperties = async (limit, realtorId, statusId) => {
+    try {
+      const response = await PropertiesServices.getAllProperties(
+        limit,
+        realtorId,
+        statusId
+      );
+      setProperties(response?.data);
+      setNewProperties(response?.data);
+      setTotalItems(response?.meta?.totalItems);
     } catch (error) {
       const { statusCode } = error?.response?.data;
       setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
@@ -296,6 +313,7 @@ const PropertiesProvider = ({ children }) => {
         setProperties,
         property,
         getProperties,
+        getAllProperties,
         getProperty,
         newProperties,
         setNewProperties,

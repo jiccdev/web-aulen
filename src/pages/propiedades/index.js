@@ -12,6 +12,7 @@ const Propiedades = () => {
     setProperties,
     property,
     getProperties,
+    getAllProperties,
     newProperties,
     setNewProperties,
     getPagination,
@@ -63,6 +64,7 @@ const Propiedades = () => {
           realtorId={realtorId}
           statusId={statusId}
           getProperties={getProperties}
+          getAllProperties={getAllProperties}
           newProperties={newProperties}
           setNewProperties={setNewProperties}
           getPagination={getPagination}
