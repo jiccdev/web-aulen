@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import SpinnerComponent from '../Spinner/SpinnerComponent';
 
 const AdvancedSearchForm = ({
   router,
@@ -27,8 +28,7 @@ const AdvancedSearchForm = ({
 }) => {
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
-  const [notPropertiesMessage, setNotPropertiesMessage] = useState('');
-  const [filtredData, setFiltredData] = useState([]);
+  const [search, setSearch] = useState(false);
   const [filtredDataValue, setFiltredDataValue] = useState({
     operation: '',
     typeOfProperty: '',
@@ -44,6 +44,24 @@ const AdvancedSearchForm = ({
     parkingLots: '',
     installmentType: '',
   });
+
+  const resetForm = () => {
+    setFiltredDataValue({
+      operation: '',
+      typeOfProperty: '',
+      region: '',
+      commune: '',
+      surface: '',
+      priceCLP: false,
+      priceUF: false,
+      priceFrom: 0,
+      priceUpTo: 0,
+      bedrooms: 0,
+      bathrooms: '',
+      parkingLots: '',
+      installmentType: '',
+    });
+  };
 
   // ===== Operation Type =====
   const onOperationTypeChange = (option) => {
@@ -192,9 +210,10 @@ const AdvancedSearchForm = ({
     getSelects();
   }, []);
 
-  useEffect(() => {
-    getCommunesByRegion(filtredDataValue?.region);
-  }, [filtredDataValue?.region]);
+  // ✅
+  // useEffect(() => {
+  //   getCommunesByRegion(filtredDataValue?.region);
+  // }, [filtredDataValue?.region]);
 
   // Regions & Communes
   useEffect(() => {
@@ -210,66 +229,125 @@ const AdvancedSearchForm = ({
 
   /** Filters */
   // ===== Filter by Type of Property ✅ =====
-  useEffect(() => {
-    getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
-  }, [filtredDataValue?.typeOfProperty]);
+  // useEffect(() => {
+  //   getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
+  // }, [filtredDataValue?.typeOfProperty]);
 
   // ===== Filter by Min and Max price ✅ =====
-  useEffect(() => {
-    filtredDataValue?.priceFrom && filtredDataValue?.priceUpTo
-      ? getPropertiesByMinAndMaxPrice(
-          5,
-          5,
-          filtredDataValue?.priceFrom,
-          filtredDataValue?.priceUpTo
-        )
-      : getProperties(5, 5);
-  }, [filtredDataValue?.priceUpTo]);
+  // useEffect(() => {
+  //   filtredDataValue?.priceFrom && filtredDataValue?.priceUpTo
+  //     ? getPropertiesByMinAndMaxPrice(
+  //         5,
+  //         5,
+  //         filtredDataValue?.priceFrom,
+  //         filtredDataValue?.priceUpTo
+  //       )
+  //     : getProperties(5, 5);
+  // }, [filtredDataValue?.priceUpTo]);
 
   // ===== Filter by Surface M2 ✅ =====
-  useEffect(() => {
-    !filtredDataValue?.surface
-      ? getProperties(5, 5)
-      : getPropertiesBySurfaceM2(5, 5, filtredDataValue?.surface);
-  }, [filtredDataValue?.surface]);
+  // useEffect(() => {
+  //   !filtredDataValue?.surface
+  //     ? getProperties(5, 5)
+  //     : getPropertiesBySurfaceM2(5, 5, filtredDataValue?.surface);
+  // }, [filtredDataValue?.surface]);
 
   // ===== Filter by Bedrooms ✅ =====
-  useEffect(() => {
-    !filtredDataValue.bedrooms
-      ? getProperties(5, 5)
-      : getPropertiesByBedrooms(5, 5, filtredDataValue?.bedrooms);
-  }, [filtredDataValue.bedrooms]);
+  // useEffect(() => {
+  //   !filtredDataValue.bedrooms
+  //     ? getProperties(5, 5)
+  //     : getPropertiesByBedrooms(5, 5, filtredDataValue?.bedrooms);
+  // }, [filtredDataValue.bedrooms]);
 
   // ===== Filter by Bathrooms ✅ =====
-  useEffect(() => {
-    !filtredDataValue.bathrooms
-      ? getProperties(5, 5)
-      : getPropertiesByBathrooms(5, 5, filtredDataValue.bathrooms);
-  }, [filtredDataValue.bathrooms]);
+  // useEffect(() => {
+  //   !filtredDataValue.bathrooms
+  //     ? getProperties(5, 5)
+  //     : getPropertiesByBathrooms(5, 5, filtredDataValue.bathrooms);
+  // }, [filtredDataValue.bathrooms]);
 
   // ===== Filter by Parking Lots (covered) ✅ =====
-  useEffect(() => {
-    !filtredDataValue.parkingLots
-      ? getProperties(5, 5)
-      : getPropertiesByParkingLotsCovered(5, 5, filtredDataValue.parkingLots);
-  }, [filtredDataValue.parkingLots]);
+  // useEffect(() => {
+  //   !filtredDataValue.parkingLots
+  //     ? getProperties(5, 5)
+  //     : getPropertiesByParkingLotsCovered(5, 5, filtredDataValue.parkingLots);
+  // }, [filtredDataValue.parkingLots]);
 
-  useEffect(() => {
-    !filtredDataValue.operation
-      ? getProperties(5, 5)
-      : getPropertiesByOperationType(5, 5, filtredDataValue.operation);
-  }, [filtredDataValue.operation]);
+  // ✅
+  // useEffect(() => {
+  //   !filtredDataValue.operation
+  //     ? getProperties(5, 5)
+  //     : getPropertiesByOperationType(5, 5, filtredDataValue.operation);
+  // }, [filtredDataValue.operation]);
 
-  useEffect(() => {
-    !filtredDataValue.installmentType
-      ? getProperties(5, 5)
-      : getPropertiesByInstallmentType(5, 5, filtredDataValue.installmentType);
-  }, [filtredDataValue.installmentType]);
+  // ✅
+  // useEffect(() => {
+  //   !filtredDataValue.installmentType
+  //     ? getProperties(5, 5)
+  //     : getPropertiesByInstallmentType(5, 5, filtredDataValue.installmentType);
+  // }, [filtredDataValue.installmentType]);
 
   // onform submit
   const onFormSubmit = (ev) => {
     ev.preventDefault();
   };
+
+  // ACA
+  const onFormSearchSubmit = () => {
+    setSearch(!search);
+
+    // if (search) {
+    //   !filtredDataValue.operation
+    //     ? getProperties(5, 5)
+    //     : getPropertiesByOperationType(5, 5, filtredDataValue.operation);
+    // }
+
+    if (search) {
+      getPropertiesOnFormSubmit(
+        5,
+        5,
+        !filtredDataValue.operation
+          ? getProperties(5, 5)
+          : getPropertiesByOperationType(
+              5,
+              5,
+              filtredDataValue.operation || null
+            )
+
+        // !filtredDataValue?.typeOfProperty
+        //   ? getProperties(5, 5)
+        //   : getPropertiesByTypeOfProperty(
+        //       5,
+        //       5,
+        //       filtredDataValue?.typeOfProperty || null
+        //     ),
+
+        // !filtredDataValue?.commune
+        //   ? getProperties(5, 5)
+        //   : getPropertiesByRegionAndCommune(
+        //       5,
+        //       5,
+        //       filtredDataValue.region,
+        //       filtredDataValue.commune
+        //     ),
+
+        // filtredDataValue?.priceFrom || '',
+        // filtredDataValue?.priceUpTo || '',
+
+        // aca
+        // filtredDataValue?.parkingLots || null,
+
+        // filtredDataValue?.bathrooms || null,
+        // filtredDataValue?.surface || null,
+        // filtredDataValue?.bedrooms || null,
+        // filtredDataValue?.installmentType || null
+      );
+    } else {
+      getProperties(5, 5);
+    }
+  };
+
+  console.log(filtredDataValue);
 
   return (
     <Form className={styles.form} onSubmit={onFormSubmit}>
@@ -438,50 +516,41 @@ const AdvancedSearchForm = ({
         </Form.Group>
       </Col>
 
-      {/* En desarrollo ❌ */}
-      {/* <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Dormitorios</Form.Label>
-        <RSelect
-          options={bedrooms}
-          defaultValue={bedrooms[0]}
-          onChange={onBedroomsChange}
-          className={styles.rSelect}
-        />
-      </Form.Group> */}
-
-      {/* En desarrollo ❌ */}
-      {/* <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Baños</Form.Label>
-        <RSelect
-          options={bathrooms}
-          defaultValue={bathrooms[0]}
-          onChange={onBathroomsChange}
-          className={styles.rSelect}
-        />
-      </Form.Group> */}
-
-      {/* En desarrollo ❌ */}
-      {/* <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Estacionamientos</Form.Label>
-        <RSelect
-          options={parkingLots}
-          defaultValue={parkingLots[0]}
-          onChange={onParkingLotsChange}
-          className={styles.rSelect}
-        />
-      </Form.Group> */}
-
       <Form.Group className="mb-3">
-        <Button variant="primary" type="submit" className={styles.btnSubmit}>
-          Buscar
+        <Button
+          variant="primary"
+          onClick={() => {
+            onFormSearchSubmit();
+          }}
+          className={styles.btnSubmit}
+        >
+          {search ? (
+            'Buscar'
+          ) : (
+            <span
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <SpinnerComponent size="sm" />
+            </span>
+          )}
         </Button>
       </Form.Group>
 
-      {/* <Form.Group className="mb-3">
-        {notPropertiesMessage && (
-          <Alert variant="danger">{notPropertiesMessage}</Alert>
-        )}
-      </Form.Group> */}
+      <Form.Group className="mb-3">
+        <Button
+          variant="info"
+          onClick={() => {
+            resetForm();
+          }}
+          className={styles.btnSubmit}
+        >
+          Limpiar
+        </Button>
+      </Form.Group>
     </Form>
   );
 };

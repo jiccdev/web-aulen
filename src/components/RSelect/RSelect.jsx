@@ -1,16 +1,20 @@
-import React, { useId } from 'react';
+import React, { Fragment, useState, useId } from 'react';
 import Select from 'react-select';
 
 const RSelect = ({ ...props }) => {
+  const [isClearable, setIsClearable] = useState(true);
   return (
-    <Select
-      className={`react-select-container ${
-        props.className ? props.className : ''
-      }`}
-      classNamePrefix="react-select"
-      instanceId={useId()}
-      {...props}
-    />
+    <Fragment>
+      <Select
+        className={`react-select-container ${
+          props.className ? props.className : ''
+        }`}
+        isClearable={isClearable}
+        classNamePrefix="react-select"
+        instanceId={useId()}
+        {...props}
+      />
+    </Fragment>
   );
 };
 
