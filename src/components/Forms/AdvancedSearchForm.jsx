@@ -11,6 +11,7 @@ import SpinnerComponent from '../Spinner/SpinnerComponent';
 
 const AdvancedSearchForm = ({
   router,
+  newProperties,
   getProperties,
   getSelects,
   selectsList,
@@ -211,9 +212,9 @@ const AdvancedSearchForm = ({
   }, []);
 
   // ✅
-  // useEffect(() => {
-  //   getCommunesByRegion(filtredDataValue?.region);
-  // }, [filtredDataValue?.region]);
+  useEffect(() => {
+    getCommunesByRegion(filtredDataValue?.region);
+  }, [filtredDataValue?.region]);
 
   // Regions & Communes
   useEffect(() => {
@@ -229,9 +230,9 @@ const AdvancedSearchForm = ({
 
   /** Filters */
   // ===== Filter by Type of Property ✅ =====
-  // useEffect(() => {
-  //   getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
-  // }, [filtredDataValue?.typeOfProperty]);
+  useEffect(() => {
+    getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
+  }, [filtredDataValue?.typeOfProperty]);
 
   // ===== Filter by Min and Max price ✅ =====
   // useEffect(() => {
@@ -287,70 +288,36 @@ const AdvancedSearchForm = ({
   //     : getPropertiesByInstallmentType(5, 5, filtredDataValue.installmentType);
   // }, [filtredDataValue.installmentType]);
 
-  // onform submit
-  const onFormSubmit = (ev) => {
-    ev.preventDefault();
+  const onFormSubmit = (
+    realtorId,
+    statusId,
+    operationType,
+    typeOfProperty,
+    region
+  ) => {
+    let url = `properties`;
+    let _realtorId = `${realtorId}`;
+    let _statusId = `${statusId}`;
+    let _operationType = `${operationType}`;
+    let _typeOfProperty = `${typeOfProperty}`;
+    let _region = `${region}`;
+
+    console.log(
+      url.concat(
+        `?realtorId=${_realtorId}&statusId=${_statusId}&operationType=${_operationType}&typeOfProperty=${_typeOfProperty}&region=${_region}`
+      )
+    );
+
+    return getPropertiesOnFormSubmit(
+      realtorId,
+      statusId,
+      _operationType,
+      _typeOfProperty
+    );
   };
-
-  // ACA
-  const onFormSearchSubmit = () => {
-    setSearch(!search);
-
-    // if (search) {
-    //   !filtredDataValue.operation
-    //     ? getProperties(5, 5)
-    //     : getPropertiesByOperationType(5, 5, filtredDataValue.operation);
-    // }
-
-    if (search) {
-      getPropertiesOnFormSubmit(
-        5,
-        5,
-        !filtredDataValue.operation
-          ? getProperties(5, 5)
-          : getPropertiesByOperationType(
-              5,
-              5,
-              filtredDataValue.operation || null
-            )
-
-        // !filtredDataValue?.typeOfProperty
-        //   ? getProperties(5, 5)
-        //   : getPropertiesByTypeOfProperty(
-        //       5,
-        //       5,
-        //       filtredDataValue?.typeOfProperty || null
-        //     ),
-
-        // !filtredDataValue?.commune
-        //   ? getProperties(5, 5)
-        //   : getPropertiesByRegionAndCommune(
-        //       5,
-        //       5,
-        //       filtredDataValue.region,
-        //       filtredDataValue.commune
-        //     ),
-
-        // filtredDataValue?.priceFrom || '',
-        // filtredDataValue?.priceUpTo || '',
-
-        // aca
-        // filtredDataValue?.parkingLots || null,
-
-        // filtredDataValue?.bathrooms || null,
-        // filtredDataValue?.surface || null,
-        // filtredDataValue?.bedrooms || null,
-        // filtredDataValue?.installmentType || null
-      );
-    } else {
-      getProperties(5, 5);
-    }
-  };
-
-  console.log(filtredDataValue);
 
   return (
-    <Form className={styles.form} onSubmit={onFormSubmit}>
+    <Form className={styles.form}>
       <Form.Group className="mb-3">
         <Form.Label className={styles.label}>Tipo de operación</Form.Label>
         <RSelect
@@ -519,36 +486,19 @@ const AdvancedSearchForm = ({
       <Form.Group className="mb-3">
         <Button
           variant="primary"
-          onClick={() => {
-            onFormSearchSubmit();
-          }}
           className={styles.btnSubmit}
-        >
-          {search ? (
-            'Buscar'
-          ) : (
-            <span
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <SpinnerComponent size="sm" />
-            </span>
-          )}
-        </Button>
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Button
-          variant="info"
           onClick={() => {
-            resetForm();
+            onFormSubmit(
+              5,
+              5,
+              filtredDataValue?.operation,
+              filtredDataValue?.typeOfProperty
+            );
           }}
-          className={styles.btnSubmit}
         >
-          Limpiar
+          Buscar
+          {console.log(filtredDataValue?.operation)}
+          {/* {search ? 'Buscar' : <SpinnerComponent size="sm" />} */}
         </Button>
       </Form.Group>
     </Form>
