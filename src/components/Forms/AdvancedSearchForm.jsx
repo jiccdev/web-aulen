@@ -297,10 +297,10 @@ const AdvancedSearchForm = ({
     commune,
     minPrice,
     maxPrice,
-    coveredParkingLots,
-    bathrooms,
-    surfaceM2,
-    bedrooms
+    coveredParkingLots
+    // bathrooms,
+    // surfaceM2,
+    // bedrooms
   ) => {
     let url = `properties`;
     let _realtorId = `${realtorId}`;
@@ -312,13 +312,13 @@ const AdvancedSearchForm = ({
     let _minPrice = `${minPrice}`;
     let _maxPrice = `${maxPrice}`;
     let _coveredParkingLots = `${coveredParkingLots}`;
-    let _bathrooms = `${bathrooms}`;
-    let _surfaceM2 = `${surfaceM2}`;
-    let _bedrooms = `${bedrooms}`;
+    // let _bathrooms = `${bathrooms}`;
+    // let _surfaceM2 = `${surfaceM2}`;
+    // let _bedrooms = `${bedrooms}`;
 
     console.log(
       url.concat(
-        `?realtorId=${_realtorId}&statusId=${_statusId}&operationType=${_operationType}&typeOfProperty=${_typeOfProperty}&region=${_region}&commune=${_commune}&min_price=${_minPrice}&max_price=${_maxPrice}&covered_parking_lots=${_coveredParkingLots}&bathrooms=${_bathrooms}&surface_m2=${_surfaceM2}&bedrooms=${_bedrooms}`
+        `?realtorId=${_realtorId}&statusId=${_statusId}&operationType=${_operationType}&typeOfProperty=${_typeOfProperty}&region=${_region}&commune=${_commune}&min_price=${_minPrice}&max_price=${_maxPrice}&covered_parking_lots=${_coveredParkingLots}`
       )
     );
 
@@ -333,10 +333,10 @@ const AdvancedSearchForm = ({
       _commune,
       _minPrice,
       _maxPrice,
-      _coveredParkingLots,
-      _bathrooms,
-      _surfaceM2,
-      _bedrooms
+      _coveredParkingLots
+      // _bathrooms,
+      // _surfaceM2,
+      // _bedrooms
     );
   };
 
@@ -521,10 +521,10 @@ const AdvancedSearchForm = ({
               filtredDataValue?.commune || '',
               filtredDataValue?.priceFrom || '',
               filtredDataValue?.priceUpTo || '',
-              filtredDataValue?.parkingLots || '',
-              filtredDataValue?.bathrooms || '',
-              filtredDataValue?.surface || '',
-              filtredDataValue?.bedrooms || ''
+              filtredDataValue?.parkingLots || ''
+              // filtredDataValue?.bathrooms || '',
+              // filtredDataValue?.surface || '',
+              // filtredDataValue?.bedrooms || ''
             );
           }}
         >

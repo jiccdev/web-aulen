@@ -167,13 +167,13 @@ const PropertiesServices = {
     communeId,
     minPrice,
     maxPrice,
-    coveredParkingLots,
-    bathrooms,
-    surfaceM2,
-    bedrooms
+    coveredParkingLots
+    // bathrooms,
+    // surfaceM2,
+    // bedrooms
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}&typeOfProperty=${typeOfProperty}&region=${regionId}&commune=${communeId}&min_price=${minPrice}&max_price=${maxPrice}&covered_parking_lots=${coveredParkingLots}&bathrooms=${bathrooms}&surface_m2=${surfaceM2}&bedrooms=${bedrooms}`
+      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}&typeOfProperty=${typeOfProperty}&region=${regionId}&commune=${communeId}&min_price=${minPrice}&max_price=${maxPrice}&covered_parking_lots=${coveredParkingLots}`
     );
     return response.data;
   },
