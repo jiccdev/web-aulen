@@ -162,27 +162,21 @@ const PropertiesServices = {
     realtorId,
     statusId,
     operationType,
-    typeOfProperty
-    // regionId
-    // communeId,
-    // minPrice,
-    // maxPrice,
-    // coveredParkingLots,
-    // bathrooms,
-    // surfaceM2,
-    // bedrooms,
-    // installmentType
+    typeOfProperty,
+    regionId,
+    communeId,
+    minPrice,
+    maxPrice,
+    coveredParkingLots,
+    bathrooms,
+    surfaceM2,
+    bedrooms
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}&typeOfProperty=${typeOfProperty}`
+      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}&typeOfProperty=${typeOfProperty}&region=${regionId}&commune=${communeId}&min_price=${minPrice}&max_price=${maxPrice}&covered_parking_lots=${coveredParkingLots}&bathrooms=${bathrooms}&surface_m2=${surfaceM2}&bedrooms=${bedrooms}`
     );
     return response.data;
   },
 };
-
-// `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}&typeOfProperty=${typeOfProperty}&region=${regionId}`
-//    `properties?realtorId=${realtorId}&statusId=${statusId}
-// ${!!operationType ? '' : `&operationType=${operationType}`}
-// ${!!typeOfProperty ? '' : `&typeOfProperty=${typeOfProperty}`}`
 
 export default PropertiesServices;

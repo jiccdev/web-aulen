@@ -216,17 +216,17 @@ const AdvancedSearchForm = ({
     getCommunesByRegion(filtredDataValue?.region);
   }, [filtredDataValue?.region]);
 
-  // Regions & Communes
-  useEffect(() => {
-    !filtredDataValue.commune && !filtredDataValue.region
-      ? getProperties(5, 5)
-      : getPropertiesByRegionAndCommune(
-          5,
-          5,
-          filtredDataValue.region,
-          filtredDataValue.commune
-        );
-  }, [filtredDataValue.commune]);
+  // Regions & Communes✅
+  // useEffect(() => {
+  //   !filtredDataValue.commune && !filtredDataValue.region
+  //     ? getProperties(5, 5)
+  //     : getPropertiesByRegionAndCommune(
+  //         5,
+  //         5,
+  //         filtredDataValue.region,
+  //         filtredDataValue.commune
+  //       );
+  // }, [filtredDataValue.commune]);
 
   /** Filters */
   // ===== Filter by Type of Property ✅ =====
@@ -293,7 +293,14 @@ const AdvancedSearchForm = ({
     statusId,
     operationType,
     typeOfProperty,
-    region
+    region,
+    commune,
+    minPrice,
+    maxPrice,
+    coveredParkingLots,
+    bathrooms,
+    surfaceM2,
+    bedrooms
   ) => {
     let url = `properties`;
     let _realtorId = `${realtorId}`;
@@ -301,18 +308,35 @@ const AdvancedSearchForm = ({
     let _operationType = `${operationType}`;
     let _typeOfProperty = `${typeOfProperty}`;
     let _region = `${region}`;
+    let _commune = `${commune}`;
+    let _minPrice = `${minPrice}`;
+    let _maxPrice = `${maxPrice}`;
+    let _coveredParkingLots = `${coveredParkingLots}`;
+    let _bathrooms = `${bathrooms}`;
+    let _surfaceM2 = `${surfaceM2}`;
+    let _bedrooms = `${bedrooms}`;
 
     console.log(
       url.concat(
-        `?realtorId=${_realtorId}&statusId=${_statusId}&operationType=${_operationType}&typeOfProperty=${_typeOfProperty}&region=${_region}`
+        `?realtorId=${_realtorId}&statusId=${_statusId}&operationType=${_operationType}&typeOfProperty=${_typeOfProperty}&region=${_region}&commune=${_commune}&min_price=${_minPrice}&max_price=${_maxPrice}&covered_parking_lots=${_coveredParkingLots}&bathrooms=${_bathrooms}&surface_m2=${_surfaceM2}&bedrooms=${_bedrooms}`
       )
     );
+
+    // Problemas con banos
 
     return getPropertiesOnFormSubmit(
       realtorId,
       statusId,
       _operationType,
-      _typeOfProperty
+      _typeOfProperty,
+      _region,
+      _commune,
+      _minPrice,
+      _maxPrice,
+      _coveredParkingLots,
+      _bathrooms,
+      _surfaceM2,
+      _bedrooms
     );
   };
 
@@ -448,7 +472,7 @@ const AdvancedSearchForm = ({
         <Form.Group className="mb-3">
           <Form.Label className={styles.label}>Dormitorios</Form.Label>
           <Form.Control
-            type="number"
+            type="text"
             onChange={onBedroomsChange}
             defaultValue={filtredDataValue.bedrooms}
             placeholder="Dormitorios"
@@ -463,9 +487,9 @@ const AdvancedSearchForm = ({
           <Form.Control
             type="text"
             onChange={onBathroomsChange}
-            defaultValue={filtredDataValue.bathrooms}
+            defaultValue={filtredDataValue?.bathrooms}
             placeholder="Baños"
-            name={filtredDataValue.bathrooms}
+            name={filtredDataValue?.bathrooms}
           />
         </Form.Group>
       </Col>
@@ -491,14 +515,33 @@ const AdvancedSearchForm = ({
             onFormSubmit(
               5,
               5,
-              filtredDataValue?.operation,
-              filtredDataValue?.typeOfProperty
+              filtredDataValue?.operation || '',
+              filtredDataValue?.typeOfProperty || '',
+              filtredDataValue?.region || '',
+              filtredDataValue?.commune || '',
+              filtredDataValue?.priceFrom || '',
+              filtredDataValue?.priceUpTo || '',
+              filtredDataValue?.parkingLots || '',
+              filtredDataValue?.bathrooms || '',
+              filtredDataValue?.surface || '',
+              filtredDataValue?.bedrooms || ''
             );
           }}
         >
           Buscar
-          {console.log(filtredDataValue?.operation)}
-          {/* {search ? 'Buscar' : <SpinnerComponent size="sm" />} */}
+        </Button>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Button
+          variant="secondary"
+          className={styles.btnSubmit}
+          onClick={() => {
+            resetForm();
+            window.location.reload();
+          }}
+        >
+          Limpiar
         </Button>
       </Form.Group>
     </Form>
