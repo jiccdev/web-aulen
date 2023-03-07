@@ -182,7 +182,7 @@ const AdvancedSearchForm = ({
   const onSurfaceChange = (ev) => {
     setFiltredDataValue({
       ...filtredDataValue,
-      surface: ev.target.value,
+      surface: String(ev.target.value),
     });
   };
 
@@ -297,32 +297,39 @@ const AdvancedSearchForm = ({
     commune,
     minPrice,
     maxPrice,
-    coveredParkingLots
-    // bathrooms,
-    // surfaceM2,
-    // bedrooms
+    coveredParkingLots,
+    bathrooms
   ) => {
     let url = `properties`;
-    let _realtorId = `${realtorId}`;
-    let _statusId = `${statusId}`;
-    let _operationType = `${operationType}`;
-    let _typeOfProperty = `${typeOfProperty}`;
-    let _region = `${region}`;
-    let _commune = `${commune}`;
-    let _minPrice = `${minPrice}`;
-    let _maxPrice = `${maxPrice}`;
-    let _coveredParkingLots = `${coveredParkingLots}`;
-    // let _bathrooms = `${bathrooms}`;
-    // let _surfaceM2 = `${surfaceM2}`;
-    // let _bedrooms = `${bedrooms}`;
+    const _realtorId = `${realtorId}`;
+    const _statusId = `${statusId}`;
+    const _operationType = operationType.length > 0 ? operationType : false;
+    const _typeOfProperty = typeOfProperty.length > 0 ? typeOfProperty : false;
+    const _region = region > 0 ? region : false;
+    const _commune = commune.length > 0 ? commune : false;
+    const _minPrice = minPrice > 0 ? minPrice : false;
+    const _maxPrice = maxPrice > 0 ? maxPrice : false;
+    const _coveredParkingLots =
+      coveredParkingLots > 0 ? coveredParkingLots : false;
+    const _bathrooms = bathrooms > 0 ? bathrooms : false;
+
+    console.log(typeof _coveredParkingLots);
 
     console.log(
       url.concat(
-        `?realtorId=${_realtorId}&statusId=${_statusId}&operationType=${_operationType}&typeOfProperty=${_typeOfProperty}&region=${_region}&commune=${_commune}&min_price=${_minPrice}&max_price=${_maxPrice}&covered_parking_lots=${_coveredParkingLots}`
+        `?realtorId=${_realtorId}&statusId=${_statusId}${
+          _operationType ? `&operationType=${_operationType}` : ''
+        }${_typeOfProperty ? `&typeOfProperty=${_typeOfProperty}` : ''}${
+          _region ? `&region=${_region}` : ''
+        }${_commune ? `&commune=${_commune}` : ''}${
+          _minPrice ? `&min_price=${_minPrice}` : ''
+        }${_maxPrice ? `&max_price=${_maxPrice}` : ''}${
+          _coveredParkingLots
+            ? `&covered_parking_lots=${_coveredParkingLots}`
+            : ''
+        }${_bathrooms ? `&bathrooms=${_bathrooms}` : ''} `
       )
     );
-
-    // Problemas con banos
 
     return getPropertiesOnFormSubmit(
       realtorId,
@@ -333,10 +340,8 @@ const AdvancedSearchForm = ({
       _commune,
       _minPrice,
       _maxPrice,
-      _coveredParkingLots
-      // _bathrooms,
-      // _surfaceM2,
-      // _bedrooms
+      _coveredParkingLots,
+      _bathrooms
     );
   };
 
@@ -519,12 +524,10 @@ const AdvancedSearchForm = ({
               filtredDataValue?.typeOfProperty || '',
               filtredDataValue?.region || '',
               filtredDataValue?.commune || '',
-              filtredDataValue?.priceFrom || '',
-              filtredDataValue?.priceUpTo || '',
-              filtredDataValue?.parkingLots || ''
-              // filtredDataValue?.bathrooms || '',
-              // filtredDataValue?.surface || '',
-              // filtredDataValue?.bedrooms || ''
+              filtredDataValue?.priceFrom,
+              filtredDataValue?.priceUpTo,
+              filtredDataValue?.parkingLots,
+              filtredDataValue?.bathrooms || ''
             );
           }}
         >
