@@ -21,8 +21,6 @@ const AdvancedSearchForm = ({
   getCommunesByRegion,
   getPropertiesOnFormSubmit,
 }) => {
-  const { regions, communes, operationType, typeOfProperty, installmentType } =
-    selectsList;
   const [loading, setLoading] = useState(false);
   const [filtredDataValue, setFiltredDataValue] = useState({
     operation: '',
@@ -39,6 +37,8 @@ const AdvancedSearchForm = ({
     parkingLots: '',
     installmentType: '',
   });
+  const { regions, communes, operationType, typeOfProperty, installmentType } =
+    selectsList;
 
   const resetForm = () => {
     setFiltredDataValue({
@@ -441,7 +441,6 @@ const AdvancedSearchForm = ({
           className={styles.btnSubmit}
           onClick={() => {
             resetForm();
-
             window.location.reload();
           }}
         >

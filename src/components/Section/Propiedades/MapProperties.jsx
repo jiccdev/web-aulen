@@ -155,6 +155,7 @@ const MapProperties = () => {
                           }}
                         >
                           <Image
+                            alt="map-pointer"
                             src={MapPointer}
                             height={15}
                             width={15}

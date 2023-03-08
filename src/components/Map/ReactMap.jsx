@@ -28,9 +28,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
       <div className={styles.mapTopInfoContainer}>
         <Link href="/propiedades/maps-propiedades">
           <Button className={styles.showMapBtn}>
-            <span>
-              <BiMap />
-            </span>
+            <BiMap />
             Ver Mapa
           </Button>
         </Link>
@@ -121,6 +119,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                   }}
                 >
                   <Image
+                    alt="map-pointer"
                     src={MapPointer}
                     height={15}
                     width={15}
