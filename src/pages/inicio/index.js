@@ -7,6 +7,7 @@ import Lease from '@/components/Section/Inicio/Lease';
 import Steps from '@/components/Section/Inicio/Steps';
 import Investing from '@/components/Section/Inicio/Investing';
 import NewProperties from '@/components/Section/Inicio/NewProperties';
+import About from '@/components/Section/Inicio/About';
 
 const Inicio = () => {
   return (
@@ -29,6 +30,9 @@ const Inicio = () => {
 
         {/* --PROPIEDADES NUEVAS-- */}
         <NewProperties />
+
+        {/* --ABOUT-- */}
+        <About />
       </LayoutSection>
     </Fragment>
   );

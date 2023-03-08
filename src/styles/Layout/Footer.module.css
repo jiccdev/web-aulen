@@ -5,7 +5,6 @@
   right: 0;
   overflow-x: hidden;
   width: auto;
-  /* background-color: var(--color-pale-gray-dark); */
   background-color: rgb(56, 56, 56);
   padding: 1.5rem;
   z-index: 1;
