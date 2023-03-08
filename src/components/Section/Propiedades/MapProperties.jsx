@@ -171,11 +171,11 @@ const MapProperties = () => {
                             }}
                           >
                             {property?.address === ''
-                              ? 'Propiedad sin ubicacion registrada'
+                              ? 'Propiedad sin ubicacion registrada '
                               : property?.address + ','}
 
                             {property?.city === ''
-                              ? 'Propiedad sin ciudad registrada'
+                              ? 'Propiedad sin ciudad registrada '
                               : property?.address}
                           </span>
                         </div>

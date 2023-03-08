@@ -135,11 +135,11 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                     }}
                   >
                     {propertyData?.address === ''
-                      ? 'Propiedad sin ubicacion registrada'
+                      ? 'Propiedad sin ubicacion registrada '
                       : propertyData?.address + ','}
 
                     {propertyData?.city === ''
-                      ? 'Propiedad sin ciudad registrada'
+                      ? 'Propiedad sin ciudad registrada '
                       : propertyData?.address}
                   </span>
                 </div>

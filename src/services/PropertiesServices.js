@@ -148,7 +148,8 @@ const PropertiesServices = {
     coveredParkingLots,
     bedrooms,
     surfaceM2,
-    bathrooms
+    bathrooms,
+    installmentType
   ) => {
     const _realtorId = `${realtorId}`;
     const _statusId = `${statusId}`;
@@ -163,6 +164,7 @@ const PropertiesServices = {
     const _bedrooms = bedrooms > 0 || bedrooms > '0' ? bedrooms : false;
     const _surfaceM2 = surfaceM2 > 0 || surfaceM2 > '0' ? surfaceM2 : false;
     const _bathrooms = bathrooms > 0 || bathrooms > '0' ? bathrooms : false;
+    const _installmentType = bathrooms.lenght > 0 ? installmentType : false;
 
     const response = await api.get(
       `properties?realtorId=${_realtorId}&statusId=${_statusId}${
