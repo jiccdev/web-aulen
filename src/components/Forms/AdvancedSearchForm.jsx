@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import RSelect from '../RSelect/RSelect';
+import SpinnerComponent from '../Spinner/SpinnerComponent';
 import styles from '../../styles/Forms/AdvancedSearchForm.module.css';
 
 /** Bootstrap components */
@@ -18,6 +19,7 @@ const AdvancedSearchForm = ({
 }) => {
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
+  const [loading, setLoading] = useState(false);
   const [filtredDataValue, setFiltredDataValue] = useState({
     operation: '',
     typeOfProperty: '',
@@ -198,9 +200,9 @@ const AdvancedSearchForm = ({
     getCommunesByRegion(filtredDataValue?.region);
   }, [filtredDataValue?.region]);
 
-  useEffect(() => {
-    getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
-  }, [filtredDataValue?.typeOfProperty]);
+  // useEffect(() => {
+  //   getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
+  // }, [filtredDataValue?.typeOfProperty]);
 
   const onFormSubmit = (
     realtorId,
@@ -211,10 +213,10 @@ const AdvancedSearchForm = ({
     commune,
     minPrice,
     maxPrice,
-    bathrooms,
-    coveredParkingLots,
-    surfaceM2,
-    bedrooms
+    bathrooms
+    // coveredParkingLots,
+    // surfaceM2,
+    // bedrooms
   ) => {
     let url = `properties`;
     const _realtorId = `${realtorId}`;
@@ -226,10 +228,10 @@ const AdvancedSearchForm = ({
     const _minPrice = minPrice > 0 ? minPrice : false;
     const _maxPrice = maxPrice > 0 ? maxPrice : false;
     const _bathrooms = bathrooms > '0' ? bathrooms : Number('');
-    const _coveredParkingLots =
-      coveredParkingLots > '0' ? coveredParkingLots : Number('');
-    const _surfaceM2 = surfaceM2 > '0' ? surfaceM2 : Number('');
-    const _bedrooms = bedrooms > '0' ? bedrooms : Number('');
+    // const _coveredParkingLots =
+    //   coveredParkingLots.length > 0 ? coveredParkingLots : Number('');
+    // const _surfaceM2 = surfaceM2.length > 0 ? surfaceM2 : Number('');
+    // const _bedrooms = bedrooms.length > 0 ? bedrooms : Number('');
 
     console.log(
       url.concat(
@@ -241,15 +243,19 @@ const AdvancedSearchForm = ({
           _minPrice ? `&min_price=${_minPrice}` : ''
         }${_maxPrice ? `&max_price=${_maxPrice}` : ''}${
           _bathrooms ? `&bathrooms=${_bathrooms}` : ''
-        }${
-          _coveredParkingLots
-            ? `&covered_parking_lots=${_coveredParkingLots}`
-            : ''
-        }${_surfaceM2 ? `&surface_m2=${_surfaceM2}` : ''}${
-          _bedrooms ? `&bedrooms=${_bedrooms}` : ''
         }`
       )
     );
+
+    // ${
+    //   _bathrooms ? `&bathrooms=${_bathrooms}` : ''
+    // }${
+    //   _coveredParkingLots
+    //     ? `&covered_parking_lots=${_coveredParkingLots}`
+    //     : ''
+    // }${_surfaceM2 ? `&surface_m2=${_surfaceM2}` : ''}${
+    //   _bedrooms ? `&bedrooms=${_bedrooms}` : ''
+    // }
 
     return getPropertiesOnFormSubmit(
       realtorId,
@@ -260,11 +266,23 @@ const AdvancedSearchForm = ({
       _commune,
       _minPrice,
       _maxPrice,
-      _bathrooms,
-      _coveredParkingLots,
-      _surfaceM2,
-      _bedrooms
+      _bathrooms
+      // _coveredParkingLots,
+      // _surfaceM2,
+      // _bedrooms
     );
+  };
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3500);
+    }
+  }, [loading]);
+
+  const handleClick = () => {
+    setLoading(true);
   };
 
   return (
@@ -408,6 +426,7 @@ const AdvancedSearchForm = ({
           variant="primary"
           className={styles.btnSubmit}
           onClick={() => {
+            handleClick();
             onFormSubmit(
               5,
               5,
@@ -417,14 +436,21 @@ const AdvancedSearchForm = ({
               filtredDataValue?.commune,
               filtredDataValue?.priceFrom,
               filtredDataValue?.priceUpTo,
-              filtredDataValue?.bathrooms,
-              filtredDataValue?.parkingLots,
-              filtredDataValue?.surface,
-              filtredDataValue?.bedrooms
+              filtredDataValue?.bathrooms
+              // filtredDataValue?.parkingLots,
+              // filtredDataValue?.surface,
+              // filtredDataValue?.bedrooms
             );
           }}
         >
-          Buscar
+          {loading ? (
+            <span>
+              Obteniendo Propiedades
+              <SpinnerComponent size="sm" />
+            </span>
+          ) : (
+            'Buscar'
+          )}
         </Button>
       </Form.Group>
 
@@ -434,6 +460,7 @@ const AdvancedSearchForm = ({
           className={styles.btnSubmit}
           onClick={() => {
             resetForm();
+
             window.location.reload();
           }}
         >
