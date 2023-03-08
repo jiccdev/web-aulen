@@ -98,6 +98,84 @@ const AdvancedSearchForm = ({
     });
   };
 
+  // !SELECT PARKING LOTS
+  const parkingLotsList = [
+    { value: 0, label: '0' },
+    { value: 1, label: '1' },
+    { value: 2, label: '2' },
+    { value: 3, label: '3' },
+    { value: 4, label: '4' },
+    { value: 5, label: '5' },
+  ];
+
+  const getParkingLotsOptions = () =>
+    parkingLotsList?.map((parkingLots) => ({
+      value: parkingLots.value,
+      label: parkingLots.label,
+    }));
+
+  const onParkingLotsChange = (option) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      parkingLots: option?.value,
+    });
+    console.log(option?.value);
+  };
+  // !SELECT PARKING LOTS
+
+  // !SELECT BEDROOMS
+
+  const bedroomsList = [
+    { value: 0, label: '0' },
+    { value: 1, label: '1' },
+    { value: 2, label: '2' },
+    { value: 3, label: '3' },
+    { value: 4, label: '4' },
+    { value: 5, label: '5' },
+  ];
+
+  const getBedroomsOptions = () =>
+    bedroomsList?.map((bedroom) => ({
+      value: bedroom.value,
+      label: bedroom.label,
+    }));
+
+  const onBedroomsChange = (option) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      bedrooms: option?.value,
+    });
+    console.log(option?.value);
+  };
+
+  // !SELECT BEDROOMS
+  // **************************
+  // !SELECT BATHROOMS
+
+  const bathroomsList = [
+    { value: 0, label: '0' },
+    { value: 1, label: '1' },
+    { value: 2, label: '2' },
+    { value: 3, label: '3' },
+    { value: 4, label: '4' },
+    { value: 5, label: '5' },
+  ];
+
+  const getBathroomsOptions = () =>
+    bathroomsList?.map((bathroom) => ({
+      value: bathroom.value,
+      label: bathroom.label,
+    }));
+
+  const onBathroomsChange = (option) => {
+    setFiltredDataValue({
+      ...filtredDataValue,
+      bathrooms: option?.value,
+    });
+  };
+
+  // !SELECT BATHROOMS
+
   // ===== Installation type =====
   const onInstallmentTypeChange = (option) => {
     setFiltredDataValue({
@@ -171,26 +249,26 @@ const AdvancedSearchForm = ({
     });
   };
 
-  const onBedroomsChange = (ev) => {
-    setFiltredDataValue({
-      ...filtredDataValue,
-      bedrooms: ev.target.value,
-    });
-  };
+  // const onBedroomsChange = (ev) => {
+  //   setFiltredDataValue({
+  //     ...filtredDataValue,
+  //     bedrooms: ev.target.value,
+  //   });
+  // };
 
-  const onBathroomsChange = (ev) => {
-    setFiltredDataValue({
-      ...filtredDataValue,
-      bathrooms: ev.target.value,
-    });
-  };
+  // const onBathroomsChange = (ev) => {
+  //   setFiltredDataValue({
+  //     ...filtredDataValue,
+  //     bathrooms: ev.target.value,
+  //   });
+  // };
 
-  const onParkingLotsChange = (ev) => {
-    setFiltredDataValue({
-      ...filtredDataValue,
-      parkingLots: ev.target.value,
-    });
-  };
+  // const onParkingLotsChange = (ev) => {
+  //   setFiltredDataValue({
+  //     ...filtredDataValue,
+  //     parkingLots: ev.target.value,
+  //   });
+  // };
 
   useEffect(() => {
     getSelects();
@@ -213,63 +291,49 @@ const AdvancedSearchForm = ({
     commune,
     minPrice,
     maxPrice,
-    bathrooms
-    // coveredParkingLots,
-    // surfaceM2,
-    // bedrooms
+    coveredParkingLots,
+    bedrooms
   ) => {
-    let url = `properties`;
-    const _realtorId = `${realtorId}`;
-    const _statusId = `${statusId}`;
-    const _operationType = operationType.length > 0 ? operationType : false;
-    const _typeOfProperty = typeOfProperty.length > 0 ? typeOfProperty : false;
-    const _region = region > 0 ? region : false;
-    const _commune = commune.length > 0 ? commune : false;
-    const _minPrice = minPrice > 0 ? minPrice : false;
-    const _maxPrice = maxPrice > 0 ? maxPrice : false;
-    const _bathrooms = bathrooms > '0' ? bathrooms : Number('');
+    // let url = `properties`;
+    // const _realtorId = `${realtorId}`;
+    // const _statusId = `${statusId}`;
+    // const _operationType = operationType.length > 0 ? operationType : false;
+    // const _typeOfProperty = typeOfProperty.length > 0 ? typeOfProperty : false;
+    // const _region = region > 0 ? region : false;
+    // const _commune = commune.length > 0 ? commune : false;
+    // const _minPrice = minPrice > 0 ? minPrice : false;
+    // const _maxPrice = maxPrice > 0 ? maxPrice : false;
     // const _coveredParkingLots =
-    //   coveredParkingLots.length > 0 ? coveredParkingLots : Number('');
-    // const _surfaceM2 = surfaceM2.length > 0 ? surfaceM2 : Number('');
-    // const _bedrooms = bedrooms.length > 0 ? bedrooms : Number('');
+    //   coveredParkingLots > 0 ? coveredParkingLots : false;
+    // const _bedrooms = bedrooms > 0 ? bedrooms : false;
 
-    console.log(
-      url.concat(
-        `?realtorId=${_realtorId}&statusId=${_statusId}${
-          _operationType ? `&operationType=${_operationType}` : ''
-        }${_typeOfProperty ? `&typeOfProperty=${_typeOfProperty}` : ''}${
-          _region ? `&region=${_region}` : ''
-        }${_commune ? `&commune=${_commune}` : ''}${
-          _minPrice ? `&min_price=${_minPrice}` : ''
-        }${_maxPrice ? `&max_price=${_maxPrice}` : ''}${
-          _bathrooms ? `&bathrooms=${_bathrooms}` : ''
-        }`
-      )
-    );
-
-    // ${
-    //   _bathrooms ? `&bathrooms=${_bathrooms}` : ''
-    // }${
-    //   _coveredParkingLots
-    //     ? `&covered_parking_lots=${_coveredParkingLots}`
-    //     : ''
-    // }${_surfaceM2 ? `&surface_m2=${_surfaceM2}` : ''}${
-    //   _bedrooms ? `&bedrooms=${_bedrooms}` : ''
-    // }
+    // console.log(
+    //   url.concat(
+    //     `?realtorId=${_realtorId}&statusId=${_statusId}${
+    //       _operationType ? `&operationType=${_operationType}` : ''
+    //     }${_typeOfProperty ? `&typeOfProperty=${_typeOfProperty}` : ''}${
+    //       _region ? `&region=${_region}` : ''
+    //     }${_commune ? `&commune=${_commune}` : ''}${
+    //       _minPrice ? `&min_price=${_minPrice}` : ''
+    //     }${_maxPrice ? `&max_price=${_maxPrice}` : ''}${
+    //       _coveredParkingLots
+    //         ? `&covered_parking_lots=${_coveredParkingLots}`
+    //         : ''
+    //     }${_bedrooms ? `&bedrooms=${_bedrooms}` : ''}`
+    //   )
+    // );
 
     return getPropertiesOnFormSubmit(
       realtorId,
       statusId,
-      _operationType,
-      _typeOfProperty,
-      _region,
-      _commune,
-      _minPrice,
-      _maxPrice,
-      _bathrooms
-      // _coveredParkingLots,
-      // _surfaceM2,
-      // _bedrooms
+      operationType,
+      typeOfProperty,
+      region,
+      commune,
+      minPrice,
+      maxPrice,
+      coveredParkingLots,
+      bedrooms
     );
   };
 
@@ -277,7 +341,7 @@ const AdvancedSearchForm = ({
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 3500);
+      }, 3600);
     }
   }, [loading]);
 
@@ -385,12 +449,12 @@ const AdvancedSearchForm = ({
       <Col>
         <Form.Group className="mb-3">
           <Form.Label className={styles.label}>Dormitorios</Form.Label>
-          <Form.Control
-            type="text"
+          <RSelect
+            options={getBedroomsOptions()}
+            defaultValue={bedroomsList[0]}
             onChange={onBedroomsChange}
-            defaultValue={filtredDataValue.bedrooms}
-            placeholder="Dormitorios"
-            name={filtredDataValue.bedrooms}
+            className={styles.rSelect}
+            placeholder="Seleccionar"
           />
         </Form.Group>
       </Col>
@@ -398,12 +462,12 @@ const AdvancedSearchForm = ({
       <Col>
         <Form.Group className="mb-3">
           <Form.Label className={styles.label}>Baños</Form.Label>
-          <Form.Control
-            type="text"
+          <RSelect
+            options={getBathroomsOptions()}
+            defaultValue={bathroomsList[0]}
             onChange={onBathroomsChange}
-            defaultValue={filtredDataValue.bathrooms}
-            placeholder="Baños"
-            name={filtredDataValue.bathrooms}
+            className={styles.rSelect}
+            placeholder="Seleccionar"
           />
         </Form.Group>
       </Col>
@@ -411,12 +475,12 @@ const AdvancedSearchForm = ({
       <Col>
         <Form.Group className="mb-3">
           <Form.Label className={styles.label}>Estacionamientos</Form.Label>
-          <Form.Control
-            type="text"
+          <RSelect
+            options={getParkingLotsOptions()}
+            defaultValue={parkingLotsList[0]}
             onChange={onParkingLotsChange}
-            defaultValue={filtredDataValue.parkingLots}
-            placeholder="Estacionamientos"
-            name={filtredDataValue.parkingLots}
+            className={styles.rSelect}
+            placeholder="Seleccionar"
           />
         </Form.Group>
       </Col>
@@ -436,10 +500,8 @@ const AdvancedSearchForm = ({
               filtredDataValue?.commune,
               filtredDataValue?.priceFrom,
               filtredDataValue?.priceUpTo,
-              filtredDataValue?.bathrooms
-              // filtredDataValue?.parkingLots,
-              // filtredDataValue?.surface,
-              // filtredDataValue?.bedrooms
+              filtredDataValue?.parkingLots,
+              filtredDataValue?.bedrooms
             );
           }}
         >
