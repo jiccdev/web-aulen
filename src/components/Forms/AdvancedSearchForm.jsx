@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import RSelect from '../RSelect/RSelect';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
+import {
+  parkingLotsList,
+  bedroomsList,
+  bathroomsList,
+} from '../../api/data/selectsProperties';
 import styles from '../../styles/Forms/AdvancedSearchForm.module.css';
 
 /** Bootstrap components */
@@ -14,7 +19,6 @@ const AdvancedSearchForm = ({
   getSelects,
   selectsList,
   getCommunesByRegion,
-  getPropertiesByTypeOfProperty,
   getPropertiesOnFormSubmit,
 }) => {
   const { regions, communes, operationType, typeOfProperty, installmentType } =
@@ -98,16 +102,6 @@ const AdvancedSearchForm = ({
     });
   };
 
-  // !SELECT PARKING LOTS
-  const parkingLotsList = [
-    { value: 0, label: '0' },
-    { value: 1, label: '1' },
-    { value: 2, label: '2' },
-    { value: 3, label: '3' },
-    { value: 4, label: '4' },
-    { value: 5, label: '5' },
-  ];
-
   const getParkingLotsOptions = () =>
     parkingLotsList?.map((parkingLots) => ({
       value: parkingLots.value,
@@ -121,18 +115,6 @@ const AdvancedSearchForm = ({
     });
     console.log(option?.value);
   };
-  // !SELECT PARKING LOTS
-
-  // !SELECT BEDROOMS
-
-  const bedroomsList = [
-    { value: 0, label: '0' },
-    { value: 1, label: '1' },
-    { value: 2, label: '2' },
-    { value: 3, label: '3' },
-    { value: 4, label: '4' },
-    { value: 5, label: '5' },
-  ];
 
   const getBedroomsOptions = () =>
     bedroomsList?.map((bedroom) => ({
@@ -148,19 +130,6 @@ const AdvancedSearchForm = ({
     console.log(option?.value);
   };
 
-  // !SELECT BEDROOMS
-  // **************************
-  // !SELECT BATHROOMS
-
-  const bathroomsList = [
-    { value: 0, label: '0' },
-    { value: 1, label: '1' },
-    { value: 2, label: '2' },
-    { value: 3, label: '3' },
-    { value: 4, label: '4' },
-    { value: 5, label: '5' },
-  ];
-
   const getBathroomsOptions = () =>
     bathroomsList?.map((bathroom) => ({
       value: bathroom.value,
@@ -173,8 +142,6 @@ const AdvancedSearchForm = ({
       bathrooms: option?.value,
     });
   };
-
-  // !SELECT BATHROOMS
 
   // ===== Installation type =====
   const onInstallmentTypeChange = (option) => {
@@ -249,27 +216,6 @@ const AdvancedSearchForm = ({
     });
   };
 
-  // const onBedroomsChange = (ev) => {
-  //   setFiltredDataValue({
-  //     ...filtredDataValue,
-  //     bedrooms: ev.target.value,
-  //   });
-  // };
-
-  // const onBathroomsChange = (ev) => {
-  //   setFiltredDataValue({
-  //     ...filtredDataValue,
-  //     bathrooms: ev.target.value,
-  //   });
-  // };
-
-  // const onParkingLotsChange = (ev) => {
-  //   setFiltredDataValue({
-  //     ...filtredDataValue,
-  //     parkingLots: ev.target.value,
-  //   });
-  // };
-
   useEffect(() => {
     getSelects();
   }, []);
@@ -277,10 +223,6 @@ const AdvancedSearchForm = ({
   useEffect(() => {
     getCommunesByRegion(filtredDataValue?.region);
   }, [filtredDataValue?.region]);
-
-  // useEffect(() => {
-  //   getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
-  // }, [filtredDataValue?.typeOfProperty]);
 
   const onFormSubmit = (
     realtorId,
@@ -292,37 +234,10 @@ const AdvancedSearchForm = ({
     minPrice,
     maxPrice,
     coveredParkingLots,
-    bedrooms
+    bedrooms,
+    surfaceM2,
+    bathrooms
   ) => {
-    // let url = `properties`;
-    // const _realtorId = `${realtorId}`;
-    // const _statusId = `${statusId}`;
-    // const _operationType = operationType.length > 0 ? operationType : false;
-    // const _typeOfProperty = typeOfProperty.length > 0 ? typeOfProperty : false;
-    // const _region = region > 0 ? region : false;
-    // const _commune = commune.length > 0 ? commune : false;
-    // const _minPrice = minPrice > 0 ? minPrice : false;
-    // const _maxPrice = maxPrice > 0 ? maxPrice : false;
-    // const _coveredParkingLots =
-    //   coveredParkingLots > 0 ? coveredParkingLots : false;
-    // const _bedrooms = bedrooms > 0 ? bedrooms : false;
-
-    // console.log(
-    //   url.concat(
-    //     `?realtorId=${_realtorId}&statusId=${_statusId}${
-    //       _operationType ? `&operationType=${_operationType}` : ''
-    //     }${_typeOfProperty ? `&typeOfProperty=${_typeOfProperty}` : ''}${
-    //       _region ? `&region=${_region}` : ''
-    //     }${_commune ? `&commune=${_commune}` : ''}${
-    //       _minPrice ? `&min_price=${_minPrice}` : ''
-    //     }${_maxPrice ? `&max_price=${_maxPrice}` : ''}${
-    //       _coveredParkingLots
-    //         ? `&covered_parking_lots=${_coveredParkingLots}`
-    //         : ''
-    //     }${_bedrooms ? `&bedrooms=${_bedrooms}` : ''}`
-    //   )
-    // );
-
     return getPropertiesOnFormSubmit(
       realtorId,
       statusId,
@@ -333,7 +248,9 @@ const AdvancedSearchForm = ({
       minPrice,
       maxPrice,
       coveredParkingLots,
-      bedrooms
+      bedrooms,
+      surfaceM2,
+      bathrooms
     );
   };
 
@@ -439,7 +356,7 @@ const AdvancedSearchForm = ({
               type="number"
               onChange={onPriceUpToChange}
               defaultValue={filtredDataValue?.priceUpTo}
-              placeholder="Hasta"
+              placeholder={filtredDataValue?.priceUpTo}
               name={filtredDataValue?.priceUpTo}
             />
           </Form.Group>
@@ -500,14 +417,16 @@ const AdvancedSearchForm = ({
               filtredDataValue?.commune,
               filtredDataValue?.priceFrom,
               filtredDataValue?.priceUpTo,
-              filtredDataValue?.parkingLots,
-              filtredDataValue?.bedrooms
+              filtredDataValue?.parkingLots || null,
+              filtredDataValue?.bedrooms || null,
+              filtredDataValue?.surface || null,
+              filtredDataValue?.bathrooms || null
             );
           }}
         >
           {loading ? (
             <span>
-              Obteniendo Propiedades
+              Obteniendo Propiedades...
               <SpinnerComponent size="sm" />
             </span>
           ) : (

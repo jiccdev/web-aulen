@@ -146,7 +146,9 @@ const PropertiesServices = {
     minPrice,
     maxPrice,
     coveredParkingLots,
-    bedrooms
+    bedrooms,
+    surfaceM2,
+    bathrooms
   ) => {
     const _realtorId = `${realtorId}`;
     const _statusId = `${statusId}`;
@@ -158,7 +160,9 @@ const PropertiesServices = {
     const _maxPrice = maxPrice > 0 ? maxPrice : false;
     const _coveredParkingLots =
       coveredParkingLots > 0 ? coveredParkingLots : false;
-    const _bedrooms = bedrooms > 0 ? bedrooms : false;
+    const _bedrooms = bedrooms > 0 || bedrooms > '0' ? bedrooms : false;
+    const _surfaceM2 = surfaceM2 > 0 || surfaceM2 > '0' ? surfaceM2 : false;
+    const _bathrooms = bathrooms > 0 || bathrooms > '0' ? bathrooms : false;
 
     const response = await api.get(
       `properties?realtorId=${_realtorId}&statusId=${_statusId}${
@@ -171,20 +175,11 @@ const PropertiesServices = {
         _coveredParkingLots
           ? `&covered_parking_lots=${_coveredParkingLots}`
           : ''
-      }${_bedrooms ? `&bedrooms=${_bedrooms}` : ''}`
+      }${_bedrooms ? `&bedrooms=${_bedrooms}` : ''}${
+        _surfaceM2 ? `&surface_m2=${_surfaceM2}` : ''
+      }${_bathrooms ? `&bathrooms=${_bathrooms}` : ''}`
     );
 
-    // .get
-    // // `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${
-    // //   operationType || ''
-    // // }&typeOfProperty=${typeOfProperty || ''}&region=${region || ''}&commune=${
-    // //   commune || ''
-    // // }&min_price=${minPrice || ''}&max_price=${
-    // //   maxPrice || ''
-    // // }&covered_parking_lots=${coveredParkingLots || null}&bedrooms=${
-    // //   bedrooms || null
-    // // }`
-    // ();
     return response.data;
   },
 };
