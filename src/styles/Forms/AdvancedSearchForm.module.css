@@ -18,11 +18,30 @@
   border-radius: var(--border-radius-3xl);
   text-transform: uppercase;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnIcon {
+  margin-left: 0.3rem;
 }
 
 .btnSubmit[type='button']:hover {
   background-color: var(--color-primary-dark);
   color: var(--color-white);
+}
+
+.btnSubmitClean {
+  width: 100%;
+  background-color: whitemoke !important;
+  color: var(--color-white);
+  border-radius: var(--border-radius-3xl);
+  text-transform: uppercase;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .radio[type='radio'] {

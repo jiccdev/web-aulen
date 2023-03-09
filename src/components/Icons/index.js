@@ -45,11 +45,13 @@ import { VscPerson } from 'react-icons/vsc';
 import { AiOutlineWhatsApp, AiFillYoutube } from 'react-icons/ai';
 import { GrClose, GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import { ImArrowRight } from 'react-icons/im';
-import { IoBedOutline } from 'react-icons/io5';
+import { IoBedOutline,IoTrashOutline } from 'react-icons/io5';
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 import { TfiFacebook } from 'react-icons/tfi';
 import { GiReceiveMoney } from 'react-icons/gi';
 import { HiClipboard, HiOutlineClipboardCheck } from 'react-icons/hi';
+import { GoSearch } from 'react-icons/go';
+
 
 export const icons = {
   FaUserAlt,
@@ -105,4 +107,6 @@ export const icons = {
   HiClipboard,
   HiOutlineClipboardCheck,
   BsCalendarCheck,
+  GoSearch,
+  IoTrashOutline
 };

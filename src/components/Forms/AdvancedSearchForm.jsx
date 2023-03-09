@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import RSelect from '../RSelect/RSelect';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import {
@@ -6,6 +7,7 @@ import {
   bedroomsList,
   bathroomsList,
 } from '../../api/data/selectsProperties';
+import { icons } from '../Icons';
 import styles from '../../styles/Forms/AdvancedSearchForm.module.css';
 
 /** Bootstrap components */
@@ -39,6 +41,7 @@ const AdvancedSearchForm = ({
   });
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
+  const { CgSearchFound, GoSearch, IoTrashOutline } = icons;
 
   const resetForm = () => {
     setFiltredDataValue({
@@ -431,7 +434,10 @@ const AdvancedSearchForm = ({
               <SpinnerComponent size="sm" />
             </span>
           ) : (
-            'Buscar'
+            <span>
+              Buscar
+              <GoSearch className={styles.btnIcon} />
+            </span>
           )}
         </Button>
       </Form.Group>
@@ -439,13 +445,14 @@ const AdvancedSearchForm = ({
       <Form.Group className="mb-3">
         <Button
           variant="secondary"
-          className={styles.btnSubmit}
+          className={styles.btnSubmitClean}
           onClick={() => {
             resetForm();
             window.location.reload();
           }}
         >
           Limpiar
+          <IoTrashOutline className={styles.btnIcon} />
         </Button>
       </Form.Group>
     </Form>
