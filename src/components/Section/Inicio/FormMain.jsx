@@ -105,8 +105,8 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
     try {
       const response = await ContactFormServices.addContactForm(formData);
       if (
-        formData.name === '' &&
-        formData.email === '' &&
+        formData.name === '' ||
+        formData.email === '' ||
         formData.phone === ''
       ) {
         showToastErrorMsg('Todos los campos son obligatorios');
@@ -204,10 +204,10 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
               <Form.Group className={styles.formGroup}>
                 <Button
                   type="submit"
+                  className={styles.btnSubmit}
                   onClick={() => {
                     setFormData({ ...formData, action: 'vender' });
                   }}
-                  className={styles.btnSubmit}
                 >
                   {haveAction1?.text || ''}
                 </Button>

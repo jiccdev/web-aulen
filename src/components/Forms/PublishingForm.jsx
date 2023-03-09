@@ -105,8 +105,8 @@ const PublishingForm = () => {
       const response = await ContactFormServices.addContactForm(formData);
 
       if (
-        formData.name === '' &&
-        formData.email === '' &&
+        formData.name === '' ||
+        formData.email === '' ||
         formData.phone === ''
       ) {
         showToastErrorMsg('Todos los campos son obligatorios');
