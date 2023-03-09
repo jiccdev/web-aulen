@@ -417,10 +417,10 @@ const AdvancedSearchForm = ({
               filtredDataValue?.commune,
               filtredDataValue?.priceFrom,
               filtredDataValue?.priceUpTo,
-              filtredDataValue?.parkingLots || null,
-              filtredDataValue?.bedrooms || null,
-              filtredDataValue?.surface || null,
-              filtredDataValue?.bathrooms || null
+              filtredDataValue?.parkingLots,
+              filtredDataValue?.bedrooms,
+              filtredDataValue?.surface,
+              filtredDataValue?.bathrooms
             );
           }}
         >
