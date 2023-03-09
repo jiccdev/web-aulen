@@ -4,15 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-
-  // rewrites() {
-  //   return [
-  //     {
-  //       source: '/soy-inversionista/unidades-nuevas',
-  //       destination: '/soy-inversionista/unidades-nuevas#estacionamientos',
-  //     },
-  //   ];
-  // },
 };
 
 module.exports = nextConfig;

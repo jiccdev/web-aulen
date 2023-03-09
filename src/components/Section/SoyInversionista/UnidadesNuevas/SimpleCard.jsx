@@ -5,7 +5,7 @@ import styles from '../../../../styles/Section/soy-inversionista/unidades-nuevas
 export const SimpleCard = ({ img, title, href }) => {
   const scrollToDown = () => {
     window.scrollTo({
-      top: 2400,
+      top: 1960,
       behavior: 'smooth',
     });
   };

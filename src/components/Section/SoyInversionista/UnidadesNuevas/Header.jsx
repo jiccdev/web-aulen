@@ -7,14 +7,10 @@ import { simpleCardData } from '../../../../api/data/simpleCard';
 import styles from '../../../../styles/Section/soy-inversionista/unidades-nuevas/Header/Header.module.css';
 import RSelect from '@/components/RSelect/RSelect';
 import Form from 'react-bootstrap/Form';
-
-// nuevo
 import PropertiesContext from '@/context/properties/PropertiesContext';
 import SelectsContext from '@/context/selects/SelectsContext';
-// nuevo
 
 const Header = () => {
-  // nuevo
   const {
     properties,
     setProperties,
@@ -51,7 +47,6 @@ const Header = () => {
     typeOfProperty,
     installmentType,
   ] = contextData;
-  // nuevo
 
   const [filtredDataValue, setFiltredDataValue] = useState({
     operation: '',
@@ -69,13 +64,6 @@ const Header = () => {
     installmentType: '',
   });
 
-  // ===== Type of Property =====
-  // const getTypeOfPropertyOptions = () =>
-  //   typeOfProperty?.map((typeOfProperty) => ({
-  //     value: typeOfProperty.value,
-  //     label: typeOfProperty.name,
-  //   }));
-
   const getTypeOfPropertyOptions = () =>
     typeOfProperty
       .filter(
@@ -89,30 +77,26 @@ const Header = () => {
         label: typeOfProperty.name,
       }));
 
-
-
   const onTypeOfPropertyChange = (option) => {
     setFiltredDataValue({
       ...filtredDataValue,
       typeOfProperty: option?.value,
     });
+    setTimeout(() => {
+      scrollToDown();
+    }, 1300);
   };
 
   const scrollToDown = () => {
     window.scrollTo({
-      top: 2400,
+      top: 2530,
       behavior: 'smooth',
     });
   };
 
   useEffect(() => {
     getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
-
-    setTimeout(() => {
-      scrollToDown();
-    }, 1400);
   }, [filtredDataValue?.typeOfProperty]);
-  // ===== Type of Property =====
 
   return (
     <section className={`${styles.customCol} ${styles.sectionContainer}`}>
