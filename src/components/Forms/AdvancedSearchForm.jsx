@@ -113,7 +113,6 @@ const AdvancedSearchForm = ({
       ...filtredDataValue,
       parkingLots: option?.value,
     });
-    console.log(option?.value);
   };
 
   const getBedroomsOptions = () =>
@@ -127,7 +126,6 @@ const AdvancedSearchForm = ({
       ...filtredDataValue,
       bedrooms: option?.value,
     });
-    console.log(option?.value);
   };
 
   const getBathroomsOptions = () =>
@@ -236,7 +234,8 @@ const AdvancedSearchForm = ({
     coveredParkingLots,
     bedrooms,
     surfaceM2,
-    bathrooms
+    bathrooms,
+    installmentType
   ) => {
     return getPropertiesOnFormSubmit(
       realtorId,
@@ -250,7 +249,8 @@ const AdvancedSearchForm = ({
       coveredParkingLots,
       bedrooms,
       surfaceM2,
-      bathrooms
+      bathrooms,
+      installmentType
     );
   };
 
@@ -420,7 +420,8 @@ const AdvancedSearchForm = ({
               filtredDataValue?.parkingLots,
               filtredDataValue?.bedrooms,
               filtredDataValue?.surface,
-              filtredDataValue?.bathrooms
+              filtredDataValue?.bathrooms,
+              filtredDataValue?.installmentType
             );
           }}
         >

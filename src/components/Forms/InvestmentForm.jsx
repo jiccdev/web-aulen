@@ -111,8 +111,6 @@ const InvestmentForm = ({ formData, isForm }) => {
     }
   };
 
-  console.log(data);
-
   return (
     <Fragment>
       <form

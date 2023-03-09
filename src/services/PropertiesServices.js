@@ -164,7 +164,8 @@ const PropertiesServices = {
     const _bedrooms = bedrooms > 0 || bedrooms > '0' ? bedrooms : false;
     const _surfaceM2 = surfaceM2 > 0 || surfaceM2 > '0' ? surfaceM2 : false;
     const _bathrooms = bathrooms > 0 || bathrooms > '0' ? bathrooms : false;
-    const _installmentType = bathrooms.lenght > 0 ? installmentType : false;
+    const _installmentType =
+      installmentType.length > 0 ? installmentType : false;
 
     const response = await api.get(
       `properties?realtorId=${_realtorId}&statusId=${_statusId}${
@@ -179,9 +180,10 @@ const PropertiesServices = {
           : ''
       }${_bedrooms ? `&bedrooms=${_bedrooms}` : ''}${
         _surfaceM2 ? `&surface_m2=${_surfaceM2}` : ''
-      }${_bathrooms ? `&bathrooms=${_bathrooms}` : ''}`
+      }${_bathrooms ? `&bathrooms=${_bathrooms}` : ''}${
+        _installmentType ? `&installment_type=${_installmentType}` : ''
+      }`
     );
-
     return response.data;
   },
 };
