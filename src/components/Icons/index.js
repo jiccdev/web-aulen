@@ -8,6 +8,7 @@ import {
   BsHeart,
   BsInstagram,
   BsPlusLg,
+  BsCalendarCheck,
 } from 'react-icons/bs';
 import {
   FaUserAlt,
@@ -103,4 +104,5 @@ export const icons = {
   IoMdArrowDropright,
   HiClipboard,
   HiOutlineClipboardCheck,
+  BsCalendarCheck,
 };

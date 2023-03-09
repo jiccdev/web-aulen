@@ -1,7 +1,7 @@
 .scheduleContainer {
   background-color: #f5f5f5;
   position: relative;
-  width: 100%;
+  width: 90%;
   margin: 8rem auto;
   height: auto;
   padding: 3rem;
@@ -11,6 +11,10 @@
 .scheduleContainer .scheduleHeading {
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.scheduleHeading h2 {
+  font-weight: var(--font-weight-bold);
 }
 
 .form {
@@ -47,7 +51,7 @@
 
 .formGroup {
   display: flex !important;
-  width: 90% !important;
+  width: 100% !important;
   align-items: center;
   margin: 0.7rem 0;
   justify-content: center;
@@ -97,6 +101,25 @@
   font-weight: var(--font-weight-bold);
 }
 
+.datePickerCustom {
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-3xl);
+  border: none;
+  padding: 0.7rem;
+  font-size: var(--font-size-md);
+  color: var(--color-dark);
+}
+
+.datePickerCustom::placeholder {
+  color: var(--color-dark);
+  font-weight: var(--font-weight-bold);
+}
+
+.datePickerCustom:focus {
+  outline: none;
+}
+
 .btnSubmit[type='submit'] {
   background-color: var(--color-primary);
   color: var(--color-white) !important;
@@ -137,6 +160,23 @@
 
 .formCheck:hover {
   color: var(--color-dark-light);
+}
+
+.scheduleBtn {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.scheduleBtn .btnSubmit {
+  width: 50% !important;
+  padding: 0.4rem 0 !important;
+}
+
+.scheduleBtn .btnSubmit:hover {
+  background-color: var(--color-primary-dark);
 }
 
 @media screen and (min-width: 992px) {

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
 import ToastComponent from '@/components/Toastify/ToastComponent';
 import { toast } from 'react-toastify';
 import { icons } from '../Icons';
+import 'react-datepicker/dist/react-datepicker.css';
 import styles from '../../styles/Forms/MeetingSchedule.module.css';
 import stylesToast from '../../styles/Toastify/toastContainer.module.css';
 
@@ -9,12 +11,14 @@ import stylesToast from '../../styles/Toastify/toastContainer.module.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 /** API services */
 import ContactFormServices from '@/services/ContactFormServices';
 
 const MeetingSchedule = () => {
-  const { FaUserAlt, BsTelephoneFill, MdOutlineMailOutline, GrClose } = icons;
+  const { FaUserAlt, BsTelephoneFill, MdOutlineMailOutline, BsCalendarCheck } =
+    icons;
   const [formData, setFormData] = useState({
     name: '',
     lastName: '',
@@ -176,7 +180,10 @@ const MeetingSchedule = () => {
         </Col>
 
         <Col sm={12} md={6}>
-          <Form.Group className={styles.formGroup} controlId="formBasicEmail">
+          <Form.Group
+            className={styles.formGroup}
+            controlId="formBasicLastName"
+          >
             <Form.Label className={styles.label}>
               <FaUserAlt />
             </Form.Label>
@@ -189,8 +196,46 @@ const MeetingSchedule = () => {
               onChange={handleLastName}
             />
           </Form.Group>
+
+          <Form.Group className={styles.formGroup}>
+            <Form.Label className={styles.label}>
+              <BsCalendarCheck />
+            </Form.Label>
+            <DatePicker
+              selected={formData.meetingDate}
+              onChange={(date) =>
+                setFormData({
+                  ...formData,
+                  meetingDate: date,
+                })
+              }
+              timeInputLabel="Time:"
+              dateFormat="MM/dd/yyyy h:mm aa"
+              showTimeInput
+              className={styles.datePickerCustom}
+              placeholderText="Fecha y hora de la reunión"
+            />
+          </Form.Group>
         </Col>
       </Row>
+
+      <Row className={styles.scheduleBtn}>
+        <Col sm={12} lg={6}>
+          <Form.Group className={styles.formGroup}>
+            <Button
+              type="submit"
+              className={styles.btnSubmit}
+              onClick={() => {
+                setFormData({ ...formData, action: 'vender' });
+              }}
+            >
+              Agenda una reunion
+            </Button>
+          </Form.Group>
+        </Col>
+      </Row>
+
+      {console.log(formData)}
 
       {/* ToastComponent Msg */}
       <div className={stylesToast.toastContainer}>
