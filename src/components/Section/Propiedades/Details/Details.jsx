@@ -4,8 +4,12 @@ import { parseToCLPCurrency, clpToUf } from '../../../../utils';
 import { icons } from '../../../../components/Icons';
 import styles from '../../../../styles/Section/properties/details/Details.module.css';
 
+/** Bootstrap component */
+import Button from 'react-bootstrap/Button';
+
 /** Api services */
 import ExchangeRateServices from '../../../../services/ExchangeRateServices';
+import OutstandingProject from '../OutstandingProject';
 
 const Details = ({ propertyData }) => {
   const [ufCurrentValue, setUfCurrentValue] = useState(0);
@@ -26,6 +30,8 @@ const Details = ({ propertyData }) => {
   useEffect(() => {
     getExchangeRateUF();
   }, [ufCurrentValue]);
+
+  console.log(propertyData);
 
   return (
     <Fragment>
@@ -76,6 +82,7 @@ const Details = ({ propertyData }) => {
         </section>
       ) : null}
 
+      <Button className={styles.quoteBtn}>Cotizar</Button>
       <Executive propertyData={propertyData} />
     </Fragment>
   );
