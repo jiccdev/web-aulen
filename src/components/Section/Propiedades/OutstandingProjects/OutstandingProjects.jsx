@@ -30,7 +30,7 @@ const OutstandingProjects = () => {
         items={properties
           ?.filter((property) => property?.highlighted === true)
           .map((property) => (
-            <Col sm={12} key={property?.id}>
+            <Col sm={12} key={property.id}>
               <PropertyCard key={property?.id} property={property} />
             </Col>
           ))}

@@ -35,9 +35,9 @@ const CustomerExperience = () => {
           mouseTracking
           responsive={responsive}
           controlsStrategy="alternate"
-          items={customers?.map((customer) => (
-            <Col sm={12}>
-              <CustomerCard key={customer?.id} customer={customer} />
+          items={customers?.map((customer, idx) => (
+            <Col sm={12} key={idx}>
+              <CustomerCard customer={customer} />
             </Col>
           ))}
           autoPlay

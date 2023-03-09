@@ -144,7 +144,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                   </span>
                 </div>
 
-                <p
+                <div
                   style={{
                     fontWeight: '300',
                     textTransform: 'capitalize',
@@ -153,7 +153,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                     padding: '.5rem',
                   }}
                 >
-                  <div
+                  <span
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -199,8 +199,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                       <strong>Baños: </strong>
                       {propertyData?.bathrooms ?? '0'}m<sup>2</sup>
                     </span>
-                  </div>
-                </p>
+                  </span>
+                </div>
 
                 <div className={styles.urlContainer}>
                   <Link

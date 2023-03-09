@@ -47,11 +47,11 @@ const PaginationComponent = ({
           </span>
         </PaginationLink>
       </PaginationItem>
-      {pageNumbers?.map((item) => {
+      {pageNumbers?.map((item, idx) => {
         return (
           <PaginationItem
             className={currentPage === item ? styles.paginationLinkActive : ''}
-            key={item}
+            key={idx}
           >
             <PaginationLink
               tag="a"
