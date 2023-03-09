@@ -40,7 +40,7 @@ const NewProperties = () => {
                   capitalización de tu inversión.
                 </p>
                 <div className={styles.consultationContainer}>
-                  <Link href="/" className={styles.consultation}>
+                  <Link href="/soy-inversionista/unidades-nuevas#un-contacto" className={styles.consultation}>
                     Quiero una asesoría
                   </Link>
                 </div>

@@ -21,8 +21,9 @@ const UnidadesEnRemate = () => {
 
         {/* Te ayudamos a elegir la mejor opción de inversión para ti */}
         <div
+          id="ur-contacto"
           style={{
-            margin: '7rem 0',
+            margin: '10rem 0',
           }}
         >
           {investmentFormData?.length > 0

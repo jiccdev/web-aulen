@@ -33,7 +33,10 @@ const Investing = () => {
                   del inmueble hasta la capitalización de tu inversión.
                 </p>
                 <div className={styles.consultationContainer}>
-                  <Link href="/" className={styles.consultation}>
+                  <Link
+                    href="/soy-inversionista/unidades-en-remate#ur-contacto"
+                    className={styles.consultation}
+                  >
                     Quiero una asesoría
                   </Link>
                 </div>
