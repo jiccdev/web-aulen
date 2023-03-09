@@ -11,7 +11,9 @@ const HeroSection = () => {
         <Fade delay={200} cascade>
           <div className={`${styles.customCol} ${styles.mainContainer}`}>
             {investmentStepData.length > 0
-              ? investmentStepData.map((el) => <InvestmentStep stepData={el} />)
+              ? investmentStepData.map((el) => (
+                  <InvestmentStep key={el.id} stepData={el} />
+                ))
               : null}
             <h2>¡Invertir es así de fácil!</h2>
           </div>
