@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import Link from 'next/link';
 import Executive from './Executive';
+import OutstandingProject from '../OutstandingProject';
 import { parseToCLPCurrency, clpToUf } from '../../../../utils';
 import { icons } from '../../../../components/Icons';
 import styles from '../../../../styles/Section/properties/details/Details.module.css';
@@ -9,7 +11,6 @@ import Button from 'react-bootstrap/Button';
 
 /** Api services */
 import ExchangeRateServices from '../../../../services/ExchangeRateServices';
-import OutstandingProject from '../OutstandingProject';
 
 const Details = ({ propertyData }) => {
   const [ufCurrentValue, setUfCurrentValue] = useState(0);
@@ -82,7 +83,17 @@ const Details = ({ propertyData }) => {
         </section>
       ) : null}
 
-      <Button className={styles.quoteBtn}>Cotizar</Button>
+      {propertyData?.installment_type === 'En blanco' ||
+      propertyData?.installment_type === 'En verde' ? (
+        <Link href="#cotizar-contacto" className={styles.quoteBtn}>
+          Cotizar
+        </Link>
+      ) : (
+        <Link href="#cotizar-contacto" className={styles.quoteBtn}>
+          Cotizar
+        </Link> // null
+      )}
+
       <Executive propertyData={propertyData} />
     </Fragment>
   );

@@ -16,10 +16,12 @@ import { icons } from '../../components/Icons';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from '../../styles/Section/properties/details/Details.module.css';
+import MeetingSchedule from '@/components/Forms/MeetingSchedule';
 
 const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
   const [copied, setCopied] = useState(false);
+  const [showQuoteContactForm, setShowQuoteContactForm] = useState(false);
   // const { query } = useRouter();
   const router = useRouter();
   const { propertyId } = router.query;
@@ -29,8 +31,6 @@ const PropiedadId = () => {
     // getProperty(propertyId, 1, 1);
     getProperty(propertyId, 5, 5);
   }, [propertyId]);
-
- 
 
   return (
     <Fragment>
@@ -81,6 +81,17 @@ const PropiedadId = () => {
         </Row>
 
         <InformationOnTheArea propertyData={property} />
+
+        {property?.installment_type === 'En blanco' ||
+        property?.installment_type === 'En verde' ? (
+          <div id="cotizar-contacto">
+            <MeetingSchedule />
+          </div>
+        ) : (
+          <div id="cotizar-contacto">
+            <MeetingSchedule />
+          </div> // null
+        )}
       </div>
     </Fragment>
   );
