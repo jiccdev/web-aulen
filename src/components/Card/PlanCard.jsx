@@ -27,15 +27,6 @@ const PlanCard = ({ plan }) => {
               </li>
             ))}
           </ul>
-
-          <Card.Footer className={styles.cardFooter}>
-            <Link
-              href={`/administracion-de-arriendo/plans/${id}`}
-              className={styles.moreInfo}
-            >
-              Más información
-            </Link>
-          </Card.Footer>
         </Card.Body>
       </Card>
     </Col>
