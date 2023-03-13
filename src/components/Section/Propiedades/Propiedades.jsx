@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import RSelect from '@/components/RSelect/RSelect';
 import AdvancedSearchForm from '@/components/Forms/AdvancedSearchForm';
 import OutstandingProjects from './OutstandingProjects';
 import PropertyItem from './PropertyItem';
@@ -9,7 +8,6 @@ import PaginationComponent from '@/components/Pagination/Pagination';
 import SpinnerComponent from '@/components/Spinner/SpinnerComponent';
 import styles from '../../../styles/Section/properties/Properties.module.css';
 import { icons } from '../../Icons';
-import { orderDepartmentBy } from '../../../api/data/orderBy';
 
 /** Bootstrap components */
 import Container from 'react-bootstrap/Container';
@@ -51,6 +49,7 @@ const Properties = ({
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
   const { BiMap } = icons;
+  const propertiesFound = newProperties?.length;
 
   const paginate = (currentPage) => getPagination(limit, currentPage, 5, 5);
 
@@ -65,8 +64,11 @@ const Properties = ({
   return (
     <Row className={styles.rowContainer}>
       <div className={styles.headerProperties}>
-        <div>
+        <div className={styles.mainInfo}>
           <h1 className={styles.title}>Propiedades</h1>
+          <p>
+            Propiedades por página <span>{propertiesFound ?? '0'}</span>
+          </p>
         </div>
         <div>
           <Link
@@ -116,7 +118,7 @@ const Properties = ({
               />
             ))
           ) : (
-            <Container>
+            <Container className={styles.containerSpinner}>
               {<SpinnerComponent variant="warning" /> ?? (
                 <Alert variant="warning">
                   No se encontraron propiedades con los filtros seleccionados.{' '}
@@ -140,6 +142,7 @@ const Properties = ({
       <Col xl={3} className={styles.colForm}>
         <AdvancedSearchForm
           data={newProperties}
+          totalItems={totalItems}
           router={router}
           setProperties={setProperties}
           getProperties={getProperties}

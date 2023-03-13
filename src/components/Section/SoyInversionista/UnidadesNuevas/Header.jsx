@@ -170,9 +170,9 @@ const Header = () => {
 
           <div className={`${styles.customRow} ${styles.cardContainer}`}>
             {simpleCardData.length > 0
-              ? simpleCardData.map((el) => (
+              ? simpleCardData.map((el, idx) => (
                   <SimpleCard
-                    key={el?.id}
+                    key={idx}
                     img={el.img}
                     title={el.title}
                     href={el.href}

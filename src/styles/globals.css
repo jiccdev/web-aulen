@@ -89,6 +89,11 @@ button {
   text-decoration: none !important;
 }
 
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* MODAL CONTACT FORM - ADMINISTRACIÓN DE ARRIENDO */
 .modal-content {
   border-radius: var(--border-radius-5xl) !important;

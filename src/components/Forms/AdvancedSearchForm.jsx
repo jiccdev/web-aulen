@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
 import RSelect from '../RSelect/RSelect';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
@@ -18,6 +18,7 @@ import Form from 'react-bootstrap/Form';
 
 const AdvancedSearchForm = ({
   router,
+  totalItems,
   getSelects,
   selectsList,
   getCommunesByRegion,
@@ -41,7 +42,7 @@ const AdvancedSearchForm = ({
   });
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
-  const { CgSearchFound, GoSearch, IoTrashOutline } = icons;
+  const { CgSearchFound, GoSearch, IoTrashOutline, MdHomeWork } = icons;
 
   const resetForm = () => {
     setFiltredDataValue({
@@ -270,192 +271,201 @@ const AdvancedSearchForm = ({
   };
 
   return (
-    <Form className={styles.form}>
-      <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Tipo de operación</Form.Label>
-        <RSelect
-          options={getOperationTypeOptions()}
-          defaultValue={operationType[0]}
-          onChange={onOperationTypeChange}
-          className={styles.rSelect}
-          placeholder="Seleccionar"
-        />
-      </Form.Group>
+    <Fragment>
+      <Form className={styles.form}>
+        <h3 className={styles.totalItemsHeading}>
+          <MdHomeWork className={styles.icon} />
+          Propieades encontradas {totalItems}
+        </h3>
 
-      <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Tipo de propiedad</Form.Label>
-        <RSelect
-          options={getTypeOfPropertyOptions()}
-          defaultValue={typeOfProperty[0]}
-          onChange={onTypeOfPropertyChange}
-          className={styles.rSelect}
-          placeholder="Seleccionar"
-        />
-      </Form.Group>
-
-      {router.pathname === '/propiedades' ? null : (
         <Form.Group className="mb-3">
-          <Form.Label className={styles.label}>Estado de propiedad</Form.Label>
+          <Form.Label className={styles.label}>Tipo de operación</Form.Label>
           <RSelect
-            options={getInstallmentTypeOptions()}
-            defaultValue={installmentType[0]}
-            onChange={onInstallmentTypeChange}
+            options={getOperationTypeOptions()}
+            defaultValue={operationType[0]}
+            onChange={onOperationTypeChange}
             className={styles.rSelect}
             placeholder="Seleccionar"
           />
         </Form.Group>
-      )}
 
-      <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Región</Form.Label>
-        <RSelect
-          options={getRegionOptions()}
-          defaultValue={regions[0]}
-          onChange={onRegionsChange}
-          className={styles.rSelect}
-          placeholder="Seleccionar"
-        />
-      </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Tipo de propiedad</Form.Label>
+          <RSelect
+            options={getTypeOfPropertyOptions()}
+            defaultValue={typeOfProperty[0]}
+            onChange={onTypeOfPropertyChange}
+            className={styles.rSelect}
+            placeholder="Seleccionar"
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Comuna</Form.Label>
-        <RSelect
-          options={getCommunesOptions()}
-          defaultValue={communes[0]}
-          onChange={onCommunesChange}
-          className={styles.rSelect}
-          placeholder="Seleccionar"
-        />
-      </Form.Group>
+        {router.pathname === '/propiedades' ? null : (
+          <Form.Group className="mb-3">
+            <Form.Label className={styles.label}>
+              Estado de propiedad
+            </Form.Label>
+            <RSelect
+              options={getInstallmentTypeOptions()}
+              defaultValue={installmentType[0]}
+              onChange={onInstallmentTypeChange}
+              className={styles.rSelect}
+              placeholder="Seleccionar"
+            />
+          </Form.Group>
+        )}
 
-      <Form.Group className="mb-3">
-        <Form.Label className={styles.label}>Superficie</Form.Label>
-        <Form.Control
-          type="text"
-          defaultValue={filtredDataValue?.surface}
-          onChange={onSurfaceChange}
-          placeholder="Superficie"
-          name={filtredDataValue.surface}
-        />
-      </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Región</Form.Label>
+          <RSelect
+            options={getRegionOptions()}
+            defaultValue={regions[0]}
+            onChange={onRegionsChange}
+            className={styles.rSelect}
+            placeholder="Seleccionar"
+          />
+        </Form.Group>
 
-      <Row>
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Comuna</Form.Label>
+          <RSelect
+            options={getCommunesOptions()}
+            defaultValue={communes[0]}
+            onChange={onCommunesChange}
+            className={styles.rSelect}
+            placeholder="Seleccionar"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label className={styles.label}>Superficie</Form.Label>
+          <Form.Control
+            type="text"
+            defaultValue={filtredDataValue?.surface}
+            onChange={onSurfaceChange}
+            placeholder="Superficie"
+            name={filtredDataValue.surface}
+          />
+        </Form.Group>
+
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label className={styles.label}>Desde</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={onPriceFromChange}
+                defaultValue={filtredDataValue?.priceFrom}
+                placeholder={filtredDataValue?.priceFrom}
+                name={filtredDataValue?.priceFrom}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label className={styles.label}>Hasta</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={onPriceUpToChange}
+                defaultValue={filtredDataValue?.priceUpTo}
+                placeholder={filtredDataValue?.priceUpTo}
+                name={filtredDataValue?.priceUpTo}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label className={styles.label}>Desde</Form.Label>
-            <Form.Control
-              type="number"
-              onChange={onPriceFromChange}
-              defaultValue={filtredDataValue?.priceFrom}
-              placeholder={filtredDataValue?.priceFrom}
-              name={filtredDataValue?.priceFrom}
+            <Form.Label className={styles.label}>Dormitorios</Form.Label>
+            <RSelect
+              options={getBedroomsOptions()}
+              defaultValue={bedroomsList[0]}
+              onChange={onBedroomsChange}
+              className={styles.rSelect}
+              placeholder="Seleccionar"
             />
           </Form.Group>
         </Col>
+
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label className={styles.label}>Hasta</Form.Label>
-            <Form.Control
-              type="number"
-              onChange={onPriceUpToChange}
-              defaultValue={filtredDataValue?.priceUpTo}
-              placeholder={filtredDataValue?.priceUpTo}
-              name={filtredDataValue?.priceUpTo}
+            <Form.Label className={styles.label}>Baños</Form.Label>
+            <RSelect
+              options={getBathroomsOptions()}
+              defaultValue={bathroomsList[0]}
+              onChange={onBathroomsChange}
+              className={styles.rSelect}
+              placeholder="Seleccionar"
             />
           </Form.Group>
         </Col>
-      </Row>
 
-      <Col>
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label className={styles.label}>Estacionamientos</Form.Label>
+            <RSelect
+              options={getParkingLotsOptions()}
+              defaultValue={parkingLotsList[0]}
+              onChange={onParkingLotsChange}
+              className={styles.rSelect}
+              placeholder="Seleccionar"
+            />
+          </Form.Group>
+        </Col>
+
         <Form.Group className="mb-3">
-          <Form.Label className={styles.label}>Dormitorios</Form.Label>
-          <RSelect
-            options={getBedroomsOptions()}
-            defaultValue={bedroomsList[0]}
-            onChange={onBedroomsChange}
-            className={styles.rSelect}
-            placeholder="Seleccionar"
-          />
+          <Button
+            variant="primary"
+            className={styles.btnSubmit}
+            onClick={() => {
+              handleClick();
+              onFormSubmit(
+                5,
+                5,
+                filtredDataValue?.operation,
+                filtredDataValue?.typeOfProperty,
+                filtredDataValue?.region,
+                filtredDataValue?.commune,
+                filtredDataValue?.priceFrom,
+                filtredDataValue?.priceUpTo,
+                filtredDataValue?.parkingLots,
+                filtredDataValue?.bedrooms,
+                filtredDataValue?.surface,
+                filtredDataValue?.bathrooms,
+                filtredDataValue?.installmentType
+              );
+            }}
+          >
+            {loading ? (
+              <span>
+                Obteniendo Propiedades...
+                <SpinnerComponent size="sm" />
+              </span>
+            ) : (
+              <span>
+                Buscar
+                <GoSearch className={styles.btnIcon} />
+              </span>
+            )}
+          </Button>
         </Form.Group>
-      </Col>
 
-      <Col>
         <Form.Group className="mb-3">
-          <Form.Label className={styles.label}>Baños</Form.Label>
-          <RSelect
-            options={getBathroomsOptions()}
-            defaultValue={bathroomsList[0]}
-            onChange={onBathroomsChange}
-            className={styles.rSelect}
-            placeholder="Seleccionar"
-          />
+          <Button
+            variant="secondary"
+            className={styles.btnSubmitClean}
+            onClick={() => {
+              resetForm();
+              window.location.reload();
+            }}
+          >
+            Limpiar
+            <IoTrashOutline className={styles.btnIcon} />
+          </Button>
         </Form.Group>
-      </Col>
-
-      <Col>
-        <Form.Group className="mb-3">
-          <Form.Label className={styles.label}>Estacionamientos</Form.Label>
-          <RSelect
-            options={getParkingLotsOptions()}
-            defaultValue={parkingLotsList[0]}
-            onChange={onParkingLotsChange}
-            className={styles.rSelect}
-            placeholder="Seleccionar"
-          />
-        </Form.Group>
-      </Col>
-
-      <Form.Group className="mb-3">
-        <Button
-          variant="primary"
-          className={styles.btnSubmit}
-          onClick={() => {
-            handleClick();
-            onFormSubmit(
-              5,
-              5,
-              filtredDataValue?.operation,
-              filtredDataValue?.typeOfProperty,
-              filtredDataValue?.region,
-              filtredDataValue?.commune,
-              filtredDataValue?.priceFrom,
-              filtredDataValue?.priceUpTo,
-              filtredDataValue?.parkingLots,
-              filtredDataValue?.bedrooms,
-              filtredDataValue?.surface,
-              filtredDataValue?.bathrooms,
-              filtredDataValue?.installmentType
-            );
-          }}
-        >
-          {loading ? (
-            <span>
-              Obteniendo Propiedades...
-              <SpinnerComponent size="sm" />
-            </span>
-          ) : (
-            <span>
-              Buscar
-              <GoSearch className={styles.btnIcon} />
-            </span>
-          )}
-        </Button>
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Button
-          variant="secondary"
-          className={styles.btnSubmitClean}
-          onClick={() => {
-            resetForm();
-            window.location.reload();
-          }}
-        >
-          Limpiar
-          <IoTrashOutline className={styles.btnIcon} />
-        </Button>
-      </Form.Group>
-    </Form>
+      </Form>
+    </Fragment>
   );
 };
 

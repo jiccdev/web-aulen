@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 0.5rem;
   background-color: var(--color-white);
@@ -34,12 +35,43 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.headerProperties h1 {
-  margin: 1rem;
+.headerProperties .mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.headerProperties .mainInfo h1 {
+  display: flex;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  text-align: left;
+}
+
+.headerProperties p {
+  background-color: whitesmoke;
+  padding: 0.2rem 0.5rem !important;
+  border-radius: var(--border-radius-sm);
+  color: var(--color-dark-light);
+  margin: 0.2rem !important;
+  font-size: var(--font-size-sm);
+}
+
+.headerProperties p span {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
 }
 
 .containerForm {
   margin: 1rem;
+}
+
+.containerSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh !important;
 }
 
 .iconFilterContainer {

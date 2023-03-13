@@ -5,6 +5,20 @@
   border-radius: var(--border-radius-3xl);
 }
 
+.form .totalItemsHeading {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark-light);
+  background-color: whitesmoke;
+  padding: 0.5rem;
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+}
+
+.form .totalItemsHeading .icon {
+  margin-right: 0.5rem;
+}
+
 .label {
   color: var(--color-black);
   font-size: var(--font-size-sm);

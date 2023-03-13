@@ -30,6 +30,7 @@ import {
   MdOutlineTimer,
   MdEngineering,
   MdOutlineManageAccounts,
+  MdHomeWork
 } from 'react-icons/md';
 import {
   RiMoneyDollarCircleLine,
@@ -108,5 +109,6 @@ export const icons = {
   HiOutlineClipboardCheck,
   BsCalendarCheck,
   GoSearch,
-  IoTrashOutline
+  IoTrashOutline,
+  MdHomeWork
 };
