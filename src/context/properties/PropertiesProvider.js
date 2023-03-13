@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import PropertiesContext from './PropertiesContext';
 
 /** API Services */
@@ -15,6 +16,7 @@ const PropertiesProvider = ({ children }) => {
 
   const [totalItems, setTotalItems] = useState('');
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
+  const { pathname } = useRouter();
 
   /** Get Properties */
   const getProperties = async (realtorId, statusId) => {
@@ -23,13 +25,27 @@ const PropertiesProvider = ({ children }) => {
         realtorId,
         statusId
       );
-      setProperties(response?.data);
-      setNewProperties(response?.data);
+      // setProperties(response?.data);
+      // setNewProperties(response?.data);
+
+      // desde aca
+      if (pathname === '/soy-inversionista/unidades-nuevas') {
+        const filtredPropertiesBySale = response?.data?.filter((property) => {
+          return property?.operation === 'Venta';
+        });
+        setNewProperties(filtredPropertiesBySale);
+      } else {
+        return setNewProperties(response.data) || setProperties(response.data);
+      }
     } catch (error) {
       const { statusCode } = error?.response?.data;
       setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
     }
   };
+
+  useEffect(() => {
+    getProperties(5, 5);
+  }, [pathname]);
 
   /** Get all Properties (Maps) */
   const getAllProperties = async (limit, realtorId, statusId) => {
@@ -73,9 +89,18 @@ const PropertiesProvider = ({ children }) => {
         statusId
       );
       setMetaData(response?.meta);
-      setNewProperties(response.data);
-      setProperties(response.data);
-    } catch (error) {}
+      if (pathname === '/soy-inversionista/unidades-nuevas') {
+        const filtredPropertiesBySale = response?.data?.filter((property) => {
+          return property?.operation === 'Venta';
+        });
+        setNewProperties(filtredPropertiesBySale);
+      } else {
+        return setNewProperties(response.data) || setProperties(response.data);
+      }
+    } catch (error) {
+      const { statusCode } = error?.response?.data;
+      setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
+    }
   };
 
   /** Get Total Items from metadata*/

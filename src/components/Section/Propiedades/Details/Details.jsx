@@ -32,8 +32,6 @@ const Details = ({ propertyData }) => {
     getExchangeRateUF();
   }, [ufCurrentValue]);
 
-  console.log(propertyData);
-
   return (
     <Fragment>
       {Object.keys(propertyData).length > 0 ? (
