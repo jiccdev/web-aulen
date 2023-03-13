@@ -10,7 +10,7 @@ export const simpleCardData = [
         alt="card-imagen-departamentos"
       />
     ),
-    title: 'DEPARTAMENTOS',
+    title: 'departamento',
     href: '#departmentos',
   },
   {
@@ -21,7 +21,7 @@ export const simpleCardData = [
         alt="card-imagen-estacionamientos"
       />
     ),
-    title: 'ESTACIONAMIENTOS',
+    title: 'estacionamientos',
     href: '#estacionamientos',
   },
   {
@@ -32,7 +32,7 @@ export const simpleCardData = [
         alt="card-imagen-bodega"
       />
     ),
-    title: 'BODEGA',
+    title: 'bodega',
     href: '#bodegas',
   },
 ];

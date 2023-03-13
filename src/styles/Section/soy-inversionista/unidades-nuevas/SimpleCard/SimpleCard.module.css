@@ -20,9 +20,7 @@
   min-width: 20rem;
   justify-content: center;
   align-items: center;
-
   border: none;
-
   border-radius: var(--border-radius-5xl, 4rem);
   overflow: hidden;
   background: var(--color-primary);
@@ -45,4 +43,5 @@
   font-size: var(--font-size-lg, 1.2rem);
   font-weight: var(--font-weight-bold, 700);
   margin: 1.2rem 0rem;
+  text-transform: uppercase;
 }

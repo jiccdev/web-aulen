@@ -2,10 +2,15 @@ import React, { Fragment } from 'react';
 import Link from 'next/link';
 import styles from '../../../../styles/Section/soy-inversionista/unidades-nuevas/SimpleCard/SimpleCard.module.css';
 
-export const SimpleCard = ({ img, title, href }) => {
+export const SimpleCard = ({
+  img,
+  title,
+  href,
+  getPropertiesByTypeOfProperty,
+}) => {
   const scrollToDown = () => {
     window.scrollTo({
-      top: 1960,
+      top: 2530,
       behavior: 'smooth',
     });
   };
@@ -14,12 +19,12 @@ export const SimpleCard = ({ img, title, href }) => {
     <Fragment>
       <button className={`${styles.customCol} ${styles.card}`}>
         <Link
-          // href={`properties?realtorId=${5}&statusId=${5}&typeOfProperty=${1}`}
           href={`${href}`}
           onClick={() => {
+            getPropertiesByTypeOfProperty(5, 5, title);
             setTimeout(() => {
               scrollToDown();
-            }, 500);
+            }, 1000);
           }}
         >
           {img}

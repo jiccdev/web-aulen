@@ -176,6 +176,7 @@ const Header = () => {
                     img={el.img}
                     title={el.title}
                     href={el.href}
+                    getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
                   />
                 ))
               : null}
