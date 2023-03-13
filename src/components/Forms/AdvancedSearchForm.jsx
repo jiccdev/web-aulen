@@ -274,7 +274,6 @@ const AdvancedSearchForm = ({
     <Fragment>
       <Form className={styles.form}>
         <h3 className={styles.totalItemsHeading}>
-          <MdHomeWork className={styles.icon} />
           Propieades encontradas {totalItems}
         </h3>
 
