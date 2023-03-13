@@ -133,7 +133,7 @@ const Header = () => {
           <h2 className={`${styles.chooseInvest__h2}`}>
             Elige en qué quieres invertir hoy
           </h2>
-          <div
+          {/* <div
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -166,7 +166,7 @@ const Header = () => {
                 }}
               />
             </Form.Group>
-          </div>
+          </div> */}
 
           <div className={`${styles.customRow} ${styles.cardContainer}`}>
             {simpleCardData.length > 0
