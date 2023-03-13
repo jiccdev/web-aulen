@@ -155,6 +155,7 @@ const Header = () => {
                 options={getTypeOfPropertyOptions()}
                 defaultValue={typeOfProperty[0]}
                 onChange={onTypeOfPropertyChange}
+                placeholder="Seleccionar"
                 styles={{
                   option: (provided, state) => ({
                     ...provided,
