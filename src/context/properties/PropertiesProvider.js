@@ -25,10 +25,7 @@ const PropertiesProvider = ({ children }) => {
         realtorId,
         statusId
       );
-      // setProperties(response?.data);
-      // setNewProperties(response?.data);
 
-      // desde aca
       if (pathname === '/soy-inversionista/unidades-nuevas') {
         const filtredPropertiesBySale = response?.data?.filter((property) => {
           return property?.operation === 'Venta';
@@ -130,8 +127,15 @@ const PropertiesProvider = ({ children }) => {
         statusId,
         typeOfProperty
       );
-      setProperties(response?.data);
-      setNewProperties(response?.data);
+
+      if (pathname === '/soy-inversionista/unidades-nuevas') {
+        const filtredPropertiesBySale = response?.data?.filter((property) => {
+          return property?.operation === 'Venta';
+        });
+        setNewProperties(filtredPropertiesBySale);
+      } else {
+        return setNewProperties(response.data) || setProperties(response.data);
+      }
     } catch (error) {
       const { statusCode } = error?.response?.data;
       setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
