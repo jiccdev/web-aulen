@@ -25,7 +25,7 @@ const MapProperties = () => {
   const [key, setKey] = useState('transportationTab');
 
   useEffect(() => {
-    getProperties(5, 5);
+    getProperties(5, 1);
   }, []);
 
   useEffect(() => {

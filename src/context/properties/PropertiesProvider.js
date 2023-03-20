@@ -41,7 +41,7 @@ const PropertiesProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getProperties(5, 5);
+    getProperties(5, 1);
   }, [pathname]);
 
   /** Get all Properties (Maps) */
@@ -77,13 +77,13 @@ const PropertiesProvider = ({ children }) => {
   };
 
   /** Get Pagination */
-  const getPagination = async (limit, page, realtorId, statusId) => {
+  const getPagination = async (limit, page, statusId, companyId) => {
     try {
       const response = await PropertiesServices.getPagination(
         limit,
         page,
-        realtorId,
-        statusId
+        statusId,
+        companyId
       );
       setMetaData(response?.meta);
       if (pathname === '/soy-inversionista/unidades-nuevas') {

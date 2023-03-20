@@ -1,92 +1,185 @@
 import api from '../../src/api';
 
 const PropertiesServices = {
-  getProperties: async (realtorId, statusId) => {
+  // getProperties: async (realtorId, statusId) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getProperties: async (statusId, companyId) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}`
+      `properties?statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
-  getAllProperties: async (limit, realtorId, statusId) => {
+  // getAllProperties: async (limit, realtorId, statusId) => {
+  //   const response = await api.get(
+  //     `properties?limit=${limit}&realtorId=${realtorId}&statusId=${statusId}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getAllProperties: async (limit, statusId, companyId) => {
     const response = await api.get(
-      `properties?limit=${limit}&realtorId=${realtorId}&statusId=${statusId}`
+      `properties?limit=${limit}&statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
-  getProperty: async (id, realtorId, statusId) => {
+  // getProperty: async (id, realtorId, statusId) => {
+  //   const response = await api.get(
+  //     `properties/${id}?realtorId=${realtorId}&statusId=${statusId}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getProperty: async (id, statusId, companyId) => {
     const response = await api.get(
-      `properties/${id}?realtorId=${realtorId}&statusId=${statusId}`
+      `properties/${id}?statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
-  getPagination: async (limit, page, realtorId, statusId) => {
+  // getPagination: async (limit, page, realtorId, statusId) => {
+  //   const response = await api.get(
+  //     `properties?limit=${limit}&page=${page}&realtorId=${realtorId}&statusId=${statusId}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getPagination: async (limit, page, statusId, companyId) => {
     const response = await api.get(
-      `properties?limit=${limit}&page=${page}&realtorId=${realtorId}&statusId=${statusId}`
+      `properties?limit=${limit}&page=${page}&statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
   /** Advanced filters for properties */
   // Type of property
+  // getPropertiesByTypeOfProperty: async (
+  //   realtorId,
+  //   statusId,
+  //   typeOfProperty
+  // ) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
   getPropertiesByTypeOfProperty: async (
-    realtorId,
     statusId,
+    companyId,
     typeOfProperty
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
+      `properties?statusId=${statusId}&companyId=${companyId}&typeOfProperty=${typeOfProperty}`
     );
     return response.data;
   },
 
   // Min & Max Price
+  // getPropertiesByMinAndMaxPrice: async (
+  //   realtorId,
+  //   statusId,
+  //   minValue,
+  //   maxValue
+  // ) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
   getPropertiesByMinAndMaxPrice: async (
-    realtorId,
     statusId,
+    companyId,
     minValue,
     maxValue
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
+      `properties?statusId=${statusId}&companyId=${companyId}&min_price=${minValue}&max_price=${maxValue}`
     );
     return response.data;
   },
 
   // Surface M2
-  getPropertiesBySurfaceM2: async (realtorId, statusId, surfaceM2) => {
+  // getPropertiesBySurfaceM2: async (realtorId, statusId, surfaceM2) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getPropertiesBySurfaceM2: async (statusId, companyId, surfaceM2) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
+      `properties?statusId=${statusId}&companyId=${companyId}&surface_m2=${surfaceM2}`
     );
     return response.data;
   },
 
   // Bedrooms
-  getPropertiesByBedrooms: async (realtorId, statusId, bedrooms) => {
+  // getPropertiesByBedrooms: async (realtorId, statusId, bedrooms) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getPropertiesByBedrooms: async (statusId, companyId, bedrooms) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
+      `properties?statusId=${statusId}&companyId=${companyId}&bedrooms=${bedrooms}`
     );
     return response.data;
   },
 
   // Bathrooms
-  getPropertiesByBathrooms: async (realtorId, statusId, bathrooms) => {
+  // getPropertiesByBathrooms: async (realtorId, statusId, bathrooms) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getPropertiesByBathrooms: async (statusId, companyId, bathrooms) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
+      `properties?statusId=${statusId}&companyId=${companyId}&bathrooms=${bathrooms}`
     );
     return response.data;
   },
 
   // Parking Lots (covered)
+  // getPropertiesByParkingLotsCovered: async (
+  //   realtorId,
+  //   statusId,
+  //   parkingLotsCovered
+  // ) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
   getPropertiesByParkingLotsCovered: async (
-    realtorId,
     statusId,
+    companyId,
     parkingLotsCovered
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
+      `properties?statusId=${statusId}&companyId=${companyId}&covered_parking_lots=${parkingLotsCovered}`
     );
     return response.data;
   },
@@ -104,41 +197,74 @@ const PropertiesServices = {
   // },
 
   // Operation Type
-  getPropertiesByOperationType: async (realtorId, statusId, operationType) => {
+  // getPropertiesByOperationType: async (realtorId, statusId, operationType) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
+  getPropertiesByOperationType: async (statusId, companyId, operationType) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}`
+      `properties?statusId=${statusId}&companyId=${companyId}&operationType=${operationType}`
     );
     return response.data;
   },
 
   // Regions & Communes
+  // getPropertiesByRegionAndCommune: async (
+  //   realtorId,
+  //   statusId,
+  //   region,
+  //   commune
+  // ) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&region=${region}&commune=${commune}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
   getPropertiesByRegionAndCommune: async (
-    realtorId,
     statusId,
+    companyId,
     region,
     commune
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&region=${region}&commune=${commune}`
+      `properties?statusId=${statusId}&companyId=${companyId}&region=${region}&commune=${commune}`
     );
     return response.data;
   },
 
   // Installment Type
+  // getPropertiesByInstallmentType: async (
+  //   realtorId,
+  //   statusId,
+  //   installmentType
+  // ) => {
+  //   const response = await api.get(
+  //     `properties?realtorId=${realtorId}&statusId=${statusId}&installment_type=${installmentType}`
+  //   );
+  //   return response.data;
+  // },
+
+  // ✅
   getPropertiesByInstallmentType: async (
-    realtorId,
     statusId,
+    companyId,
     installmentType
   ) => {
     const response = await api.get(
-      `properties?realtorId=${realtorId}&statusId=${statusId}&installment_type=${installmentType}`
+      `properties?statusId=${statusId}&companyId=${companyId}&installment_type=${installmentType}`
     );
     return response.data;
   },
 
   getPropertiesOnFormSubmit: async (
-    realtorId,
     statusId,
+    companyId,
     operationType,
     typeOfProperty,
     region,
@@ -151,8 +277,8 @@ const PropertiesServices = {
     bathrooms,
     installmentType
   ) => {
-    const _realtorId = `${realtorId}`;
     const _statusId = `${statusId}`;
+    const _companyId = `${companyId}`;
     const _operationType = operationType.length > 0 ? operationType : false;
     const _typeOfProperty = typeOfProperty.length > 0 ? typeOfProperty : false;
     const _region = region > 0 ? region : false;
@@ -168,7 +294,7 @@ const PropertiesServices = {
       installmentType.length > 0 ? installmentType : false;
 
     const response = await api.get(
-      `properties?realtorId=${_realtorId}&statusId=${_statusId}${
+      `properties?statusId=${_statusId}&companyId=${_companyId}${
         _operationType ? `&operationType=${_operationType}` : ''
       }${_typeOfProperty ? `&typeOfProperty=${_typeOfProperty}` : ''}${
         _region ? `&region=${_region}` : ''

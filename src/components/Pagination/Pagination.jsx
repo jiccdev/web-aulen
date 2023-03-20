@@ -69,7 +69,6 @@ const PaginationComponent = ({
       })}
 
       <PaginationItem
-        // disabled={pageNumbers[pageNumbers.length - 1] === metaData.page}
         disabled={pageNumbers[pageNumbers.length - 1] === metaData.page}
       >
         <PaginationLink
