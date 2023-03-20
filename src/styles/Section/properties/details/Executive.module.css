@@ -4,20 +4,33 @@
   display: flex;
   justify-content: center;
   padding: 3rem 1rem 2rem 1rem;
-  border: 2px solid var(--color-dark);
   border-radius: var(--border-radius-3xl);
+  background-color: whitesmoke;
 }
 
 .executiveContainer h3 {
   padding-bottom: 0.5rem;
+  color: var(--color-dark-light) !important;
+  border-bottom: 1px solid #d2d2d2 !important;
 }
 
-.executiveContainer h3,
-.executiveContainer p {
-  color: var(--color-dark);
+.colDown h3 {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  line-height: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark);
+}
+
+.colDown p span {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.colDown p {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-dark-light);
+  padding: 0.3em 0 !important;
 }
 
 .executiveContainer form {

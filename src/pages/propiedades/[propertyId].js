@@ -90,7 +90,7 @@ const PropiedadId = () => {
         ) : (
           <div id="cotizar-contacto">
             <MeetingSchedule />
-          </div> // null
+          </div>
         )}
       </div>
     </Fragment>

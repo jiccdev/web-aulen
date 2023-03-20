@@ -9,6 +9,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Executive = ({ propertyData }) => {
+  console.log(propertyData?.realtor);
+  const { name, lastName, mail } = propertyData;
   return (
     <div className={styles.executiveContainer}>
       <Row className={styles.row}>
@@ -21,11 +23,27 @@ const Executive = ({ propertyData }) => {
             className={styles.executiveImg}
           />
         </Col>
-        <Col md={9}>
+        <Col md={9} className={styles.colDown}>
           <h3>Ejecutivo </h3>
-          <p>Aulen Propiedades</p>
-          <p>956305238</p>
-          <p>956305238</p>
+          <div>
+            <p>
+              <span>Agente:</span> {propertyData?.realtor?.name || ''}{' '}
+              {propertyData?.lastName || ''}
+            </p>
+          </div>
+
+          <div>
+            <p>
+              <span>Email:</span> {propertyData?.realtor?.name || ''}{' '}
+              {propertyData?.lastName || ''}
+            </p>
+          </div>
+
+          <div>
+            <p>
+              <span>Telefono/celular:</span> ...
+            </p>
+          </div>
 
           <form>
             <div>
