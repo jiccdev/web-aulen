@@ -1,14 +1,6 @@
 import api from '../../src/api';
 
 const PropertiesServices = {
-  // getProperties: async (realtorId, statusId) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getProperties: async (statusId, companyId) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}`
@@ -16,14 +8,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // getAllProperties: async (limit, realtorId, statusId) => {
-  //   const response = await api.get(
-  //     `properties?limit=${limit}&realtorId=${realtorId}&statusId=${statusId}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getAllProperties: async (limit, statusId, companyId) => {
     const response = await api.get(
       `properties?limit=${limit}&statusId=${statusId}&companyId=${companyId}`
@@ -31,14 +15,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // getProperty: async (id, realtorId, statusId) => {
-  //   const response = await api.get(
-  //     `properties/${id}?realtorId=${realtorId}&statusId=${statusId}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getProperty: async (id, statusId, companyId) => {
     const response = await api.get(
       `properties/${id}?statusId=${statusId}&companyId=${companyId}`
@@ -46,14 +22,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // getPagination: async (limit, page, realtorId, statusId) => {
-  //   const response = await api.get(
-  //     `properties?limit=${limit}&page=${page}&realtorId=${realtorId}&statusId=${statusId}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPagination: async (limit, page, statusId, companyId) => {
     const response = await api.get(
       `properties?limit=${limit}&page=${page}&statusId=${statusId}&companyId=${companyId}`
@@ -61,20 +29,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  /** Advanced filters for properties */
-  // Type of property
-  // getPropertiesByTypeOfProperty: async (
-  //   realtorId,
-  //   statusId,
-  //   typeOfProperty
-  // ) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&typeOfProperty=${typeOfProperty}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByTypeOfProperty: async (
     statusId,
     companyId,
@@ -86,20 +40,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Min & Max Price
-  // getPropertiesByMinAndMaxPrice: async (
-  //   realtorId,
-  //   statusId,
-  //   minValue,
-  //   maxValue
-  // ) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&min_price=${minValue}&max_price=${maxValue}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByMinAndMaxPrice: async (
     statusId,
     companyId,
@@ -112,15 +52,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Surface M2
-  // getPropertiesBySurfaceM2: async (realtorId, statusId, surfaceM2) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&surface_m2=${surfaceM2}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesBySurfaceM2: async (statusId, companyId, surfaceM2) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&surface_m2=${surfaceM2}`
@@ -128,15 +59,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Bedrooms
-  // getPropertiesByBedrooms: async (realtorId, statusId, bedrooms) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&bedrooms=${bedrooms}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByBedrooms: async (statusId, companyId, bedrooms) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&bedrooms=${bedrooms}`
@@ -144,15 +66,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Bathrooms
-  // getPropertiesByBathrooms: async (realtorId, statusId, bathrooms) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&bathrooms=${bathrooms}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByBathrooms: async (statusId, companyId, bathrooms) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&bathrooms=${bathrooms}`
@@ -160,19 +73,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Parking Lots (covered)
-  // getPropertiesByParkingLotsCovered: async (
-  //   realtorId,
-  //   statusId,
-  //   parkingLotsCovered
-  // ) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&covered_parking_lots=${parkingLotsCovered}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByParkingLotsCovered: async (
     statusId,
     companyId,
@@ -184,27 +84,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Parking Lots (uncovered)
-  // getPropertiesByParkingLotsUncovered: async (
-  //   realtorId,
-  //   statusId,
-  //   parkingLotsUncovered
-  // ) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&uncovered_parking_lots=${parkingLotsUncovered}`
-  //   );
-  //   return response.data;
-  // },
-
-  // Operation Type
-  // getPropertiesByOperationType: async (realtorId, statusId, operationType) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&operationType=${operationType}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByOperationType: async (statusId, companyId, operationType) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&operationType=${operationType}`
@@ -212,20 +91,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Regions & Communes
-  // getPropertiesByRegionAndCommune: async (
-  //   realtorId,
-  //   statusId,
-  //   region,
-  //   commune
-  // ) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&region=${region}&commune=${commune}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByRegionAndCommune: async (
     statusId,
     companyId,
@@ -238,19 +103,6 @@ const PropertiesServices = {
     return response.data;
   },
 
-  // Installment Type
-  // getPropertiesByInstallmentType: async (
-  //   realtorId,
-  //   statusId,
-  //   installmentType
-  // ) => {
-  //   const response = await api.get(
-  //     `properties?realtorId=${realtorId}&statusId=${statusId}&installment_type=${installmentType}`
-  //   );
-  //   return response.data;
-  // },
-
-  // ✅
   getPropertiesByInstallmentType: async (
     statusId,
     companyId,
