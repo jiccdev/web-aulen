@@ -95,7 +95,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    getPropertiesByTypeOfProperty(5, 5, filtredDataValue?.typeOfProperty);
+    getPropertiesByTypeOfProperty(5, 1, filtredDataValue?.typeOfProperty);
   }, [filtredDataValue?.typeOfProperty]);
 
   return (
@@ -176,7 +176,9 @@ const Header = () => {
                     img={el.img}
                     title={el.title}
                     href={el.href}
-                    getPropertiesByTypeOfProperty={getPropertiesByTypeOfProperty}
+                    getPropertiesByTypeOfProperty={
+                      getPropertiesByTypeOfProperty
+                    }
                   />
                 ))
               : null}

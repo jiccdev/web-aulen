@@ -54,7 +54,7 @@ const Properties = ({
   const paginate = (currentPage) => getPagination(limit, currentPage, 5, 1);
 
   useEffect(() => {
-    getTotalItems(5, 5);
+    getTotalItems(5, 1);
   }, [metaData]);
 
   useEffect(() => {

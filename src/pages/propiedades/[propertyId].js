@@ -29,7 +29,7 @@ const PropiedadId = () => {
 
   useEffect(() => {
     // getProperty(propertyId, 1, 1);
-    getProperty(propertyId, 5, 5);
+    getProperty(propertyId, 5, 1);
   }, [propertyId]);
 
   return (

@@ -227,8 +227,8 @@ const AdvancedSearchForm = ({
   }, [filtredDataValue?.region]);
 
   const onFormSubmit = (
-    realtorId,
     statusId,
+    companyId,
     operationType,
     typeOfProperty,
     region,
@@ -242,8 +242,8 @@ const AdvancedSearchForm = ({
     installmentType
   ) => {
     return getPropertiesOnFormSubmit(
-      realtorId,
       statusId,
+      companyId,
       operationType,
       typeOfProperty,
       region,
@@ -421,7 +421,7 @@ const AdvancedSearchForm = ({
               handleClick();
               onFormSubmit(
                 5,
-                5,
+                1,
                 filtredDataValue?.operation,
                 filtredDataValue?.typeOfProperty,
                 filtredDataValue?.region,

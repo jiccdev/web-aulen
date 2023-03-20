@@ -29,7 +29,7 @@ const MapProperties = () => {
   }, []);
 
   useEffect(() => {
-    getAllProperties(totalItems, 5, 5);
+    getAllProperties(totalItems, 5, 1);
   }, []);
 
   return (

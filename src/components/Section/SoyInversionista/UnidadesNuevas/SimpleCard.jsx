@@ -21,7 +21,7 @@ export const SimpleCard = ({
         <Link
           href={`${href}`}
           onClick={() => {
-            getPropertiesByTypeOfProperty(5, 5, title);
+            getPropertiesByTypeOfProperty(5, 1, title);
             setTimeout(() => {
               scrollToDown();
             }, 1000);

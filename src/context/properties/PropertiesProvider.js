@@ -19,11 +19,11 @@ const PropertiesProvider = ({ children }) => {
   const { pathname } = useRouter();
 
   /** Get Properties */
-  const getProperties = async (realtorId, statusId) => {
+  const getProperties = async (statusId, companyId) => {
     try {
       const response = await PropertiesServices.getProperties(
-        realtorId,
-        statusId
+        statusId,
+        companyId
       );
 
       if (pathname === '/soy-inversionista/unidades-nuevas') {
@@ -45,12 +45,12 @@ const PropertiesProvider = ({ children }) => {
   }, [pathname]);
 
   /** Get all Properties (Maps) */
-  const getAllProperties = async (limit, realtorId, statusId) => {
+  const getAllProperties = async (limit, statusId, companyId) => {
     try {
       const response = await PropertiesServices.getAllProperties(
         limit,
-        realtorId,
-        statusId
+        statusId,
+        companyId
       );
       setProperties(response?.data);
       setNewProperties(response?.data);
@@ -62,12 +62,12 @@ const PropertiesProvider = ({ children }) => {
   };
 
   /** Get Property */
-  const getProperty = async (id, realtorId, statusId) => {
+  const getProperty = async (id, statusId, companyId) => {
     try {
       const response = await PropertiesServices.getProperty(
         id,
-        realtorId,
-        statusId
+        statusId,
+        companyId
       );
       setProperty(response);
     } catch (error) {
@@ -101,11 +101,11 @@ const PropertiesProvider = ({ children }) => {
   };
 
   /** Get Total Items from metadata*/
-  const getTotalItems = async (realtorId, statusId) => {
+  const getTotalItems = async (statusId, companyId) => {
     try {
       const response = await PropertiesServices.getProperties(
-        realtorId,
-        statusId
+        statusId,
+        companyId
       );
       setTotalItems(response.meta.totalItems);
     } catch (error) {
@@ -117,14 +117,14 @@ const PropertiesProvider = ({ children }) => {
   /** Advanced filters for properties */
   // Type of property
   const getPropertiesByTypeOfProperty = async (
-    realtorId,
     statusId,
+    companyId,
     typeOfProperty
   ) => {
     try {
       const response = await PropertiesServices.getPropertiesByTypeOfProperty(
-        realtorId,
         statusId,
+        companyId,
         typeOfProperty
       );
 
@@ -144,15 +144,15 @@ const PropertiesProvider = ({ children }) => {
 
   // Min & Max Price
   const getPropertiesByMinAndMaxPrice = async (
-    realtorId,
     statusId,
+    companyId,
     minValue,
     maxValue
   ) => {
     try {
       const response = await PropertiesServices.getPropertiesByMinAndMaxPrice(
-        realtorId,
         statusId,
+        companyId,
         minValue,
         maxValue
       );
@@ -165,11 +165,11 @@ const PropertiesProvider = ({ children }) => {
   };
 
   // Surface M2
-  const getPropertiesBySurfaceM2 = async (realtorId, statusId, surfaceM2) => {
+  const getPropertiesBySurfaceM2 = async (statusId, companyId, surfaceM2) => {
     try {
       const response = await PropertiesServices.getPropertiesBySurfaceM2(
-        realtorId,
         statusId,
+        companyId,
         surfaceM2
       );
       setProperties(response?.data);
@@ -181,11 +181,11 @@ const PropertiesProvider = ({ children }) => {
   };
 
   // Bedrooms
-  const getPropertiesByBedrooms = async (realtorId, statusId, bedrooms) => {
+  const getPropertiesByBedrooms = async (statusId, companyId, bedrooms) => {
     try {
       const response = await PropertiesServices.getPropertiesByBedrooms(
-        realtorId,
         statusId,
+        companyId,
         bedrooms
       );
       setProperties(response?.data);
@@ -197,11 +197,11 @@ const PropertiesProvider = ({ children }) => {
   };
 
   // Bathrooms
-  const getPropertiesByBathrooms = async (realtorId, statusId, bathrooms) => {
+  const getPropertiesByBathrooms = async (statusId, companyId, bathrooms) => {
     try {
       const response = await PropertiesServices.getPropertiesByBathrooms(
-        realtorId,
         statusId,
+        companyId,
         bathrooms
       );
       setProperties(response?.data);
@@ -214,15 +214,15 @@ const PropertiesProvider = ({ children }) => {
 
   // ParkingLotsCovered
   const getPropertiesByParkingLotsCovered = async (
-    realtorId,
     statusId,
+    companyId,
     parkingLotsCovered
   ) => {
     try {
       const response =
         await PropertiesServices.getPropertiesByParkingLotsCovered(
-          realtorId,
           statusId,
+          companyId,
           parkingLotsCovered
         );
       setProperties(response?.data);
@@ -235,14 +235,14 @@ const PropertiesProvider = ({ children }) => {
 
   // Operation Type
   const getPropertiesByOperationType = async (
-    realtorId,
     statusId,
+    companyId,
     operationType
   ) => {
     try {
       const response = await PropertiesServices.getPropertiesByOperationType(
-        realtorId,
         statusId,
+        companyId,
         operationType
       );
       setProperties(response?.data);
@@ -255,15 +255,15 @@ const PropertiesProvider = ({ children }) => {
 
   // Regions & Communes
   const getPropertiesByRegionAndCommune = async (
-    realtorId,
     statusId,
+    companyId,
     region,
     commune
   ) => {
     try {
       const response = await PropertiesServices.getPropertiesByRegionAndCommune(
-        realtorId,
         statusId,
+        companyId,
         region,
         commune
       );
@@ -276,14 +276,14 @@ const PropertiesProvider = ({ children }) => {
   };
 
   const getPropertiesByInstallmentType = async (
-    realtorId,
     statusId,
+    companyId,
     installmentType
   ) => {
     try {
       const response = await PropertiesServices.getPropertiesByInstallmentType(
-        realtorId,
         statusId,
+        companyId,
         installmentType
       );
 
@@ -297,8 +297,8 @@ const PropertiesProvider = ({ children }) => {
 
   // on form submit
   const getPropertiesOnFormSubmit = async (
-    realtorId,
     statusId,
+    companyId,
     operationType,
     typeOfProperty,
     regionId,
@@ -313,8 +313,8 @@ const PropertiesProvider = ({ children }) => {
   ) => {
     try {
       const response = await PropertiesServices.getPropertiesOnFormSubmit(
-        realtorId,
         statusId,
+        companyId,
         operationType,
         typeOfProperty,
         regionId,
