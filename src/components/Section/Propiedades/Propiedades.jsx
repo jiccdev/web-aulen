@@ -19,7 +19,6 @@ const Properties = ({
   data,
   router,
   setProperties,
-  realtorId,
   statusId,
   getProperties,
   getAllProperties,
@@ -113,7 +112,7 @@ const Properties = ({
                 property={property}
                 isGrid={isGrid}
                 isList={isList}
-                realtorId={realtorId}
+                companyId={1}
                 statusId={statusId}
               />
             ))

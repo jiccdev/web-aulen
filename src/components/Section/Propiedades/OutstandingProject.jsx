@@ -7,12 +7,14 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import styles from '../../../styles/Section/properties/OutstandingProject.module.css';
 
-const OutstandingProject = ({ property, realtorId, statusId }) => {
+const OutstandingProject = ({ property, statusId }) => {
   return (
     <Col>
       <Card>
         <Link
-          href={`/propiedades/${property?.id}?realtorId=${realtorId}&statusId=${statusId}`}
+          href={`/propiedades/${
+            property?.id
+          }?statusId=${statusId}&companyId=${1}`}
           className={styles.link}
         >
           <img

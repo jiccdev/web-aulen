@@ -43,7 +43,7 @@ const Propiedades = () => {
     typeOfProperty,
     installmentType,
   ] = contextData;
-  const [realtorId, setRealtorId] = useState(5); //1
+  const [companyId, setCompanyId] = useState(1); //1
   const [statusId, setStatusId] = useState(5); //1
   const router = useRouter();
 
@@ -61,7 +61,7 @@ const Propiedades = () => {
           router={router}
           setProperties={setProperties}
           dataProperty={property}
-          realtorId={realtorId}
+          companyId={companyId}
           statusId={statusId}
           getProperties={getProperties}
           getAllProperties={getAllProperties}

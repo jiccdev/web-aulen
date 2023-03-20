@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import styles from '../../../styles/Section/properties/PropertyItem.module.css';
 
-const DepartmentItem = ({ property, isGrid, isList, realtorId, statusId }) => {
+const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
   const { id, image, title, address, price, status, operation } = property;
 
   return (
@@ -51,7 +51,7 @@ const DepartmentItem = ({ property, isGrid, isList, realtorId, statusId }) => {
             </span>
             <span>
               <Link
-                href={`/propiedades/${id}?realtorId=${realtorId}&statusId=${statusId}`}
+                href={`/propiedades/${id}?statusId=${statusId}&companyId=${1}`}
                 className={styles.details}
               >
                 Detalles

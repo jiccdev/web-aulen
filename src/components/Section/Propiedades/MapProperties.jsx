@@ -240,7 +240,7 @@ const MapProperties = () => {
                           <Link
                             href={`/propiedades/${
                               property?.id
-                            }?realtorId=${5}&statusId=${5}`}
+                            }?statusId=${5}&companyId=${1}`}
                             className={styles.url}
                           >
                             Ver Detalle

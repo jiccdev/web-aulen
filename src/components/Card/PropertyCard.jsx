@@ -20,7 +20,6 @@ const PropertyCard = ({ property }) => {
     surface_m,
   } = property;
 
-
   return (
     <Col sm={4}>
       <Card className={styles.card}>
@@ -61,7 +60,7 @@ const PropertyCard = ({ property }) => {
 
             <div className={styles.urlContainer}>
               <Link
-                href={`/propiedades/${id}?realtorId=${5}&statusId=${5}`}
+                href={`/propiedades/${id}?statusId=${5}&companyId=${1}`}
                 className={styles.url}
               >
                 Detalles

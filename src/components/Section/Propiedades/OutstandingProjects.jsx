@@ -25,7 +25,7 @@ const OutstandingProjects = () => {
             <OutstandingProject
               key={property.id}
               property={property}
-              realtorId={5}
+              companyId={1}
               statusId={5}
             />
           ))
