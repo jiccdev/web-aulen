@@ -1,13 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ToastComponent = () => {
-  return (
-    <Fragment>
-      <ToastContainer />
-    </Fragment>
-  );
+  return <ToastContainer />;
 };
 
 export default ToastComponent;

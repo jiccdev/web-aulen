@@ -5,18 +5,20 @@ import { toast } from 'react-toastify';
 import houseImg from '../../assets/img/SoyPropietario/house.jpg';
 import { icons } from '../Icons';
 import styles from '../../styles/Forms/InvestmentForm.module.css';
-import stylesToast from '../../styles/Toastify/toastContainer.module.css';
 
 /** API services */
 import ContactFormServices from '@/services/ContactFormServices';
 
 const InvestmentForm = ({ formData, isForm }) => {
+  const [serverErrorMsg, setServerErrorMsg] = useState('');
   const [data, setData] = useState({
     name: '',
     email: '',
     phone: '',
     action: '',
     termsAndConditions: false,
+    message: '',
+    subject: '',
   });
 
   const { h2, h3, btn } = formData;
@@ -38,10 +40,20 @@ const InvestmentForm = ({ formData, isForm }) => {
     setData({ ...data, action: ev.target.value });
   };
 
+  const handleMessage = (ev) => {
+    setFormData({ ...formData, message: ev.target.value });
+  };
+
+  const handleSubject = (ev) => {
+    setFormData({ ...formData, subject: ev.target.value });
+  };
+
   const handleTermsAndConditions = (ev) => {
     setData({
       ...data,
       termsAndConditions: !data.termsAndConditions,
+      message: ev.target.value === '' ? '' : 'Solicitud de información',
+      subject: ev.target.value === '' ? '' : 'Solicitud de información',
     });
   };
 
@@ -52,12 +64,14 @@ const InvestmentForm = ({ formData, isForm }) => {
       phone: '',
       action: '',
       termsAndConditions: false,
+      message: '',
+      subject: '',
     });
   };
 
   const showToastSuccessMsg = (msg) => {
     toast.success(msg, {
-      position: 'top-center',
+      position: 'bottom-center',
       autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -70,7 +84,7 @@ const InvestmentForm = ({ formData, isForm }) => {
 
   const showToastErrorMsg = (msg) => {
     toast.error(msg, {
-      position: 'top-center',
+      position: 'bottom-center',
       autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -83,7 +97,7 @@ const InvestmentForm = ({ formData, isForm }) => {
 
   const showToastWarningMsg = (msg) => {
     toast.warn(msg, {
-      position: 'top-center',
+      position: 'bottom-center',
       autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -181,10 +195,7 @@ const InvestmentForm = ({ formData, isForm }) => {
         </div>
       </form>
 
-      {/* ToastComponent Msg */}
-      <div className={stylesToast.toastContainer}>
-        <ToastComponent />
-      </div>
+      <ToastComponent />
     </Fragment>
   );
 };
