@@ -39,7 +39,7 @@ export const navigationData = [
       {
         id: 2,
         name: 'Unidades nuevas',
-        url: '/soy-inversionista/unidades-nuevas',
+        url: '/soy-inversionista',
       },
     ],
   },
