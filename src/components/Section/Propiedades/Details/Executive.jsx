@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Executive = ({ propertyData }) => {
-  console.log(propertyData?.realtor);
   const { name, lastName, mail } = propertyData;
   return (
     <div className={styles.executiveContainer}>
