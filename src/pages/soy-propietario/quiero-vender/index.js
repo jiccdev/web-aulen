@@ -2,10 +2,10 @@ import React from 'react';
 import HeadPage from '@/components/HeadPage/HeadPage';
 import LayoutSection from '@/components/Section/LayoutSection';
 
-const Contacto = () => {
+const QuieroVender = () => {
   return (
     <div>
-      <HeadPage title="Contacto" />
+      <HeadPage title="Quiero Vender" />
       <LayoutSection>
         <h1
           style={{
@@ -15,11 +15,11 @@ const Contacto = () => {
             marginTop: '100px',
           }}
         >
-          Contacto
+          Quiero Vender oficial
         </h1>
       </LayoutSection>
     </div>
   );
 };
 
-export default Contacto;
+export default QuieroVender;

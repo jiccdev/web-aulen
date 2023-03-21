@@ -20,20 +20,19 @@ const NavigationItem = ({ navItem }) => {
         {name}
       </Dropdown.Toggle>
       <Dropdown.Menu className={styles.dropdownMenu}>
-        {submenu &&
-          submenu.map((item, idx) => (
-            <Dropdown.Item
-              href={item?.url}
-              key={idx}
-              className={
-                route === item.url
-                  ? styles.dropdownItemActived
-                  : styles.dropdownItem
-              }
-            >
-              {item?.name}
-            </Dropdown.Item>
-          ))}
+        {submenu.map((item, idx) => (
+          <Dropdown.Item
+            href={item?.url}
+            key={idx}
+            className={
+              route === item.url
+                ? styles.dropdownItemActived
+                : styles.dropdownItem
+            }
+          >
+            {item?.name}
+          </Dropdown.Item>
+        ))}
       </Dropdown.Menu>
     </Dropdown>
   ) : (
