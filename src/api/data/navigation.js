@@ -7,7 +7,6 @@ export const navigationData = [
   {
     id: 2,
     name: 'Soy Propietario',
-    url: '/soy-propietario',
     submenu: [
       {
         id: 1,
@@ -29,7 +28,6 @@ export const navigationData = [
   {
     id: 4,
     name: 'Soy Inversionista',
-    url: '/soy-inversionista',
     submenu: [
       {
         id: 1,
@@ -52,5 +50,10 @@ export const navigationData = [
     id: 7,
     name: 'Intranet',
     url: 'http://190.114.255.247:195/',
+  },
+  {
+    id: 8,
+    name: 'Contacto',
+    url: '/contacto',
   },
 ];
