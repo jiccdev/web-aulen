@@ -11,12 +11,12 @@ export const navigationData = [
       {
         id: 1,
         name: 'Quiero Vender',
-        url: '/soy-propietario/quiero-vender',
+        url: '/quiero-vender',
       },
       {
         id: 2,
         name: 'Quiero Arrendar',
-        url: '/soy-propietario/quiero-arrendar',
+        url: '/quiero-arrendar',
       },
     ],
   },

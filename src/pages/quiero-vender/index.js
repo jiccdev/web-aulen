@@ -5,7 +5,7 @@ import LayoutSection from '@/components/Section/LayoutSection';
 const QuieroVender = () => {
   return (
     <div>
-      <HeadPage title="Quiero Vender" />
+      <HeadPage title="Contacto" />
       <LayoutSection>
         <h1
           style={{
@@ -15,7 +15,7 @@ const QuieroVender = () => {
             marginTop: '100px',
           }}
         >
-          Quiero Vender oficial
+          Quiero Vender
         </h1>
       </LayoutSection>
     </div>
