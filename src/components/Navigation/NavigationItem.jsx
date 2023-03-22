@@ -40,6 +40,7 @@ const NavigationItem = ({ navItem }) => {
     <Link
       href={url}
       className={route === url ? styles.navItemActive : styles.navItem}
+      target={url === 'http://190.114.255.247:195/' ? '_blank' : ''}
     >
       {name}
     </Link>
