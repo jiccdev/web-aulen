@@ -11,12 +11,12 @@ export const navigationData = [
       {
         id: 1,
         name: 'Quiero Vender',
-        url: '/quiero-vender',
+        url: '/soy-propietario/quiero-vender',
       },
       {
         id: 2,
         name: 'Quiero Arrendar',
-        url: '/quiero-arrendar',
+        url: '/soy-propietario/quiero-arrendar',
       },
     ],
   },
@@ -53,7 +53,7 @@ export const navigationData = [
     url: 'http://190.114.255.247:195/',
   },
   {
-    id: 7,
+    id: 8,
     name: 'Soy Propietarioo 1',
     url: '/soy-propietario-1/unidades-nuevas',
   },

@@ -22,7 +22,7 @@ const NavigationItem = ({ navItem }) => {
       <Dropdown.Menu className={styles.dropdownMenu}>
         {submenu &&
           submenu.map((item, idx) => (
-            <Dropdown.Item
+            <Link
               href={item?.url}
               key={idx}
               className={
@@ -32,7 +32,7 @@ const NavigationItem = ({ navItem }) => {
               }
             >
               {item?.name}
-            </Dropdown.Item>
+            </Link>
           ))}
       </Dropdown.Menu>
     </Dropdown>
