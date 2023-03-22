@@ -6,12 +6,18 @@ const NavigationFooter = () => {
   return (
     <div className={styles.navigationFooterContainer}>
       <div className={styles.navigationFooterInfoSection}>
-        <Link href="/quiero-arrendar" className={styles.navLinkFooter}>
+        <Link
+          href="/soy-propietario/quiero-arrendar"
+          className={styles.navLinkFooter}
+        >
           Quiero arrendar
         </Link>
       </div>
       <div className={styles.navigationFooterInfoSection}>
-        <Link href="/quiero-vender" className={styles.navLinkFooter}>
+        <Link
+          href="/soy-propietario/quiero-vender"
+          className={styles.navLinkFooter}
+        >
           Quiero vender
         </Link>
       </div>
