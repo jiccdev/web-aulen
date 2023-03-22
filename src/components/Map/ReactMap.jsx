@@ -8,7 +8,7 @@ import Map, {
   FullscreenControl,
   Popup,
 } from 'react-map-gl';
-import MapPointer from '../../assets/img/Map/mapPointer.png';
+import MapPointer from '../../assets/img/Map/marker.png';
 import { icons } from '../Icons';
 
 /** Bootstrap components */
@@ -20,7 +20,7 @@ import styles from '../../styles/Section/properties/details/Maps.module.css';
 const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
   const [longitude, setLongitude] = useState(longitudeProp);
   const [latitude, setLatitude] = useState(latitudeProp);
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const { BiMap } = icons;
 
   return (
@@ -73,178 +73,91 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
             padding: '0',
           }}
         >
-          {showPopup && (
-            <Popup
-              longitude={longitude}
-              latitude={latitude}
-              onClose={() => setShowPopup(false)}
-              anchor="bottom"
-              closeButton={false}
-              closeOnClick={false}
-              dynamicPosition={true}
-              focusAfterOpen={false}
-              offsetTop={-10}
-              offsetLeft={-10}
-              closeOnMove={false}
-              style={{
-                zIndex: 100,
-                cursor: 'pointer',
-              }}
-            >
-              <div
+          <div>
+            <Image
+              src={MapPointer}
+              alt="marker"
+              height={50}
+              width={50}
+              onClick={() => setShowPopup(!showPopup)}
+            />
+
+            {showPopup && (
+              <Popup
+                longitude={longitude}
+                latitude={latitude}
+                onClose={() => setShowPopup(false)}
+                anchor="bottom"
+                closeButton={false}
+                closeOnClick={false}
+                dynamicPosition={true}
+                focusAfterOpen={false}
+                offsetTop={-10}
+                offsetLeft={-10}
+                closeOnMove={false}
                 style={{
-                  backgroundColor: 'white',
-                  borderRadius: '10px !important',
-                  padding: '0px',
+                  zIndex: 100,
+                  cursor: 'pointer',
                 }}
               >
-                <Card.Img
-                  variant="top"
-                  src={propertyData?.image}
-                  style={{
-                    width: '100%',
-                    height: '120px',
-                    objectFit: 'cover',
-                    borderRadius: '5px',
-                    margin: '0',
-                    padding: '0',
-                  }}
-                />
                 <div
                   style={{
-                    display: 'flex',
-                    alignItems: 'start',
-                    justifyContent: 'space-between',
-                    marginTop: '5px',
+                    backgroundColor: 'white',
+                    borderRadius: '10px !important',
+                    padding: '0px',
                   }}
                 >
-                  <Image
-                    alt="map-pointer"
-                    src={MapPointer}
-                    height={15}
-                    width={15}
-                    style={{
-                      margin: '3px',
-                    }}
-                  />{' '}
-                  <span
-                    style={{
-                      fontWeight: 'bold',
-                      textTransform: 'uppercase',
-                      paddingRight: '1rem',
-                    }}
-                  >
-                    {propertyData?.address === ''
-                      ? 'Propiedad sin ubicacion registrada '
-                      : propertyData?.address + ','}
-
-                    {propertyData?.city === ''
-                      ? 'Propiedad sin ciudad registrada '
-                      : propertyData?.address}
-                  </span>
-                </div>
-
-                <div
-                  style={{
-                    fontWeight: '300',
-                    textTransform: 'capitalize',
-                    color: '#616161',
-                    margin: '0rem',
-                    padding: '.5rem',
-                  }}
-                >
-                  <span
+                  <div
                     style={{
                       display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
                       alignItems: 'start',
+                      justifyContent: 'space-between',
+                      marginTop: '5px',
+                    }}
+                  ></div>
+
+                  <div
+                    style={{
+                      fontWeight: '300',
+                      textTransform: 'capitalize',
+                      color: '#616161',
+                      margin: '0rem',
+                      padding: '.5rem',
                     }}
                   >
-                    <span
+                    <div
                       style={{
-                        padding: '.1rem .1rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        alignItems: 'start',
                       }}
                     >
-                      <strong>Descripción: </strong>
-                      {truncateStringSmall(
-                        propertyData?.title || 'Sin descripcion',
-                        45
-                      ) ?? 'Propiedad sin descripción'}
-                    </span>
+                      <span
+                        style={{
+                          padding: '.1rem .1rem',
+                        }}
+                      >
+                        {propertyData?.address ?? ''}{' '}
+                        {propertyData?.city === ''}
+                      </span>
+                    </div>
+                  </div>
 
-                    <span
-                      style={{
-                        padding: '.1rem .1rem',
-                      }}
+                  <div className={styles.urlContainer}>
+                    <Link
+                      href={`/propiedades/${
+                        propertyData?.id
+                      }?statusId=${5}&companyId=${1}`}
+                      className={styles.url}
                     >
-                      <strong>Metros cuadrados: </strong>
-                      {propertyData?.surface_m2 ?? '0'}m<sup>2</sup>
-                    </span>
-
-                    <span
-                      style={{
-                        padding: '.1rem .1rem',
-                      }}
-                    >
-                      <strong>Habitaciones: </strong>
-                      {propertyData?.bedrooms ?? '0'}m<sup>2</sup>
-                    </span>
-
-                    <span
-                      style={{
-                        padding: '.1rem .1rem',
-                      }}
-                    >
-                      <strong>Baños: </strong>
-                      {propertyData?.bathrooms ?? '0'}m<sup>2</sup>
-                    </span>
-                  </span>
+                      Ver Detalle
+                    </Link>
+                  </div>
                 </div>
-
-                <div className={styles.urlContainer}>
-                  <Link
-                    href={`/propiedades/${
-                      propertyData?.id
-                    }?statusId=${5}&companyId=${1}`}
-                    className={styles.url}
-                  >
-                    Ver Detalle
-                  </Link>
-                </div>
-              </div>
-            </Popup>
-            // <Popup
-            //   longitude={longitude}
-            //   latitude={latitude}
-            //   style={{
-            //     width: 'auto',
-            //     height: '60px',
-            //     borderRadius: '10px',
-            //     padding: '1rem',
-            //     margin: '1rem',
-            //   }}
-            // >
-            //   <Card.Img
-            //     variant="top"
-            //     src={propertyData?.images?.[0]}
-            //     style={{
-            //       width: '100%',
-            //       height: '100px',
-            //       objectFit: 'cover',
-            //       borderRadius: '10px',
-            //     }}
-            //   />
-            //   <p>{propertyData?.title || 'sin descripción'}</p>
-            //   <span
-            //     style={{
-            //       fontWeight: 'bold',
-            //     }}
-            //   >
-            //     {propertyData?.address || ''}, {propertyData?.city || ''}
-            //   </span>
-            // </Popup>
-          )}
+              </Popup>
+            )}
+          </div>
         </Marker>
 
         <NavigationControl />

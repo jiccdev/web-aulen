@@ -9,7 +9,7 @@ import Map, {
   Popup,
 } from 'react-map-gl';
 import PropertiesContext from '@/context/properties/PropertiesContext';
-import MapPointer from '../../../assets/img/Map/mapPointer.png';
+import MapPointer from '../../../assets/img/Map/marker.png';
 import { truncateStringSmall } from '../../../utils';
 import styles from '../../../styles/Section/properties/details/Maps.module.css';
 
@@ -20,9 +20,13 @@ import Toast from 'react-bootstrap/Toast';
 const MapProperties = () => {
   const { newProperties, getProperties, getAllProperties, totalItems } =
     useContext(PropertiesContext);
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const [propertyDetail, setPropertyDetail] = useState({});
   const [key, setKey] = useState('transportationTab');
+
+  const showPropertyDetail = (property) => {
+    console.log(property);
+  };
 
   useEffect(() => {
     getProperties(5, 1);
@@ -103,12 +107,15 @@ const MapProperties = () => {
                   padding: '0',
                 }}
               >
-                <div
-                  onClick={() => {
-                    setPropertyDetail(property);
-                    // setShowPopup(true);
-                  }}
-                >
+                <div>
+                  <Image
+                    src={MapPointer}
+                    alt="marker"
+                    height={50}
+                    width={50}
+                    onClick={() => setShowPopup(!showPopup)}
+                  />
+
                   {showPopup && (
                     <Popup
                       longitude={longitude}
@@ -134,18 +141,6 @@ const MapProperties = () => {
                           padding: '0px',
                         }}
                       >
-                        <Card.Img
-                          variant="top"
-                          src={property?.image}
-                          style={{
-                            width: '100%',
-                            height: '120px',
-                            objectFit: 'cover',
-                            borderRadius: '5px',
-                            margin: '0',
-                            padding: '0',
-                          }}
-                        />
                         <div
                           style={{
                             display: 'flex',
@@ -154,16 +149,7 @@ const MapProperties = () => {
                             marginTop: '5px',
                           }}
                         >
-                          <Image
-                            alt="map-pointer"
-                            src={MapPointer}
-                            height={15}
-                            width={15}
-                            style={{
-                              margin: '3px',
-                            }}
-                          />{' '}
-                          <span
+                          {/* <span
                             style={{
                               fontWeight: 'bold',
                               textTransform: 'uppercase',
@@ -177,10 +163,10 @@ const MapProperties = () => {
                             {property?.city === ''
                               ? 'Propiedad sin ciudad registrada '
                               : property?.address}
-                          </span>
+                          </span> */}
                         </div>
 
-                        <p
+                        <div
                           style={{
                             fontWeight: '300',
                             textTransform: 'capitalize',
@@ -202,11 +188,19 @@ const MapProperties = () => {
                                 padding: '.1rem .1rem',
                               }}
                             >
+                              {property?.address ?? ''} {property?.city === ''}
+                            </span>
+
+                            {/* <span
+                              style={{
+                                padding: '.1rem .1rem',
+                              }}
+                            >
                               <strong>Descripción: </strong>
                               {truncateStringSmall(property?.title, 45) ??
                                 'Propiedad sin descripción'}
-                            </span>
-
+                            </span> */}
+                            {/* 
                             <span
                               style={{
                                 padding: '.1rem .1rem',
@@ -232,9 +226,9 @@ const MapProperties = () => {
                             >
                               <strong>Baños: </strong>
                               {property?.bathrooms ?? '0'}m<sup>2</sup>
-                            </span>
+                            </span> */}
                           </div>
-                        </p>
+                        </div>
 
                         <div className={styles.urlContainer}>
                           <Link
