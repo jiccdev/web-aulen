@@ -14,7 +14,7 @@ export const navigationData = [
         url: '/quiero-vender',
       },
       {
-        id: 2,
+        id: 2, 
         name: 'Quiero Arrendar',
         url: '/quiero-arrendar',
       },
