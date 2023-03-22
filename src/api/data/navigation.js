@@ -53,4 +53,9 @@ export const navigationData = [
     name: 'Intranet',
     url: 'http://190.114.255.247:195/',
   },
+  {
+    id: 7,
+    name: 'Soy Propietarioo 1',
+    url: '/soy-propietario-1/unidades-nuevas',
+  },
 ];
