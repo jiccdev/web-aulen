@@ -23,7 +23,7 @@ const NavigationItem = ({ navItem }) => {
         {submenu.map((item, idx) => (
           <Dropdown.Item
             href={item?.url}
-            key={idx}
+            key={item.id}
             className={
               route === item.url
                 ? styles.dropdownItemActived
