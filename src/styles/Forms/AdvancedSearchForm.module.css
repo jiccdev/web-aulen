@@ -48,7 +48,7 @@
 
 .btnSubmitClean {
   width: 100%;
-  background-color: whitemoke !important;
+  background-color: var(--color-dark-light) !important;
   color: var(--color-white);
   border-radius: var(--border-radius-3xl);
   text-transform: uppercase;
@@ -56,6 +56,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.5rem;
+  trasition: all 0.3s ease;
+}
+
+.btnSubmitClean:hover {
+  background-color: var(--color-dark-light) !important;
+  color: var(--color-white) !important;
 }
 
 .radio[type='radio'] {

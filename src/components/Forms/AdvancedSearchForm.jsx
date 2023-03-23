@@ -451,9 +451,9 @@ const AdvancedSearchForm = ({
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Button
-            variant="secondary"
+          <Link
             className={styles.btnSubmitClean}
+            href={router.pathname}
             onClick={() => {
               resetForm();
               window.location.reload();
@@ -461,7 +461,7 @@ const AdvancedSearchForm = ({
           >
             Limpiar
             <IoTrashOutline className={styles.btnIcon} />
-          </Button>
+          </Link>
         </Form.Group>
       </Form>
     </Fragment>
