@@ -25,6 +25,8 @@ const PublishingForm = () => {
     termsAndConditions: false,
     message: '',
     subject: '',
+    lastName: '',
+    meetingDate: new Date(),
   });
 
   const handleName = (ev) => {
@@ -69,6 +71,8 @@ const PublishingForm = () => {
       termsAndConditions: false,
       message: '',
       subject: '',
+      lastName: '',
+      meetingDate: new Date(),
     });
   };
 

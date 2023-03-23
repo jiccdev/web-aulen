@@ -19,6 +19,8 @@ const InvestmentForm = ({ formData, isForm }) => {
     termsAndConditions: false,
     message: '',
     subject: '',
+    lastName: '',
+    meetingDate: new Date(),
   });
 
   const { h2, h3, btn } = formData;
@@ -41,11 +43,11 @@ const InvestmentForm = ({ formData, isForm }) => {
   };
 
   const handleMessage = (ev) => {
-    setFormData({ ...formData, message: ev.target.value });
+    setData({ ...formData, message: ev.target.value });
   };
 
   const handleSubject = (ev) => {
-    setFormData({ ...formData, subject: ev.target.value });
+    setData({ ...formData, subject: ev.target.value });
   };
 
   const handleTermsAndConditions = (ev) => {
@@ -66,6 +68,8 @@ const InvestmentForm = ({ formData, isForm }) => {
       termsAndConditions: false,
       message: '',
       subject: '',
+      lastName: '',
+      meetingDate: new Date(),
     });
   };
 

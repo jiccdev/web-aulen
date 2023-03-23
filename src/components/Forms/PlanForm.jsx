@@ -24,6 +24,8 @@ const PlanFrom = ({ props }) => {
     termsAndConditions: false,
     message: '',
     subject: '',
+    lastName: '',
+    meetingDate: new Date(),
   });
   const { FaUserAlt, BsTelephoneFill, MdOutlineMailOutline, GrClose } = icons;
 
@@ -64,6 +66,8 @@ const PlanFrom = ({ props }) => {
       termsAndConditions: false,
       message: '',
       subject: '',
+      lastName: '',
+      meetingDate: new Date(),
     });
   };
 

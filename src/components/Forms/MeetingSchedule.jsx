@@ -19,6 +19,7 @@ import ContactFormServices from '@/services/ContactFormServices';
 const MeetingSchedule = () => {
   const { FaUserAlt, BsTelephoneFill, MdOutlineMailOutline, BsCalendarCheck } =
     icons;
+  const [serverErrorMsg, setServerErrorMsg] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     lastName: '',
@@ -27,6 +28,10 @@ const MeetingSchedule = () => {
     phone: '',
     action: '',
     termsAndConditions: false,
+    message: '',
+    subject: '',
+    lastName: '',
+    meetingDate: new Date(),
   });
 
   const handleName = (ev) => {
@@ -63,8 +68,14 @@ const MeetingSchedule = () => {
       phone: '',
       action: '',
       termsAndConditions: false,
+      message: '',
+      subject: '',
+      lastName: '',
+      meetingDate: new Date(),
     });
   };
+
+  console.log(formData);
 
   const showToastSuccessMsg = (msg) => {
     toast.success(msg, {
@@ -113,7 +124,8 @@ const MeetingSchedule = () => {
       if (
         formData.name === '' ||
         formData.email === '' ||
-        formData.phone === ''
+        formData.phone === '' ||
+        formData.meetingDate === ''
       ) {
         showToastErrorMsg('Todos los campos son obligatorios');
       } else {
@@ -134,105 +146,100 @@ const MeetingSchedule = () => {
       </div>
 
       <Row>
-        <Form onSubmit={onFormSubmit} className=""></Form>
-        <Col sm={12} md={6}>
-          <Form.Group className={styles.formGroup} controlId="formBasicName">
-            <Form.Label className={styles.label}>
-              <FaUserAlt />
-            </Form.Label>
-            <Form.Control
-              type="text"
-              className={styles.formControl}
-              placeholder="Nombre"
-              name="name"
-              value={formData.name}
-              onChange={handleName}
-            />
-          </Form.Group>
+        <Form onSubmit={onFormSubmit} className="">
+          <Col sm={12} md={6}>
+            <Form.Group className={styles.formGroup} controlId="formBasicName">
+              <Form.Label className={styles.label}>
+                <FaUserAlt />
+              </Form.Label>
+              <Form.Control
+                type="text"
+                className={styles.formControl}
+                placeholder="Nombre"
+                name="name"
+                value={formData.name}
+                onChange={handleName}
+              />
+            </Form.Group>
 
-          <Form.Group className={styles.formGroup} controlId="formBasicPhone">
-            <Form.Label className={styles.label}>
-              <BsTelephoneFill />
-            </Form.Label>
-            <Form.Control
-              type="text"
-              className={styles.formControl}
-              placeholder="Teléfono celular"
-              name="phone"
-              value={formData.phone}
-              onChange={handlePhone}
-            />
-          </Form.Group>
+            <Form.Group className={styles.formGroup} controlId="formBasicPhone">
+              <Form.Label className={styles.label}>
+                <BsTelephoneFill />
+              </Form.Label>
+              <Form.Control
+                type="text"
+                className={styles.formControl}
+                placeholder="Teléfono celular"
+                name="phone"
+                value={formData.phone}
+                onChange={handlePhone}
+              />
+            </Form.Group>
 
-          <Form.Group className={styles.formGroup} controlId="formBasicEmail">
-            <Form.Label className={styles.label}>
-              <MdOutlineMailOutline />
-            </Form.Label>
-            <Form.Control
-              type="email"
-              className={styles.formControl}
-              placeholder="Correo electrónico"
-              name="email"
-              value={formData.email}
-              onChange={handleEmail}
-            />
-          </Form.Group>
-        </Col>
+            <Form.Group className={styles.formGroup} controlId="formBasicEmail">
+              <Form.Label className={styles.label}>
+                <MdOutlineMailOutline />
+              </Form.Label>
+              <Form.Control
+                type="email"
+                className={styles.formControl}
+                placeholder="Correo electrónico"
+                name="email"
+                value={formData.email}
+                onChange={handleEmail}
+              />
+            </Form.Group>
+          </Col>
 
-        <Col sm={12} md={6}>
-          <Form.Group
-            className={styles.formGroup}
-            controlId="formBasicLastName"
-          >
-            <Form.Label className={styles.label}>
-              <FaUserAlt />
-            </Form.Label>
-            <Form.Control
-              type="text"
-              className={styles.formControl}
-              placeholder="Apellido"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleLastName}
-            />
-          </Form.Group>
-
-          <Form.Group className={styles.formGroup}>
-            <Form.Label className={styles.label}>
-              <BsCalendarCheck />
-            </Form.Label>
-            <DatePicker
-              selected={formData.meetingDate}
-              onChange={(date) =>
-                setFormData({
-                  ...formData,
-                  meetingDate: date,
-                })
-              }
-              timeInputLabel="Time:"
-              dateFormat="MM/dd/yyyy h:mm aa"
-              showTimeInput
-              className={styles.datePickerCustom}
-              placeholderText="Fecha y hora de la reunión"
-            />
-          </Form.Group>
-        </Col>
-      </Row>
-
-      <Row className={styles.scheduleBtn}>
-        <Col sm={12} lg={6}>
-          <Form.Group className={styles.formGroup}>
-            <Button
-              type="submit"
-              className={styles.btnSubmit}
-              onClick={() => {
-                setFormData({ ...formData, action: 'vender' });
-              }}
+          <Col sm={12} md={6}>
+            <Form.Group
+              className={styles.formGroup}
+              controlId="formBasicLastName"
             >
-              Agenda una reunion
-            </Button>
-          </Form.Group>
-        </Col>
+              <Form.Label className={styles.label}>
+                <FaUserAlt />
+              </Form.Label>
+              <Form.Control
+                type="text"
+                className={styles.formControl}
+                placeholder="Apellido"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleLastName}
+              />
+            </Form.Group>
+
+            <Form.Group className={styles.formGroup}>
+              <Form.Label className={styles.label}>
+                <BsCalendarCheck />
+              </Form.Label>
+              <DatePicker
+                selected={formData.meetingDate}
+                onChange={(date) =>
+                  setFormData({
+                    ...formData,
+                    meetingDate: date,
+                  })
+                }
+                timeInputLabel="Time:"
+                dateFormat="MM/dd/yyyy h:mm aa"
+                showTimeInput
+                className={styles.datePickerCustom}
+                placeholderText="Fecha y hora de la reunión"
+              />
+            </Form.Group>
+          </Col>
+
+          <Row className={styles.scheduleBtn}>
+            <Col sm={12} lg={6}>
+              <Form.Group className={styles.formGroup}>
+                <button type="submit" className={styles.btnSubmit}>
+                  Agenda una reunion
+                </button>
+              </Form.Group>
+            </Col>
+          </Row>
+        </Form>
       </Row>
 
       {/* ToastComponent Msg */}
