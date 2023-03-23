@@ -144,9 +144,8 @@ const MeetingSchedule = () => {
         <h2>¿Quieres agendar una reunión con nosotros?</h2>
         <p>Un equipo de expertos se pondra en contacto contigo.</p>
       </div>
-
-      <Row>
-        <Form onSubmit={onFormSubmit} className="">
+      <Form onSubmit={onFormSubmit} className="">
+        <Row>
           <Col sm={12} md={6}>
             <Form.Group className={styles.formGroup} controlId="formBasicName">
               <Form.Label className={styles.label}>
@@ -239,8 +238,8 @@ const MeetingSchedule = () => {
               </Form.Group>
             </Col>
           </Row>
-        </Form>
-      </Row>
+        </Row>
+      </Form>
 
       {/* ToastComponent Msg */}
       <div className={stylesToast.toastContainer}>
