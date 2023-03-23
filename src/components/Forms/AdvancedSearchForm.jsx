@@ -453,7 +453,7 @@ const AdvancedSearchForm = ({
         <Form.Group className="mb-3">
           <Link
             className={styles.btnSubmitClean}
-            href={router.pathname}
+            href="/propiedades"
             onClick={() => {
               resetForm();
               window.location.reload();
