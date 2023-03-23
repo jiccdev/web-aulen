@@ -148,7 +148,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                     <Link
                       href={`/propiedades/${
                         propertyData?.id
-                      }?statusId=${5}&companyId=${1}`}
+                      }?statusId=${1}&companyId=${1}`}
                       className={styles.url}
                     >
                       Ver Detalle

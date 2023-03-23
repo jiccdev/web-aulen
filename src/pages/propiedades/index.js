@@ -62,7 +62,7 @@ const Propiedades = () => {
           setProperties={setProperties}
           dataProperty={property}
           companyId={companyId}
-          statusId={statusId}
+          statusId={1}
           getProperties={getProperties}
           getAllProperties={getAllProperties}
           newProperties={newProperties}

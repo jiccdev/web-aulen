@@ -11,7 +11,7 @@ const OutstandingProjects = () => {
   const { properties, getProperties } = useContext(PropertiesContext);
 
   useEffect(() => {
-    getProperties(5, 1);
+    getProperties(1, 1);
   }, []);
 
   return (
@@ -26,7 +26,7 @@ const OutstandingProjects = () => {
               key={property.id}
               property={property}
               companyId={1}
-              statusId={5}
+              statusId={1}
             />
           ))
       ) : (

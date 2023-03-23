@@ -14,7 +14,7 @@ const OutstandingProject = ({ property, statusId }) => {
         <Link
           href={`/propiedades/${
             property?.id
-          }?statusId=${statusId}&companyId=${1}`}
+          }?statusId=${1}&companyId=${1}`}
           className={styles.link}
         >
           <img

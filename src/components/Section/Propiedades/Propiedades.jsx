@@ -113,7 +113,7 @@ const Properties = ({
                 isGrid={isGrid}
                 isList={isList}
                 companyId={1}
-                statusId={statusId}
+                statusId={1}
               />
             ))
           ) : (

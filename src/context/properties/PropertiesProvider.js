@@ -41,7 +41,7 @@ const PropertiesProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getProperties(5, 1);
+    getProperties(1, 1);
   }, [pathname]);
 
   /** Get all Properties (Maps) */

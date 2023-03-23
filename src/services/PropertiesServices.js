@@ -1,28 +1,28 @@
 import api from '../../src/api';
 
 const PropertiesServices = {
-  getProperties: async (statusId, companyId) => {
+  getProperties: async (statusId = 1, companyId) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
-  getAllProperties: async (limit, statusId, companyId) => {
+  getAllProperties: async (limit, statusId = 1, companyId) => {
     const response = await api.get(
       `properties?limit=${limit}&statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
-  getProperty: async (id, statusId, companyId) => {
+  getProperty: async (id, statusId = 1, companyId) => {
     const response = await api.get(
       `properties/${id}?statusId=${statusId}&companyId=${companyId}`
     );
     return response.data;
   },
 
-  getPagination: async (limit, page, statusId, companyId) => {
+  getPagination: async (limit, page, statusId = 1, companyId) => {
     const response = await api.get(
       `properties?limit=${limit}&page=${page}&statusId=${statusId}&companyId=${companyId}`
     );
@@ -30,7 +30,7 @@ const PropertiesServices = {
   },
 
   getPropertiesByTypeOfProperty: async (
-    statusId,
+    statusId = 1,
     companyId,
     typeOfProperty
   ) => {
@@ -41,7 +41,7 @@ const PropertiesServices = {
   },
 
   getPropertiesByMinAndMaxPrice: async (
-    statusId,
+    statusId = 1,
     companyId,
     minValue,
     maxValue
@@ -52,21 +52,21 @@ const PropertiesServices = {
     return response.data;
   },
 
-  getPropertiesBySurfaceM2: async (statusId, companyId, surfaceM2) => {
+  getPropertiesBySurfaceM2: async (statusId = 1, companyId, surfaceM2) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&surface_m2=${surfaceM2}`
     );
     return response.data;
   },
 
-  getPropertiesByBedrooms: async (statusId, companyId, bedrooms) => {
+  getPropertiesByBedrooms: async (statusId = 1, companyId, bedrooms) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&bedrooms=${bedrooms}`
     );
     return response.data;
   },
 
-  getPropertiesByBathrooms: async (statusId, companyId, bathrooms) => {
+  getPropertiesByBathrooms: async (statusId = 1, companyId, bathrooms) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&bathrooms=${bathrooms}`
     );
@@ -74,7 +74,7 @@ const PropertiesServices = {
   },
 
   getPropertiesByParkingLotsCovered: async (
-    statusId,
+    statusId = 1,
     companyId,
     parkingLotsCovered
   ) => {
@@ -84,7 +84,11 @@ const PropertiesServices = {
     return response.data;
   },
 
-  getPropertiesByOperationType: async (statusId, companyId, operationType) => {
+  getPropertiesByOperationType: async (
+    statusId = 1,
+    companyId,
+    operationType
+  ) => {
     const response = await api.get(
       `properties?statusId=${statusId}&companyId=${companyId}&operationType=${operationType}`
     );
@@ -92,7 +96,7 @@ const PropertiesServices = {
   },
 
   getPropertiesByRegionAndCommune: async (
-    statusId,
+    statusId = 1,
     companyId,
     region,
     commune
@@ -104,7 +108,7 @@ const PropertiesServices = {
   },
 
   getPropertiesByInstallmentType: async (
-    statusId,
+    statusId = 1,
     companyId,
     installmentType
   ) => {
@@ -115,7 +119,7 @@ const PropertiesServices = {
   },
 
   getPropertiesOnFormSubmit: async (
-    statusId,
+    statusId = 1,
     companyId,
     operationType,
     typeOfProperty,

@@ -51,7 +51,7 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
             </span>
             <span>
               <Link
-                href={`/propiedades/${id}?statusId=${statusId}&companyId=${1}`}
+                href={`/propiedades/${id}?statusId=${1}&companyId=${1}`}
                 className={styles.details}
               >
                 Detalles

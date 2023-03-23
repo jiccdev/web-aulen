@@ -29,11 +29,11 @@ const MapProperties = () => {
   };
 
   useEffect(() => {
-    getProperties(5, 1);
+    getProperties(1, 1);
   }, []);
 
   useEffect(() => {
-    getAllProperties(totalItems, 5, 1);
+    getAllProperties(totalItems, 1, 1);
   }, []);
 
   return (
@@ -234,7 +234,7 @@ const MapProperties = () => {
                           <Link
                             href={`/propiedades/${
                               property?.id
-                            }?statusId=${5}&companyId=${1}`}
+                            }?statusId=${1}&companyId=${1}`}
                             className={styles.url}
                           >
                             Ver Detalle
