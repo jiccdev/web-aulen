@@ -420,7 +420,7 @@ const AdvancedSearchForm = ({
             onClick={() => {
               handleClick();
               onFormSubmit(
-                5,
+                1,
                 1,
                 filtredDataValue?.operation,
                 filtredDataValue?.typeOfProperty,

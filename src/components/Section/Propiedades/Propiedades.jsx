@@ -50,14 +50,14 @@ const Properties = ({
   const { BiMap } = icons;
   const propertiesFound = newProperties?.length;
 
-  const paginate = (currentPage) => getPagination(limit, currentPage, 5, 1);
+  const paginate = (currentPage) => getPagination(limit, currentPage, 1, 1);
 
   useEffect(() => {
     getTotalItems(5, 1);
   }, [metaData]);
 
   useEffect(() => {
-    getPagination(limit, page, 5, 1);
+    getPagination(limit, page, 1, 1);
   }, [limit, page]);
 
   return (
