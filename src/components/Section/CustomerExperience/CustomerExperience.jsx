@@ -47,8 +47,6 @@ const CustomerExperience = () => {
           animationType="fadeout"
           infinite
           touchTracking={false}
-          // disableDotsControls
-          // disableButtonsControls
         />
       </Fade>
     </section>

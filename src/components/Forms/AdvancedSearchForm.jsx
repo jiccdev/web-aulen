@@ -44,6 +44,11 @@ const AdvancedSearchForm = ({
     selectsList;
   const { CgSearchFound, GoSearch, IoTrashOutline, MdHomeWork } = icons;
 
+  const handleClickUpd = (e) => {
+    e.preventDefault();
+    router.push(router.asPath);
+  };
+
   const resetForm = () => {
     setFiltredDataValue({
       operation: '',
@@ -453,9 +458,9 @@ const AdvancedSearchForm = ({
         <Form.Group className="mb-3">
           <Link
             className={styles.btnSubmitClean}
-            href="/propiedades"
+            href={router.pathname}
+            as={router.pathname}
             onClick={() => {
-              resetForm();
               window.location.reload();
             }}
           >
