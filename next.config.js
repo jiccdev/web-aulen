@@ -9,7 +9,7 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        destination: 'https://accionpanal.com/*',
+        destination: 'https://accionpanal.com/:path*',
         permanent: true,
       },
     ];
