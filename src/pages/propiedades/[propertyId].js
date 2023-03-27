@@ -73,7 +73,7 @@ const PropiedadId = () => {
                 </CopyToClipboard>
               </span>{' '}
               <Link href="/" className={styles.printLink}>
-                Descargar Detalles
+                Descargar PDF
               </Link>{' '}
             </div>
             <Details propertyData={property} />
