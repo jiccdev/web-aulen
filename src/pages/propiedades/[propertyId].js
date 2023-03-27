@@ -9,14 +9,14 @@ import Details from '@/components/Section/Propiedades/Details/Details';
 import Characteristics from '@/components/Section/Propiedades/Details/Characteristics';
 import InformationOnTheArea from '@/components/Section/Propiedades/Details/InformationOnTheArea';
 import { icons } from '../../components/Icons';
-// import Characteristic from '../../src/components/Section/propiedades/details/Characteristics';
-// import InformationOnTheArea from '../../src/components/Section/propiedades/details/InformationOnTheArea';
 
 /** Bootstrap componets */
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import styles from '../../styles/Section/properties/details/Details.module.css';
 import MeetingSchedule from '@/components/Forms/MeetingSchedule';
+import ModalPdf from '@/components/Modal/ModalPdf';
 
 const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
@@ -26,9 +26,9 @@ const PropiedadId = () => {
   const router = useRouter();
   const { propertyId } = router.query;
   const { HiClipboard, HiOutlineClipboardCheck } = icons;
+  const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
-    // getProperty(propertyId, 1, 1);
     getProperty(propertyId, 1, 1);
   }, [propertyId]);
 
@@ -72,13 +72,24 @@ const PropiedadId = () => {
                   )}
                 </CopyToClipboard>
               </span>{' '}
-              <Link href="/" className={styles.printLink}>
-                Descargar PDF
-              </Link>{' '}
+              <Button
+                className={styles.printLink}
+                onClick={() => {
+                  setModalShow(true);
+                }}
+              >
+                Visualizar PDF
+              </Button>
             </div>
             <Details propertyData={property} />
           </Col>
         </Row>
+
+        <ModalPdf
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          propertyData={property}
+        />
 
         <InformationOnTheArea propertyData={property} />
 

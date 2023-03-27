@@ -77,6 +77,12 @@
   font-size: var(--font-size-md);
   white-space: nowrap;
   transition: 0.2s all ease-in-out;
+  border: none;
+}
+
+.printLink:active {
+  background-color: var(--color-primary);
+  color: var(--color-white) !important;
 }
 
 .deptoDetailsShare .spanClipboard:hover,

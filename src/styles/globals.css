@@ -95,9 +95,9 @@ p {
 }
 
 /* MODAL CONTACT FORM - ADMINISTRACIÓN DE ARRIENDO */
-.modal-content {
+/* .modal-content {
   border-radius: var(--border-radius-5xl) !important;
-}
+} */
 
 /* TABS - DETALLE PROPIEDAD */
 .nav-tabs {
