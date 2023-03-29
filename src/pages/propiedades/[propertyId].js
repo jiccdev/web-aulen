@@ -55,7 +55,7 @@ const PropiedadId = () => {
           <Col xs={12} xl={4} className={styles.col}>
             <div className={styles.deptoDetailsShare}>
               <span>
-                <CopyToClipboard
+                {/* <CopyToClipboard
                   text={`https://aulen-propiedades.netlify.app/${router.asPath}`}
                   onCopy={() => setCopied(true)}
                 >
@@ -70,7 +70,7 @@ const PropiedadId = () => {
                       <HiOutlineClipboardCheck />
                     </span>
                   )}
-                </CopyToClipboard>
+                </CopyToClipboard> */}
               </span>{' '}
               <Button
                 className={styles.printLink}

@@ -8,7 +8,7 @@ const HeadPage = ({ title, content = 'Aulen Propiedades' }) => {
       <meta name="description" content={content} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
-        http-equiv="Content-Security-Policy"
+        httpEquiv="Content-Security-Policy"
         content="upgrade-insecure-requests"
       />
       <link rel="shortcut icon" href="favicon.ico" />
