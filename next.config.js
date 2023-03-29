@@ -9,7 +9,8 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        destination: 'https://accionpanal.com/:path*',
+        // destination: 'https://accionpanal.com/:path*',
+        destination: 'https://aulenpropiedades.cl/:path*',
         permanent: true,
       },
     ];
