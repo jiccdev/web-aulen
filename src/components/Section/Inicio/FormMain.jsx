@@ -132,10 +132,10 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
         'wXqVGHSMVQRyuvyJK'
       );
 
-      console.log(form.current.name);
       const responseStatus = await response;
       responseStatus.status === 200 &&
         showToastSuccessMsg('Mensaje enviado con éxito');
+      resetForm();
     } catch (error) {
       showToastErrorMsg('Ha ocurrido un error al enviar el formulario');
     }
@@ -232,7 +232,8 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
               type="email"
               className={styles.formControl}
               placeholder="Correo electrónico"
-              name="user_email"
+              name="email"
+              id="email"
               value={formData.email}
               onChange={handleEmail}
             />
@@ -275,7 +276,6 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
                       setFormData({ ...formData, action: 'vender' });
                     }}
                   >
-                    {console.log(formData.action)}
                     {haveAction1?.text || ''}
                   </Button>
                 </Form.Group>
