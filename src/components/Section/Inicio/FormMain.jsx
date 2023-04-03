@@ -249,6 +249,9 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
               id="action"
               name="action"
               value={formData.action}
+              onChange={() =>
+                setFormData({ ...formData, action: formData.value })
+              }
             />
           </div>
 
