@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import ToastComponent from '@/components/Toastify/ToastComponent';
 import { toast } from 'react-toastify';
 import { icons } from '../../Icons';
@@ -15,6 +16,7 @@ import Button from 'react-bootstrap/Button';
 import ContactFormServices from '@/services/ContactFormServices';
 
 const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
+  const form = useRef();
   const { haveAction1, haveAction2 } = { ...props };
   const { FaUserAlt, BsTelephoneFill, MdOutlineMailOutline, GrClose } = icons;
   const [serverErrorMsg, setServerErrorMsg] = useState('');
@@ -116,26 +118,49 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
     });
   };
 
-  /** On form submit */
-  const onFormSubmit = async (ev) => {
-    ev.preventDefault();
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    if ([formData.name, formData.email, formData.phone].includes('')) {
+      showToastErrorMsg('Todos los campos son obligatorios');
+      return;
+    }
     try {
-      const response = await ContactFormServices.addContactForm(formData);
-      if (
-        formData.name === '' ||
-        formData.email === '' ||
-        formData.phone === ''
-      ) {
-        showToastErrorMsg('Todos los campos son obligatorios');
-      } else {
-        showToastSuccessMsg(response.message);
-        resetForm();
-      }
+      const response = emailjs.sendForm(
+        'service_qcvmtdr',
+        'template_jm043df',
+        form.current,
+        'wXqVGHSMVQRyuvyJK'
+      );
+
+      console.log(form.current.name);
+      const responseStatus = await response;
+      responseStatus.status === 200 &&
+        showToastSuccessMsg('Mensaje enviado con éxito');
     } catch (error) {
-      setServerErrorMsg(error.response);
-      showToastWarningMsg('Ocurrio un error al enviar el formulario');
+      showToastErrorMsg('Ha ocurrido un error al enviar el formulario');
     }
   };
+
+  /** On form submit */
+  // const onFormSubmit = async (ev) => {
+  //   ev.preventDefault();
+  //   try {
+  //     const response = await ContactFormServices.addContactForm(formData);
+  //     if (
+  //       formData.name === '' ||
+  //       formData.email === '' ||
+  //       formData.phone === ''
+  //     ) {
+  //       showToastErrorMsg('Todos los campos son obligatorios');
+  //     } else {
+  //       showToastSuccessMsg(response.message);
+  //       resetForm();
+  //     }
+  //   } catch (error) {
+  //     setServerErrorMsg(error.response);
+  //     showToastWarningMsg('Ocurrio un error al enviar el formulario');
+  //   }
+  // };
 
   return (
     <Fragment>
@@ -153,7 +178,13 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
           ''
         )}
 
-        <Form className={styles.form} onSubmit={onFormSubmit} id="planForm">
+        {/* <Form className={styles.form} onSubmit={onFormSubmit} id="planForm"> */}
+        <form
+          className={styles.form}
+          ref={form}
+          onSubmit={sendEmail}
+          id="planForm"
+        >
           <h3
             style={{
               textAlign: textAlign || 'left',
@@ -163,35 +194,37 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
           </h3>
           {subtitle === '' ? '' : <p>{subtitle}</p>}
 
-          <Form.Group className={styles.formGroup} controlId="formBasicName">
+          <Form.Group className={styles.formGroup}>
             <Form.Label className={styles.label}>
               <FaUserAlt />
             </Form.Label>
             <Form.Control
-              type="text"
               className={styles.formControl}
               placeholder="Nombre"
-              name="name"
+              type="text"
+              name="from_name"
+              id="from_name"
               value={formData.name}
               onChange={handleName}
             />
           </Form.Group>
 
-          <Form.Group className={styles.formGroup} controlId="formBasicPhone">
+          <Form.Group className={styles.formGroup}>
             <Form.Label className={styles.label}>
               <BsTelephoneFill />
             </Form.Label>
             <Form.Control
-              type="text"
               className={styles.formControl}
               placeholder="Teléfono celular"
+              type="text"
               name="phone"
+              id="phone"
               value={formData.phone}
               onChange={handlePhone}
             />
           </Form.Group>
 
-          <Form.Group className={styles.formGroup} controlId="formBasicEmail">
+          <Form.Group className={styles.formGroup}>
             <Form.Label className={styles.label}>
               <MdOutlineMailOutline />
             </Form.Label>
@@ -199,13 +232,26 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
               type="email"
               className={styles.formControl}
               placeholder="Correo electrónico"
-              name="email"
+              name="user_email"
               value={formData.email}
               onChange={handleEmail}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <div
+            style={{
+              display: 'none',
+            }}
+          >
+            <input
+              type="text"
+              id="action"
+              name="action"
+              value={formData.action}
+            />
+          </div>
+
+          <Form.Group className="mb-3">
             <Form.Check
               type="checkbox"
               label="Al continuar estás aceptando los términos y condiciones y la
@@ -223,10 +269,13 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
                   <Button
                     type="submit"
                     className={styles.btnSubmit}
+                    name="action"
+                    id="button"
                     onClick={() => {
                       setFormData({ ...formData, action: 'vender' });
                     }}
                   >
+                    {console.log(formData.action)}
                     {haveAction1?.text || ''}
                   </Button>
                 </Form.Group>
@@ -242,6 +291,9 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
                       setFormData({ ...formData, action: 'arrendar' })
                     }
                     className={styles.btnSubmit}
+                    name="action"
+                    id="button"
+                    value={formData.action}
                   >
                     {haveAction2?.text || ''}
                   </Button>
@@ -249,7 +301,7 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
               </Col>
             )}
           </Row>
-        </Form>
+        </form>
       </div>
 
       <ToastComponent />
