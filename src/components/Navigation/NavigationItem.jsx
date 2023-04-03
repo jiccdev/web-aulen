@@ -27,7 +27,7 @@ const NavigationItem = ({ navItem }) => {
               key={idx}
               className={
                 route === item.url
-                  ? styles.dropdownItemActived
+                  ? styles.dropdownItemActived 
                   : styles.dropdownItem
               }
             >

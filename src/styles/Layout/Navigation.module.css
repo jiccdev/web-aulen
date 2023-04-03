@@ -1,12 +1,28 @@
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.offcanvasBody {
+}
+
 .navbarToggle {
-  background-color: transparent !important;
   border: none !important;
-  outline: none !important;
-  margin-left: 2rem !important;
-  width: 2.65rem !important;
 }
 
 .navbarToggle:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.navbarOffcanvas {
+  background-color: white;
+  width: 75% !important;
+}
+
+@media screen and (min-width: 992px) {
+  .navbarOffcanvas {
+    width: 25% !important;
+  }
 }

@@ -168,7 +168,7 @@ const FormMain = ({ titleContentForm, textAlign, subtitle, ...props }) => {
         {props?.show ? (
           <div
             className={stylesModal.closeModal}
-            onClick={() => props.setIsModalOpen(!props.isModalOpen)}
+            onClick={() => props?.setIsModalOpen(!props.isModalOpen)}
           >
             <span>
               <GrClose />
