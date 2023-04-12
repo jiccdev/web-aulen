@@ -8,3 +8,9 @@
   z-index: 1000;
   padding: 0 1.5rem;
 }
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding: 0 10rem;
+  }
+}

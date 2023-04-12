@@ -148,23 +148,7 @@ const MapProperties = () => {
                             justifyContent: 'space-between',
                             marginTop: '5px',
                           }}
-                        >
-                          {/* <span
-                            style={{
-                              fontWeight: 'bold',
-                              textTransform: 'uppercase',
-                              paddingRight: '1rem',
-                            }}
-                          >
-                            {property?.address === ''
-                              ? 'Propiedad sin ubicacion registrada '
-                              : property?.address + ','}
-
-                            {property?.city === ''
-                              ? 'Propiedad sin ciudad registrada '
-                              : property?.address}
-                          </span> */}
-                        </div>
+                        ></div>
 
                         <div
                           style={{
@@ -190,43 +174,6 @@ const MapProperties = () => {
                             >
                               {property?.address ?? ''} {property?.city === ''}
                             </span>
-
-                            {/* <span
-                              style={{
-                                padding: '.1rem .1rem',
-                              }}
-                            >
-                              <strong>Descripción: </strong>
-                              {truncateStringSmall(property?.title, 45) ??
-                                'Propiedad sin descripción'}
-                            </span> */}
-                            {/* 
-                            <span
-                              style={{
-                                padding: '.1rem .1rem',
-                              }}
-                            >
-                              <strong>Metros cuadrados: </strong>
-                              {property?.surface_m2 ?? '0'}m<sup>2</sup>
-                            </span>
-
-                            <span
-                              style={{
-                                padding: '.1rem .1rem',
-                              }}
-                            >
-                              <strong>Habitaciones: </strong>
-                              {property?.bedrooms ?? '0'}m<sup>2</sup>
-                            </span>
-
-                            <span
-                              style={{
-                                padding: '.1rem .1rem',
-                              }}
-                            >
-                              <strong>Baños: </strong>
-                              {property?.bathrooms ?? '0'}m<sup>2</sup>
-                            </span> */}
                           </div>
                         </div>
 

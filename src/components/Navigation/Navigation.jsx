@@ -18,6 +18,7 @@ const Navigation = () => {
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed);
   };
+
   return (
     <Fragment>
       <Navbar.Toggle className={styles.navbarToggle} />
@@ -34,7 +35,12 @@ const Navigation = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
 
-        <Nav>
+        <Nav
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+          }}
+        >
           {navigationData &&
             navigationData.map((navItem) => (
               <NavigationItem
