@@ -1,5 +1,5 @@
 .logo {
-  width: 150px;
+  width: 120px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -8,6 +8,6 @@
 
 @media screen and (min-width: 992px) {
   .logo {
-    width: 200px;
+    width: 180px;
   }
 }

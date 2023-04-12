@@ -9,8 +9,8 @@ const LogoPage = () => {
       src={LogoAulenPropiedades}
       alt="logo-aulen-propiedades"
       className={styles.logo}
-      width={200}
-      height={200}
+      // width={200}
+      // height={200}
     />
   );
 };
