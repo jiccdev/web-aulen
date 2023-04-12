@@ -1,10 +1,12 @@
 .modal {
   transition: 0.4s all ease;
   background-color: transparent !important;
+  width: 100% !important;
 }
 
 .form {
   background-color: transparent !important;
+  width: 100% !important;
 }
 
 .closeModal {

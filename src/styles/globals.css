@@ -95,9 +95,22 @@ p {
 }
 
 /* MODAL CONTACT FORM - ADMINISTRACIÓN DE ARRIENDO */
-/* .modal-content {
+/* aca */
+.modal-content {
   border-radius: var(--border-radius-5xl) !important;
-} */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+  margin: 0 auto !important;
+  border: none !important;
+}
+
+.modal-content > div span {
+  display: none !important;
+}
 
 /* TABS - DETALLE PROPIEDAD */
 .nav-tabs {
