@@ -7,7 +7,7 @@
 .rowNewProperties {
   background-color: var(--color-light);
   border-radius: var(--border-radius-5xl);
-  padding: 2rem 3rem;
+  padding: 2rem 0rem;
 }
 
 .newPropertiesImg {
