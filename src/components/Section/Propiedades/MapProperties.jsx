@@ -24,10 +24,6 @@ const MapProperties = () => {
   const [propertyDetail, setPropertyDetail] = useState({});
   const [key, setKey] = useState('transportationTab');
 
-  const showPropertyDetail = (property) => {
-    console.log(property);
-  };
-
   useEffect(() => {
     getProperties(1, 1);
   }, []);

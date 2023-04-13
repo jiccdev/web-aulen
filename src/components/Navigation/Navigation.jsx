@@ -13,7 +13,6 @@ import LogoPage from '../LogoPage/LogoPage';
 const Navigation = () => {
   const [isCollapsed, setIsCollapsed] = React.useState(true);
   const { pathname } = useRouter();
-  console.log(pathname);
 
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed);

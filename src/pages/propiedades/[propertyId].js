@@ -21,8 +21,6 @@ import ModalPdf from '@/components/Modal/ModalPdf';
 const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
   const [copied, setCopied] = useState(false);
-  const [showQuoteContactForm, setShowQuoteContactForm] = useState(false);
-  // const { query } = useRouter();
   const router = useRouter();
   const { propertyId } = router.query;
   const { HiClipboard, HiOutlineClipboardCheck } = icons;
@@ -54,9 +52,9 @@ const PropiedadId = () => {
 
           <Col xs={12} xl={4} className={styles.col}>
             <div className={styles.deptoDetailsShare}>
-              <span>
-                {/* <CopyToClipboard
-                  text={`https://aulen-propiedades.netlify.app/${router.asPath}`}
+              {/* <span>
+                <CopyToClipboard
+                  text={`aulenpropiedades.cl/propiedades/393/?statusId=1&companyId=1`}
                   onCopy={() => setCopied(true)}
                 >
                   {!copied ? (
@@ -70,8 +68,8 @@ const PropiedadId = () => {
                       <HiOutlineClipboardCheck />
                     </span>
                   )}
-                </CopyToClipboard> */}
-              </span>{' '}
+                </CopyToClipboard>
+              </span>{' '} */}
               <Button
                 className={styles.printLink}
                 onClick={() => {

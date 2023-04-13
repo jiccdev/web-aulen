@@ -186,6 +186,12 @@
   background-color: var(--color-primary-dark);
 }
 
+@media screen and (min-width: 992px) {
+  .propertyDetailContainer {
+    width: 85% !important;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   .propertyDetailContainer {
     margin: 7.5rem auto;

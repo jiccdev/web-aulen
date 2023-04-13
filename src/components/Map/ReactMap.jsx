@@ -13,13 +13,9 @@ import { icons } from '../Icons';
 
 /** Bootstrap components */
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { truncateStringSmall } from '../../utils';
 import styles from '../../styles/Section/properties/details/Maps.module.css';
 
 const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
-  const [longitude, setLongitude] = useState(longitudeProp);
-  const [latitude, setLatitude] = useState(latitudeProp);
   const [showPopup, setShowPopup] = useState(false);
   const { BiMap } = icons;
 
@@ -40,8 +36,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
           width: 400,
           height: 400,
           attributionControl: false,
-          longitude: longitude,
-          latitude: latitude,
+          longitude: longitudeProp,
+          latitude: latitudeProp,
           zoom: 12,
           style: {
             width: 'auto',
@@ -62,8 +58,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
         }}
       >
         <Marker
-          longitude={longitude}
-          latitude={latitude}
+          longitude={longitudeProp}
+          latitude={latitudeProp}
           offsetLeft={-20}
           offsetTop={-10}
           style={{
@@ -84,8 +80,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
 
             {showPopup && (
               <Popup
-                longitude={longitude}
-                latitude={latitude}
+                longitude={longitudeProp}
+                latitude={latitudeProp}
                 onClose={() => setShowPopup(false)}
                 anchor="bottom"
                 closeButton={false}
@@ -146,9 +142,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
 
                   <div className={styles.urlContainer}>
                     <Link
-                      href={`/propiedades/${
-                        propertyData?.id
-                      }?statusId=${1}&companyId=${1}`}
+                      href="/propiedades/maps-propiedades/"
                       className={styles.url}
                     >
                       Ver Detalle

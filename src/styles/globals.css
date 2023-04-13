@@ -103,9 +103,16 @@ p {
   align-items: center !important;
   padding: 0 !important;
   margin: 0 !important;
-  background-color: transparent !important;
+  background-color: white !important;
   margin: 0 auto !important;
   border: none !important;
+}
+.btn-close {
+  display: none;
+}
+
+.modal-header {
+  display: none !important;
 }
 
 .modal-content > div span {
