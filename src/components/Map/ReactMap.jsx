@@ -19,15 +19,16 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
   const [showPopup, setShowPopup] = useState(false);
   const { BiMap } = icons;
 
+  console.log(propertyData);
   return (
     <div className={styles.mapContainer}>
       <div className={styles.mapTopInfoContainer}>
-        <Link href="/propiedades/maps-propiedades">
+        {/* <Link href="/propiedades/maps-propiedades">
           <Button className={styles.showMapBtn}>
             <BiMap />
             Ver Mapa
           </Button>
-        </Link>
+        </Link> */}
       </div>
       <Map
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
@@ -38,7 +39,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
           attributionControl: false,
           longitude: longitudeProp,
           latitude: latitudeProp,
-          zoom: 12,
+          zoom: 17,
           style: {
             width: 'auto',
             height: '60vh',
@@ -132,21 +133,21 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                       <span
                         style={{
                           padding: '.1rem .1rem',
+                          fontWeight: 'bold',
                         }}
                       >
-                        {propertyData?.address ?? ''}{' '}
-                        {propertyData?.city === ''}
+                        Dirección:
+                        <span
+                          style={{
+                            padding: '.1rem .1rem',
+                            fontWeight: 'semibold',
+                          }}
+                        >
+                          {propertyData?.address ?? 'Dirección no registrada'}{' '}
+                          {propertyData?.city === 'Ciudad no registrada'}
+                        </span>
                       </span>
                     </div>
-                  </div>
-
-                  <div className={styles.urlContainer}>
-                    <Link
-                      href="/propiedades/maps-propiedades/"
-                      className={styles.url}
-                    >
-                      Ver Detalle
-                    </Link>
                   </div>
                 </div>
               </Popup>

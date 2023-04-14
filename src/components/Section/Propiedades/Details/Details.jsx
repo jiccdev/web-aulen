@@ -36,47 +36,51 @@ const Details = ({ propertyData }) => {
     <Fragment>
       {Object.keys(propertyData).length > 0 ? (
         <section key={propertyData.id} className={styles.detailContainer}>
-          <h2>{propertyData?.address}</h2>
-          <h4>
-            Publicado por {propertyData?.realtor?.name || 'Sin nombre'}{' '}
-            {propertyData.realtor?.lastName}
-          </h4>
+          <div className={styles.detailsCard}>
+            <h2>{propertyData?.address ?? 'Dirección no registrada'}</h2>
+            <h4>
+              Publicado por {propertyData?.realtor?.name || 'Sin nombre'}{' '}
+              {propertyData.realtor?.lastName}
+            </h4>
 
-          <div className={styles.pricesContainer}>
-            <h3>Desde</h3>
+            <div className={styles.pricesContainer}>
+              <h3>Desde</h3>
 
-            <p className={styles.ufPrice}>
-              UF {clpToUf(propertyData?.price, ufCurrentValue)}
-            </p>
-            <p className={styles.clpPrice}>
-              {parseToCLPCurrency(propertyData.price)}
-            </p>
-          </div>
+              <p className={styles.ufPrice}>
+                UF {clpToUf(propertyData?.price, ufCurrentValue)}
+              </p>
+              <p className={styles.clpPrice}>
+                {parseToCLPCurrency(propertyData.price)}
+              </p>
+            </div>
 
-          <div className={styles.deptoPropsContainer}>
-            <span>
-              <strong>
-                <BiBuildingHouse />
-              </strong>{' '}
-              {propertyData?.surface_m2 ? propertyData?.surface_m2 : '0'} m
-              <sup>2</sup> útiles
-            </span>
-            <span>
-              <strong>
-                <IoBedOutline />
-              </strong>{' '}
-              {propertyData?.bedrooms
-                ? propertyData?.bedrooms
-                : 'Sin dormitorios'}{' '}
-              dormitorios
-            </span>
-            <span>
-              <strong>
-                <FaBath />
-              </strong>{' '}
-              {propertyData?.bathrooms ? propertyData?.bathrooms : 'Sin baños'}{' '}
-              baños
-            </span>
+            <div className={styles.deptoPropsContainer}>
+              <span>
+                <strong>
+                  <BiBuildingHouse />
+                </strong>{' '}
+                {propertyData?.surface_m2 ? propertyData?.surface_m2 : '0'} m
+                <sup>2</sup> útiles
+              </span>
+              <span>
+                <strong>
+                  <IoBedOutline />
+                </strong>{' '}
+                {propertyData?.bedrooms
+                  ? propertyData?.bedrooms
+                  : 'Sin dormitorios'}{' '}
+                dormitorios
+              </span>
+              <span>
+                <strong>
+                  <FaBath />
+                </strong>{' '}
+                {propertyData?.bathrooms
+                  ? propertyData?.bathrooms
+                  : 'Sin baños'}{' '}
+                baños
+              </span>
+            </div>
           </div>
         </section>
       ) : null}

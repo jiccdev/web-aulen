@@ -5,16 +5,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/:path*',
-  //       // destination: 'https://accionpanal.com/:path*',
-  //       destination: 'https://aulenpropiedades.cl/:path*',
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        destination: 'https://aulenpropiedades.cl/:path*',
+        permanent: true,
+      },
+    ];
+  },
   headers() {
     return [
       {
@@ -28,15 +27,14 @@ const nextConfig = {
       },
     ];
   },
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/:path*',
-  //       // destination: 'https://accionpanal.com/:path*',
-  //       destination: 'https://aulenpropiedades.cl/:path*',
-  //     },
-  //   ];
-  // },
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: 'https://aulenpropiedades.cl/:path*',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

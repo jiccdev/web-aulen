@@ -4,8 +4,15 @@
   width: 100%;
 }
 
+.detailContainer {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: var(--border-radius-xl);
+  padding: 2rem;
+}
+
 .row {
-  margin: 2rem auto !important;
+  margin: 0rem auto !important;
 }
 
 .col {
@@ -14,6 +21,8 @@
   align-items: center;
   flex-direction: column;
   padding: 0 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: var(--border-radius-xl);
 }
 
 .propertyTypeInfo {
@@ -58,7 +67,7 @@
 .deptoDetailsShare {
   display: flex;
   justify-content: space-evenly;
-  width: 80%;
+  width: 100%;
   flex-direction: row;
   align-items: flex-start;
 }

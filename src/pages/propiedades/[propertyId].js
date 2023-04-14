@@ -70,14 +70,16 @@ const PropiedadId = () => {
                   )}
                 </CopyToClipboard>
               </span>{' '} */}
-              <Button
+
+              {/* aca */}
+              {/* <Button
                 className={styles.printLink}
                 onClick={() => {
                   setModalShow(true);
                 }}
               >
                 Visualizar PDF
-              </Button>
+              </Button> */}
             </div>
             <Details propertyData={property} />
           </Col>

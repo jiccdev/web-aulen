@@ -64,7 +64,7 @@ html {
 
 @font-face {
   font-family: 'Poppins';
-  src: url('../../src/assets/fonts/Poppins/Poppins-Medium.ttf');
+  src: url('../../src/assets/fonts/Poppins/Poppins-Light.ttf');
 }
 
 * {
@@ -95,6 +95,7 @@ p {
 }
 
 /* MODAL CONTACT FORM - ADMINISTRACIÓN DE ARRIENDO */
+
 .modal-content {
   border-radius: var(--border-radius-5xl) !important;
   display: flex !important;
