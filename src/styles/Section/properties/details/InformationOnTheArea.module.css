@@ -1,5 +1,5 @@
 .informationOnTheAreaContainer {
-  background-color: var(--color-light);
+  width: 100% !important;
   padding: 1.5rem;
   margin: 5rem 0;
 }
@@ -23,7 +23,8 @@
 
 @media screen and (min-width: 992px) {
   .informationOnTheAreaContainer {
-    padding: 3.5rem;
+    /* padding: 3.5rem; */
+    width: 100% !important;
   }
 }
 
