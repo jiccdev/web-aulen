@@ -107,7 +107,6 @@
   color: var(--color-dark) !important;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  font-weight: 600 !important;
   position: relative;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -143,7 +142,6 @@
   display: block !important;
   padding: 0.5rem 0rem !important;
   text-decoration: none;
-  font-weight: 600 !important;
   font-size: 0.9rem;
   color: var(--color-white) !important;
   background-color: var(--color-secondary) !important;

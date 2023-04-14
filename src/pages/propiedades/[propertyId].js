@@ -36,7 +36,7 @@ const PropiedadId = () => {
       <div className={styles.propertyDetailContainer}>
         <ul className={styles.propertyTypeInfo}>
           <li>
-            <Link href="/propiedades">Volver al listado</Link>
+            <Link href="/propiedades">Volver al listado |</Link>
           </li>
           <li>Departamentos</li>
           <li>Venta Proyectos</li>
