@@ -8,10 +8,12 @@
   border-radius: var(--border-radius-lg);
   border: 1px solid white !important;
   position: relative;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   height: 420px !important;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
+  border-radius: var(--border-radius-xl);
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 /* CARD GRID */
