@@ -1,7 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import SmallLogoAulen from '../../../../assets/img/LogoSite/SMALL-LOGO-AULEN.png';
 import styles from '../../../../styles/Section/properties/details/Executive.module.css';
 
 /** Bootstrap components */
@@ -13,7 +10,7 @@ const Executive = ({ propertyData }) => {
   return (
     <div className={styles.executiveContainer}>
       <Row className={styles.row}>
-        <Col md={3} className={styles.col}>
+        {/* <Col md={3} className={styles.col}>
           <Image
             src={SmallLogoAulen}
             height={50}
@@ -21,36 +18,35 @@ const Executive = ({ propertyData }) => {
             alt="logo-aulen"
             className={styles.executiveImg}
           />
-        </Col>
+        </Col> */}
         <Col md={9} className={styles.colDown}>
-          <h3>Ejecutivo </h3>
-          <div>
-            <p>
-              <span>Agente:</span> {propertyData?.realtor?.name || ''}{' '}
-              {propertyData?.lastName || ''}
-            </p>
-          </div>
+          <h4>Informacion del Corredor</h4>
+          <p className={styles.realtor}>
+            Agente:{' '}
+            <span>
+              {propertyData?.realtor?.name || 'Corredor no registrada'}{' '}
+              {propertyData?.realtor?.lastName}
+            </span>
+          </p>
 
-          <div>
-            <p>
-              <span>Email:</span> {propertyData?.realtor?.name || ''}{' '}
-              {propertyData?.lastName || ''}
-            </p>
-          </div>
+          <p className={styles.realtor}>
+            Correo electrónico:{' '}
+            <span>
+              {propertyData?.realtor?.mail ||
+                'Correo electrónico no registrado'}
+            </span>
+          </p>
 
-          <div>
-            <p>
-              <span>Telefono/celular:</span> ...
-            </p>
-          </div>
+          <p className={styles.realtor}>
+            Teléfono celular:{' '}
+            <span>
+              {propertyData?.realtor?.phone || 'Teléfono celular no registrado'}
+            </span>
+          </p>
 
-          <form>
-            <div>
-              <Link href="/" className={styles.contactBtn}>
-                Contactar
-              </Link>
-            </div>
-          </form>
+          <div className={styles.realtorContact}>
+            <a href="/">Contactar</a>
+          </div>
         </Col>
       </Row>
     </div>

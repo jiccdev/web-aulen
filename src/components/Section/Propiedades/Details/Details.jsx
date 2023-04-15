@@ -94,11 +94,7 @@ const Details = ({ propertyData }) => {
         <Link href="#cotizar-contacto" className={styles.quoteBtn}>
           Cotizar
         </Link>
-      ) : (
-        <Link href="#cotizar-contacto" className={styles.quoteBtn}>
-          Cotizar
-        </Link> // null
-      )}
+      ) : null}
 
       <Executive propertyData={propertyData} />
     </Fragment>

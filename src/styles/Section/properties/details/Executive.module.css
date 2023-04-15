@@ -1,64 +1,60 @@
 .executiveContainer {
   width: 100%;
-  margin: 1.8rem 0;
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
-  padding: 3rem 1rem 2rem 1rem;
   border-radius: var(--border-radius-3xl);
-  background-color: whitesmoke;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-.executiveContainer h3 {
-  padding-bottom: 0.5rem;
-  color: var(--color-dark-light) !important;
-  border-bottom: 1px solid #d2d2d2 !important;
+.row {
+  width: 100% !important;
 }
 
-.colDown h3 {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-dark);
+.colDown {
+  width: 100% !important;
 }
 
-.colDown p span {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+.colDown h4 {
+  font-size: var(--font-size-md) !important;
+  padding: 0.9rem 0 !important;
+  margin: 0 !important;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100% !important;
 }
 
-.colDown p {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-normal);
-  color: var(--color-dark-light);
-  padding: 0.3em 0 !important;
+.colDown .realtor {
+  font-size: var(--font-size-sm) !important;
+  padding: 0.5rem !important;
+  margin: 0 !important;
+  font-weight: bold;
 }
 
-.executiveContainer form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2.5rem;
+.colDown .realtor span {
+  font-weight: normal;
+  color: rgb(156 163 175);
 }
 
-.executiveContainer form .contactBtn {
+.realtorContact {
+  margin: 1rem 0.5rem;
+  text-align: center;
+  border-radius: var(--border-radius-sm);
+}
+
+.realtorContact a {
+  display: block;
+  width: 100% !important;
   background-color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  border-radius: var(--border-radius-sm);
+  padding: 0.8rem;
   color: var(--color-white);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
-  padding: 0.5rem 2rem;
-  border-radius: var(--border-radius-2xl);
-  border: none;
-  transition: 0.3 all ease-in-out;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease;
 }
 
-.executiveContainer form .contactBtn:hover {
+.realtorContact a:hover {
   background-color: var(--color-primary-dark);
-  color: var(--color-white);
-}
-
-.executiveImg {
-  margin-top: 1rem;
 }
