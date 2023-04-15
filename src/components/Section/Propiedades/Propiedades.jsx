@@ -62,8 +62,6 @@ const Properties = ({
     getPagination(limit, page, 1, 1);
   }, [limit, page]);
 
-  console.log('cargndo', cargando);
-
   return (
     <Row className={styles.rowContainer}>
       <div className={styles.headerProperties}>
@@ -110,7 +108,24 @@ const Properties = ({
                 />
               ))
             : (cargando && <Loader />) || (
-                <p>Propieddades no encontradas</p>
+                <Alert
+                  variant=""
+                  style={{
+                    textAlign: 'center',
+                  }}
+                >
+                  No se encontraron resultados para esta búsqueda.{' '}
+                  <Link
+                    className={styles.btnSubmitClean}
+                    href={router.pathname}
+                    as={router.pathname}
+                    onClick={() => {
+                      window.location.reload();
+                    }}
+                  >
+                    Volver a cargar propiedades
+                  </Link>
+                </Alert>
               )}
         </Row>
 

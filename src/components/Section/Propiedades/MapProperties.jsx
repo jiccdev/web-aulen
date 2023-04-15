@@ -90,9 +90,6 @@ const MapProperties = () => {
             let latitude =
               Number(property?.LngLat?.match(/Lat: ([-\d.]+)/)[1]) ?? null;
 
-            {
-              console.log(property);
-            }
             return (
               <Marker
                 key={property?.id}

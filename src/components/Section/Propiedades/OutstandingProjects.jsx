@@ -20,7 +20,7 @@ const OutstandingProjects = () => {
       {properties?.length > 0 ? (
         properties
           .filter((property) => property?.highlighted === true)
-          .slice(0, 2)
+          // .slice(0, 2)
           .map((property) => (
             <OutstandingProject
               key={property.id}
@@ -30,7 +30,7 @@ const OutstandingProjects = () => {
             />
           ))
       ) : (
-        <Alert color="danger">No se registran propiedades destacadas</Alert>
+        <Alert variant="">No se registran propiedades destacadas</Alert>
       )}
     </Row>
   );

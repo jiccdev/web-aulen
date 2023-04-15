@@ -46,8 +46,6 @@ const AdvancedSearchForm = ({
     selectsList;
   const { CgSearchFound, GoSearch, IoTrashOutline, MdHomeWork } = icons;
 
-  console.log('cargando xd', cargando);
-
   const handleClickUpd = (e) => {
     e.preventDefault();
     router.push(router.asPath);

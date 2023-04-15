@@ -4,11 +4,14 @@
   width: 100%;
   height: auto;
   background-color: whitesmoke;
-  border-radius: var(--border-radius-lg);
+  border-radius: var(--border-radius-xl);
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
+
 .col {
   overflow-y: scroll;
+  background-color: whitesmoke !important;
+  height: auto !important;
 }
 
 .col::-webkit-scrollbar {
@@ -37,8 +40,6 @@
   -moz-border-radius-topright: 15px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  /* border: 1px solid rgba(0, 0, 0, 0.1) !important; */
-  /* border-left: 3px solid var(--color-primary) !important; */
 }
 
 .headerProperties .mainInfo {
