@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 import Map, {
   Marker,
   NavigationControl,
@@ -10,12 +10,13 @@ import Map, {
 } from 'react-map-gl';
 import PropertiesContext from '@/context/properties/PropertiesContext';
 import MapPointer from '../../../assets/img/Map/marker.png';
-import { truncateStringSmall } from '../../../utils';
+import { truncateStringSmall, parseToCLPCurrency } from '../../../utils';
 import styles from '../../../styles/Section/properties/details/Maps.module.css';
 
 /** Bootstrap components */
 import Card from 'react-bootstrap/Card';
-import Toast from 'react-bootstrap/Toast';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Badge from 'react-bootstrap/Badge';
 
 const MapProperties = () => {
   const { newProperties, getProperties, getAllProperties, totalItems } =
@@ -85,10 +86,13 @@ const MapProperties = () => {
         >
           {newProperties?.map((property) => {
             let longitude =
-              Number(property?.LngLat?.match(/Lng: ([-\d.]+)/)[1]) || -70.64827;
+              Number(property?.LngLat?.match(/Lng: ([-\d.]+)/)[1]) ?? null;
             let latitude =
-              Number(property?.LngLat?.match(/Lat: ([-\d.]+)/)[1]) || -33.45694;
+              Number(property?.LngLat?.match(/Lat: ([-\d.]+)/)[1]) ?? null;
 
+            {
+              console.log(property);
+            }
             return (
               <Marker
                 key={property?.id}
@@ -130,60 +134,46 @@ const MapProperties = () => {
                         cursor: 'pointer',
                       }}
                     >
-                      <div
-                        style={{
-                          backgroundColor: 'white',
-                          borderRadius: '10px !important',
-                          padding: '0px',
-                        }}
+                      <Link
+                        href={`/propiedades/${
+                          property?.id
+                        }?statusId=${1}&companyId=${1}`}
                       >
-                        <div
-                          style={{
-                            display: 'flex',
-                            alignItems: 'start',
-                            justifyContent: 'space-between',
-                            marginTop: '5px',
-                          }}
-                        ></div>
+                        <Card className="">
+                          <Card.Img variant="top" src={property?.image} />
 
-                        <div
-                          style={{
-                            fontWeight: '300',
-                            textTransform: 'capitalize',
-                            color: '#616161',
-                            margin: '0rem',
-                            padding: '.5rem',
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                              justifyContent: 'space-between',
-                              alignItems: 'start',
-                            }}
-                          >
-                            <span
+                          <Card.Body>
+                            <Card.Text>
+                              <Badge pill bg="warning">
+                                {property?.types?.[0]}
+                              </Badge>
+                            </Card.Text>
+                            <Card.Text
                               style={{
-                                padding: '.1rem .1rem',
+                                color: 'black',
+                                margin: '.5rem 0',
                               }}
                             >
-                              {property?.address ?? ''} {property?.city === ''}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className={styles.urlContainer}>
-                          <Link
-                            href={`/propiedades/${
-                              property?.id
-                            }?statusId=${1}&companyId=${1}`}
-                            className={styles.url}
-                          >
-                            Ver Detalle
-                          </Link>
-                        </div>
-                      </div>
+                              {property?.address ?? 'Dirección no registrada'} ,{' '}
+                              {property?.commune ?? 'Comuna no registrada'} ,{' '}
+                              {property?.city ?? 'Ciudad no registrada'}
+                            </Card.Text>
+                          </Card.Body>
+                          <ListGroup className="list-group-flush">
+                            <ListGroup.Item>
+                              <span>Desde:</span>{' '}
+                              <strong>
+                                {parseToCLPCurrency(property?.price) ??
+                                  'Precion no registrado'}
+                              </strong>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                              {`${property?.surface_m2}`} m<sup>2</sup> utiles -
+                              {property?.bedrooms} dorms.
+                            </ListGroup.Item>
+                          </ListGroup>
+                        </Card>
+                      </Link>
                     </Popup>
                   )}
                 </div>

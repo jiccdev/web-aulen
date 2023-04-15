@@ -5,6 +5,7 @@
   height: auto;
   background-color: whitesmoke;
   border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 .col {
   overflow-y: scroll;
@@ -30,8 +31,14 @@
   align-items: center;
   width: 100%;
   background-color: var(--color-white);
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-left: 3px solid var(--color-primary) !important;
+  -webkit-border-top-left-radius: 15px;
+  -webkit-border-top-right-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-topright: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /* border: 1px solid rgba(0, 0, 0, 0.1) !important; */
+  /* border-left: 3px solid var(--color-primary) !important; */
 }
 
 .headerProperties .mainInfo {

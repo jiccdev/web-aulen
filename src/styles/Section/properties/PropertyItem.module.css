@@ -8,7 +8,6 @@
   border-radius: var(--border-radius-lg);
   border: 1px solid white !important;
   position: relative;
-  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   height: 420px !important;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
@@ -93,8 +92,8 @@
 }
 
 .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 .cardBody {
