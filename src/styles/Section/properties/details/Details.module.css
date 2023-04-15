@@ -4,7 +4,6 @@
   background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  background-color: red;
 }
 
 .detailContainer {

@@ -16,14 +16,13 @@ const Characteristics = ({ propertyData }) => {
 
   return (
     <div className={styles.characteristicsContainer}>
-      <h2>Características</h2>
+      <h2>Características del inmueble</h2>
       <Row>
         <Col lg={7}>
           <h6>Descripción</h6>
           <Card className={styles.cardDescription}>
-            <Card.Body>
+            <Card.Body className={styles.cardBody}>
               <Card.Text>{text}</Card.Text>
-
               <Collapse in={open}>
                 <div id="example-collapse-text">
                   <Card.Text>{shortText}</Card.Text>
