@@ -1,4 +1,5 @@
 import React from 'react';
+import { icons } from '../../../Icons';
 import styles from '../../../../styles/Section/properties/details/Executive.module.css';
 
 /** Bootstrap components */
@@ -6,20 +7,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const Executive = ({ propertyData }) => {
+  const { MdOutlineMailOutline, BsTelephoneFill } = icons;
   return (
     <div className={styles.executiveContainer}>
       <Row className={styles.row}>
-        {/* <Col md={3} className={styles.col}>
-          <Image
-            src={SmallLogoAulen}
-            height={50}
-            width="auto"
-            alt="logo-aulen"
-            className={styles.executiveImg}
-          />
-        </Col> */}
         <Col md={9} className={styles.colDown}>
-          <h4>Informacion del Corredor</h4>
+          <h4>Información del Corredor</h4>
           <p className={styles.realtor}>
             Agente:{' '}
             <span>
@@ -29,6 +22,7 @@ const Executive = ({ propertyData }) => {
           </p>
 
           <p className={styles.realtor}>
+            <MdOutlineMailOutline className={styles.icon} />
             Correo electrónico:{' '}
             <span>
               {propertyData?.realtor?.mail ||
@@ -37,6 +31,7 @@ const Executive = ({ propertyData }) => {
           </p>
 
           <p className={styles.realtor}>
+            <BsTelephoneFill className={styles.icon} />
             Teléfono celular:{' '}
             <span>
               {propertyData?.realtor?.phone || 'Teléfono celular no registrado'}

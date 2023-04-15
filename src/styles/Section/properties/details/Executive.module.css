@@ -38,6 +38,11 @@
   color: rgb(156 163 175);
 }
 
+.realtor .icon {
+  margin-right: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
 .realtorContact {
   margin: 1rem 0.5rem;
   text-align: center;

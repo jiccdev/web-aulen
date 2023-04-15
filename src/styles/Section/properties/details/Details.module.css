@@ -1,9 +1,10 @@
 .propertyDetailContainer {
   position: relative;
   width: 100%;
-  background-color: whitesmoke;
+  background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: red;
 }
 
 .detailContainer {
@@ -66,6 +67,7 @@
   -moz-border-radius-topright: 15px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  background-color: whitesmoke;
 }
 
 .propertyTypeInfo li {
@@ -183,6 +185,13 @@
 
 .pricesContainer span {
   font-size: var(--font-size-sm);
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.pricesContainer p {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .detailContainer .ufPrice,
@@ -248,4 +257,8 @@
   .propertyDetailContainer {
     margin: 7.5rem auto;
   }
+}
+
+.propertyTypeInfo .divider {
+  color: rgba(0, 0, 0, 0.2);
 }
