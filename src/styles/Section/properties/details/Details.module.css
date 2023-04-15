@@ -1,9 +1,7 @@
 .propertyDetailContainer {
   position: relative;
-  margin: 6.5rem auto;
   width: 100%;
   background-color: whitesmoke;
-  padding: 2rem;
   border-radius: var(--border-radius-xl);
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
@@ -14,6 +12,30 @@
   border-radius: var(--border-radius-xl);
   padding: 2rem;
   margin-top: 1.5rem;
+  background-color: var(--color-white);
+}
+
+.detailsCard h2 {
+  font-size: var(--font-size-sm) !important;
+  margin: 0 !important;
+}
+
+.detailsCard .title {
+  font-size: var(--font-size-sm) !important;
+  padding: 0.3rem 0 !important;
+  margin: 0 !important;
+  color: rgb(156 163 175);
+}
+
+.detailsCard .publishedBy {
+  font-size: var(--font-size-sm) !important;
+  padding: 0.3rem 0 !important;
+  margin: 0 !important;
+  font-weight: bold;
+}
+.detailsCard .publishedBy span {
+  font-weight: normal;
+  color: rgb(156 163 175);
 }
 
 .row {
@@ -25,7 +47,8 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding: 0 1.5rem;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-sm);
 }
 
 .propertyTypeInfo {
@@ -35,10 +58,14 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  margin: 0.9rem 0 !important;
-  padding: 0 !important;
-  background-color: white;
-  border-radius: var(--border-radius-sm);
+  padding: 0.5rem !important;
+  background-color: var(--color-white);
+  -webkit-border-top-left-radius: 15px;
+  -webkit-border-top-right-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  -moz-border-radius-topright: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .propertyTypeInfo li {
@@ -151,25 +178,29 @@
 }
 
 .pricesContainer {
-  margin: 1.8rem 0;
+  margin: 0.7rem 0;
+}
+
+.pricesContainer span {
+  font-size: var(--font-size-sm);
 }
 
 .detailContainer .ufPrice,
 .detailContainer .clpPrice {
   margin: 0 !important;
   padding: 0 !important;
-  line-height: 2.7rem !important;
   text-transform: uppercase;
 }
 
 .detailContainer .ufPrice {
-  font-size: 3.7rem;
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
 }
 
 .detailContainer .clpPrice {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  color: rgb(156 163 175);
 }
 
 .deptoPropsContainer {
@@ -179,7 +210,12 @@
 
 .deptoPropsContainer span {
   margin: 0.2rem 0;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
+  color: rgb(156 163 175);
+}
+
+.deptoPropsContainer span strong {
+  margin-right: 0.5rem;
   color: var(--color-dark);
 }
 

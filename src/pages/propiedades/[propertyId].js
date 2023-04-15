@@ -45,12 +45,12 @@ const PropiedadId = () => {
         </ul>
 
         <Row className={styles.row}>
-          <Col xs={12} xl={8}>
+          <Col xs={12} xl={9}>
             <GalleryCarousel items={property} />
             <Characteristics propertyData={property} />
           </Col>
 
-          <Col xs={12} xl={4} className={styles.col}>
+          <Col xs={12} xl={3} className={styles.col}>
             <div className={styles.deptoDetailsShare}>
               {/* <span>
                 <CopyToClipboard

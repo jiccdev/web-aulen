@@ -32,20 +32,24 @@ const Details = ({ propertyData }) => {
     getExchangeRateUF();
   }, [ufCurrentValue]);
 
+  console.log(propertyData);
   return (
     <Fragment>
       {Object.keys(propertyData).length > 0 ? (
         <section key={propertyData.id} className={styles.detailContainer}>
           <div className={styles.detailsCard}>
-            <h2>{propertyData?.address ?? 'Dirección no registrada'}</h2>
-            <h4>
-              Publicado por {propertyData?.realtor?.name || 'Sin nombre'}{' '}
-              {propertyData.realtor?.lastName}
-            </h4>
-
+            <h2>{propertyData?.types ?? 'Dirección no registrada'}</h2>
+            <p className={styles.title}>
+              {propertyData?.title ?? 'Titulo no registrado'}
+            </p>
+            <p className={styles.publishedBy}>
+              Publicado por:{' '}
+              <span>
+                {propertyData?.company?.name || 'Empresa no registrada'}{' '}
+              </span>
+            </p>
             <div className={styles.pricesContainer}>
-              <h3>Desde</h3>
-
+              <span>Desde</span>
               <p className={styles.ufPrice}>
                 UF {clpToUf(propertyData?.price, ufCurrentValue)}
               </p>
