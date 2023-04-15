@@ -6,6 +6,7 @@ import PropertyItem from './PropertyItem';
 import IconFilter from '../../IconFilter/IconFilter';
 import PaginationComponent from '@/components/Pagination/Pagination';
 import SpinnerComponent from '@/components/Spinner/SpinnerComponent';
+import Loader from '@/components/Loader/Loader';
 import styles from '../../../styles/Section/properties/Properties.module.css';
 import { icons } from '../../Icons';
 
@@ -108,7 +109,7 @@ const Properties = ({
                   statusId={1}
                 />
               ))
-            : (cargando && <SpinnerComponent />) || (
+            : (cargando && <Loader />) || (
                 <p>Propieddades no encontradas</p>
               )}
         </Row>
