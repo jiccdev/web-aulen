@@ -31,6 +31,8 @@ const Propiedades = () => {
     getPropertiesByRegionAndCommune,
     getPropertiesByInstallmentType,
     getPropertiesOnFormSubmit,
+    cargando,
+    setCargando,
   } = useContext(PropertiesContext);
   const { contextData } = useContext(SelectsContext);
   const [
@@ -89,6 +91,8 @@ const Propiedades = () => {
           getPropertiesByRegionAndCommune={getPropertiesByRegionAndCommune}
           getPropertiesByInstallmentType={getPropertiesByInstallmentType}
           getPropertiesOnFormSubmit={getPropertiesOnFormSubmit}
+          cargando={cargando}
+          setCargando={setCargando}
         />
       </LayoutSection>
     </Fragment>

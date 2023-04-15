@@ -18,6 +18,8 @@ const PropertiesProvider = ({ children }) => {
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
   const { pathname } = useRouter();
 
+  const [cargando, setCargando] = useState(true);
+
   /** Get Properties */
   const getProperties = async (statusId, companyId) => {
     try {
@@ -32,10 +34,20 @@ const PropertiesProvider = ({ children }) => {
         });
         setNewProperties(filtredPropertiesBySale);
       } else {
-        return setNewProperties(response.data) || setProperties(response.data);
+        setCargando(true);
+
+        setNewProperties(response.data) || setProperties(response.data);
+
+        setTimeout(() => {
+          setCargando(false);
+        }, 0);
+
+        // return setNewProperties(response.data) || setProperties(response.data);
       }
     } catch (error) {
       const { statusCode } = error?.response?.data;
+      // setCargando(false);
+
       setStatusCodeMsg(statusCode) && new Error(error?.response?.data);
     }
   };
@@ -363,6 +375,8 @@ const PropertiesProvider = ({ children }) => {
         getPropertiesByRegionAndCommune,
         getPropertiesByInstallmentType,
         getPropertiesOnFormSubmit,
+        cargando,
+        setCargando,
       }}
     >
       {children}

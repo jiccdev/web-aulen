@@ -44,12 +44,13 @@ const Properties = ({
   getPropertiesByRegionAndCommune,
   getPropertiesByInstallmentType,
   getPropertiesOnFormSubmit,
+  cargando,
+  setCargando,
 }) => {
   const [isGrid, setIsGrid] = useState(false);
   const [isList, setIsList] = useState(false);
   const { BiMap } = icons;
   const propertiesFound = newProperties?.length;
-
   const paginate = (currentPage) => getPagination(limit, currentPage, 1, 1);
 
   useEffect(() => {
@@ -59,6 +60,8 @@ const Properties = ({
   useEffect(() => {
     getPagination(limit, page, 1, 1);
   }, [limit, page]);
+
+  console.log('cargndo', cargando);
 
   return (
     <Row className={styles.rowContainer}>
@@ -81,17 +84,6 @@ const Properties = ({
           </Link>
         </div>
 
-        {/* EN DESARROLLO ❌ */}
-        {/* <div className={styles.containerForm}>
-          <form>
-            <RSelect
-              options={orderDepartmentBy}
-              defaultValue={orderDepartmentBy[0]}
-              onChange={onOrderDepartmentByChange}
-            />
-          </form>
-        </div> */}
-
         {/* FILTAR PROPIEDADES */}
         <div className={styles.iconFilterContainer}>
           <IconFilter
@@ -105,27 +97,20 @@ const Properties = ({
 
       <Col xl={9} className={styles.col}>
         <Row className={styles.rowItems}>
-          {newProperties.length > 0 ? (
-            newProperties.map((property) => (
-              <PropertyItem
-                key={property?.id}
-                property={property}
-                isGrid={isGrid}
-                isList={isList}
-                companyId={1}
-                statusId={1}
-              />
-            ))
-          ) : (
-            <Container className={styles.containerSpinner}>
-              {<SpinnerComponent variant="warning" /> ?? (
-                <Alert variant="warning">
-                  No se encontraron propiedades con los filtros seleccionados.{' '}
-                  <a href="/propiedades">cargar propiedades</a>
-                </Alert>
+          {newProperties.length > 0
+            ? newProperties.map((property) => (
+                <PropertyItem
+                  key={property?.id}
+                  property={property}
+                  isGrid={isGrid}
+                  isList={isList}
+                  companyId={1}
+                  statusId={1}
+                />
+              ))
+            : (cargando && <SpinnerComponent />) || (
+                <p>Propieddades no encontradas</p>
               )}
-            </Container>
-          )}
         </Row>
 
         {/* PAGINATION */}
@@ -161,6 +146,8 @@ const Properties = ({
           getPropertiesByRegionAndCommune={getPropertiesByRegionAndCommune}
           getPropertiesByInstallmentType={getPropertiesByInstallmentType}
           getPropertiesOnFormSubmit={getPropertiesOnFormSubmit}
+          cargando={cargando}
+          setCargando={setCargando}
         />
 
         {/* PROYECTOS DESTACADOS */}

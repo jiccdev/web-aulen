@@ -23,6 +23,8 @@ const AdvancedSearchForm = ({
   selectsList,
   getCommunesByRegion,
   getPropertiesOnFormSubmit,
+  cargando,
+  setCargando,
 }) => {
   const [loading, setLoading] = useState(false);
   const [filtredDataValue, setFiltredDataValue] = useState({
@@ -43,6 +45,8 @@ const AdvancedSearchForm = ({
   const { regions, communes, operationType, typeOfProperty, installmentType } =
     selectsList;
   const { CgSearchFound, GoSearch, IoTrashOutline, MdHomeWork } = icons;
+
+  console.log('cargando xd', cargando);
 
   const handleClickUpd = (e) => {
     e.preventDefault();
@@ -439,12 +443,20 @@ const AdvancedSearchForm = ({
                 filtredDataValue?.bathrooms,
                 filtredDataValue?.installmentType
               );
+              setCargando(true);
+
+              setTimeout(() => {
+                setCargando(false);
+              }, 2700);
             }}
           >
-            {loading ? (
-              <span>
-                Obteniendo Propiedades...
-                <SpinnerComponent size="sm" />
+            {cargando ? (
+              <span
+                style={{
+                  display: 'flex',
+                }}
+              >
+                <SpinnerComponent size="md" />
               </span>
             ) : (
               <span>
