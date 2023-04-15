@@ -193,3 +193,13 @@ p {
 .col-sm-4 {
   width: 100% !important;
 }
+
+/* MAPBOX */
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  display: none !important;
+}
