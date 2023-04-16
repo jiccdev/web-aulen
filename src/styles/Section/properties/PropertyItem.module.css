@@ -33,7 +33,10 @@
   border-radius: var(--border-radius-3xl);
   cursor: pointer;
   transition: 0.3s all ease-in-out;
-  border: 1px solid whitesmoke;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.isListCard h3 {
+  font-size: var(--font-size-md);
 }
 
 .isListCard:hover {
@@ -76,7 +79,7 @@
     padding-top: 0 !important;
     padding: 2rem 0 0 0;
     text-align: end;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-md);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
     height: 100%;
