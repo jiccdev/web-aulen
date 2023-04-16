@@ -12,8 +12,6 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
   const { id, image, title, address, price, status, operation, commune, city } =
     property;
 
-  console.log(property);
-
   return (
     <Col md={isGrid ? 4 : isList ? 12 : 4} className={styles.col}>
       <Card className={isList ? styles.isListCard : styles.card}>
