@@ -18,47 +18,39 @@ import Badge from 'react-bootstrap/Badge';
 import styles from '../../styles/Section/properties/details/Maps.module.css';
 
 const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
-  const [viewport, setViewport] = useState({
-    width: '100%',
-    height: '400px',
-    latitude: latitudeProp,
-    longitude: longitudeProp,
-    zoom: 17,
-  });
   const mapRef = useRef(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [viewport, setViewport] = useState({
+    width: '100%',
+    height: 500,
+    latitude: latitudeProp,
+    longitude: longitudeProp,
+    zoom: 18,
+    dragPan: true,
+  });
 
   useEffect(() => {
-    if (mapRef.current !== null) {
-      mapRef.current.flyTo({
-        center: [viewport.longitude, viewport.latitude],
-        speed: 1.2,
-        curve: 1.2,
-        easing: (t) => t,
-      });
-    }
-  }, [mapRef, viewport]);
+    setViewport({
+      ...viewport,
+      latitude: latitudeProp,
+      longitude: longitudeProp,
+      zoom: 18,
+      dragPan: true,
+    });
+  }, [mapRef, longitudeProp, latitudeProp]);
 
   return (
     <div className={styles.mapContainer}>
       <Map
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         {...viewport}
         ref={mapRef}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         initialViewState={{
           pitch: 45,
-          // width: 400,
-          // height: 400,
-          // attributionControl: true,
-          // longitude: longitudeProp,
-          // latitude: latitudeProp,
-          // zoom: 17,
-          // style: {
-          //   width: 'auto',
-          //   height: '60vh',
-          //   borderRadius: '15px',
-          // },
+          width: 400,
+          height: 400,
+          attributionControl: true,
         }}
         mapStyle={'mapbox://styles/mapbox/streets-v12'}
         style={{
@@ -73,8 +65,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
         }}
       >
         <Marker
-          latitude={viewport.latitude}
-          longitude={viewport.longitude}
+          latitude={latitudeProp}
+          longitude={longitudeProp}
           offsetLeft={-20}
           offsetTop={-10}
           style={{
@@ -143,72 +135,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                   </ListGroup>
                 </Card>
               </Link>
-              {/* <div
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '10px !important',
-                  padding: '0px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'start',
-                    justifyContent: 'space-between',
-                    marginTop: '5px',
-                  }}
-                ></div>
-
-                <div
-                  style={{
-                    fontWeight: '300',
-                    textTransform: 'capitalize',
-                    color: '#616161',
-                    margin: '0rem',
-                    padding: '.5rem',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      alignItems: 'start',
-                    }}
-                  >
-                    <span
-                      style={{
-                        padding: '.1rem .1rem',
-                        fontWeight: 'bold',
-                      }}
-                    >
-                      Dirección:
-                      <span
-                        style={{
-                          padding: '.1rem .1rem',
-                          fontWeight: 'semibold',
-                        }}
-                      >
-                        {propertyData?.address ?? 'Dirección no registrada'}{' '}
-                        {propertyData?.city === 'Ciudad no registrada'}
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div> */}
             </Popup>
           )}
-          {/* <div>
-            <Image
-              src={MapPointer}
-              alt="marker"
-              height={50}
-              width={50}
-              onClick={() => setShowPopup(!showPopup)}
-            />
-
-            
-          </div> */}
         </Marker>
 
         <NavigationControl />
