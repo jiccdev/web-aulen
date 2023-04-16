@@ -8,8 +8,10 @@ import Card from 'react-bootstrap/Card';
 import styles from '../../../styles/Section/properties/PropertyItem.module.css';
 
 const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
-  const { id, image, title, address, price, status, operation } = property;
+  const { id, image, title, address, price, status, operation, commune, city } =
+    property;
 
+  console.log(property);
   return (
     <Col md={isGrid ? 4 : isList ? 12 : 4} className={styles.col}>
       <Card className={isList ? styles.isListCard : styles.card}>
@@ -32,13 +34,13 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
             <small className={styles.deptCode}>Cod: {id || ''}</small>
             <Card.Title className={styles.cardTitle}>
               {isList ? (
-                <span>Cod: {title || ''}</span>
+                <h3>Cod: {title || ''}</h3>
               ) : (
                 truncateString(title) || ''
               )}
             </Card.Title>
             <p className={styles.address}>
-              {truncateString(address) || ''}, {truncateString(address)}
+              {truncateString(address) || ''}, {commune ?? null}, {city ?? null}
             </p>
           </div>
           <div

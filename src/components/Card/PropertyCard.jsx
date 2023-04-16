@@ -24,7 +24,7 @@ const PropertyCard = ({ property }) => {
     <Col sm={4}>
       <Card className={styles.card}>
         <span className={styles.spanCodeProperty}>
-          Cod: {property?.id || 'sin código'}
+          Cod: {property?.id || 'Propiedad sin codigo registrado'}
         </span>
         <div className={styles.cardImgContainer}>
           <img src={image} alt={`imagen-${title}`} className={styles.img} />

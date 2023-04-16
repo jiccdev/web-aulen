@@ -51,6 +51,7 @@
   flex-direction: column;
   align-items: center;
   font-weight: var(--font-weight-bold);
+  color: red;
 }
 
 .cardTitle small {

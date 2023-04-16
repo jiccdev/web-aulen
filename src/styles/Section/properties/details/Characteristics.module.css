@@ -43,43 +43,32 @@
   padding-bottom: 0.6rem;
 }
 
-.cardDescription {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-normal);
-  line-height: 1.2rem;
-  border: none;
-  background: whitesmoke;
+.containerDescription {
+  width: 95%;
+  padding: 1rem;
 }
 
-.buttonCollapse {
-  background-color: var(--color-white);
-  border: none;
-  color: var(--color-dark);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-  padding: 0;
-  margin: 0.3rem 0;
-  text-align: left;
-  width: 100%;
-}
-
-.buttonCollapse:hover {
-  background-color: var(--color-white);
-  color: var(--color-dark-light);
-}
-
-.buttonCollapse:active {
-  background-color: var(--color-white) !important;
-  color: var(--color-dark) !important;
+.description {
+  line-height: 27px !important;
+  text-indent: 27px;
 }
 
 .tableDetailsContainer {
   padding: 2rem 0rem;
 }
 
-.cardDescription .cardBody {
-  margin: 0 !important;
-  padding: 0.5rem 0 !important;
+.buttonCollapse {
+  margin: 2rem 0;
+  display: block;
+  background-color: var(--color-primary);
+  width: 100%;
+  border: none !important;
+  outline: none !important;
+  font-size: var(--font-size-sm);
+}
+
+.buttonCollapse:hover {
+  background-color: var(--color-primary-dark);
 }
 
 @media screen and (min-width: 992px) {

@@ -5,14 +5,14 @@ import styles from '../../../../styles/Section/properties/details/Characteristic
 /** Bootstrap components */
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Collapse from 'react-bootstrap/Collapse';
 
 const Characteristics = ({ propertyData }) => {
-  const [open, setOpen] = useState(false);
-  const text = propertyData?.description || 'Sin descripción';
-  const shortText = text.slice(400);
+  const { description } = propertyData;
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleCollapse = () => setIsOpen(!isOpen);
 
   return (
     <div className={styles.characteristicsContainer}>
@@ -20,26 +20,14 @@ const Characteristics = ({ propertyData }) => {
       <Row>
         <Col lg={7}>
           <h6>Descripción</h6>
-          <Card className={styles.cardDescription}>
-            <Card.Body className={styles.cardBody}>
-              <Card.Text>{text}</Card.Text>
-              <Collapse in={open}>
-                <div id="example-collapse-text">
-                  <Card.Text>{shortText}</Card.Text>
-                </div>
-              </Collapse>
-              {text.length > 300 && (
-                <Button
-                  onClick={() => setOpen(!open)}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={open}
-                  className={styles.buttonCollapse}
-                >
-                  {open ? 'Ver menos' : 'Ver más'}
-                </Button>
-              )}
-            </Card.Body>
-          </Card>
+          <div className={styles.containerDescription}>
+            <p className={styles.description}>
+              {isOpen ? description : `${description?.slice(0, 450)}...`}
+            </p>
+            <Button onClick={toggleCollapse} className={styles.buttonCollapse}>
+              {isOpen ? 'Cerrar' : 'Leer más'}
+            </Button>
+          </div>
         </Col>
         <Col lg={5} className={styles.tableDetailsContainer}>
           <TableDetails propertyData={propertyData} />
