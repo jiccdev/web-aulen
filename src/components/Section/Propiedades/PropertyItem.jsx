@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { truncateString, parseToCLPCurrency } from '../../../utils';
 
 /** Bootstrap components */
@@ -10,6 +11,8 @@ import styles from '../../../styles/Section/properties/PropertyItem.module.css';
 const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
   const { id, image, title, address, price, status, operation, commune, city } =
     property;
+
+  console.log(property);
 
   return (
     <Col md={isGrid ? 4 : isList ? 12 : 4} className={styles.col}>
@@ -23,10 +26,25 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
         >
           {operation}
         </span>
-        <img
+        {/* <img
           src={image}
           alt={`imagen-departamento-${title}`}
           className={isList ? styles.isListCardImage : styles.cardImage}
+        /> */}
+        {/* <Image
+          src={`${image}`}
+          alt={`imagen-departamento-${title}`}
+          className={isList ? styles.isListCardImage : styles.cardImage}
+          width={100}
+          height={200}
+        /> */}
+        <Card.Img
+          variant="top"
+          src={image}
+          style={{
+            width: '100%',
+            height: '200px',
+          }}
         />
         <Card.Body className={isList ? styles.isListCardBody : styles.cardBody}>
           <div className={styles.mainContentCard}>
