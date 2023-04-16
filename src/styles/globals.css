@@ -154,8 +154,10 @@ p {
 
 .image-gallery-thumbnail-image {
   border-radius: var(--border-radius-xl) !important;
-  width: 100% !important;
-  max-width: 100%;
+  /* width: 100% !important; */
+  width: 98.5% !important;
+
+  max-width: 98.5%;
   height: 68px;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -163,7 +165,7 @@ p {
 }
 
 .image-gallery-image {
-  width: 100% !important;
+  width: 98.5% !important;
   height: 250px !important;
 }
 

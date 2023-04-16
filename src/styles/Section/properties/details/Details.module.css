@@ -1,5 +1,6 @@
 .propertyDetailContainer {
   position: relative;
+  margin: 5rem auto;
   width: 100%;
   background-color: var(--color-white);
   border-radius: var(--border-radius-xl);
