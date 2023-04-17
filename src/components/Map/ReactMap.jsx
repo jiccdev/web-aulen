@@ -39,6 +39,8 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
     });
   }, [mapRef, longitudeProp, latitudeProp]);
 
+  console.log(propertyData);
+
   return (
     <div className={styles.mapContainer}>
       <Map
@@ -101,7 +103,14 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                 }?statusId=${1}&companyId=${1}`}
               >
                 <Card className="">
-                  <Card.Img variant="top" src={propertyData?.image} />
+                  <Card.Img
+                    variant="top"
+                    src={
+                      propertyData?.images[0] ??
+                      propertyData?.images[1] ??
+                      propertyData?.images[2]
+                    }
+                  />
 
                   <Card.Body>
                     <Card.Text>

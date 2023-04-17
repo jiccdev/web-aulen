@@ -51,6 +51,7 @@
 .description {
   line-height: 27px !important;
   text-indent: 27px;
+  border-radius: 20rem !important;
 }
 
 .tableDetailsContainer {

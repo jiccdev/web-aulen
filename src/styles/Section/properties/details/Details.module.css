@@ -118,7 +118,7 @@
   cursor: pointer;
   background-color: whitesmoke;
   padding: 0.5rem 1rem !important;
-  border-radius: 10px;
+  border-radius: 3px;
   font-size: var(--font-size-md);
   white-space: nowrap;
   transition: 0.2s all ease-in-out;
@@ -132,8 +132,8 @@
 
 .deptoDetailsShare .spanClipboard:hover,
 .printLink:hover {
-  background-color: var(--color-primary);
-  color: var(--color-white) !important;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 1) !important;
 }
 
 .deptoDetailsShare .spanClipboardCopied {
@@ -157,12 +157,6 @@
   color: var(--color-dark);
   font-size: var(--font-size-md);
   transition: 0.3 all ease-in-out;
-  margin-left: 1rem !important;
-}
-
-.shareLink:hover,
-.printLink:hover {
-  color: var(--color-primary);
 }
 
 .detailContainer h2 {

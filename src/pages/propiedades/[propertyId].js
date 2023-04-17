@@ -36,11 +36,9 @@ const PropiedadId = () => {
       <div className={styles.propertyDetailContainer}>
         <ul className={styles.propertyTypeInfo}>
           <li>
-            <Link href="/propiedades">Volver al listado</Link>
+            <Link href="/propiedades">Volver</Link>
           </li>
           <li className={styles.divider}>|</li>
-          <li>Departamentos</li>
-          <li>Venta Proyectos</li>
           <li>{property?.commune}</li>
           <li>{property?.address}</li>
         </ul>
@@ -73,14 +71,14 @@ const PropiedadId = () => {
               </span>{' '} */}
 
               {/* aca */}
-              {/* <Button
+              <Button
                 className={styles.printLink}
                 onClick={() => {
                   setModalShow(true);
                 }}
               >
-                Visualizar PDF
-              </Button> */}
+                Imprimir PDF
+              </Button>
             </div>
             <Details propertyData={property} />
           </Col>
