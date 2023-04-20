@@ -1,0 +1,146 @@
+/* 
+
+
+.container{
+    display: flex;
+}
+
+.card{
+    height: 500px;
+    margin: 50px;
+    box-shadow: 5px 5px 20px rgb(102, 101, 101);
+    
+    
+    
+}
+
+
+
+.img{
+    height: 200px;
+    width: 200px;
+    border-radius: 3px;
+    transition: .5s;
+ 
+}
+
+
+.into{
+
+    height: 70px;
+    width: 350px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 240px;
+    background: rgb(27, 27, 27, .5);
+    color: red;
+    transition: .5s;
+
+}
+
+.h1{
+    margin: 10px;
+    font-size: 40px;
+    
+}
+
+.p{
+    font-size: 20px;
+    margin: 20px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card:hover .into{
+    height: 220px;
+    bottom: 240px;
+    background: rgb(138, 136, 136);
+}
+
+.card:hover .p{
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover .img{
+    transform: scale(1.1) rotate(0deg);
+} */
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: 400px;
+    width: 400px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 16px;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+    overflow: hidden;
+    box-shadow: 8px 10px 20px rgb(102, 101, 101);
+}
+
+
+.cardImage {
+    height: 500%;
+    width: 100%;
+    position: absolute;
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+}
+
+
+.img {
+    width: 100%;
+    height: 20%;
+}
+
+.cardDescription {
+    display: flex;
+    position: absolute;
+    gap: .5em;
+    flex-direction: column;
+    background-color: #ff9102d3;
+    color: #fffefe;
+    height: 15%;
+    bottom: 0;
+    border-radius: 16px;
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 1rem;
+}
+
+
+.textTitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.textBody {
+    font-size: 1rem;
+    line-height: 140%;
+}
+
+
+/* Hover states */
+.card:hover .cardDescription {
+    transform: translateY(0);
+    height: 60%;
+}
+
+.card:hover {
+    scale: 1.05;
+
+}
