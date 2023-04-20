@@ -9,12 +9,10 @@ import styles from '../../../styles/Section/properties/OutstandingProject.module
 
 const OutstandingProject = ({ property, statusId }) => {
   return (
-    <Col>
+    <Col className={styles.containerCard}>
       <Card>
         <Link
-          href={`/propiedades/${
-            property?.id
-          }?statusId=${1}&companyId=${1}`}
+          href={`/propiedades/${property?.id}?statusId=${1}&companyId=${1}`}
           className={styles.link}
         >
           <img

@@ -1,5 +1,7 @@
 .row {
   margin: 3rem 0;
+  display: flex !important;
+  flex-direction: column;
 }
 
 .titleSection {

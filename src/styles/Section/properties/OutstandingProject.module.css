@@ -1,3 +1,7 @@
+.containerCard {
+  margin: 0.3rem 0;
+}
+
 .link {
   transition: 0.3s all ease-in-out;
   cursor: pointer;

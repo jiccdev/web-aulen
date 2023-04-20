@@ -32,7 +32,7 @@ const PropiedadId = () => {
 
   return (
     <Fragment>
-      <HeadPage title={`Departamento ${propertyId}`} />
+      <HeadPage title={`Propiedad ${propertyId}`} />
       <div className={styles.propertyDetailContainer}>
         <ul className={styles.propertyTypeInfo}>
           <li>

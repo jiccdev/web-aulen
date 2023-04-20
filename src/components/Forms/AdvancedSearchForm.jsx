@@ -280,10 +280,6 @@ const AdvancedSearchForm = ({
   return (
     <Fragment>
       <Form className={styles.form}>
-        {/* <h3 className={styles.totalItemsHeading}>
-          Propieades encontradas {totalItems}
-        </h3> */}
-
         <Form.Group className="mb-3">
           <Form.Label className={styles.label}>Tipo de operación</Form.Label>
           <RSelect

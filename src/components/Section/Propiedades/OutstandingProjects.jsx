@@ -16,8 +16,10 @@ const OutstandingProjects = () => {
   return (
     <Row className={styles.row}>
       <h2 className={styles.titleSection}>Proyectos destacados</h2>
-      {properties
+
+      {Object.freeze(properties)
         ?.filter((property) => property?.highlighted === true)
+        ?.slice(2, 8)
         .map((property) => (
           <OutstandingProject
             key={property.id}
