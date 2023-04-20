@@ -1,4 +1,4 @@
-/** Truncate string lenght */
+/** Truncate string length */
 export const truncateString = (str, limit = 60) =>
   str?.length > limit ? `${str?.substring(0, limit)}...` : str;
 

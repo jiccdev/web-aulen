@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Executive from './Executive';
-import OutstandingProject from '../OutstandingProject';
 import { parseToCLPCurrency, clpToUf } from '../../../../utils';
 import { icons } from '../../../../components/Icons';
 import styles from '../../../../styles/Section/properties/details/Details.module.css';
@@ -53,7 +52,7 @@ const Details = ({ propertyData }) => {
                 UF {clpToUf(propertyData?.price, ufCurrentValue)}
               </p>
               <p className={styles.clpPrice}>
-                {parseToCLPCurrency(propertyData.price)}
+                {parseToCLPCurrency(propertyData.price || 0)}
               </p>
             </div>
 

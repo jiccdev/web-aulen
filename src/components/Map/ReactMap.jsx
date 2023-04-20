@@ -9,7 +9,6 @@ import Map, {
   Popup,
 } from 'react-map-gl';
 import { parseToCLPCurrency } from '@/utils';
-import { icons } from '../Icons';
 
 /** Bootstrap components */
 import Card from 'react-bootstrap/Card';
@@ -131,8 +130,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
                     <ListGroup.Item>
                       <span>Desde:</span>{' '}
                       <strong>
-                        {parseToCLPCurrency(propertyData?.price) ??
-                          'Precion no registrado'}
+                        {parseToCLPCurrency(propertyData?.price || 0) ?? ''}
                       </strong>
                     </ListGroup.Item>
                     <ListGroup.Item>

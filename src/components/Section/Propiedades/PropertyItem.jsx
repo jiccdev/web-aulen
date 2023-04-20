@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { truncateString, parseToCLPCurrency } from '../../../utils';
 
 /** Bootstrap components */
@@ -24,18 +23,6 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
         >
           {operation}
         </span>
-        {/* <img
-          src={image}
-          alt={`imagen-departamento-${title}`}
-          className={isList ? styles.isListCardImage : styles.cardImage}
-        /> */}
-        {/* <Image
-          src={`${image}`}
-          alt={`imagen-departamento-${title}`}
-          className={isList ? styles.isListCardImage : styles.cardImage}
-          width={100}
-          height={200}
-        /> */}
         <Card.Img
           variant="top"
           src={image}
@@ -51,11 +38,12 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
               {isList ? (
                 <h3>Cod: {title || ''}</h3>
               ) : (
-                truncateString(title) || ''
+                truncateString(title || 'Propiedad sin titulo registrado') || ''
               )}
             </Card.Title>
             <p className={styles.address}>
-              {truncateString(address) || ''}, {commune ?? null}, {city ?? null}
+              {truncateString(address) || 'Propiedad sin dirección registrada'},{' '}
+              {commune ?? null}, {city ?? null}
             </p>
           </div>
           <div
@@ -64,7 +52,7 @@ const DepartmentItem = ({ property, isGrid, isList, statusId }) => {
             }
           >
             <span className={styles.span}>
-              Venta: {parseToCLPCurrency(price)}
+              Venta: {parseToCLPCurrency(price || 0)}
             </span>
             <span>
               <Link

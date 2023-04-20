@@ -10,7 +10,7 @@ import Map, {
 } from 'react-map-gl';
 import PropertiesContext from '@/context/properties/PropertiesContext';
 import MapPointer from '../../../assets/img/Map/marker.png';
-import { truncateStringSmall, parseToCLPCurrency } from '../../../utils';
+import { parseToCLPCurrency } from '../../../utils';
 import styles from '../../../styles/Section/properties/details/Maps.module.css';
 
 /** Bootstrap components */
@@ -160,7 +160,7 @@ const MapProperties = () => {
                             <ListGroup.Item>
                               <span>Desde:</span>{' '}
                               <strong>
-                                {parseToCLPCurrency(property?.price) ??
+                                {parseToCLPCurrency(property?.price || 0) ??
                                   'Precion no registrado'}
                               </strong>
                             </ListGroup.Item>

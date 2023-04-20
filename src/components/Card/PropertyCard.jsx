@@ -34,7 +34,7 @@ const PropertyCard = ({ property }) => {
           <div className={styles.mainTitleCard}>
             <div>
               <Card.Title className={styles.cardTitle}>
-                {truncateString(title)}
+                {truncateString(title || 'Propiedad sin titulo registrado')}
               </Card.Title>
             </div>
 
@@ -46,7 +46,7 @@ const PropertyCard = ({ property }) => {
           </div>
 
           <div className={styles.propertyPrice}>
-            <span>Venta: {parseToCLPCurrency(price) || ''}</span>
+            <span>Venta: {parseToCLPCurrency(price || 0) || ''}</span>
           </div>
 
           <div className={styles.cardDetails}>

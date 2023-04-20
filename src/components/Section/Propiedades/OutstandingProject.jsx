@@ -27,7 +27,9 @@ const OutstandingProject = ({ property, statusId }) => {
             }}
           />
           <p className={styles.deptName}>
-            {truncateStringSmall(property.title) || ''}
+            {truncateStringSmall(
+              property.title || 'Propiedad sin titulo registrado'
+            ) || ''}
           </p>
           <span className={styles.code}>Cod: {property.id}</span>
         </Link>
