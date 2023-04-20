@@ -39,8 +39,6 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
     });
   }, [mapRef, longitudeProp, latitudeProp]);
 
-  console.log(propertyData);
-
   return (
     <div className={styles.mapContainer}>
       <Map

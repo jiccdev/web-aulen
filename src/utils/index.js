@@ -1,9 +1,9 @@
 /** Truncate string lenght */
 export const truncateString = (str, limit = 60) =>
-  str?.length > limit ? `${str.substring(0, limit)}...` : str;
+  str?.length > limit ? `${str?.substring(0, limit)}...` : str;
 
 export const truncateStringSmall = (str, limit = 25) =>
-  str.length > limit ? `${str.substring(0, limit)}...` : str;
+  str?.length > limit ? `${str?.substring(0, limit)}...` : str;
 
 /** Parse number to CLP currency */
 export const parseToCLPCurrency = (number) => {
