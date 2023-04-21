@@ -20,12 +20,12 @@ const About = () => {
             <div className={styles.leftContent}>
               <ul>
                 <li>
-                  <span>Dirección:</span>
+                  <span>Dirección :</span>
                   <p>Asturias 171, Of. 101, Las Condes, Santiago.</p>
                 </li>
                 <li>
-                  <span>Telefono:</span>
-                  <p>+56264653732</p>
+                  <span>Teléfono :</span>
+                  <p>+56 2 6469 18000</p>
                 </li>
                 <li>
                   <span>Correo: </span>

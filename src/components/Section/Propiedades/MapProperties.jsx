@@ -34,13 +34,7 @@ const MapProperties = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        height: 'auto',
-        width: '100%',
-        marginTop: '125px',
-      }}
-    >
+    <div className={styles.globalMapContainer}>
       <div className={styles.mapContainer}>
         <div className={styles.mainTopInfoContainer}>
           <div className={styles.mapTopInfoContainer}>
