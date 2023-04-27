@@ -100,11 +100,39 @@ const AdvancedSearchForm = ({
   };
 
   // ===== Type of Property =====
-  const getTypeOfPropertyOptions = () =>
-    typeOfProperty?.map((typeOfProperty) => ({
-      value: typeOfProperty.value,
-      label: typeOfProperty.name,
-    }));
+  const getTypeOfPropertyOptions = () => {
+    if (router.pathname === '/soy-inversionista/unidades-nuevas') {
+      const filtredArr = typeOfProperty
+        ?.filter(
+          (type) =>
+            type.value !== 'casa' &&
+            type.value !== 'parcela' &&
+            type.value !== 'terreno' &&
+            type.value !== 'industrial' &&
+            type.value !== 'local' &&
+            type.value !== 'oficina' &&
+            type.value !== 'sitio' &&
+            type.value !== 'Terreno En Construccion' &&
+            type.value !== 'agrícola'
+        )
+        .map((type) => ({
+          value: type.value,
+          label: type.name,
+        }));
+      return filtredArr;
+    } else {
+      const filtredArr2 = typeOfProperty?.map((type) => ({
+        value: type.value,
+        label: type.name,
+      }));
+      return filtredArr2;
+    }
+
+    // typeOfProperty?.map((typeOfProperty) => ({
+    //   value: typeOfProperty.value,
+    //   label: typeOfProperty.name,
+    // }));
+  };
 
   const onTypeOfPropertyChange = (option) => {
     setFiltredDataValue({
