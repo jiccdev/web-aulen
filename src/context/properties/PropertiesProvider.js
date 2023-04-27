@@ -17,7 +17,6 @@ const PropertiesProvider = ({ children }) => {
   const [totalItems, setTotalItems] = useState('');
   const [statusCodeMsg, setStatusCodeMsg] = useState('');
   const { pathname } = useRouter();
-
   const [cargando, setCargando] = useState(true);
 
   /** Get Properties */
@@ -53,7 +52,7 @@ const PropertiesProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getProperties(1, 1);
+    getProperties(1, 15);
   }, [pathname]);
 
   /** Get all Properties (Maps) */

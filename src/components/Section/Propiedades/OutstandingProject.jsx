@@ -12,7 +12,7 @@ const OutstandingProject = ({ property, statusId }) => {
     <Col className={styles.containerCard}>
       <Card>
         <Link
-          href={`/propiedades/${property?.id}?statusId=${1}&companyId=${1}`}
+          href={`/propiedades/${property?.id}?statusId=${1}&companyId=${15}`}
           className={styles.link}
         >
           <img

@@ -60,7 +60,7 @@ const PropertyCard = ({ property }) => {
 
             <div className={styles.urlContainer}>
               <Link
-                href={`/propiedades/${id}?statusId=${1}&companyId=${1}`}
+                href={`/propiedades/${id}?statusId=${1}&companyId=${15}`}
                 className={styles.url}
               >
                 Detalles

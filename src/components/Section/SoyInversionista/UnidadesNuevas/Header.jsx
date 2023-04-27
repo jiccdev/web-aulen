@@ -95,7 +95,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    getPropertiesByTypeOfProperty(1, 1, filtredDataValue?.typeOfProperty);
+    getPropertiesByTypeOfProperty(1, 15, filtredDataValue?.typeOfProperty);
   }, [filtredDataValue?.typeOfProperty]);
 
   return (

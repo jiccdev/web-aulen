@@ -452,7 +452,7 @@ const AdvancedSearchForm = ({
               handleClick();
               onFormSubmit(
                 1,
-                1,
+                15,
                 filtredDataValue?.operation,
                 filtredDataValue?.typeOfProperty,
                 filtredDataValue?.region,

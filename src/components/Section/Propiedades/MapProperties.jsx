@@ -26,11 +26,11 @@ const MapProperties = () => {
   const [key, setKey] = useState('transportationTab');
 
   useEffect(() => {
-    getProperties(1, 1);
+    getProperties(1, 15);
   }, []);
 
   useEffect(() => {
-    getAllProperties(totalItems, 1, 1);
+    getAllProperties(totalItems, 1, 15);
   }, []);
 
   return (
@@ -128,7 +128,7 @@ const MapProperties = () => {
                       <Link
                         href={`/propiedades/${
                           property?.id
-                        }?statusId=${1}&companyId=${1}`}
+                        }?statusId=${1}&companyId=${15}`}
                       >
                         <Card className="">
                           <Card.Img variant="top" src={property?.image} />

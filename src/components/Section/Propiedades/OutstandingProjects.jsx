@@ -9,9 +9,9 @@ import styles from '../../../styles/Section/properties/OutstandingProjects.modul
 const OutstandingProjects = () => {
   const { properties, getProperties } = useContext(PropertiesContext);
 
-  useEffect(() => {
-    getProperties(1, 1);
-  }, []);
+  // useEffect(() => {
+  //   getProperties(1, 15);
+  // }, []);
 
   return (
     <Row className={styles.row}>

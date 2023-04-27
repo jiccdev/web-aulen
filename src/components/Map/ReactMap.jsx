@@ -97,7 +97,7 @@ const ReactMap = ({ longitudeProp, latitudeProp, propertyData }) => {
               <Link
                 href={`/propiedades/${
                   propertyData?.id
-                }?statusId=${1}&companyId=${1}`}
+                }?statusId=${1}&companyId=${15}`}
               >
                 <Card className="">
                   <Card.Img

@@ -52,14 +52,14 @@ const Properties = ({
   const [isList, setIsList] = useState(false);
   const { BiMap } = icons;
   const propertiesFound = newProperties?.length;
-  const paginate = (currentPage) => getPagination(limit, currentPage, 1, 1);
+  const paginate = (currentPage) => getPagination(limit, currentPage, 1, 15);
 
   useEffect(() => {
-    getTotalItems(1, 1);
+    getTotalItems(1, 15);
   }, [metaData]);
 
   useEffect(() => {
-    getPagination(limit, page, 1, 1);
+    getPagination(limit, page, 1, 15);
   }, [limit, page]);
 
   return (

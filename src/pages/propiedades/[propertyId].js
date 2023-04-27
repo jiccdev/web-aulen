@@ -27,7 +27,7 @@ const PropiedadId = () => {
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
-    getProperty(propertyId, 1, 1);
+    getProperty(propertyId, 1, 15);
   }, [propertyId]);
 
   return (

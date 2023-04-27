@@ -73,74 +73,67 @@
     transform: scale(1.1) rotate(0deg);
 } */
 
-
 .container {
-    display: flex;
-    justify-content: center;
-    gap: 2.2rem;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  flex-wrap: wrap;
 }
 
 .card {
-    height: 400px;
-    width: 400px;
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-    border-radius: 16px;
-    box-shadow: 0 0 20px 8px #d0d0d0;
-    overflow: hidden;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+  height: 400px;
+  width: 400px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius: 16px;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+  overflow: hidden;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
 }
-
 
 .cardImage {
-    height: 500%;
-    width: 100%;
-    position: absolute;
-    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-
+  height: 500%;
+  width: 100%;
+  position: absolute;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-
 .img {
-    width: 100%;
-    height: 20%;
-    object-fit: cover;
+  width: 100%;
+  height: 20%;
+  object-fit: cover;
 }
 
 .cardDescription {
-    display: flex;
-    position: absolute;
-    gap: .5em;
-    flex-direction: column;
-    background-color: #ff9102d3;
-    color: #fffefe;
-    height: 15%;
-    bottom: 0;
-    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-    padding: 1rem;
+  display: flex;
+  position: absolute;
+  gap: 0.5em;
+  flex-direction: column;
+  background-color: #ff9102d3;
+  color: #fffefe;
+  height: 15%;
+  bottom: 0;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 1rem;
 }
 
-
 .textTitle {
-    font-size: 1.6rem;
-    font-weight: 600;
-    text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .textBody {
-    font-size: 1rem;
-    line-height: 140%;
+  font-size: 1rem;
+  line-height: 140%;
 }
-
 
 /* Hover states */
 .card:hover .cardDescription {
-    transform: translateY(0);
-    height: 60%;
+  transform: translateY(0);
+  height: 60%;
 }
 
 .card:hover {
-    scale: 1.05;
-
+  scale: 1.05;
 }
