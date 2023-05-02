@@ -5,7 +5,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  
+  async rewrites() {
+    return [
+      {
+        source: '/propiedades/:id/:statusId/:companyId',
+        destination:
+          '/propiedades/[id]?statusId=:statusId&companyId=:companyId',
+      },
+    ];
+  },
+
   // async redirects() {
   //   return [
   //     {
