@@ -10,8 +10,8 @@ const PropertiesProvider = ({ children }) => {
   const [newProperties, setNewProperties] = useState([]);
   const [property, setProperty] = useState({});
   const [metaData, setMetaData] = useState({});
-  const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(12);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const [limitInMap, setLimitInMap] = useState(20);
 
   const [totalItems, setTotalItems] = useState('');

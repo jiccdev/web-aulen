@@ -47,6 +47,7 @@ const PaginationComponent = ({
           </span>
         </PaginationLink>
       </PaginationItem>
+      
       {pageNumbers?.map((item, idx) => {
         return (
           <PaginationItem
