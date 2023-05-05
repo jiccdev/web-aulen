@@ -24,6 +24,7 @@ const MapProperties = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [propertyDetail, setPropertyDetail] = useState({});
   const [key, setKey] = useState('transportationTab');
+  const [selectedProperty, setSelectedProperty] = useState(false);
 
   useEffect(() => {
     getProperties(1, 15);
@@ -104,69 +105,73 @@ const MapProperties = () => {
                     alt="marker"
                     height={50}
                     width={50}
-                    onClick={() => setShowPopup(!showPopup)}
+                    onClick={() =>
+                      setSelectedProperty((prev) =>
+                        prev && prev.id === property.id ? false : property
+                      )
+                    }
                   />
 
-                  {showPopup && (
-                    <Popup
-                      longitude={longitude}
-                      latitude={latitude}
-                      onClose={() => setShowPopup(false)}
-                      anchor="bottom"
-                      closeButton={false}
-                      closeOnClick={false}
-                      dynamicPosition={true}
-                      focusAfterOpen={false}
-                      offsetTop={-10}
-                      offsetLeft={-10}
-                      closeOnMove={false}
-                      style={{
-                        zIndex: 100,
-                        cursor: 'pointer',
-                      }}
-                    >
-                      <Link
-                        href={`/propiedades/${
-                          property?.id
-                        }?statusId=${1}&companyId=${15}`}
+                  {selectedProperty &&
+                    selectedProperty.id === property.id && (
+                      <Popup
+                        longitude={longitude}
+                        latitude={latitude}
+                        onClose={() => setShowPopup(false)}
+                        anchor="bottom"
+                        closeButton={false}
+                        closeOnClick={false}
+                        dynamicPosition={true}
+                        focusAfterOpen={false}
+                        offsetTop={-10}
+                        offsetLeft={-10}
+                        closeOnMove={false}
+                        style={{
+                          zIndex: 100,
+                          cursor: 'pointer',
+                        }}
                       >
-                        <Card className="">
-                          <Card.Img variant="top" src={property?.image} />
+                        <Link
+                          href={`/propiedades/${property?.id
+                            }?statusId=${1}&companyId=${15}`}
+                        >
+                          <Card className="">
+                            <Card.Img variant="top" src={property?.image} />
 
-                          <Card.Body>
-                            <Card.Text>
-                              <Badge pill bg="warning">
-                                {property?.types?.[0]}
-                              </Badge>
-                            </Card.Text>
-                            <Card.Text
-                              style={{
-                                color: 'black',
-                                margin: '.5rem 0',
-                              }}
-                            >
-                              {property?.address ?? 'Dirección no registrada'} ,{' '}
-                              {property?.commune ?? 'Comuna no registrada'} ,{' '}
-                              {property?.city ?? 'Ciudad no registrada'}
-                            </Card.Text>
-                          </Card.Body>
-                          <ListGroup className="list-group-flush">
-                            <ListGroup.Item>
-                              <span>Desde:</span>{' '}
-                              <strong>
-                                {parseToCLPCurrency(property?.price || 0) ??
-                                  'Precion no registrado'}
-                              </strong>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                              {`${property?.surface_m2}`} m<sup>2</sup> utiles -
-                              {property?.bedrooms} dorms.
-                            </ListGroup.Item>
-                          </ListGroup>
-                        </Card>
-                      </Link>
-                    </Popup>
-                  )}
+                            <Card.Body>
+                              <Card.Text>
+                                <Badge pill bg="warning">
+                                  {property?.types?.[0]}
+                                </Badge>
+                              </Card.Text>
+                              <Card.Text
+                                style={{
+                                  color: 'black',
+                                  margin: '.5rem 0',
+                                }}
+                              >
+                                {property?.address ?? 'Dirección no registrada'} ,{' '}
+                                {property?.commune ?? 'Comuna no registrada'} ,{' '}
+                                {property?.city ?? 'Ciudad no registrada'}
+                              </Card.Text>
+                            </Card.Body>
+                            <ListGroup className="list-group-flush">
+                              <ListGroup.Item>
+                                <span>Desde:</span>{' '}
+                                <strong>
+                                  {parseToCLPCurrency(property?.price || 0) ??
+                                    'Precion no registrado'}
+                                </strong>
+                              </ListGroup.Item>
+                              <ListGroup.Item>
+                                {`${property?.surface_m2}`} m<sup>2</sup> utiles -
+                                {property?.bedrooms} dorms.
+                              </ListGroup.Item>
+                            </ListGroup>
+                          </Card>
+                        </Link>
+                      </Popup>
+                    )}
                 </div>
               </Marker>
             );
