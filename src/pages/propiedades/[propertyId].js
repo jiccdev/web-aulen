@@ -9,6 +9,10 @@ import Details from '@/components/Section/Propiedades/Details/Details';
 import Characteristics from '@/components/Section/Propiedades/Details/Characteristics';
 import InformationOnTheArea from '@/components/Section/Propiedades/Details/InformationOnTheArea';
 import { icons } from '../../components/Icons';
+import VistaPdf from './VistaPdf';
+import { PDFViewer } from '@react-pdf/renderer';
+
+import styles2 from '../../styles/Modal/ModalDesing.module.css';
 
 /** Bootstrap componets */
 import Row from 'react-bootstrap/Row';
@@ -17,6 +21,10 @@ import Button from 'react-bootstrap/Button';
 import styles from '../../styles/Section/properties/details/Details.module.css';
 import MeetingSchedule from '@/components/Forms/MeetingSchedule';
 import ModalPdf from '@/components/Modal/ModalPdf';
+import ModalTest from '@/components/Modal/ModalTest';
+
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
@@ -25,10 +33,24 @@ const PropiedadId = () => {
   const { propertyId } = router.query;
   const { HiClipboard, HiOutlineClipboardCheck } = icons;
   const [modalShow, setModalShow] = React.useState(false);
+  const [showModalDetail, setShowModalDetail] = useState(false);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     getProperty(propertyId, 1, 15);
   }, [propertyId]);
+
+  
+  /** Render Property detail */
+  const renderContentPdf = () => (
+    <PDFViewer>
+      <VistaPdf property={property} />
+    </PDFViewer>
+  );
+
 
   return (
     <Fragment>
@@ -73,22 +95,32 @@ const PropiedadId = () => {
               {/* aca */}
               <Button
                 className={styles.printLink}
-                onClick={() => {
-                  setModalShow(true);
-                }}
+                onClick={() => setShow(true)}
+               
               >
-                Imprimir PDF
+                Descargar PDF
               </Button>
             </div>
             <Details propertyData={property} />
           </Col>
         </Row>
 
-        <ModalPdf
+        {/* <ModalPdf
           show={modalShow}
           onHide={() => setModalShow(false)}
           propertyData={property}
-        />
+        /> */}
+
+       {/*  <ModalTest
+          renderTrigger={() => null}
+          isOpenProp={showModalDetail}
+          propertyData={property}
+          renderContent={renderContentPdf}
+          contentExtraClass=""
+          onCloseModal={() => {
+            setShowModalDetail(false);
+          }}
+        /> */}
 
         <InformationOnTheArea propertyData={property} />
 
@@ -99,6 +131,25 @@ const PropiedadId = () => {
           </div>
         ) : null}
       </div>
+
+      <Modal show={show} onHide={handleClose} >
+        
+        <div className={styles2.modalContent}>
+        <Modal.Header closeButton className={styles2.modalHeader}>
+          <Modal.Title>Descargar PDF</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body className={styles2.modalBody}  >
+          {renderContentPdf()}
+        </Modal.Body>
+
+        <Modal.Footer>  
+        </Modal.Footer>
+        </div>
+      </Modal>
+
+
+
     </Fragment>
   );
 };

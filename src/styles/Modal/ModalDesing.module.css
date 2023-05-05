@@ -1,0 +1,52 @@
+.modal {
+    transition: 0.4s all ease;
+    background-color: transparent !important;
+    width: 200%;
+}
+
+.modalHeader {
+    height: 200px;
+}
+
+.modalContent {
+    background-color: white !important;
+    width: 200%;
+    height: 1000px;
+}
+
+.modalBody {
+    background-color: white;
+    width: 100% !important;
+    height: 100% !important;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+.form {
+    background-color: transparent !important;
+    width: 200%;
+}
+
+.closeModal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.btnSubmit {
+    width: 100% !important;
+    white-space: nowrap;
+}
+
+.closeModal span:hover {
+    color: var(--color-primary) !important;
+}
