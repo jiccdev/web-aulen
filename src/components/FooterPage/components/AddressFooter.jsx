@@ -12,7 +12,7 @@ const AddressFooter = () => {
       </div>
       <div className={styles.addressFooterInfoSection}>
         <h3 className={styles.addressFooterTitle}>Teléfono:</h3>
-        <p className={styles.addressFooterParagraph}>+56264653732</p>
+        <p className={styles.addressFooterParagraph}>+56 2 6469 1800</p>
       </div>
       <div className={styles.addressFooterInfoSection}>
         <h3 className={styles.addressFooterTitle}>Correo</h3>

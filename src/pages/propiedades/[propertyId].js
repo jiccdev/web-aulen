@@ -18,7 +18,7 @@ import styles from '../../styles/Section/properties/details/Details.module.css';
 import MeetingSchedule from '@/components/Forms/MeetingSchedule';
 import ModalPdf from '@/components/Modal/ModalPdf';
 
-const PropiedadId = ({ statusId, companyId }) => {
+const PropiedadId = () => {
   const { getProperty, property } = useContext(PropertiesContext);
   const [copied, setCopied] = useState(false);
   const router = useRouter();
@@ -102,17 +102,5 @@ const PropiedadId = ({ statusId, companyId }) => {
     </Fragment>
   );
 };
-
-export async function getServerSideProps(context) {
-  const { query } = context;
-  const { statusId, companyId } = query;
-
-  return {
-    props: {
-      statusId,
-      companyId,
-    },
-  };
-}
 
 export default PropiedadId;
