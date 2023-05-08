@@ -116,6 +116,7 @@ p {
   margin: 0 auto !important;
   border: none !important;
 }
+
 .btn-close {
   display: none;
 }
@@ -124,7 +125,7 @@ p {
   display: none !important;
 }
 
-.modal-content > div span {
+.modal-content>div span {
   display: none !important;
 }
 
@@ -218,4 +219,11 @@ p {
 
 .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
   display: none !important;
+}
+
+/* PDF VIEW STYLE */
+iframe {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
 }
